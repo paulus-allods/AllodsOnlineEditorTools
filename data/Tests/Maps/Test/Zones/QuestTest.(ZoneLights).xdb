@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ZoneLights>
-	
-	<staticLight>
-		<AmbientColor>2030032567</AmbientColor>
-		<DiffuseColor>2020939787</DiffuseColor>
-		<FogColor>2018565095</FogColor>
-	</staticLight>
-</ZoneLights>

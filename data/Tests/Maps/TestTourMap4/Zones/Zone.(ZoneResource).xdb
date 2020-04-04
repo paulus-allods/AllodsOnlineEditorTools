@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.map.zone.ZoneResource>
-	<Header>
-		<resourceId>121527327</resourceId>
-	</Header>
-	<name href="TestInstance.txt" />
-	<color>0xff6472d0</color>
-</gameMechanics.map.zone.ZoneResource>

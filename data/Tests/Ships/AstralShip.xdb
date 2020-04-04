@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.ship.ShipResource>
-	<Header>
-		<resourceId>31161</resourceId>
-		<Prototype href="/Mechanics/ObjectTemplates/ShipResourceTemplate.xdb#xpointer(/gameMechanics.world.ship.ShipResource)" />
-	</Header>
-	<visualShip href="AstralVisualShip.xdb#xpointer(/VisualShip)"/>
-  <equipmentList href="AstralShipEquipment.xdb#xpointer(/EquipmentList)"/>
-</gameMechanics.world.ship.ShipResource>

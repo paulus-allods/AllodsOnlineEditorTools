@@ -1,7 +1,0 @@
-<mapLoader.MapResource>
-	<Header>
-		<resourceId>90458119</resourceId>
-	</Header>
-	<mapTemplate href="/System/MapTemplates/AstralIsland.xdb#xpointer(/mapLoader.MapTemplate)" />
-	<serverObjects href="ServerObjects.xdb#xpointer(/mapLoader.ServerObjectsBase)" />
-</mapLoader.MapResource>

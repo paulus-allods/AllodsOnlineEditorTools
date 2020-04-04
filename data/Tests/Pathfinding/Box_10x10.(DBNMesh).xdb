@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<mapLoader.DBNMesh>
-	<Header>
-		<resourceId>1518010381</resourceId>
-	</Header>
-	<binaryFile href="Box_10x10.(DBNMesh).bin" />
-	<sourceFile href="//Tests/Pathfinding/Box_10x10.mb" />
-	<sourceFileCRC>-1036075577</sourceFileCRC>
-</mapLoader.DBNMesh>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.item.ItemResource>
-	<Header>
-		<resourceId>30751</resourceId>
-	</Header>
-	<name href="Change_Mob_World_OnItem_Use_Fraction.txt"/>
-	<itemClass href="/Mechanics/ItemClasses/Other.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemClass)"/>
-	<spell href="/Tests/Mechanics/Spells/ChangeMobWorld/Change_Mob_World_OnItem_Use_Fraction.(SpellSingleTarget).xdb#xpointer(/gameMechanics.constructor.schemes.spell.singleTarget.SpellSingleTarget)"/>
-</gameMechanics.constructor.schemes.item.ItemResource>

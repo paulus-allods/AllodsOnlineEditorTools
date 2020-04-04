@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.constructor.basicInterfaces.VariableResource>
-	<Header>
-		<resourceId>1554710529</resourceId>
-	</Header>
-	<initValue type="gameMechanics.constructor.basicElements.FloatZero" />
-</gameMechanics.constructor.basicInterfaces.VariableResource>

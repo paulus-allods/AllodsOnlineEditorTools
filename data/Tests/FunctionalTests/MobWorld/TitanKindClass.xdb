@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.mob.MobClass>
-	<Header>
-		<resourceId>92413969</resourceId>
-	</Header>
-	<armorMod>2</armorMod>
-</gameMechanics.world.mob.MobClass>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.device.ChestResource>
-	<Header>
-		<resourceId>30160</resourceId>
-	</Header>
-	<visObj href="/World/Generic/Trade/Models/Barrel/Barrel.(VisObjectTemplate).xdb#xpointer(/VisObjectTemplate)" />
-	<collision href="/World/Generic/Trade/Models/Barrel/Barrel.(Collision).xdb#xpointer(/Collision)" />
-	<exploit href="NutExploit.xdb#xpointer(/gameMechanics.constructor.schemes.exploit.Exploit)" />
-</gameMechanics.world.device.ChestResource>

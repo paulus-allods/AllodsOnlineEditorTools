@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<DeveloperAddon>
-	<timeout>300</timeout>
-	<scriptFileRefs>
-		<Item href="QuitGame.lua" />
-	</scriptFileRefs>
-</DeveloperAddon>

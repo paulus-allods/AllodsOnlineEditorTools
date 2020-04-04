@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<UISingleTexture>
-	<Header />
-	<textureElement href="" />
-	<singleTexture href="PortraitBeast.(UITexture).xdb#xpointer(/UITexture)" />
-	<sourceFile href="//Tests/Interface/Ingame/Portraits/PortraitBeast.tga" />
-</UISingleTexture>

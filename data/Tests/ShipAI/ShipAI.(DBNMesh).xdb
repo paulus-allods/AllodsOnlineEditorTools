@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<mapLoader.DBNMesh>
-	<Header>
-		<resourceId>1509883908</resourceId>
-	</Header>
-	<binaryFile href="ShipAI.(DBNMesh).bin" />
-	<sourceFile href="//Tests/ShipAI/ShipAI.mb" />
-	<sourceFileCRC>-1899314838</sourceFileCRC>
-</mapLoader.DBNMesh>

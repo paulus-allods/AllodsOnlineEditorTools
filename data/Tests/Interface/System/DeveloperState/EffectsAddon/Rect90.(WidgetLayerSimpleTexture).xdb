@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<WidgetLayerSimpleTexture>
-	
-	<Color>0xffffffff</Color>
-	<Grayed>false</Grayed>
-	<BlendEffect>BLEND_EFFECT_ALPHABLND</BlendEffect>
-	<textureItem href="Rect90.(UITextureElement).xdb#xpointer(/UITextureElement)"/>
-	<Scaling>true</Scaling>
-</WidgetLayerSimpleTexture>

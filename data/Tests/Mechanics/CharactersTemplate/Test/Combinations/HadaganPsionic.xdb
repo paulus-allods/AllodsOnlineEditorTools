@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.Character>
-	<Header>
-		<resourceId>85850127</resourceId>
-		<Prototype href="../BaseEmpireCharacter.xdb#xpointer(/gameMechanics.world.avatar.Character)" />
-		<isPrototype>false</isPrototype>
-	</Header>
-	<characterRaceClass href="/Mechanics/ClassRaceCombination/HadaganPsionic.xdb#xpointer(/gameMechanics.world.avatar.CharacterRaceClass)" />
-</gameMechanics.world.avatar.Character>

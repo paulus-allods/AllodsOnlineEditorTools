@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.buff.BuffResource>
-	<Header>
-		<Prototype href="/Mechanics/Spells/Mage/Invisibility/Buff.Prototype.(BuffResource).xdb#xpointer(/gameMechanics.constructor.schemes.buff.BuffResource)"/>
-		<resourceId>31835</resourceId>
-	</Header>
-	<duration>0</duration>
-</gameMechanics.constructor.schemes.buff.BuffResource>

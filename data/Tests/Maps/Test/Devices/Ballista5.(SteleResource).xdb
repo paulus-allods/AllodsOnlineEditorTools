@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.device.SteleResource>
-	<Header>
-		<resourceId>29055</resourceId>
-	</Header>
-	<visObj href="/World/Generic/War/Models/Ballist/Kania_Ballist.(VisObjectTemplate).xdb#xpointer(/VisObjectTemplate)"/>
-	<collision href=""/>
-</gameMechanics.world.device.SteleResource>

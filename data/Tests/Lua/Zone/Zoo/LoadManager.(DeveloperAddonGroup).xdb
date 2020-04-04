@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<DeveloperAddonGroup>
-	<addonEntries>
-
-		<Item>
-			<pathRef href="Manager/Kania/AllKania" />
-		</Item>
-	</addonEntries>
-</DeveloperAddonGroup>

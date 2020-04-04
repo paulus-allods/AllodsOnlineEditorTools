@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<mapLoader.MapResource>
-	<Header>
-		<resourceId>75465731</resourceId>
-	</Header>
-	<mapTemplate href="StartInstanceTemplate.xdb#xpointer(/mapLoader.MapTemplate)" />
-</mapLoader.MapResource>

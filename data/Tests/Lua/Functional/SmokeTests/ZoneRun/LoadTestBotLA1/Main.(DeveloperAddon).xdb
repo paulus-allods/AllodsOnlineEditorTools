@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<DeveloperAddon>
-	<timeout>300</timeout>
-	<scriptFileRefs>
-		<Item href="/Tests/Lua/Lib/Login.lua" /><Item href="/Tests/Lua/Lib/GlobalParams.lua" />
-		<Item href="/Interface/Common/Script/AddonBase.lua" />
-		<Item href="BotLA1.lua" />
-	</scriptFileRefs>
-</DeveloperAddon>

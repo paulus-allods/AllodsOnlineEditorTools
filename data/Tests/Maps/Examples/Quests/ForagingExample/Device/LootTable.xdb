@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.constructor.schemes.item.LootTableResource>
-	<Header>
-		<resourceId>85326852</resourceId>
-	</Header>
-	<table type="gameMechanics.constructor.schemes.item.LootTableSingleItem">
-		<item href="Datura.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemResource)" />
-	</table>
-</gameMechanics.constructor.schemes.item.LootTableResource>

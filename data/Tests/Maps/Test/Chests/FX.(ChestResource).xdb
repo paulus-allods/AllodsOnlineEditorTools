@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.device.ChestResource>
-	<Header>
-		<resourceId>29014</resourceId>
-	</Header>
-	<name href="FX.txt"/>
-	<visObj href="/Spells/FX/Spells/MageStoneskin.(VisObjectTemplate).xdb#xpointer(/VisObjectTemplate)"/>
-</gameMechanics.world.device.ChestResource>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.astralTeleports.TeleportToSector>
-	<Header>
-		<resourceId>101594136</resourceId>
-	</Header>
-	<teleportRadius>10</teleportRadius>
-</gameMechanics.world.astralTeleports.TeleportToSector>

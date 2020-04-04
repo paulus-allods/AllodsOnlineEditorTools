@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.creature.Faction>
-	<Header>
-		<resourceId>83335179</resourceId>
-	</Header>
-	<parentFaction href="SocRepFaction1.xdb#xpointer(/gameMechanics.world.creature.Faction)" />
-</gameMechanics.world.creature.Faction>

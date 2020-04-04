@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.astralWreck.AstralWreck>
-	<Header>
-		<resourceId>101594131</resourceId>
-	</Header>
-	<wreckKind href="WreckKind.xdb#xpointer(/gameMechanics.world.astralWreck.AstralWreckKind)" />
-	<pickupRadius>10</pickupRadius>
-</gameMechanics.world.astralWreck.AstralWreck>

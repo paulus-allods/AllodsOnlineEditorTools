@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.device.shield.ShieldResource>
-	<Header>
-		<resourceId>101594148</resourceId>
-	</Header>
-	<health>300</health>
-	<maxStrength>1000</maxStrength>
-	<regenRate>100</regenRate>
-</gameMechanics.world.device.shield.ShieldResource>

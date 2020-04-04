@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Collision>
-	
-	<volume>BOX</volume>
-	<aabb>
-		<center x="0" y="0" z="1"/>
-		<extents x="1" y="1" z="1"/>
-	</aabb>
-</Collision>

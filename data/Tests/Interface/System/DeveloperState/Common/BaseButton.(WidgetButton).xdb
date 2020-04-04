@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<WidgetButton>
-	<Header>
-		<Prototype href="BaseButton.Prototype.(WidgetButton).xdb#xpointer(/WidgetButton)" />
-	</Header>
-</WidgetButton>

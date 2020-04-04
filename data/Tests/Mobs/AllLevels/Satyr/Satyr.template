@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.mob.MobWorld>
-	<Header>
-		<Prototype href="Prototype.xdb#xpointer(/gameMechanics.constructor.schemes.spell.singleTarget.SpellSingleTarget)" />
-	</Header>
-	<levelMin>{0}</levelMin>
-	<levelMax>{0}</levelMax>
-</gameMechanics.world.mob.MobWorld>

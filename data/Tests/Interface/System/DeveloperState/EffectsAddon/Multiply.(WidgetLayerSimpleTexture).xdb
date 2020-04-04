@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<WidgetLayerSimpleTexture>
-	
-	<Color>0xffff0000</Color>
-	<BlendEffect>BLEND_EFFECT_MULTIPLY</BlendEffect>
-	<Scaling>true</Scaling>
-</WidgetLayerSimpleTexture>

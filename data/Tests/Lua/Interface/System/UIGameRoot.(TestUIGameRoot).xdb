@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<TestUIGameRoot>
-	<states>
-		<Item href="/Tests/Lua/Interface/Wrap/MainMenu/StateDesc.xdb#xpointer(/UIState)"/>
-		<Item href="/Tests/Lua/Interface/Wrap/PreMission/StateDesc.xdb#xpointer(/UIState)"/>
-		<Item href="/Tests/Lua/Interface/Ingame/StateDesc.xdb#xpointer(/UIState)"/>
-	</states>
-</TestUIGameRoot>

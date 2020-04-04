@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.device.reactor.ReactorResource>
-	<Header>
-		<resourceId>31163</resourceId>
-	</Header>
-	<name href="ReactorName.txt"/>
-	<maxEnergy>100</maxEnergy>
-	<power>7</power>
-</gameMechanics.world.device.reactor.ReactorResource>

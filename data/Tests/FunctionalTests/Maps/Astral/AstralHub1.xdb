@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<mapLoader.MapResource>
-	<Header>
-		<resourceId>86115331</resourceId>
-	</Header>
-	<mapTemplate href="/System/MapTemplates/Continent.xdb#xpointer(/mapLoader.MapTemplate)" />
-	<serverObjects href="AstralHubServerObjects.xdb#xpointer(/mapLoader.ServerObjectsBase)" />
-</mapLoader.MapResource>

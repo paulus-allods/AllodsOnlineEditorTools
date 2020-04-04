@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.device.ChestResource>
-	<Header>
-		<resourceId>30517</resourceId>
-	</Header>
-	<exploit href="ExploitQuestDie.xdb#xpointer(/gameMechanics.constructor.schemes.exploit.Exploit)" />
-</gameMechanics.world.device.ChestResource>

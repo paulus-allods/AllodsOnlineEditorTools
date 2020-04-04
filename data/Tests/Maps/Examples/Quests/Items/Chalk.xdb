@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.item.ItemResource>
-	<Header>
-		<resourceId>30102</resourceId>
-	</Header>
-	<name href="Chalk.txt" />
-	<itemClass href="/Mechanics/ItemClasses/Other.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemClass)"/>
-	<spell href="ChalkSpell.xdb#xpointer(/gameMechanics.constructor.schemes.spell.casterSelf.SpellCasterSelf)"/>
-</gameMechanics.constructor.schemes.item.ItemResource>

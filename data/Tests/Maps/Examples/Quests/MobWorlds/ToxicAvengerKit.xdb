@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.mob.MobAbilityKit>
-	<Header>
-		<resourceId>30205</resourceId>
-	</Header>
-	<abilities>
-		<Item href="/Tests/Maps/Examples/Quests/Spells/Guard.xdb#xpointer(/gameMechanics.constructor.schemes.ability.AbilityResource)"/>
-	</abilities>
-</gameMechanics.world.mob.MobAbilityKit>

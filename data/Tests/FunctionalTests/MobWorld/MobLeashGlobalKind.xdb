@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<gameMechanics.world.mob.MobKind>
-	<Header>
-		<resourceId>64262</resourceId>
-	</Header>
-	<race>BEAST</race>
-	<manaType>Mana</manaType>
-	<hpMod>2.5</hpMod>
-</gameMechanics.world.mob.MobKind>

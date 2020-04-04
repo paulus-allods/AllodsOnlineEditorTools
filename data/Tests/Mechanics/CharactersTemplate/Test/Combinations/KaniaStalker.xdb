@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.Character>
-	<Header>
-		<resourceId>85850129</resourceId>
-		<Prototype href="../BaseLeagueCharacter.xdb#xpointer(/gameMechanics.world.avatar.Character)" />
-		<isPrototype>false</isPrototype>
-	</Header>
-	<characterRaceClass href="/Mechanics/ClassRaceCombination/KaniaStalker.xdb#xpointer(/gameMechanics.world.avatar.CharacterRaceClass)" />
-</gameMechanics.world.avatar.Character>

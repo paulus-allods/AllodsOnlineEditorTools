@@ -1,8 +1,0 @@
-<?xml version="1.0"  encoding="UTF-8" ?>
-<gameMechanics.world.astralMob.AstralMobWorld>
-	<Header>
-		<resourceId>1819475969</resourceId>
-	</Header>
-  <roamingData href="/Mechanics/RoamingData/RoamingData67.xdb#xpointer(/gameMechanics.world.mob.RoamingData)" />
-  <faction href="/System/Corks/Faction.xdb#xpointer(/gameMechanics.world.creature.Faction)" />
-</gameMechanics.world.astralMob.AstralMobWorld>

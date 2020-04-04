@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.creature.Faction>
-	<Header>
-		<resourceId>30610</resourceId>
-	</Header>
-	<thoughtsPool href="Wild.(ThoughtsPool).xdb#xpointer(/gameMechanics.world.mob.ThoughtsPool)" />
-</gameMechanics.world.creature.Faction>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.map.zone.ZoneResource>
-	<Header>
-		<resourceId>29034</resourceId>
-	</Header>
-	<pvpType href="Arena.xdb#xpointer(/gameMechanics.map.zone.ZonePvpType)"/>
-</gameMechanics.map.zone.ZoneResource>

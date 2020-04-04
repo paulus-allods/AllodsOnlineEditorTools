@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.gameRoot.WorldRoot>
-	<Header>
-		<resourceId>107268096</resourceId>
-	</Header>
-	<globalGraveyards />
-	<globalSanctuaries />
-</gameMechanics.world.gameRoot.WorldRoot>

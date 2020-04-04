@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.device.SteleResource>
-	<Header>
-		<resourceId>30458</resourceId>
-	</Header>
-	<name href="ShipCannon.txt"/>
-	<visObj href="/Ships/Components/Cannon_01/Cannon_01.(VisObjectTemplate).xdb#xpointer(/VisObjectTemplate)"/>
-</gameMechanics.world.device.SteleResource>

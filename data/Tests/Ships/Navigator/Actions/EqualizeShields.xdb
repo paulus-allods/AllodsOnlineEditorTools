@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.ship.EqualizeShields>
-	<Header>
-		<resourceId>117615630</resourceId>
-	</Header>
-	<name href="EqualizeShieldsName.txt" />
-	<description href="EqualizeShieldsDesc.txt" />
-	<actionCooldown>10000</actionCooldown>
-</gameMechanics.world.ship.EqualizeShields>

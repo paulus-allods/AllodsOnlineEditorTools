@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.ship.device.ShipDeviceResource>
-	<Header>
-		<resourceId>117615657</resourceId>
-	</Header>
-	<usableDevice href="TeleportDevice.xdb#xpointer(/gameMechanics.world.device.teleport.TeleportDeviceResource)" />
-	<deviceType>Teleport</deviceType>
-</gameMechanics.world.ship.device.ShipDeviceResource>

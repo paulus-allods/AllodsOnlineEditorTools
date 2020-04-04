@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.ship.device.ShipDeviceResource>
-	<Header>
-		<resourceId>117615629</resourceId>
-	</Header>
-	<usableDevice href="Device.xdb#xpointer(/UsableDeviceResource)" />
-</gameMechanics.world.ship.device.ShipDeviceResource>

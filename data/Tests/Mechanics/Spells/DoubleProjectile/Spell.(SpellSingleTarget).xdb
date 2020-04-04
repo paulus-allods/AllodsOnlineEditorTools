@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.spell.singleTarget.SpellSingleTarget>
-   <Header>
-		    <resourceId>31827</resourceId>
-	  </Header>
-   <mechanics type="gameMechanics.constructor.schemes.spell.CreatureSpellMechanics"/>
-   <visualScripts href="/Spells/VisScripts/Examples/DowbleProjectile.(SpellVisScripts).xdb#xpointer(/SpellVisScripts)"/>
-</gameMechanics.constructor.schemes.spell.singleTarget.SpellSingleTarget>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.device.SteleResource>
-	<Header>
-		<resourceId>31221</resourceId>
-	</Header>
-	<name href="Cannon2_7.txt"/>
-	<visObj href="/Ships/Components/Cannon_01/Cannon_01.(VisObjectTemplate).xdb#xpointer(/VisObjectTemplate)"/>
-	<collision href="/World/Generic/Trade/Models/Barrel/Barrel.(Collision).xdb#xpointer(/Collision)"/>
-</gameMechanics.world.device.SteleResource>

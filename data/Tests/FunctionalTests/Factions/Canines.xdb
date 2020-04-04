@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.creature.Faction>
-	<Header>
-		<resourceId>30611</resourceId>
-	</Header>
-	<parentFaction href="Predators.xdb#xpointer(/gameMechanics.world.creature.Faction)"/>
-</gameMechanics.world.creature.Faction>

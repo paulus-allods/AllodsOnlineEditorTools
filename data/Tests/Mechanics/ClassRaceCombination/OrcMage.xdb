@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.CharacterRaceClass>
-	<Header>
-		<resourceId>420020263</resourceId>
-	</Header>
-	<characterClass href="/Mechanics/Classes/Mage.xdb#xpointer(/gameMechanics.world.avatar.CharacterClass)" />
-	<characterRace href="/Mechanics/Races/Orc.xdb#xpointer(/gameMechanics.world.avatar.CharacterRace)" />
-</gameMechanics.world.avatar.CharacterRaceClass>

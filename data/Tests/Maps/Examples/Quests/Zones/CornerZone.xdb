@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.map.zone.ZoneResource>
-	<Header>
-		<resourceId>30111</resourceId>
-	</Header>
-	<parentZone href="QuestsZone.xdb#xpointer(/gameMechanics.map.zone.ZoneResource)"/>
-	<color>0xff7f7f7f</color>
-</gameMechanics.map.zone.ZoneResource>

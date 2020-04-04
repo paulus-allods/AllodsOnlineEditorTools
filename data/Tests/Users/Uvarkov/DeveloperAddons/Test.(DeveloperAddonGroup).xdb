@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<DeveloperAddonGroup>
-	<addonEntries>
-		<Item>
-			<pathRef href="Test/" />
-		</Item>
-	</addonEntries>
-	<addonEntriesExcluded />
-</DeveloperAddonGroup>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<mapLoader.MapResource>
-	<Header>
-		<resourceId>115748864</resourceId>
-	</Header>
-	<mapTemplate href="/System/MapTemplates/RaidInstance.xdb#xpointer(/mapLoader.MapTemplate)" />
-</mapLoader.MapResource>

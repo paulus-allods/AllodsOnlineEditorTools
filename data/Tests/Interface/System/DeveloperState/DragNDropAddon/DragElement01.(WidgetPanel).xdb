@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<WidgetPanel>
-	<Header>
-		<Prototype href="DragElement.Prototype.(WidgetPanel).xdb#xpointer(/WidgetPanel)" />
-	</Header>
-	<Name>DragElement01</Name>
-</WidgetPanel>

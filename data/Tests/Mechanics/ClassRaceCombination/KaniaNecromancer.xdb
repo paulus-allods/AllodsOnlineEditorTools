@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.CharacterRaceClass>
-	<Header>
-		<resourceId>420020255</resourceId>
-	</Header>
-	<characterClass href="/Mechanics/Classes/Necromancer.xdb#xpointer(/gameMechanics.world.avatar.CharacterClass)" />
-	<characterRace href="/Mechanics/Races/Kania.xdb#xpointer(/gameMechanics.world.avatar.CharacterRace)" />
-</gameMechanics.world.avatar.CharacterRaceClass>

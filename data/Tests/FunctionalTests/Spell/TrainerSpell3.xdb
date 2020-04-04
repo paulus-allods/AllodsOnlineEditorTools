@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.spell.singleTarget.SpellSingleTarget>
-   <Header>
-		    <resourceId>30570</resourceId>
-	  </Header>
-   <mechanics type="gameMechanics.constructor.schemes.spell.CreatureSpellMechanics"/>
-   <level>3</level>
-</gameMechanics.constructor.schemes.spell.singleTarget.SpellSingleTarget>

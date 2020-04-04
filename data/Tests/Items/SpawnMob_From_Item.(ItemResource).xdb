@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.constructor.schemes.item.ItemResource>
-	<Header>
-		<resourceId>30739</resourceId>
-	</Header>
-	<itemClass href="/Mechanics/ItemClasses/Other.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemClass)" />
-	<spell href="/Tests/Mechanics/Spells/SummonMob/SpawnMob_From_Item.(Spell).xdb#xpointer(/gameMechanics.constructor.schemes.spell.casterSelf.SpellCasterSelf)" />
-	<name href="SpawnMob_From_Item.txt" />
-</gameMechanics.constructor.schemes.item.ItemResource>

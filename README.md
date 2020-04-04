@@ -19,8 +19,9 @@ To correctly use these tools you'll need:
 - Copy the `data` folder from this repository in your `data` folder
 - Copy the `Editor` folder from this repository in your `Editor` folder
 - Copy `Release_bin` folder from Helper Archive to `bin` folder
+- Extract and copy `Tests` to `data` from `Tests.pak` in Helper Archive
 - Copy all xdb from server `data` folder to your `data` folder
-- Extract all `.pak` archives (you don't need System, Lua, Bin, Texts) from client and move all folders to your `data` folder
+- Extract all `.pak` archives from client and move all folders to your `data` folder
 - Copy all xdb from the extracted database to your `data` folder
 
 

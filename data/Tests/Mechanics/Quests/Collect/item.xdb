@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.item.ItemResource>
-	<Header>
-		<resourceId>31806</resourceId>
-	</Header>
-	<itemClass href="/Mechanics/ItemClasses/Other.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemClass)"/>
-	<quality href="/Mechanics/ItemQualities/Common.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemQuality)"/>
-	<name href="name.txt" />
-</gameMechanics.constructor.schemes.item.ItemResource>

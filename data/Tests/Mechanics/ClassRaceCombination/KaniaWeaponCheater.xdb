@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.CharacterRaceClass>
-	<Header>
-		<resourceId>420020279</resourceId>
-	</Header>
-	<characterClass href="/Tests/Mechanics/Classes/WeaponCheater.(CharacterClass).xdb#xpointer(/gameMechanics.world.avatar.CharacterClass)" />
-	<characterRace href="/Mechanics/Races/Kania.xdb#xpointer(/gameMechanics.world.avatar.CharacterRace)" />
-</gameMechanics.world.avatar.CharacterRaceClass>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.ship.VisualShip>
-	<Header>
-		<resourceId>242024483</resourceId>
-	</Header>
-	<slots />
-	<radius>80</radius>
-</gameMechanics.world.ship.VisualShip>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mapLoader.MapResource>
-	<Header>
-		<resourceId>29957</resourceId>
-	</Header>
-	<mapTemplate href="/System/MapTemplates/Continent.xdb#xpointer(/mapLoader.MapTemplate)" />
-</mapLoader.MapResource>

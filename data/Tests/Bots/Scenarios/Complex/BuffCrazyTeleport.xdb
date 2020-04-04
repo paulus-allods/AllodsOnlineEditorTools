@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<clientCmds.spellCmd.core.SpellCmd>
-	<Header>
-		<resourceId>121738240</resourceId>
-	</Header>
-	<executor type="clientCmds.spellCmd.elements.ExecBuffSelf">
-		<buff href="/Mechanics/Spells/Cheats/CrazyTeleporter/Buff.xdb#xpointer(/gameMechanics.constructor.schemes.buff.BuffResource)" />
-	</executor>
-</clientCmds.spellCmd.core.SpellCmd>

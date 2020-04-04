@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.CharacterRaceClass>
-	<Header>
-		<resourceId>101221377</resourceId>
-	</Header>
-	<characterClass href="/Tests/Mechanics/Classes/Wizard.xdb#xpointer(/gameMechanics.world.avatar.CharacterClass)" />
-	<characterRace href="/Mechanics/Races/Elf.xdb#xpointer(/gameMechanics.world.avatar.CharacterRace)" />
-</gameMechanics.world.avatar.CharacterRaceClass>

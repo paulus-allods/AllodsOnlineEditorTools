@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.world.creature.Faction>
-	<Header>
-		<resourceId>30609</resourceId>
-	</Header>
-	<defaultReputation>0</defaultReputation>
-</gameMechanics.world.creature.Faction>

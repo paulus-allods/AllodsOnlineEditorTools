@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.avatar.Character>
-	<Header>
-		<resourceId>83278852</resourceId>
-		<Prototype href="BaseCharacter.xdb#xpointer(/gameMechanics.constructor.schemes.spell.casterSelf.SpellCasterSelf)" />
-		<isPrototype>true</isPrototype>
-	</Header>
-	<faction href="/World/Factions/Empire.xdb#xpointer(/gameMechanics.world.creature.Faction)" />
-</gameMechanics.world.avatar.Character>

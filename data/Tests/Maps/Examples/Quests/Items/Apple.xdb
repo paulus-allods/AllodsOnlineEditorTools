@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.item.ItemResource>
-	<Header>
-		<resourceId>30100</resourceId>
-	</Header>
-	<name href="Apple.txt" />
-	<itemClass href="/Mechanics/ItemClasses/Other.xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemClass)"/>
-</gameMechanics.constructor.schemes.item.ItemResource>

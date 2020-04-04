@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.ship.ShipResource>
-	<Header>
-		<resourceId>64275</resourceId>
-	</Header>
-	<visualShip href="/Ships/KaniaGroupNew/KaniaGroupNew.(VisualShip).xdb#xpointer(/gameMechanics.world.ship.VisualShip)" />
-</gameMechanics.world.ship.ShipResource>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gameMechanics.world.device.cannon.LaunchAstralSpell>
-	<Header>
-		<resourceId>101594132</resourceId>
-	</Header>
-	<spell href="FireAbordage_Self.xdb#xpointer(/gameMechanics.constructor.schemes.spell.casterSelf.SpellCasterSelf)" />
-	<globalCooldown>30000</globalCooldown>
-</gameMechanics.world.device.cannon.LaunchAstralSpell>

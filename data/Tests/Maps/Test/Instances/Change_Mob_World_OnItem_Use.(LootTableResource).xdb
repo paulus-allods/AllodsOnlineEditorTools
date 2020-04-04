@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gameMechanics.constructor.schemes.item.LootTableResource>
-	<Header>
-		<resourceId>29067</resourceId>
-	</Header>
-	<table type="gameMechanics.constructor.schemes.item.LootTableSingleItem">
-		<item href="/Tests/Items/Change_Mob_World_OnItem_Use_Loot.(ItemResource).xdb#xpointer(/gameMechanics.constructor.schemes.item.ItemResource)"/>
-	</table>
-</gameMechanics.constructor.schemes.item.LootTableResource>

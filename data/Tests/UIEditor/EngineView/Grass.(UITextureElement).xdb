@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<UITextureElement>
-	<textureElement href="Grass.(TextureSingleElement).xdb#xpointer(/TextureSingleElement)" />
-	<singleTexture href="" />
-	<sourceFile href="//Tests/UIEditor/EngineView/Grass.tga" />
-</UITextureElement>
