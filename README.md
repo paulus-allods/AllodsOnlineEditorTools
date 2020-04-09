@@ -23,6 +23,7 @@ To correctly use these tools you'll need:
 - Copy all xdb from server `data` folder to your `data` folder
 - Extract all `.pak` archives from client and move all folders to your `data` folder
 - Copy all xdb from the extracted database to your `data` folder
+- Copy your `Profiles` folder from game client in your folder, it will allow you to start preview mode from tools (it will start a client where you can directly see your changes)
 
 
 You should have the following folder architecture :
@@ -42,6 +43,8 @@ You should have the following folder architecture :
 |   +-- ...
 +-- Editor
 |   +-- CommonFolder
+|   +-- ...
++-- Profiles
 |   +-- ...
 ```
 
