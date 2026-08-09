@@ -119,6 +119,13 @@ dotnet publish EditorCLI/EditorCLI.csproj -c Release -r win-x64 --self-contained
   -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true
 ```
 
+> **Run in Release for normal use.** Debug builds enable extra `Debug.Assert`
+> checks that guard the reverse-engineered format parsers. Some of these may
+> trigger while unpacking real data and this is expected: they are development
+> aids meant to surface format edge cases, not fatal errors. Running a
+> **Release** build on a **supported version** (see the table above) should
+> unpack cleanly.
+
 ## Usage
 
 ```sh
