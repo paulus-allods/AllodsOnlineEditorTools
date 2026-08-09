@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ClientResources/ClientResources.csproj" />
+  <Project Path="ClientResources.Tests/ClientResources.Tests.csproj" />
+  <Project Path="EditorCLI/EditorCLI.csproj" />
+  <Project Path="StructCodeGeneration/StructCodeGeneration.csproj" />
+</Solution>

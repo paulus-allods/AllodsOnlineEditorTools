@@ -1,0 +1,11 @@
+bin/
+obj/
+# Source folder shadowed by the build-output "bin/" rule under core.ignorecase
+!ClientResources/Serialization/Bin/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+.idea
+/StructCodeGeneration/
+/Directory.Build.props
+*.DotSettings.user

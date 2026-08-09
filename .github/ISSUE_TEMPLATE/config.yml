@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Allods developers community
+    url: https://community.allods-developers.eu/
+    about: >
+      Share client versions, ask general modding questions, and get help with
+      version-specific issues. Please upload your client here if you need help
+      with a version the tools don't handle yet.

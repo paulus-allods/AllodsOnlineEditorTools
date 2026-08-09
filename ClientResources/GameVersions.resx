@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="V1_1_02_0" xml:space="preserve">
+        <value>{"Hash":"0x5847DB469364493C","Game":"Allods Online","Version":"1.1.02.0","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0","NeedPacks":false,"FileRefKind":"FileRef"}</value>
+    </data>
+    <data name="V1_1_04_44" xml:space="preserve">
+        <value>{"Hash":"0x304C70AC5A6F33D0","Game":"Allods Online","Version":"1.1.04.44","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V1_1_04_44","NeedPacks":false,"FileRefKind":"FileRef"}</value>
+    </data>
+    <data name="V4_0_02_43" xml:space="preserve">
+        <value>{"Hash":"0x641AD1D48E1FD7EC","Game":"Allods Online","Version":"4.0.02.4X","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43","NeedPacks":false,"FileRefKind":"FileRef2"}</value>
+    </data>
+    <data name="V14_0_01_71" xml:space="preserve">
+        <value>{"Hash":"0x983A36AC75DB9EC5","Game":"Allods Online","Version":"14.0.01.71","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71","NeedPacks":true,"FileRefKind":"PakFileRef"}</value>
+    </data>
+    <data name="V14_0_00_21" xml:space="preserve">
+        <value>{"Hash":"0x44068E78E8E67876","Game":"Allods Online","Version":"14.0.00.21","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71","NeedPacks":true,"FileRefKind":"PakFileRef"}</value>
+    </data>
+    <data name="Pirates_V_1_7_7" xml:space="preserve">
+        <value>{"Hash":"0xB077EC9F77A40AA0","Game":"Pirates","Version":"1.7.7","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.Pirates_V_1_7_7","NeedPacks":false,"FileRefKind":"None"}</value>
+    </data>
+    <data name="V3_0_00_89" xml:space="preserve">
+        <value>{"Hash":"0x2060B40B8CBE5B8D","Game":"Allods Online","Version":"3.0.0.X","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89","NeedPacks":false,"FileRefKind":"FileRef2"}</value>
+    </data>
+    <data name="V7_0_0_76" xml:space="preserve">
+        <value>{"Hash":"0x7025BD5027724A6D","Game":"Allods Online","Version":"7.0.00.7X","Namespace":"AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76","NeedPacks":false,"FileRefKind":"FileRef2"}</value>
+    </data>
+</root>
