@@ -36,15 +36,15 @@ Each client version is identified by its database hash, so the right struct/enum
 model is selected automatically when a database is opened. The authoritative list
 lives in [`ClientResources/GameVersions.resx`](ClientResources/GameVersions.resx).
 
-| Game          | Version        | Support state                                |
-|---------------|----------------|----------------------------------------------|
-| Allods Online | `1.1.02.0`     | ✅ Supported                                  |
-| Allods Online | `3.0.0.x`      | ✅ Supported                                  |
-| Allods Online | `4.0.02.4x`    | ✅ Supported                                  |
-| Allods Online | `7.0.00.7x`    | ✅ Supported                                  |
-| Allods Online | `14.0.01.71`   | 🚧 Supported but XDB formatting is unfinished |
-| Cloud Pirates | `1.7.7`        | ❌ Parsing only, assets export is planned     |
-| Allods Online | `15.0 -> 17.0` | ❌ Planned                                    |
+| Game          | Version        | Support state                             |
+|---------------|----------------|-------------------------------------------|
+| Allods Online | `1.1.02.0`     | ✅ Supported                              |
+| Allods Online | `3.0.0.x`      | ✅ Supported                              |
+| Allods Online | `4.0.02.4x`    | ✅ Supported                              |
+| Allods Online | `7.0.00.7x`    | ✅ Supported                              |
+| Allods Online | `14.0.01.71`   | ✅ Supported                              |
+| Cloud Pirates | `1.7.7`        | ❌ Parsing only, assets export is planned |
+| Allods Online | `15.0 -> 17.0` | ❌ Planned                                |
 
 > **⚠️ Important — bin database format changed in 15.0**
 > The structure of the `.bin` databases changed significantly starting with
