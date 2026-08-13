@@ -1,4 +1,5 @@
-﻿// ReSharper disable InconsistentNaming
+// ReSharper disable InconsistentNaming
+
 namespace AllodsOnlineEditorTools.ClientResources.Texture.DDS;
 
 [Flags]

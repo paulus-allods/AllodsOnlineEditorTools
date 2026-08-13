@@ -14,7 +14,7 @@ public class JdbStructSerializerReadTests
 {
     private static readonly JdbStructSerializer Serializer =
         new(new JdbStructSerializerOptions(false), ResourceSerializationContext.Default);
-    
+
     [Test]
     public void RoundTrip_NestedVectors()
     {
@@ -70,7 +70,7 @@ public class JdbStructSerializerReadTests
                 Is.EqualTo([(int)Animations.idle, (int)Animations.idle01]));
         }
     }
-    
+
     [Test]
     public void RoundTrip_NullablePointerArray()
     {
@@ -94,7 +94,7 @@ public class JdbStructSerializerReadTests
             Assert.That(((PredicateHonorRankLess)parsed.parts[2].Value!).rank, Is.EqualTo((int)HonorRank.HRJudge));
         }
     }
-    
+
     private static T RoundTripField<T>(T value)
     {
         var tree = Serializer.SerializeField(value, typeof(T), null);
@@ -102,16 +102,40 @@ public class JdbStructSerializerReadTests
         return (T)Serializer.DeserializeField(doc.RootElement, typeof(T), null)!;
     }
 
-    [Test] public void RoundTripField_Vector2() => Assert.That(RoundTripField(new Vector2(1.5f, -2f)), Is.EqualTo(new Vector2(1.5f, -2f)));
-    [Test] public void RoundTripField_Vector3() => Assert.That(RoundTripField(new Vector3(1f, 2f, 3f)), Is.EqualTo(new Vector3(1f, 2f, 3f)));
-    [Test] public void RoundTripField_Quaternion() => Assert.That(RoundTripField(new Quaternion(0.1f, 0.2f, 0.3f, 0.4f)), Is.EqualTo(new Quaternion(0.1f, 0.2f, 0.3f, 0.4f)));
-    [Test] public void RoundTripField_BigVector3() => Assert.That(RoundTripField(new BigVector3(0, 0, 0, 1, 2, 3)), Is.EqualTo(new BigVector3(0, 0, 0, 1, 2, 3)));
-    [Test] public void RoundTripField_FileRef() => Assert.That(RoundTripField(new FileRef("a/b.bin")).Name, Is.EqualTo("a/b.bin"));
-    [Test] public void RoundTripField_TextFileRef() => Assert.That(RoundTripField(new TextFileRef("a/b.txt")).Name, Is.EqualTo("a/b.txt"));
-    [Test] public void RoundTripField_WString() => Assert.That(RoundTripField(new WString("héllo")).Value, Is.EqualTo("héllo"));
-    [Test] public void RoundTripField_Enum() => Assert.That(RoundTripField(SampleEnum.CREATURE_KIND_HORIZONTAL), Is.EqualTo(SampleEnum.CREATURE_KIND_HORIZONTAL));
-    
+    [Test]
+    public void RoundTripField_Vector2() =>
+        Assert.That(RoundTripField(new Vector2(1.5f, -2f)), Is.EqualTo(new Vector2(1.5f, -2f)));
+
+    [Test]
+    public void RoundTripField_Vector3() =>
+        Assert.That(RoundTripField(new Vector3(1f, 2f, 3f)), Is.EqualTo(new Vector3(1f, 2f, 3f)));
+
+    [Test]
+    public void RoundTripField_Quaternion() => Assert.That(RoundTripField(new Quaternion(0.1f, 0.2f, 0.3f, 0.4f)),
+        Is.EqualTo(new Quaternion(0.1f, 0.2f, 0.3f, 0.4f)));
+
+    [Test]
+    public void RoundTripField_BigVector3() => Assert.That(RoundTripField(new BigVector3(0, 0, 0, 1, 2, 3)),
+        Is.EqualTo(new BigVector3(0, 0, 0, 1, 2, 3)));
+
+    [Test]
+    public void RoundTripField_FileRef() =>
+        Assert.That(RoundTripField(new FileRef("a/b.bin")).Name, Is.EqualTo("a/b.bin"));
+
+    [Test]
+    public void RoundTripField_TextFileRef() =>
+        Assert.That(RoundTripField(new TextFileRef("a/b.txt")).Name, Is.EqualTo("a/b.txt"));
+
+    [Test]
+    public void RoundTripField_WString() =>
+        Assert.That(RoundTripField(new WString("héllo")).Value, Is.EqualTo("héllo"));
+
+    [Test]
+    public void RoundTripField_Enum() => Assert.That(RoundTripField(SampleEnum.CREATURE_KIND_HORIZONTAL),
+        Is.EqualTo(SampleEnum.CREATURE_KIND_HORIZONTAL));
+
     [Test]
     public void RoundTripField_ResourcePointer_HrefBecomesJdb()
-        => Assert.That(RoundTripField(new ResourcePointer("Material/userinfo.xdb", null)).Href, Is.EqualTo("Material/userinfo.jdb"));
+        => Assert.That(RoundTripField(new ResourcePointer("Material/userinfo.xdb", null)).Href,
+            Is.EqualTo("Material/userinfo.jdb"));
 }

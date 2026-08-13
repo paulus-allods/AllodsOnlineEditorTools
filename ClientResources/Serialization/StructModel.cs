@@ -44,6 +44,7 @@ public static class StructModelCache
                 field.GetCustomAttribute<EnumRefAttribute>()?.EnumType,
                 field.GetCustomAttribute<FieldOffsetAttribute>()?.Offset);
         }
+
         return new StructModel(type, XdbNameAttribute.Resolve(type), structFields);
     }
 }

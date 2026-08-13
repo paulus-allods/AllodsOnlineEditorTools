@@ -29,7 +29,8 @@ public static class DatabaseLoader
 
         if (Path.GetExtension(binPath).Equals(".pak", StringComparison.OrdinalIgnoreCase))
         {
-            logger.LogInformation("Loading packs from compressed pak {BinPath}, will use Bin folder inside ...", binPath);
+            logger.LogInformation("Loading packs from compressed pak {BinPath}, will use Bin folder inside ...",
+                binPath);
 
             using var fs = File.OpenRead(binPath);
             using var zip = new ZipArchive(fs, ZipArchiveMode.Read);
@@ -63,7 +64,8 @@ public static class DatabaseLoader
         return new Result(metadata, data);
     }
 
-    private static void LoadDatabase(string name, Stream database, Dictionary<string, DatabaseMetadata> metadata, Dictionary<string, byte[]> data, ILogger logger)
+    private static void LoadDatabase(string name, Stream database, Dictionary<string, DatabaseMetadata> metadata,
+        Dictionary<string, byte[]> data, ILogger logger)
     {
         var (databaseMetadata, databaseData) = Load(database, name, logger);
         metadata[name] = databaseMetadata;
@@ -71,7 +73,8 @@ public static class DatabaseLoader
         var versionName = GameVersion.Versions.TryGetValue(databaseMetadata.Version, out var version)
             ? version.ToString()
             : "unknown";
-        logger.LogInformation("Loaded database: {File}, version {Version}, {Files} files, {Structs} structs", name, versionName, databaseMetadata.File2Dbid.Count, databaseMetadata.Structs.Count);
+        logger.LogInformation("Loaded database: {File}, version {Version}, {Files} files, {Structs} structs", name,
+            versionName, databaseMetadata.File2Dbid.Count, databaseMetadata.Structs.Count);
     }
 
     private static (DatabaseMetadata Metadata, byte[] Data) Load(Stream binStream, string name, ILogger logger)
@@ -104,6 +107,7 @@ public static class DatabaseLoader
             {
                 throw new InvalidDataException($"Expected chunk id {PacksChunkId}, got {packsChunkId}");
             }
+
             var remaining = (int)(reader.BaseStream.Length - reader.BaseStream.Position);
             packs = ReadPacks(reader.ReadBytes(remaining));
         }
@@ -134,6 +138,7 @@ public static class DatabaseLoader
             a = (a + value) % modAdler;
             b = (b + a) % modAdler;
         }
+
         return (b << 16) | a;
     }
 
@@ -153,6 +158,7 @@ public static class DatabaseLoader
         {
             throw new InvalidDataException($"Expected chunk id {expectedId}, got {chunkId}");
         }
+
         var chunkSize = reader.ReadInt32();
         return reader.ReadBytes(chunkSize * entrySize);
     }
@@ -237,19 +243,24 @@ public static class DatabaseLoader
                 {
                     throw new InvalidDataException($"Expected dbid2file entry delimiter 1, got {delimiter}");
                 }
+
                 var adler32 = reader.ReadUInt32();
                 if (adler32 % 65521 != i)
                 {
-                    throw new InvalidDataException($"dbId2file entry hash {adler32} does not match hash table bucket {i}");
+                    throw new InvalidDataException(
+                        $"dbId2file entry hash {adler32} does not match hash table bucket {i}");
                 }
+
                 var rawData = reader.ReadBytes(dataSize);
                 Debug.Assert(rawData.Length - Array.IndexOf(rawData, (byte)0) == 9);
                 rawData = rawData[..Array.IndexOf(rawData, (byte)0)];
                 var computedChecksum = ComputeAdler32(rawData);
                 if (computedChecksum != adler32)
                 {
-                    throw new InvalidDataException($"dbId2file entry checksum mismatch: expected {adler32}, computed {computedChecksum}");
+                    throw new InvalidDataException(
+                        $"dbId2file entry checksum mismatch: expected {adler32}, computed {computedChecksum}");
                 }
+
                 var filename = Encoding.UTF8.GetString(rawData).TrimEnd('\0');
                 dbId2File.TryAdd(dbId, filename);
                 file2DbId.TryAdd(filename, dbId);
@@ -275,6 +286,7 @@ public static class DatabaseLoader
             {
                 throw new InvalidDataException($"Expected structs entry delimiter 0, got {delimiter}");
             }
+
             var rawData = ReadBlockAt(reader, dataOffset, dataSize);
             var structName = Encoding.UTF8.GetString(rawData).TrimEnd('\0').Replace("struct NDb::", "");
             structs.Add(structName);
@@ -357,6 +369,7 @@ public static class DatabaseLoader
             {
                 throw new InvalidDataException($"Unknown pointer fix type {data & 3} at fix entry {i}");
             }
+
             var fix = new PointerFix(type, (data & 4) > 0, value);
             fixes.Add(address, fix);
         }
@@ -376,8 +389,10 @@ public static class DatabaseLoader
             var offset = reader.ReadInt32() * 4 - PakFileRefPackIndexOffset;
             if (offset < 0 || offset >= dataLength)
             {
-                throw new InvalidDataException($"PakFileRef offset {offset} at entry {i} is outside the data chunk (size {dataLength})");
+                throw new InvalidDataException(
+                    $"PakFileRef offset {offset} at entry {i} is outside the data chunk (size {dataLength})");
             }
+
             offsets.Add(offset);
         }
 

@@ -1,4 +1,4 @@
-﻿using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.DataTypes;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Converters;
 
@@ -6,7 +6,8 @@ internal class BigVector3BinaryConverter : BinaryConverter<BigVector3>
 {
     public override int GetSize(Type type, BinaryStructSerializerContext context) => 24;
 
-    protected override BigVector3 ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert, BinaryStructSerializerContext context)
+    protected override BigVector3 ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
+        BinaryStructSerializerContext context)
     {
         var localX = reader.ReadFloat(offset);
         var localY = reader.ReadFloat(offset + 4);
@@ -17,7 +18,8 @@ internal class BigVector3BinaryConverter : BinaryConverter<BigVector3>
         return new BigVector3(globalX, globalY, globalZ, localX, localY, localZ);
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, BigVector3 value, BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, int offset, BigVector3 value,
+        BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

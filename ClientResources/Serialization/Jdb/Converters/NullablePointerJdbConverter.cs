@@ -7,7 +7,10 @@ internal class NullablePointerJdbConverter : JdbConverter<NullablePointer>
 {
     protected override object? WriteValue(JdbStructSerializer serializer, NullablePointer value)
     {
-        if (value.Value is null) return null;
+        if (value.Value is null)
+        {
+            return null;
+        }
 
         var document = new Dictionary<string, object?>
         {
@@ -15,7 +18,10 @@ internal class NullablePointerJdbConverter : JdbConverter<NullablePointer>
             ["$version"] = value.Value.GetType().Namespace ?? string.Empty,
         };
         foreach (var (key, fieldValue) in serializer.SerializeObject(value.Value))
+        {
             document[key] = fieldValue;
+        }
+
         return document;
     }
 

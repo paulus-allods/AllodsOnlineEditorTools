@@ -19,7 +19,8 @@ namespace ClientResources.Tests;
 [TestFixture]
 public class XdbStructSerializerReadTests
 {
-    private static readonly XdbStructSerializer Writer = new(XdbStructSerializerOptions.Default, ResourceSerializationContext.Default);
+    private static readonly XdbStructSerializer Writer = new(XdbStructSerializerOptions.Default,
+        ResourceSerializationContext.Default);
 
     private static readonly XdbStructSerializer Reader = new(
         XdbStructSerializerOptions.Default,
@@ -32,7 +33,8 @@ public class XdbStructSerializerReadTests
                 typeof(EmptyNullablePointerHolder), typeof(Vector2Holder), typeof(Vector3Holder),
                 typeof(QuaternionHolder), typeof(BigVector3Holder), typeof(AabbHolder), typeof(RenamedHolder),
                 typeof(SampleResource), typeof(SampleParams),
-                typeof(AABB), typeof(PredicateHonorRankLess), typeof(AnimationProperties), typeof(AstralIslandTeleport)),
+                typeof(AABB), typeof(PredicateHonorRankLess), typeof(AnimationProperties),
+                typeof(AstralIslandTeleport)),
         });
 
     private static T RoundTrip<T>(T obj) where T : notnull
@@ -40,24 +42,58 @@ public class XdbStructSerializerReadTests
 
     private static T RoundTripField<T>(T value)
         => (T)Reader.DeserializeField(Writer.SerializeField(value, "field", typeof(T))!, typeof(T))!;
-    
-    [Test] public void Int() => Assert.That(RoundTripField(100000), Is.EqualTo(100000));
-    [Test] public void NegativeInt() => Assert.That(RoundTripField(-1), Is.EqualTo(-1));
-    [Test] public void Long() => Assert.That(RoundTripField(1631568172L), Is.EqualTo(1631568172L));
-    [Test] public void Bool() => Assert.That(RoundTripField(true), Is.True);
-    [Test] public void Float() => Assert.That(RoundTripField(6.5f), Is.EqualTo(6.5f)); // XdbFloat-safe
-    [Test] public void Double() => Assert.That(RoundTripField(2.5d), Is.EqualTo(2.5d));
-    [Test] public void String() => Assert.That(RoundTripField("Head"), Is.EqualTo("Head"));
-    [Test] public void EmptyString() => Assert.That(RoundTripField(""), Is.EqualTo(""));
-    [Test] public void PrimitiveArray() => Assert.That(RoundTripField(new[] { 0, 1, 2 }), Is.EqualTo([0, 1, 2]));
-    [Test] public void StringArray() => Assert.That(RoundTripField(new[] { "vs_2_0", "ps_2_0" }), Is.EqualTo(["vs_2_0", "ps_2_0"]));
-    [Test] public void FileRef() => Assert.That(RoundTripField(new FileRef("a/b.bin")).Name, Is.EqualTo("a/b.bin"));
-    [Test] public void TextFileRef() => Assert.That(RoundTripField(new TextFileRef("a/b.txt")).Name, Is.EqualTo("a/b.txt"));
-    [Test] public void Vector2() => Assert.That(RoundTripField(new Vector2(1, 2)), Is.EqualTo(new Vector2(1, 2)));
-    [Test] public void Vector3() => Assert.That(RoundTripField(new Vector3(1, 2, 3)), Is.EqualTo(new Vector3(1, 2, 3)));
-    [Test] public void Quaternion() => Assert.That(RoundTripField(new Quaternion(0, 0, 0, 1)), Is.EqualTo(new Quaternion(0, 0, 0, 1)));
-    [Test] public void BigVector3() => Assert.That(RoundTripField(new BigVector3(0, 0, 0, 1.25f, 2.5f, 3.75f)), Is.EqualTo(new BigVector3(0, 0, 0, 1.25f, 2.5f, 3.75f)));
-    
+
+    [Test]
+    public void Int() => Assert.That(RoundTripField(100000), Is.EqualTo(100000));
+
+    [Test]
+    public void NegativeInt() => Assert.That(RoundTripField(-1), Is.EqualTo(-1));
+
+    [Test]
+    public void Long() => Assert.That(RoundTripField(1631568172L), Is.EqualTo(1631568172L));
+
+    [Test]
+    public void Bool() => Assert.That(RoundTripField(true), Is.True);
+
+    [Test]
+    public void Float() => Assert.That(RoundTripField(6.5f), Is.EqualTo(6.5f)); // XdbFloat-safe
+
+    [Test]
+    public void Double() => Assert.That(RoundTripField(2.5d), Is.EqualTo(2.5d));
+
+    [Test]
+    public void String() => Assert.That(RoundTripField("Head"), Is.EqualTo("Head"));
+
+    [Test]
+    public void EmptyString() => Assert.That(RoundTripField(""), Is.EqualTo(""));
+
+    [Test]
+    public void PrimitiveArray() => Assert.That(RoundTripField(new[] { 0, 1, 2 }), Is.EqualTo([0, 1, 2]));
+
+    [Test]
+    public void StringArray() =>
+        Assert.That(RoundTripField(new[] { "vs_2_0", "ps_2_0" }), Is.EqualTo(["vs_2_0", "ps_2_0"]));
+
+    [Test]
+    public void FileRef() => Assert.That(RoundTripField(new FileRef("a/b.bin")).Name, Is.EqualTo("a/b.bin"));
+
+    [Test]
+    public void TextFileRef() => Assert.That(RoundTripField(new TextFileRef("a/b.txt")).Name, Is.EqualTo("a/b.txt"));
+
+    [Test]
+    public void Vector2() => Assert.That(RoundTripField(new Vector2(1, 2)), Is.EqualTo(new Vector2(1, 2)));
+
+    [Test]
+    public void Vector3() => Assert.That(RoundTripField(new Vector3(1, 2, 3)), Is.EqualTo(new Vector3(1, 2, 3)));
+
+    [Test]
+    public void Quaternion() =>
+        Assert.That(RoundTripField(new Quaternion(0, 0, 0, 1)), Is.EqualTo(new Quaternion(0, 0, 0, 1)));
+
+    [Test]
+    public void BigVector3() => Assert.That(RoundTripField(new BigVector3(0, 0, 0, 1.25f, 2.5f, 3.75f)),
+        Is.EqualTo(new BigVector3(0, 0, 0, 1.25f, 2.5f, 3.75f)));
+
     [Test]
     public void ResourcePointer_StripsRootAndXpointer()
         => Assert.That(RoundTripField(new ResourcePointer("Material/userinfo.xdb", typeof(SampleMaterial))).Href,
@@ -84,7 +120,8 @@ public class XdbStructSerializerReadTests
     {
         using (Assert.EnterMultipleScope())
         {
-            Assert.That(RoundTrip(new FileRefHolder()).binaryFile.Name, Is.EqualTo("Characters/Elf_female/ElfFemale.(Geometry).bin"));
+            Assert.That(RoundTrip(new FileRefHolder()).binaryFile.Name,
+                Is.EqualTo("Characters/Elf_female/ElfFemale.(Geometry).bin"));
             Assert.That(RoundTrip(new TextFileRefHolder()).description.Name, Is.EqualTo("Texts/description.txt"));
         }
     }
@@ -115,7 +152,7 @@ public class XdbStructSerializerReadTests
     [Test]
     public void NullablePointer_RoundTripsPolymorphicTarget()
         => Assert.That(((SampleParams)RoundTrip(new NullablePointerHolder()).@params.Value!).intensity, Is.EqualTo(5));
-    
+
     [Test]
     public void EmptyNullablePointer_ReadsBackAsEmpty()
         => Assert.That(RoundTrip(new EmptyNullablePointerHolder()).@params.Value, Is.Null);
@@ -123,7 +160,7 @@ public class XdbStructSerializerReadTests
     [Test]
     public void RenamedField_RoundTrips()
         => Assert.That(RoundTrip(new RenamedHolder()).name, Is.EqualTo("Foo"));
-    
+
     [Test]
     public void ParseResource_ReadsRootTypeAndResourceId()
     {
@@ -154,7 +191,8 @@ public class XdbStructSerializerReadTests
     {
         using (Assert.EnterMultipleScope())
         {
-            Assert.That(RoundTrip(new PredicateHonorRankLess { rank = (int)HonorRank.HRButcher }).rank, Is.EqualTo((int)HonorRank.HRButcher));
+            Assert.That(RoundTrip(new PredicateHonorRankLess { rank = (int)HonorRank.HRButcher }).rank,
+                Is.EqualTo((int)HonorRank.HRButcher));
             Assert.That(RoundTrip(new PredicateHonorRankLess { rank = 99 }).rank, Is.EqualTo(99));
         }
     }
@@ -172,7 +210,7 @@ public class XdbStructSerializerReadTests
                 Is.EqualTo([(int)Animations.idle, (int)Animations.idle01]));
         }
     }
-    
+
     [Test]
     public void RoundTrip_RealNullablePointerArray()
     {

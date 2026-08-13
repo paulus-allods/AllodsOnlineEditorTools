@@ -7,7 +7,11 @@ internal class NullablePointerXdbConverter : XdbConverter<NullablePointer>
 {
     protected override XElement? WriteValue(XdbStructSerializer serializer, string elementName, NullablePointer value)
     {
-        if (value.Value is null) return null;
+        if (value.Value is null)
+        {
+            return null;
+        }
+
         var innerObj = value.Value;
         var concreteTypeName = XdbNameAttribute.Resolve(innerObj.GetType());
         var element = serializer.SerializeObject(innerObj, elementName);
@@ -18,7 +22,8 @@ internal class NullablePointerXdbConverter : XdbConverter<NullablePointer>
     protected override NullablePointer ReadValue(XdbStructSerializer serializer, XElement element, Type type)
     {
         var typeName = element.Attribute("type")?.Value
-            ?? throw new InvalidOperationException("NullablePointer element is missing its 'type' attribute");
+                       ?? throw new InvalidOperationException(
+                           "NullablePointer element is missing its 'type' attribute");
         var concreteType = serializer.ResolveXdbType(typeName);
         return new NullablePointer(serializer.DeserializeObject(element, concreteType));
     }

@@ -1,4 +1,4 @@
-﻿namespace AllodsOnlineEditorTools.ClientResources.Geometry;
+namespace AllodsOnlineEditorTools.ClientResources.Geometry;
 
 public class ModelElement
 {
@@ -8,7 +8,7 @@ public class ModelElement
     public int VertexBufferOffset { get; set; }
     public required Material Material { get; set; }
     public List<GeometryFragment> Lods { get; set; } = [];
-    
+
     public class GeometryFragment
     {
         public int VertexBufferBegin { get; set; }

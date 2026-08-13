@@ -15,7 +15,9 @@ public static class XdbFloat
         var text = XmlConvert.ToString(value);
         var exponentIndex = text.IndexOf('E');
         if (exponentIndex > 0)
+        {
             return TrimExponentialMantissa(text, exponentIndex, value);
+        }
 
         var decimalIndex = text.IndexOf('.');
         var integerEnd = decimalIndex < 0 ? text.Length : decimalIndex;
@@ -24,23 +26,29 @@ public static class XdbFloat
         // More integer digits than we keep significant: only exponent form can render
         // the value at 6 significant digits (rounding to negative decimals is impossible).
         if (integerEnd - firstSignificantIndex > SignificantDigits)
+        {
             return value.ToString(ExponentFormat, CultureInfo.InvariantCulture);
+        }
 
         return XmlConvert.ToString(RoundToSignificantDigits(value, decimalIndex, firstSignificantIndex));
     }
-    
+
     private static string TrimExponentialMantissa(string text, int exponentIndex, float value)
     {
         var mantissaWidth = value >= 0 ? PositiveMantissaWidth : PositiveMantissaWidth + 1;
         var endIndex = Math.Min(mantissaWidth, exponentIndex);
         return text[..endIndex] + text[exponentIndex..];
     }
-    
+
     private static int FirstSignificantIndex(string text)
     {
         for (var i = 0; i < text.Length; i++)
         {
-            if (text[i] is '0' or '-' or '.') continue;
+            if (text[i] is '0' or '-' or '.')
+            {
+                continue;
+            }
+
             return i;
         }
 

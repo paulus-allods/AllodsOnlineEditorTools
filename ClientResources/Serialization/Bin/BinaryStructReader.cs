@@ -4,7 +4,10 @@ using System.Text;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 
-public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSerializerContext context, BinarySerializerOptions options)
+public ref struct BinaryStructReader(
+    ReadOnlySpan<byte> buffer,
+    BinaryStructSerializerContext context,
+    BinarySerializerOptions options)
 {
     private readonly ReadOnlySpan<byte> _buffer = buffer;
 
@@ -14,13 +17,18 @@ public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSeri
         {
             throw new InvalidDataException($"No pointer fix found at offset {offset}");
         }
+
         if (fix.Type is not (PointerFix.FixType.Type or PointerFix.FixType.Generic))
         {
             throw new InvalidDataException($"Expected a type pointer fix at offset {offset}, got {fix.Type}");
         }
+
         var structName = context.CurrentDatabaseMetadata.Structs[fix.Value];
         if (!context.TypeResolver.TryResolveByName(structName, out var type))
+        {
             throw new InvalidOperationException($"Struct implementation not found for '{structName}'");
+        }
+
         //BUG: Debug.Assert(ReadInt(offset + 16) == 1 || nullable || type.Name == "Territory");
         //BUG: TerritoriesRegistry + NameRules + Textures in V14 (all localized ?)
         Debug.Assert(ReadInt(offset + 4) == 1 || ReadInt(offset + 4) == 2 && type.Name == "Territory");
@@ -33,24 +41,29 @@ public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSeri
         {
             throw new InvalidOperationException($"Cannot read abstract type '{type.Name}'");
         }
+
         var result = Activator.CreateInstance(type)
-            ?? throw new InvalidOperationException($"Failed to create instance of '{type.Name}'");
+                     ?? throw new InvalidOperationException($"Failed to create instance of '{type.Name}'");
         foreach (var field in StructModelCache.Get(type).Fields)
         {
             if (field.Offset is not { } fieldOffset)
             {
-                throw new InvalidOperationException($"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
+                throw new InvalidOperationException(
+                    $"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
             }
+
             var value = ReadField(offset + fieldOffset, field.FieldType);
             if (field.EnumRef is not null)
             {
                 FieldValidator.ValidateEnumRef(field.Field, offset + fieldOffset, field.EnumRef, value);
             }
+
             field.SetValue(result, value);
         }
+
         return result;
     }
-    
+
     public object? ReadField(int offset, Type type)
     {
         var converter = options.GetConverter(type);
@@ -58,7 +71,10 @@ public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSeri
         {
             return converter.Read(ref this, offset, type, context);
         }
-        return type.IsClass ? ReadObject(offset, type) : throw new InvalidOperationException($"No binary converter registered for type '{type.Name}'");
+
+        return type.IsClass
+            ? ReadObject(offset, type)
+            : throw new InvalidOperationException($"No binary converter registered for type '{type.Name}'");
     }
 
 
@@ -110,15 +126,19 @@ public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSeri
         {
             return string.Empty;
         }
+
         if (fix.Type != PointerFix.FixType.Direct)
         {
-            throw new InvalidDataException($"Expected a direct pointer fix for string at offset {offset}, got {fix.Type}");
+            throw new InvalidDataException(
+                $"Expected a direct pointer fix for string at offset {offset}, got {fix.Type}");
         }
+
         var length = ReadInt(offset + 4);
         if (length < 0)
         {
             throw new InvalidDataException($"Negative string length ({length}) at offset {offset}");
         }
+
         return length > 0 ? encoding.GetString(_buffer.Slice(fix.Value, length)).TrimEnd('\0') : string.Empty;
     }
 
@@ -126,6 +146,6 @@ public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSeri
     {
         return context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out pointerFix);
     }
-    
+
     public int GetSize(Type type) => options.GetTypeSize(type, context);
 }

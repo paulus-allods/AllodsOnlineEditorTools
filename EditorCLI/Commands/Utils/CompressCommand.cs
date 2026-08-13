@@ -38,7 +38,8 @@ internal sealed class CompressCommand(ILogger<CompressCommand> logger)
         }
     }
 
-    public override int Execute(CommandContext context, CompressCommandSettings settings, CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, CompressCommandSettings settings,
+        CancellationToken cancellationToken)
     {
         if (!File.Exists(settings.InputPath))
         {

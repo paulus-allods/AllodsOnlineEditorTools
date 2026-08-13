@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace AllodsOnlineEditorTools.ClientResources.Texture.DDS;
 
@@ -18,7 +18,7 @@ public class DDSHeader
     public uint Caps3 { get; set; }
     public uint Caps4 { get; set; }
     public uint Reserved2 { get; set; }
-    
+
     public void SetCustomMetadata(string appName, string version, string compression)
     {
         using (var ms = new MemoryStream(Reserved1))
@@ -29,12 +29,12 @@ public class DDSHeader
 
             var verBytes = Encoding.ASCII.GetBytes(version.PadRight(16, '\0'));
             bw.Write(verBytes, 0, 16);
-            
+
             var compBytes = Encoding.ASCII.GetBytes(compression.PadRight(12, '\0'));
             bw.Write(compBytes, 0, 12);
         }
     }
-    
+
     public (string appName, string version, string compression) GetCustomMetadata()
     {
         var appName = Encoding.ASCII.GetString(Reserved1, 0, 16).TrimEnd('\0');

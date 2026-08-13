@@ -18,6 +18,22 @@ pull requests are welcome.
 > The open-source build excludes it automatically, so build the individual
 > project files as shown above rather than the solution.
 
+## Code style
+
+Code style is defined by the repository's `.editorconfig`. CI enforces it in a
+dedicated `code-style` job that runs `dotnet format --verify-no-changes`, and
+**this job must pass for a pull request to be merged.** Check and fix your
+changes locally before pushing:
+
+```sh
+dotnet format ClientResources/ClientResources.csproj --exclude ClientResources/Structs/
+dotnet format EditorCLI/EditorCLI.csproj
+dotnet format ClientResources.Tests/ClientResources.Tests.csproj
+```
+
+Rider (and any editor with EditorConfig support) applies the same rules on
+reformat, including the JetBrains-only ones that `dotnet format` does not cover. 
+
 ## Pull requests
 
 - Keep changes focused; one logical change per pull request.
@@ -27,6 +43,8 @@ pull requests are welcome.
   `ClientResources.Tests`, please keep those green.
 - Make sure the build and test commands from [Getting started](#getting-started)
   pass before opening the PR.
+- Make sure the [code style](#code-style) check passes; CI rejects unformatted
+  changes.
 - Write a clear description of *what* changed and *why*.
 
 ## Reverse-engineered data

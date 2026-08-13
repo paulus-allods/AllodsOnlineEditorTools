@@ -27,7 +27,11 @@ public static class EnumRefMaterializer
         {
             var ints = (int[])value!;
             var tokens = new object[ints.Length];
-            for (var i = 0; i < ints.Length; i++) tokens[i] = EnumToken(ints[i], enumType);
+            for (var i = 0; i < ints.Length; i++)
+            {
+                tokens[i] = EnumToken(ints[i], enumType);
+            }
+
             materialized = tokens;
             return true;
         }
@@ -36,7 +40,8 @@ public static class EnumRefMaterializer
         return false;
     }
 
-    private static object EnumToken(int value, Type enumType) => Enum.GetName(enumType, value) is { } name ? name : value;
+    private static object EnumToken(int value, Type enumType) =>
+        Enum.GetName(enumType, value) is { } name ? name : value;
 
     /// <summary>
     /// The inverse of <see cref="TryMaterialize"/>: when <paramref name="fieldType"/> is the

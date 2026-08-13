@@ -10,7 +10,8 @@ namespace EditorCLI.Commands.Pack;
 
 [UsedImplicitly]
 [Description("Display information about a packed database (version, structs, packs, texts, file count)")]
-internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory loggerFactory) : Command<PackInfoCommand.PackInfoCommandSettings>
+internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory loggerFactory)
+    : Command<PackInfoCommand.PackInfoCommandSettings>
 {
     [UsedImplicitly]
     public class PackInfoCommandSettings : CommandSettings
@@ -24,7 +25,8 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         public string? File { get; set; }
 
         [CommandOption("--version")]
-        [Description("Display the database hash version and matching version name (on by default; disable with --no-version)")]
+        [Description(
+            "Display the database hash version and matching version name (on by default; disable with --no-version)")]
         [DefaultValue(true)]
         public bool ShowVersion { get; set; }
 
@@ -48,7 +50,8 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         public bool ShowTexts { get; set; }
     }
 
-    public override int Execute(CommandContext context, PackInfoCommandSettings settings, CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, PackInfoCommandSettings settings,
+        CancellationToken cancellationToken)
     {
         var (metadata, _) = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
 
@@ -65,7 +68,9 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
 
         if (settings.ShowVersion && !settings.HideVersion)
         {
-            var versionName = GameVersion.Versions.TryGetValue(database.Version, out var version) ? version.ToString() : "unknown";
+            var versionName = GameVersion.Versions.TryGetValue(database.Version, out var version)
+                ? version.ToString()
+                : "unknown";
             console.MarkupLineInterpolated($"[yellow]Version:[/] 0x{database.Version:X16} ({versionName})");
         }
 
@@ -117,7 +122,8 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         return 0;
     }
 
-    private bool TrySelectDatabase(Dictionary<string, DatabaseMetadata> metadata, string? file, out DatabaseMetadata database)
+    private bool TrySelectDatabase(Dictionary<string, DatabaseMetadata> metadata, string? file,
+        out DatabaseMetadata database)
     {
         if (string.IsNullOrEmpty(file))
         {
@@ -127,7 +133,8 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
                 return true;
             }
 
-            console.MarkupLineInterpolated($"[red]info:[/] input contains {metadata.Count} databases; specify which .bin to analyze");
+            console.MarkupLineInterpolated(
+                $"[red]info:[/] input contains {metadata.Count} databases; specify which .bin to analyze");
             ListDatabases(metadata);
             database = null!;
             return false;

@@ -20,16 +20,19 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
         [CommandArgument(0, "<Bin>")]
         public string BinPath { get; set; } = string.Empty;
 
-        [Description("Path inside the database to list; supports * and ? wildcards in the last segment (e.g. Textures, textures/toto, Textures/Toto/Tata*)")]
+        [Description(
+            "Path inside the database to list; supports * and ? wildcards in the last segment (e.g. Textures, textures/toto, Textures/Toto/Tata*)")]
         [CommandArgument(1, "[Path]")]
         public string? Path { get; set; }
 
-        [Description("Only list files of these struct types, comma-separated and case-insensitive (e.g. Geometry,Texture,UIGameRoot). Directories are shown when they contain a matching file")]
+        [Description(
+            "Only list files of these struct types, comma-separated and case-insensitive (e.g. Geometry,Texture,UIGameRoot). Directories are shown when they contain a matching file")]
         [CommandOption("-t|--type <types>")]
         public string? Types { get; set; }
     }
 
-    public override int Execute(CommandContext context, PackListCommandSettings settings, CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, PackListCommandSettings settings,
+        CancellationToken cancellationToken)
     {
         var (metadata, _) = DatabaseLoader.LoadDatabases(settings.BinPath, NullLoggerFactory.Instance);
 
@@ -46,6 +49,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
                 {
                     continue;
                 }
+
                 tree.Add(path);
             }
         }
@@ -55,8 +59,9 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
             console.MarkupLineInterpolated($"[red]ls:[/] cannot access '{settings.Path}': no such file or directory");
             return 1;
         }
-        
-        foreach (var entry in entries.OrderByDescending(e => e.IsDirectory).ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase))
+
+        foreach (var entry in entries.OrderByDescending(e => e.IsDirectory)
+                     .ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase))
         {
             if (entry.IsDirectory)
             {
@@ -72,7 +77,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
     }
 
     private readonly record struct Entry(string Name, bool IsDirectory);
-    
+
     private sealed class DirectoryTree
     {
         private readonly Dictionary<string, Dictionary<string, bool>> _children = new(StringComparer.OrdinalIgnoreCase);
@@ -99,7 +104,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
         public bool TryList(string? query, out IReadOnlyCollection<Entry> entries)
         {
             var normalized = (query ?? string.Empty).Replace('\\', '/').Trim('/');
-            
+
             if (normalized.Length == 0)
             {
                 return TryListDirectory(string.Empty, out entries);
@@ -175,6 +180,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
                     _ => Regex.Escape(c.ToString())
                 });
             }
+
             builder.Append('$');
             return new Regex(builder.ToString(), RegexOptions.IgnoreCase);
         }

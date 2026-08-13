@@ -19,14 +19,19 @@ public class BinarySerializerOptions() : ConverterRegistry<IBinaryConverter>(Def
         new Vector2BinaryConverter(),
         new Vector3BinaryConverter(),
     ];
-    
+
     public static BinarySerializerOptions Default { get; } = new();
-    
+
     public int GetTypeSize(Type type, BinaryStructSerializerContext context)
     {
         var converter = GetConverter(type);
-        if (converter is not null) return converter.GetSize(type, context);
+        if (converter is not null)
+        {
+            return converter.GetSize(type, context);
+        }
+
         var sizeAttribute = type.GetCustomAttribute<StructSizeAttribute>();
-        return sizeAttribute?.Size ?? throw new InvalidOperationException($"Cannot get size of type '{type.Name}': no converter matches and no {nameof(StructSizeAttribute)} is present");
+        return sizeAttribute?.Size ?? throw new InvalidOperationException(
+            $"Cannot get size of type '{type.Name}': no converter matches and no {nameof(StructSizeAttribute)} is present");
     }
 }

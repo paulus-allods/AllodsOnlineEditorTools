@@ -7,7 +7,8 @@ internal class WStringBinaryConverter : BinaryConverter<WString>
 {
     public override int GetSize(Type type, BinaryStructSerializerContext context) => 12;
 
-    protected override WString ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert, BinaryStructSerializerContext context)
+    protected override WString ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
+        BinaryStructSerializerContext context)
     {
         var value = reader.ReadUnicodeString(offset);
         if (BinaryStructReader.HasInvalidControlCharacters(value))
@@ -17,10 +18,12 @@ internal class WStringBinaryConverter : BinaryConverter<WString>
                 offset, value);
             value = string.Empty;
         }
+
         return new WString(value);
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, WString value, BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, int offset, WString value,
+        BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

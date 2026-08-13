@@ -1,4 +1,4 @@
-﻿namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
+namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 
 public interface IBinaryConverter : ITypeConverter
 {

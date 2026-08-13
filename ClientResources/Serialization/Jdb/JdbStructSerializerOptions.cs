@@ -20,6 +20,6 @@ public class JdbStructSerializerOptions(bool prettyPrint) : ConverterRegistry<IJ
     ];
 
     public static JdbStructSerializerOptions Default { get; } = new(true);
-    
+
     public bool PrettyPrint => prettyPrint;
 }

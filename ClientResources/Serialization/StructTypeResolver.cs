@@ -55,14 +55,21 @@ public sealed class StructTypeResolver
         {
             if (type is not { IsClass: true, IsNested: false, Namespace: not null }
                 || !IsInNamespace(type.Namespace, versionNamespace))
+            {
                 continue;
+            }
 
             byName[type.Name] = type;
             var xdbName = XdbNameAttribute.Resolve(type);
             if (byXdbName.TryGetValue(xdbName, out var existing) && existing != type)
-                log.LogWarning("Duplicate xdb name '{XdbName}' for {Existing} and {Type}; last wins", xdbName, existing.FullName, type.FullName);
+            {
+                log.LogWarning("Duplicate xdb name '{XdbName}' for {Existing} and {Type}; last wins", xdbName,
+                    existing.FullName, type.FullName);
+            }
+
             byXdbName[xdbName] = type;
         }
+
         return new StructTypeResolver(byName, byXdbName);
     }
 
@@ -71,5 +78,6 @@ public sealed class StructTypeResolver
             types.ToDictionary(XdbNameAttribute.Resolve));
 
     private static bool IsInNamespace(string typeNamespace, string versionNamespace)
-        => typeNamespace == versionNamespace || typeNamespace.StartsWith(versionNamespace + ".", StringComparison.Ordinal);
+        => typeNamespace == versionNamespace ||
+           typeNamespace.StartsWith(versionNamespace + ".", StringComparison.Ordinal);
 }

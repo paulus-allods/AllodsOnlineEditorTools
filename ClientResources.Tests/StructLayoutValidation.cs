@@ -42,11 +42,11 @@ public class StructLayoutValidation
     private void ValidateClass(BinaryStructSerializerContext context, Type type, int baseOffset, int endOffset)
     {
         var orderedFields = type.GetFields()
-        .Select(f => (Field: f, f.GetCustomAttribute<FieldOffsetAttribute>()?.Offset))
-        .Where(f => f.Offset is not null)
-        .OrderBy(f => f.Offset!.Value)
-        .Select(f => f.Field)
-        .ToArray();
+            .Select(f => (Field: f, f.GetCustomAttribute<FieldOffsetAttribute>()?.Offset))
+            .Where(f => f.Offset is not null)
+            .OrderBy(f => f.Offset!.Value)
+            .Select(f => f.Field)
+            .ToArray();
 
         var nestedStructs = type.GetNestedTypes().Where(c => c.GetCustomAttribute<StructSizeAttribute>() is not null);
 
@@ -59,7 +59,9 @@ public class StructLayoutValidation
 
             for (var i = 0; i < orderedFields.Length; i++)
             {
-                var nextOffset = i == orderedFields.Length - 1 ? endOffset : baseOffset + orderedFields[i + 1].GetCustomAttribute<FieldOffsetAttribute>()!.Offset;
+                var nextOffset = i == orderedFields.Length - 1
+                    ? endOffset
+                    : baseOffset + orderedFields[i + 1].GetCustomAttribute<FieldOffsetAttribute>()!.Offset;
                 ValidateField(context, orderedFields[i], baseOffset, nextOffset);
             }
         }
@@ -83,11 +85,14 @@ public class StructLayoutValidation
             var room = nextOffset - (baseOffset + fieldOffsetAnnotation.Offset + size);
             if (room < 0)
             {
-                Assert.Fail($"Field {field.Name} of type {field.FieldType} in {field.DeclaringType} has extra {-room} space");
+                Assert.Fail(
+                    $"Field {field.Name} of type {field.FieldType} in {field.DeclaringType} has extra {-room} space");
             }
+
             if (room > 0 && field.FieldType != typeof(bool)) // Booleans are aligned on 1 byte
             {
-                Assert.Warn($"Field {field.Name} of type {field.FieldType} in {field.DeclaringType} has extra {room} space");
+                Assert.Warn(
+                    $"Field {field.Name} of type {field.FieldType} in {field.DeclaringType} has extra {room} space");
             }
         }
     }

@@ -19,13 +19,14 @@ public class XdbStructSerializer(
             var header = new XElement("Header", new XElement("resourceId", resourceId));
             xdb.AddFirst(header);
         }
+
         return XmlDeclaration + Environment.NewLine + xdb;
     }
 
     public override object ParseResource(string text, out int resourceId)
     {
         var root = XDocument.Parse(text).Root
-            ?? throw new InvalidOperationException("xdb document has no root element");
+                   ?? throw new InvalidOperationException("xdb document has no root element");
 
         var idText = root.Element("Header")?.Element("resourceId")?.Value;
         resourceId = int.TryParse(idText, out var id) ? id : 0;
@@ -49,7 +50,10 @@ public class XdbStructSerializer(
 
     protected override void AddField(XElement objectNode, string name, XElement? child)
     {
-        if (child is not null) objectNode.Add(child);
+        if (child is not null)
+        {
+            objectNode.Add(child);
+        }
     }
 
     protected override XElement WriteNull(string name) => new(name);
@@ -66,7 +70,8 @@ public class XdbStructSerializer(
 
     protected override string ReadScalarToken(XElement node) => node.Value;
 
-    protected override IEnumerable<string> ReadItemTokens(XElement node) => node.Elements("Item").Select(item => item.Value);
+    protected override IEnumerable<string> ReadItemTokens(XElement node) =>
+        node.Elements("Item").Select(item => item.Value);
 
     protected override object? ReadConverted(IXdbConverter converter, XElement node, Type type)
         => converter.Read(this, node, type);

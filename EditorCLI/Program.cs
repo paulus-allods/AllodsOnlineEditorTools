@@ -13,7 +13,7 @@ services.AddLogging(builder =>
     builder.AddSimpleConsole(options => options.IncludeScopes = true);
     builder.SetMinimumLevel(LogLevel.Information);
 });
-  
+
 var registrar = new TypeRegistrar(services);
 var app = new CommandApp(registrar);
 
@@ -73,7 +73,8 @@ namespace EditorCLI
 
         public void Register(Type service, Type implementation) => services.AddSingleton(service, implementation);
 
-        public void RegisterInstance(Type service, object implementation) => services.AddSingleton(service, implementation);
+        public void RegisterInstance(Type service, object implementation) =>
+            services.AddSingleton(service, implementation);
 
         public void RegisterLazy(Type service, Func<object> factory) => services.AddSingleton(service, _ => factory());
 

@@ -9,3 +9,5 @@ riderModule.iml
 /StructCodeGeneration/
 /Directory.Build.props
 *.DotSettings.user
+.mcp.json
+CLAUDE.md

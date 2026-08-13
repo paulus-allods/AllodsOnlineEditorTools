@@ -38,3 +38,35 @@ jobs:
 
       - name: Test
         run: dotnet test ClientResources.Tests/ClientResources.Tests.csproj --configuration Release --no-build --verbosity normal
+
+  code-style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # dotnet format verifies the Roslyn-supported .editorconfig rules on the
+      # hand-written code. The JetBrains-only rules (blank line before nested
+      # types, trailing commas) are guaranteed by the struct generator and
+      # applied locally by Rider from the same .editorconfig, so they are not
+      # gated here.
+      #
+      # The generated structs are excluded: they are owned by the generator and
+      # follow relaxed conventions dotnet format would otherwise flag.
+      - name: Verify formatting (ClientResources)
+        run: >
+          dotnet format ClientResources/ClientResources.csproj
+          --verify-no-changes
+          --exclude ClientResources/Structs/
+
+      - name: Verify formatting (EditorCLI)
+        run: dotnet format EditorCLI/EditorCLI.csproj --verify-no-changes
+
+      - name: Verify formatting (Tests)
+        run: dotnet format ClientResources.Tests/ClientResources.Tests.csproj --verify-no-changes

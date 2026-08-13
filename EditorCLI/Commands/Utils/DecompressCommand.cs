@@ -23,7 +23,8 @@ internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
         public string? OutputPath { get; set; }
     }
 
-    public override int Execute(CommandContext context, DecompressCommandSettings settings, CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, DecompressCommandSettings settings,
+        CancellationToken cancellationToken)
     {
         if (!File.Exists(settings.InputPath))
         {
@@ -51,7 +52,7 @@ internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
                 settings.InputPath, ex.Message);
             return 1;
         }
-        
+
         decompressed.Seek(0, SeekOrigin.Begin);
         using (var output = File.Create(outputPath))
         {
@@ -67,7 +68,7 @@ internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
     // second header byte (FLG). See RFC 1950 section 2.2.
     private void LogCompressionLevel(Stream stream)
     {
-        stream.ReadByte();       // CMF
+        stream.ReadByte(); // CMF
         var flg = stream.ReadByte();
         stream.Seek(0, SeekOrigin.Begin);
 

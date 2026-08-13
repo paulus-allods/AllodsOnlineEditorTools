@@ -1,4 +1,4 @@
-﻿using System.IO.Compression;
+using System.IO.Compression;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 
@@ -6,7 +6,7 @@ public class PacksRegistry
 {
     private readonly Dictionary<string, List<string>> _packsFiles;
 
-    private PacksRegistry() 
+    private PacksRegistry()
     {
         _packsFiles = [];
     }

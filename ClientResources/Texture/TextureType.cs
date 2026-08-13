@@ -1,4 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
+// ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Global
 
 namespace AllodsOnlineEditorTools.ClientResources.Texture;

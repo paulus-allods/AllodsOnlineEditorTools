@@ -16,10 +16,12 @@ namespace ClientResources.Tests;
 [TestFixture]
 public class XdbStructSerializerWriteTests
 {
-    private static readonly XdbStructSerializer Serializer = new(XdbStructSerializerOptions.Default, ResourceSerializationContext.Default);
+    private static readonly XdbStructSerializer Serializer = new(XdbStructSerializerOptions.Default,
+        ResourceSerializationContext.Default);
+
     private static XElement? Field(object? value, string name, Type type)
         => Serializer.SerializeField(value, name, type);
-    
+
     private static string Xml(XElement? element)
         => element!.ToString(SaveOptions.DisableFormatting);
 
@@ -33,7 +35,8 @@ public class XdbStructSerializerWriteTests
     // Sample: <fadeDistanceStart>-1</fadeDistanceStart> (Geometry.xdb)
     [Test]
     public void NegativeInt_SerializesWithSign()
-        => Assert.That(Xml(Field(-1, "fadeDistanceStart", typeof(int))), Is.EqualTo("<fadeDistanceStart>-1</fadeDistanceStart>"));
+        => Assert.That(Xml(Field(-1, "fadeDistanceStart", typeof(int))),
+            Is.EqualTo("<fadeDistanceStart>-1</fadeDistanceStart>"));
 
     // Sample: <fmodProjectCRC>-1945242361</fmodProjectCRC> (Weapon.(FMODProject).xdb)
     [Test]
@@ -61,7 +64,8 @@ public class XdbStructSerializerWriteTests
     // Sample: <headBoneName>Head</headBoneName> (AnimationProperties.xdb)
     [Test]
     public void String_SerializesAsText()
-        => Assert.That(Xml(Field("Head", "headBoneName", typeof(string))), Is.EqualTo("<headBoneName>Head</headBoneName>"));
+        => Assert.That(Xml(Field("Head", "headBoneName", typeof(string))),
+            Is.EqualTo("<headBoneName>Head</headBoneName>"));
 
     // Empty strings collapse to an empty element (no text node).
     [Test]
@@ -90,7 +94,8 @@ public class XdbStructSerializerWriteTests
     [Test]
     public void EnumRefIntArray_WrapsNamedItemsInItem()
         => Assert.That(Xml(Serializer.SerializeObject(new EnumRefHolder(), "Root").Element("kinds")),
-            Is.EqualTo("<kinds><Item>CREATURE_KIND_VERTICAL</Item><Item>CREATURE_KIND_HORIZONTAL</Item><Item>42</Item></kinds>"));
+            Is.EqualTo(
+                "<kinds><Item>CREATURE_KIND_VERTICAL</Item><Item>CREATURE_KIND_HORIZONTAL</Item><Item>42</Item></kinds>"));
 
     // ---------------------------------------------------------------- Arrays
 
@@ -120,7 +125,8 @@ public class XdbStructSerializerWriteTests
     // Sample: <binaryFile href="/Characters/Elf_female/ElfFemale.(Geometry).bin" /> (Geometry.xdb)
     [Test]
     public void FileRef_SerializesAsRootedHref()
-        => Assert.That(Xml(Field(new FileRef("Characters/Elf_female/ElfFemale.(Geometry).bin"), "binaryFile", typeof(FileRef))),
+        => Assert.That(
+            Xml(Field(new FileRef("Characters/Elf_female/ElfFemale.(Geometry).bin"), "binaryFile", typeof(FileRef))),
             Is.EqualTo("<binaryFile href=\"/Characters/Elf_female/ElfFemale.(Geometry).bin\" />"));
 
     [Test]
@@ -144,13 +150,16 @@ public class XdbStructSerializerWriteTests
     // Sample: href="/Material/userinfo.xdb#xpointer(/MaterialTemplate)" — typed pointer.
     [Test]
     public void ResourcePointer_WithType_SerializesXPointerHref()
-        => Assert.That(Xml(Field(new ResourcePointer("Material/userinfo.xdb", typeof(SampleMaterial)), "surface", typeof(ResourcePointer))),
+        => Assert.That(
+            Xml(Field(new ResourcePointer("Material/userinfo.xdb", typeof(SampleMaterial)), "surface",
+                typeof(ResourcePointer))),
             Is.EqualTo("<surface href=\"/Material/userinfo.xdb#xpointer(/MaterialTemplate)\" />"));
 
     // Untyped pointer: just the rooted resource path.
     [Test]
     public void ResourcePointer_WithoutType_SerializesPlainHref()
-        => Assert.That(Xml(Field(new ResourcePointer("Material/userinfo.xdb", null), "surface", typeof(ResourcePointer))),
+        => Assert.That(
+            Xml(Field(new ResourcePointer("Material/userinfo.xdb", null), "surface", typeof(ResourcePointer))),
             Is.EqualTo("<surface href=\"/Material/userinfo.xdb\" />"));
 
     // ---------------------------------------------------------------- NullablePointer (polymorphic)
@@ -194,7 +203,9 @@ public class XdbStructSerializerWriteTests
     // Sample: <aabb><center .../><extents .../></aabb> (Geometry.xdb) — nested types reflect their fields.
     [Test]
     public void NestedStruct_ReflectsFieldsRecursively()
-        => Assert.That(Xml(Field(new AABB { center = new Vector3(1, 2, 3), extents = new Vector3(4, 5, 6) }, "aabb", typeof(AABB))),
+        => Assert.That(
+            Xml(Field(new AABB { center = new Vector3(1, 2, 3), extents = new Vector3(4, 5, 6) }, "aabb",
+                typeof(AABB))),
             Is.EqualTo("<aabb><center x=\"1\" y=\"2\" z=\"3\" /><extents x=\"4\" y=\"5\" z=\"6\" /></aabb>"));
 
     // ---------------------------------------------------------------- Field naming & attributes

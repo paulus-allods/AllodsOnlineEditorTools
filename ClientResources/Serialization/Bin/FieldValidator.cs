@@ -8,7 +8,9 @@ internal static partial class FieldValidator
 {
     private const string NoSource = "NO_SOURCE";
 
-    private static readonly string[] FileRefExtensions = [".bin", ".tga", ".bev", ".bsb", ".fsb", ".psd", ".lua", ".cur", ".ttf", ".hlsl", ".eh", ".ej"];
+    private static readonly string[] FileRefExtensions =
+        [".bin", ".tga", ".bev", ".bsb", ".fsb", ".psd", ".lua", ".cur", ".ttf", ".hlsl", ".eh", ".ej", ".ogv"];
+
     private static readonly string[] PlainStringExemptions = [".pak", ".xdb"];
 
     // A file-extension-looking suffix: a dot followed by 2-3 non-digit characters at the end of the string.
@@ -25,7 +27,9 @@ internal static partial class FieldValidator
     [Conditional("DEBUG")]
     public static void ValidateFileRef(string value, int offset)
     {
-        Debug.Assert(value.Length == 0 || value.Contains(NoSource, StringComparison.InvariantCulture) || FileRefExtensions.Any(value.EndsWith),
+        Debug.Assert(
+            value.Length == 0 || value.Contains(NoSource, StringComparison.InvariantCulture) ||
+            FileRefExtensions.Any(value.EndsWith),
             $"FileRef field at offset {offset} contains '{value}', which does not end with a known file extension ({string.Join(", ", FileRefExtensions)}); the field is probably not a FileRef");
     }
 
@@ -35,14 +39,15 @@ internal static partial class FieldValidator
         Debug.Assert(value.Length == 0 || value.EndsWith(".txt", StringComparison.InvariantCulture),
             $"TextFileRef field at offset {offset} contains '{value}', which does not end with .txt; the field is probably not a TextFileRef");
     }
-    
+
     [Conditional("DEBUG")]
     public static void ValidateEnumRef(FieldInfo field, int offset, Type enumRef, object? value)
     {
         switch (value)
         {
             case int intValue:
-                Debug.Assert(Enum.IsDefined(enumRef, intValue), $"Field '{field.DeclaringType?.Name}.{field.Name}' at offset {offset} contains {intValue}, which is not defined in {enumRef.Name}; the enum definition is probably incomplete or the field is not a {enumRef.Name}");
+                Debug.Assert(Enum.IsDefined(enumRef, intValue),
+                    $"Field '{field.DeclaringType?.Name}.{field.Name}' at offset {offset} contains {intValue}, which is not defined in {enumRef.Name}; the enum definition is probably incomplete or the field is not a {enumRef.Name}");
                 break;
             case int[] intValues:
                 foreach (var item in intValues)
@@ -50,6 +55,7 @@ internal static partial class FieldValidator
                     Debug.Assert(Enum.IsDefined(enumRef, item),
                         $"Field '{field.DeclaringType?.Name}.{field.Name}' at offset {offset} contains {item}, which is not defined in {enumRef.Name}; the enum definition is probably incomplete or the field is not a {enumRef.Name}");
                 }
+
                 break;
         }
     }

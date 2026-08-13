@@ -13,7 +13,10 @@ using Spectre.Console.Cli;
 namespace EditorCLI.Commands.Generation;
 
 [UsedImplicitly]
-internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<GenerateStructCodeCommand> logger, ILoggerFactory loggerFactory)
+internal sealed class GenerateStructCodeCommand(
+    IAnsiConsole console,
+    ILogger<GenerateStructCodeCommand> logger,
+    ILoggerFactory loggerFactory)
     : Command<GenerateStructCodeCommand.GenerateStructCodeCommandSettings>
 {
     [UsedImplicitly]
@@ -22,26 +25,36 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
         [Description("Path to Bin folder containing databases or path to pak archive containing Bin folder")]
         [CommandArgument(0, "<Bin>")]
         public string BinPath { get; set; } = string.Empty;
-        [CommandArgument(1, "<version>")]
-        public string Version { get; init; } = string.Empty;
-        [Description("Hex address of the metainfo pointer. If omitted (together with --register-metainfo), auto-discovery is used.")]
+
+        [CommandArgument(1, "<version>")] public string Version { get; init; } = string.Empty;
+
+        [Description(
+            "Hex address of the metainfo pointer. If omitted (together with --register-metainfo), auto-discovery is used.")]
         [CommandOption("--metainfo <ADDR>")]
         public string? MetainfoPointer { get; init; }
-        [Description("Hex address of the metainfo registrators array. If omitted (together with --metainfo), auto-discovery is used.")]
+
+        [Description(
+            "Hex address of the metainfo registrators array. If omitted (together with --metainfo), auto-discovery is used.")]
         [CommandOption("--register-metainfo <ADDR>")]
         public string? RegisterMetainfoArrayPointer { get; init; }
+
         [CommandOption("--output-dir")]
         [DefaultValue("output")]
         public string OutputDirectory { get; init; } = string.Empty;
-        [CommandOption("--types-xml")]
-        public string? TypesXmlFile { get; init; }
-        [Description("Struct names to generate (comma-separated or repeated). When provided, structs are taken from this list instead of being derived from the pack.bin databases.")]
+
+        [CommandOption("--types-xml")] public string? TypesXmlFile { get; init; }
+
+        [Description(
+            "Struct names to generate (comma-separated or repeated). When provided, structs are taken from this list instead of being derived from the pack.bin databases.")]
         [CommandOption("--structs <NAMES>")]
         public string[] Structs { get; init; } = [];
-        [Description("Generate the Animations enum from the SkeletalAnimation instances in the databases (merged with types.xml when provided).")]
+
+        [Description(
+            "Generate the Animations enum from the SkeletalAnimation instances in the databases (merged with types.xml when provided).")]
         [CommandOption("--animations")]
         [DefaultValue(false)]
         public bool Animations { get; init; }
+
         [Description("Run generation without writing any output files.")]
         [CommandOption("--dry-run")]
         [DefaultValue(false)]
@@ -51,11 +64,15 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
         {
             var hasMeta = !string.IsNullOrWhiteSpace(MetainfoPointer);
             var hasReg = !string.IsNullOrWhiteSpace(RegisterMetainfoArrayPointer);
-            return hasMeta != hasReg ? ValidationResult.Error("Either provide both --metainfo and --register-metainfo, or neither (for auto-discovery).") : ValidationResult.Success();
+            return hasMeta != hasReg
+                ? ValidationResult.Error(
+                    "Either provide both --metainfo and --register-metainfo, or neither (for auto-discovery).")
+                : ValidationResult.Success();
         }
     }
 
-    public override int Execute(CommandContext context, GenerateStructCodeCommandSettings settings, CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, GenerateStructCodeCommandSettings settings,
+        CancellationToken cancellationToken)
     {
 #if IS_OPEN_SOURCE_BUILD
         logger.LogError(
@@ -74,8 +91,8 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
         {
             logger.LogWarning("More than one game process found, first one will be taken");
         }
-        
-        
+
+
         int? registerPtrAddr = string.IsNullOrWhiteSpace(settings.RegisterMetainfoArrayPointer)
             ? null
             : Convert.ToInt32(settings.RegisterMetainfoArrayPointer, 16);
@@ -90,7 +107,8 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
 
         if (structNames.Length > 0)
         {
-            logger.LogInformation("Generating {Count} struct(s) from the provided list instead of the databases", structNames.Length);
+            logger.LogInformation("Generating {Count} struct(s) from the provided list instead of the databases",
+                structNames.Length);
         }
 
         var collection = new StructCollector(loggerFactory).Collect(
@@ -111,10 +129,12 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
 
         if (!GameVersion.ByName.TryGetValue(version, out var gameVersion))
         {
-            logger.LogWarning("Version {Version} is not declared in GameVersions.resx; FileRef inference will be disabled", version);
+            logger.LogWarning(
+                "Version {Version} is not declared in GameVersions.resx; FileRef inference will be disabled", version);
         }
-        
-        var generator = new StructCodeGenerator(collection, settings.TypesXmlFile, version, gameVersion?.FileRefKind ?? FileRefKind.None, logger);
+
+        var generator = new StructCodeGenerator(collection, settings.TypesXmlFile, version,
+            gameVersion?.FileRefKind ?? FileRefKind.None, logger);
 
         if (settings.DryRun)
         {
@@ -123,12 +143,14 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
 
         var enumDir = $"{versionDir}Enums/";
 
-        var structGenerated = WriteTemplates(versionDir, "structs", generator.BuildStructTemplates(), t => t.Name, t => t.TransformText());
+        var structGenerated = WriteTemplates(versionDir, "structs", generator.BuildStructTemplates(), t => t.Name,
+            t => t.TransformText());
         logger.LogInformation("Struct code generation completed: {Number} struct generated", structGenerated);
 
         if (generator.EnumCount > 0)
         {
-            var enumGenerated = WriteTemplates(enumDir, "enums", generator.BuildEnumTemplates(), t => t.Name, t => t.TransformText());
+            var enumGenerated = WriteTemplates(enumDir, "enums", generator.BuildEnumTemplates(), t => t.Name,
+                t => t.TransformText());
             logger.LogInformation("Enum code generation completed: {Number} enums generated", enumGenerated);
         }
 
@@ -146,8 +168,9 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
         }
 
         return 0;
-        
-        int WriteTemplates<T>(string dir, string kind, IEnumerable<T> templates, Func<T, string> name, Func<T, string> render)
+
+        int WriteTemplates<T>(string dir, string kind, IEnumerable<T> templates, Func<T, string> name,
+            Func<T, string> render)
         {
             var count = 0;
             console.Status().Spinner(Spinner.Known.Ascii).Start($"Generating {kind}", _ =>
@@ -156,6 +179,7 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
                 {
                     Directory.CreateDirectory(dir);
                 }
+
                 foreach (var template in templates)
                 {
                     var fileName = $"{name(template)}.cs";
@@ -163,6 +187,7 @@ internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<Ge
                     {
                         File.WriteAllText($"{dir}{fileName}", render(template));
                     }
+
                     logger.LogDebug("Code generated: {FileName}", fileName);
                     count++;
                 }

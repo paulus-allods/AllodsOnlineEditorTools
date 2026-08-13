@@ -54,6 +54,7 @@ public class DatabaseMetadata
         {
             return Structs[fix.Value];
         }
+
         return null;
     }
 }

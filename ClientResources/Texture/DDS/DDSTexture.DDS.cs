@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace AllodsOnlineEditorTools.ClientResources.Texture.DDS;
 
@@ -9,7 +9,7 @@ public partial class DDSTexture
         using var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
         return LoadDDS(fs);
     }
-    
+
     public static DDSTexture LoadDDS(Stream stream)
     {
         using var br = new BinaryReader(stream);
@@ -38,7 +38,7 @@ public partial class DDSTexture
         for (var i = 0; i < mipCount; i++)
         {
             uint mipSize;
-                
+
             if ((texture.Header.PixelFormat.Flags & DDSPixelFormatFlags.DDPF_FOURCC) != 0)
             {
                 // Compressed format
@@ -92,13 +92,13 @@ public partial class DDSTexture
 
         return header;
     }
-    
+
     public void SaveAsDDS(string filePath)
     {
         using var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write);
         SaveAsDDS(fs);
     }
-    
+
     public void SaveAsDDS(Stream stream)
     {
         using var bw = new BinaryWriter(stream, Encoding.ASCII, true);

@@ -1,4 +1,4 @@
-﻿namespace AllodsOnlineEditorTools.ClientResources.Geometry;
+namespace AllodsOnlineEditorTools.ClientResources.Geometry;
 
 public enum VertexElementType
 {

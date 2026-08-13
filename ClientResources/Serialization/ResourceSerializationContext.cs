@@ -15,6 +15,7 @@ public sealed class ResourceSerializationContext
         {
             return overrideEnum;
         }
+
         return field.EnumRef;
     }
 
@@ -26,7 +27,10 @@ public sealed class ResourceSerializationContext
     public Type ResolveDocumentType(string versionNamespace, string typeName)
     {
         if (!versionNamespace.StartsWith(StructsNamespacePrefix, StringComparison.Ordinal))
+        {
             throw new InvalidOperationException($"$version '{versionNamespace}' is not a known structs namespace");
+        }
+
         return StructTypeResolverCache.ForNamespace(versionNamespace).ResolveByName(typeName);
     }
 

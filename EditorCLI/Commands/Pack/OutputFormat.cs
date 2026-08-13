@@ -1,4 +1,4 @@
-﻿namespace EditorCLI.Commands.Pack;
+namespace EditorCLI.Commands.Pack;
 
 public enum OutputFormat
 {

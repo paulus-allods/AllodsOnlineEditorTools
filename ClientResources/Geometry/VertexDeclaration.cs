@@ -1,4 +1,4 @@
-﻿namespace AllodsOnlineEditorTools.ClientResources.Geometry;
+namespace AllodsOnlineEditorTools.ClientResources.Geometry;
 
 public class VertexDeclaration
 {
@@ -10,7 +10,7 @@ public class VertexDeclaration
     public required VertexComponent Texcoord1 { get; set; }
     public required VertexComponent Weights { get; set; }
     public required VertexComponent Indices { get; set; }
-    
+
     public class VertexComponent
     {
         public VertexElementType Type { get; set; }

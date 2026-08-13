@@ -19,7 +19,11 @@ internal class PrimitivesXdbConverter : XdbConverter<object>
 
     protected override object ReadValue(XdbStructSerializer serializer, XElement element, Type type)
     {
-        if (type == typeof(string)) return element.Value;
+        if (type == typeof(string))
+        {
+            return element.Value;
+        }
+
         return Convert.ChangeType(element.Value, type, CultureInfo.InvariantCulture);
     }
 }

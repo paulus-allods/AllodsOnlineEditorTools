@@ -1,4 +1,4 @@
-﻿namespace AllodsOnlineEditorTools.ClientResources.Texture.DDS;
+namespace AllodsOnlineEditorTools.ClientResources.Texture.DDS;
 
 public partial class DDSTexture
 {
@@ -17,7 +17,7 @@ public partial class DDSTexture
     public bool HasMipMaps => MipMapCount > 1;
     public bool IsCubeMap => (Header.Caps2 & DDSCaps2.DDSCAPS2_CUBEMAP) != 0;
     public bool IsVolumeTexture => (Header.Caps2 & DDSCaps2.DDSCAPS2_VOLUME) != 0;
-    
+
     public static uint GetMipMapSize(uint width, uint height, uint fourCC)
     {
         var blockSize = GetBlockSize(fourCC);
@@ -25,11 +25,12 @@ public partial class DDSTexture
         {
             throw new NotSupportedException($"Unsupported compressed texture format (FourCC 0x{fourCC:X8})");
         }
+
         var blocksWide = Math.Max(1, (width + 3) / 4);
         var blocksHigh = Math.Max(1, (height + 3) / 4);
         return blocksWide * blocksHigh * blockSize;
     }
-    
+
     public static uint GetBlockSize(uint fourCC)
     {
         return fourCC switch

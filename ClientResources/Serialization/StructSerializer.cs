@@ -14,15 +14,19 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
 
     public abstract string SerializeResource(object obj, int resourceId);
     public abstract object ParseResource(string text, out int resourceId);
-    
+
     protected TWriteNode SerializeObjectNode(object? obj, string name)
     {
         var node = BeginObject(name);
-        if (obj is null) return node;
+        if (obj is null)
+        {
+            return node;
+        }
 
         foreach (var field in StructModelCache.Get(obj.GetType()).Fields)
         {
-            var child = SerializeFieldNode(field.GetValue(obj), field.XdbName, field.FieldType, context.ResolveEnumRef(field));
+            var child = SerializeFieldNode(field.GetValue(obj), field.XdbName, field.FieldType,
+                context.ResolveEnumRef(field));
             AddField(node, field.XdbName, child);
         }
 
@@ -32,13 +36,21 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
     protected TWriteNode? SerializeFieldNode(object? value, string name, Type type, Type? enumRef)
     {
         if (enumRef is not null && value is not null
-            && EnumRefMaterializer.TryMaterialize(value, type, enumRef, out var token))
+                                && EnumRefMaterializer.TryMaterialize(value, type, enumRef, out var token))
+        {
             return SerializeFieldNode(token, name, token!.GetType(), null);
+        }
 
-        if (value is null) return WriteNull(name);
+        if (value is null)
+        {
+            return WriteNull(name);
+        }
 
         var converter = options.GetConverter(type);
-        if (converter is not null) return WriteConverted(converter, name, value);
+        if (converter is not null)
+        {
+            return WriteConverted(converter, name, value);
+        }
 
         return SerializeObjectNode(value, name);
     }
@@ -46,27 +58,36 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
     protected object DeserializeObjectNode(TReadNode node, Type type)
     {
         var obj = Activator.CreateInstance(type)
-            ?? throw new InvalidOperationException($"Failed to create instance of {type.FullName}");
+                  ?? throw new InvalidOperationException($"Failed to create instance of {type.FullName}");
 
         foreach (var field in StructModelCache.Get(type).Fields)
+        {
             if (TryGetChild(node, field.XdbName, out var child))
+            {
                 field.SetValue(obj, DeserializeFieldNode(child, field.FieldType, context.ResolveEnumRef(field)));
+            }
+        }
 
         return obj;
     }
 
     protected object? DeserializeFieldNode(TReadNode node, Type type, Type? enumRef)
     {
-        if (IsNull(node)) return null;
+        if (IsNull(node))
+        {
+            return null;
+        }
 
         if (enumRef is not null && EnumRefMaterializer.TryDematerialize(
                 type, enumRef, () => ReadScalarToken(node), () => ReadItemTokens(node), out var carrier))
+        {
             return carrier;
+        }
 
         var converter = options.GetConverter(type);
         return converter is not null ? ReadConverted(converter, node, type) : DeserializeObjectNode(node, type);
     }
-    
+
     /// <summary>Creates the empty node an object serializes into (xdb: a named element; jdb: a dictionary).</summary>
     protected abstract TWriteNode BeginObject(string name);
 

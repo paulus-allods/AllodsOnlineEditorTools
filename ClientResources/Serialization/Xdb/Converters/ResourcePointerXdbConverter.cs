@@ -13,10 +13,11 @@ internal class ResourcePointerXdbConverter : XdbConverter<ResourcePointer>
         {
             return null;
         }
-        
+
         if (value.Type is null)
         {
-            serializer.Logger.LogWarning("Resource pointer to {Href} has no resolved type; writing href without an xpointer", value.Href);
+            serializer.Logger.LogWarning(
+                "Resource pointer to {Href} has no resolved type; writing href without an xpointer", value.Href);
         }
 
         var typeName = value.Type is not null
@@ -31,9 +32,17 @@ internal class ResourcePointerXdbConverter : XdbConverter<ResourcePointer>
     protected override ResourcePointer ReadValue(XdbStructSerializer serializer, XElement element, Type type)
     {
         var href = element.Attribute("href")?.Value ?? string.Empty;
-        if (href.StartsWith('/')) href = href[1..];
+        if (href.StartsWith('/'))
+        {
+            href = href[1..];
+        }
+
         var xpointer = href.IndexOf('#');
-        if (xpointer >= 0) href = href[..xpointer];
+        if (xpointer >= 0)
+        {
+            href = href[..xpointer];
+        }
+
         return new ResourcePointer(href, null);
     }
 }

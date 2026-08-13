@@ -20,8 +20,10 @@ public sealed class BinaryStructWriter(BinaryStructSerializerContext context, Bi
         {
             if (field.Offset is not { } fieldOffset)
             {
-                throw new InvalidOperationException($"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
+                throw new InvalidOperationException(
+                    $"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
             }
+
             WriteField(offset + fieldOffset, field.GetValue(value), field.FieldType);
         }
     }
@@ -34,18 +36,26 @@ public sealed class BinaryStructWriter(BinaryStructSerializerContext context, Bi
             converter.Write(this, offset, value, context);
             return;
         }
+
         if (type.IsClass)
         {
-            WriteObject(offset, value ?? throw new InvalidOperationException($"Cannot write null object of type '{type.Name}'"), type);
+            WriteObject(offset,
+                value ?? throw new InvalidOperationException($"Cannot write null object of type '{type.Name}'"), type);
             return;
         }
+
         throw new InvalidOperationException($"No binary converter registered for type '{type.Name}'");
     }
 
     public void WriteInt(int offset, int value) => BinaryPrimitives.WriteInt32LittleEndian(Reserve(offset, 4), value);
     public void WriteLong(int offset, long value) => BinaryPrimitives.WriteInt64LittleEndian(Reserve(offset, 8), value);
-    public void WriteFloat(int offset, float value) => BinaryPrimitives.WriteSingleLittleEndian(Reserve(offset, 4), value);
-    public void WriteDouble(int offset, double value) => BinaryPrimitives.WriteDoubleLittleEndian(Reserve(offset, 8), value);
+
+    public void WriteFloat(int offset, float value) =>
+        BinaryPrimitives.WriteSingleLittleEndian(Reserve(offset, 4), value);
+
+    public void WriteDouble(int offset, double value) =>
+        BinaryPrimitives.WriteDoubleLittleEndian(Reserve(offset, 8), value);
+
     public void WriteBool(int offset, bool value) => Reserve(offset, 1)[0] = (byte)(value ? 1 : 0);
 
     /// <summary>The bytes written so far, trimmed to the highest offset touched.</summary>
@@ -58,7 +68,12 @@ public sealed class BinaryStructWriter(BinaryStructSerializerContext context, Bi
         {
             Array.Resize(ref _buffer, Math.Max(end, Math.Max(_buffer.Length * 2, 16)));
         }
-        if (end > _length) _length = end;
+
+        if (end > _length)
+        {
+            _length = end;
+        }
+
         return _buffer.AsSpan(offset, size);
     }
 }

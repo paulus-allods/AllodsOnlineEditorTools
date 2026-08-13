@@ -43,7 +43,7 @@ public class XdbFloatTests
         // they must render in exponent form instead of throwing.
         Assert.That(XdbFloat.ToXdbString(value), Is.EqualTo(expected));
     }
-    
+
     [TestCase("3.14172")]
     [TestCase("0.548078")]
     [TestCase("0.0317405")]

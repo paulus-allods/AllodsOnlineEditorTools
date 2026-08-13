@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -34,15 +34,21 @@ public class GameVersion
             foreach (System.Collections.DictionaryEntry entry in resourceSet)
             {
                 if (entry.Value is not string json)
+                {
                     continue;
+                }
 
                 try
                 {
                     var version = JsonSerializer.Deserialize<GameVersion>(json);
                     if (version == null)
+                    {
                         continue;
+                    }
 
-                    var hashStr = version.Hash.StartsWith("0x", StringComparison.Ordinal) ? version.Hash[2..] : version.Hash;
+                    var hashStr = version.Hash.StartsWith("0x", StringComparison.Ordinal)
+                        ? version.Hash[2..]
+                        : version.Hash;
                     var hash = ulong.Parse(hashStr, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
 
                     byHash[hash] = version;

@@ -1,4 +1,5 @@
-﻿using System.Text;
+using System.Text;
+
 // ReSharper disable InconsistentNaming
 
 namespace AllodsOnlineEditorTools.ClientResources.Texture.DDS;
@@ -40,9 +41,7 @@ public static class FourCC
     {
         return Encoding.ASCII.GetString(new byte[]
         {
-            (byte)(fourCC & 0xFF),
-            (byte)((fourCC >> 8) & 0xFF),
-            (byte)((fourCC >> 16) & 0xFF),
+            (byte)(fourCC & 0xFF), (byte)((fourCC >> 8) & 0xFF), (byte)((fourCC >> 16) & 0xFF),
             (byte)((fourCC >> 24) & 0xFF)
         });
     }
@@ -50,7 +49,9 @@ public static class FourCC
     public static uint FromString(string fourCC)
     {
         if (string.IsNullOrEmpty(fourCC) || fourCC.Length > 4)
+        {
             throw new ArgumentException("FourCC must be 1-4 characters");
+        }
 
         var bytes = Encoding.ASCII.GetBytes(fourCC.PadRight(4, '\0'));
         return (uint)(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24));

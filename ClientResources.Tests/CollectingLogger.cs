@@ -10,8 +10,12 @@ internal sealed class CollectingLogger : ILogger
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull => null;
     public bool IsEnabled(LogLevel logLevel) => true;
 
-    public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
+    public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception,
+        Func<TState, Exception?, string> formatter)
     {
-        if (logLevel == LogLevel.Warning) Warnings.Add(formatter(state, exception));
+        if (logLevel == LogLevel.Warning)
+        {
+            Warnings.Add(formatter(state, exception));
+        }
     }
 }

@@ -19,9 +19,11 @@ namespace ClientResources.Tests;
 public class StructCasterTests
 {
     private enum SourceRace { HUMAN = 0, ELF = 1, ORC = 2 }
+
     private enum TargetRace { ELF = 5, HUMAN = 10 } // same names, different values; no ORC
 
     private enum SourceAnimation { WALK = 0, RUN = 1 }
+
     private enum TargetAnimation { IDLE = 0 } // version-specific: names don't correspond
 
     private static class V1
@@ -121,7 +123,7 @@ public class StructCasterTests
             public int value;
         }
     }
-    
+
     private static (StructCaster Caster, CollectingLogger Logger) CreateCaster(params string[] structNames)
     {
         var sourceStructs = new Dictionary<string, Type>
@@ -140,8 +142,9 @@ public class StructCasterTests
         caster.Analyze(structNames);
         return (caster, logger);
     }
-    
-    private static StructCaster CreateCaster(IReadOnlyDictionary<string, Type> source, IReadOnlyDictionary<string, Type> target, params string[] names)
+
+    private static StructCaster CreateCaster(IReadOnlyDictionary<string, Type> source,
+        IReadOnlyDictionary<string, Type> target, params string[] names)
     {
         var caster = new StructCaster(source, target, new CollectingLogger());
         caster.Analyze(names);
@@ -217,7 +220,7 @@ public class StructCasterTests
 
         Assert.Throws<InvalidOperationException>(() => caster.Cast(new V1.OrphanStruct()));
     }
-    
+
     [Test]
     public void EnumField_RemapsByEntryName()
     {
@@ -275,7 +278,8 @@ public class StructCasterTests
         using (Assert.EnterMultipleScope())
         {
             Assert.That(result.animation, Is.EqualTo((int)SourceAnimation.RUN));
-            Assert.That(caster.EnumRefOverrides[(typeof(V2.Mob), nameof(V2.Mob.animation))], Is.EqualTo(typeof(SourceAnimation)));
+            Assert.That(caster.EnumRefOverrides[(typeof(V2.Mob), nameof(V2.Mob.animation))],
+                Is.EqualTo(typeof(SourceAnimation)));
         }
     }
 

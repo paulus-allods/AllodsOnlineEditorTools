@@ -1,4 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
+// ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 
 namespace AllodsOnlineEditorTools.ClientResources.DataTypes;

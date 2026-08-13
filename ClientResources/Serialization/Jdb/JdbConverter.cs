@@ -15,7 +15,8 @@ public abstract class JdbConverter<T> : IJdbConverter
 
     public object? Write(JdbStructSerializer serializer, object? value) => WriteValue(serializer, (T)value!);
 
-    public object? Read(JdbStructSerializer serializer, JsonElement element, Type type) => ReadValue(serializer, element, type);
+    public object? Read(JdbStructSerializer serializer, JsonElement element, Type type) =>
+        ReadValue(serializer, element, type);
 
     protected abstract object? WriteValue(JdbStructSerializer serializer, T value);
 

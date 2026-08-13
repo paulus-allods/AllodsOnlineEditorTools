@@ -5,7 +5,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 public interface IXdbConverter : ITypeConverter
 {
     XElement? Write(XdbStructSerializer serializer, string elementName, object? value);
-    
+
     object? Read(XdbStructSerializer serializer, XElement element, Type type);
 }
 
@@ -20,6 +20,6 @@ public abstract class XdbConverter<T> : IXdbConverter
 
     public object? Read(XdbStructSerializer serializer, XElement element, Type type)
         => ReadValue(serializer, element, type);
-    
+
     protected abstract T ReadValue(XdbStructSerializer serializer, XElement element, Type type);
 }
