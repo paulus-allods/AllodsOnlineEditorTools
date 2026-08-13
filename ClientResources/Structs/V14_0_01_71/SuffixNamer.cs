@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,8 +20,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class SuffixNamer
 {
     [FieldOffset(24)] public Item[] items;
-    //TODO: ENUM
-    [FieldOffset(40)] public int[] name;
+    [FieldOffset(40)][EnumRef(typeof(Enums.NamePart))] public int[] name;
     [FieldOffset(56)] public Prefixe[] prefixes;
 
     [StructSize(28)]
@@ -53,3 +53,4 @@ public partial class SuffixNamer
         }
     }
 }
+

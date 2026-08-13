@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -24,8 +25,8 @@ public partial class CreatureAnimationKeyScripts
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class KeyScript
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
         [FieldOffset(8)] public NullablePointer[] keyActions;
     }
 }
+

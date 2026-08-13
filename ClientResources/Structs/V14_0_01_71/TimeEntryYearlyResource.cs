@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,7 +21,7 @@ public partial class TimeEntryYearlyResource
     [FieldOffset(28)] public int day;
     [FieldOffset(32)] public int hour;
     [FieldOffset(36)] public int minute;
-    //TODO: ENUM
-    [FieldOffset(40)] public int month;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Month))] public int month;
     [FieldOffset(44)] public string sysType;
 }
+

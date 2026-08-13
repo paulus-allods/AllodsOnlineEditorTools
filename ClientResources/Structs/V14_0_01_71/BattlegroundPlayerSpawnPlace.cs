@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,6 +21,6 @@ public partial class BattlegroundPlayerSpawnPlace
 {
     [FieldOffset(28)] public ResourcePointer image;
     [FieldOffset(36)] public string sysName;
-    //TODO: ENUM
-    [FieldOffset(48)] public int team;
+    [FieldOffset(48)][EnumRef(typeof(Enums.FightTeam))] public int team;
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,16 +17,15 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class CharacterAnimationsGroup
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int[] allCharacterAnimations;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int[] allCharacterAnimations;
     [FieldOffset(40)] public CharacterAnimation[] characterAnimations;
 
     [StructSize(28)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class CharacterAnimation
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] animations;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] animations;
         [FieldOffset(20)] public ResourcePointer character;
     }
 }
+

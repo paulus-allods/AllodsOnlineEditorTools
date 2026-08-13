@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,12 +17,10 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SFXArmorSet
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int armorMaterial;
-    //TODO: ENUM
-    [FieldOffset(28)] public int shieldMaterial;
+    [FieldOffset(24)][EnumRef(typeof(Enums.SFXMaterial))] public int armorMaterial;
+    [FieldOffset(28)][EnumRef(typeof(Enums.SFXMaterial))] public int shieldMaterial;
     [FieldOffset(32)] public ResourcePointer weaponItemClass;
-    //TODO: ENUM
-    [FieldOffset(40)] public int weaponMaterial;
+    [FieldOffset(40)][EnumRef(typeof(Enums.SFXMaterial))] public int weaponMaterial;
     [FieldOffset(44)] public float weaponSize;
 }
+

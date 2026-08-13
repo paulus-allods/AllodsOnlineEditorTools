@@ -7,6 +7,7 @@
 #nullable disable
 
 using System.Numerics;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -25,8 +26,7 @@ public partial class ChainAnimatorComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Chain
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] disablePhysicsAnimations;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] disablePhysicsAnimations;
         [FieldOffset(20)] public Vector3 gravity;
         [FieldOffset(32)] public float mass;
         [FieldOffset(36)] public string[] nodes;
@@ -35,3 +35,4 @@ public partial class ChainAnimatorComponent
         [FieldOffset(60)] public bool useDefaultGravity;
     }
 }
+

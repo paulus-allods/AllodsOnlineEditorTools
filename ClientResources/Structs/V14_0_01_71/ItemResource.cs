@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -22,8 +23,7 @@ public partial class ItemResource
     [FieldOffset(48)] public ActionPreviewInfo actionPreviewInfo;
     [FieldOffset(120)] public ResourcePointer auctionCategory;
     [FieldOffset(128)] public TextFileRef bindDescription;
-    //TODO: ENUM
-    [FieldOffset(144)] public int binding;
+    [FieldOffset(144)][EnumRef(typeof(Enums.Binding))] public int binding;
     [FieldOffset(148)] public Calcer[] calcers;
     [FieldOffset(164)] public ResourcePointer category;
     [FieldOffset(172)] public NullablePointer counter;
@@ -37,8 +37,7 @@ public partial class ItemResource
     [FieldOffset(256)] public ResourcePointer itemClass;
     [FieldOffset(264)] public TextFileRef itemMallDescription;
     [FieldOffset(280)] public ResourcePointer itemMallImage;
-    //TODO: ENUM
-    [FieldOffset(288)] public int itemMallType;
+    [FieldOffset(288)][EnumRef(typeof(Enums.ItemMallType))] public int itemMallType;
     [FieldOffset(292)] public int level;
     [FieldOffset(296)] public long lifeLengthCap;
     [FieldOffset(304)] public NullablePointer[] lifestylePredicates;
@@ -50,14 +49,10 @@ public partial class ItemResource
     [FieldOffset(376)] public NullablePointer prices;
     [FieldOffset(380)] public ResourcePointer quality;
     [FieldOffset(388)] public int requiredLevel;
-    //TODO: ENUM
-    [FieldOffset(392)] public int requiredReputation;
-    //TODO: ENUM
-    [FieldOffset(396)] public int showItemContextAction;
-    //TODO: ENUM
-    [FieldOffset(400)] public int slot;
-    //TODO: ENUM
-    [FieldOffset(404)] public int source;
+    [FieldOffset(392)][EnumRef(typeof(Enums.ReputationLevel))] public int requiredReputation;
+    [FieldOffset(396)][EnumRef(typeof(Enums.ShowItemContextAction))] public int showItemContextAction;
+    [FieldOffset(400)][EnumRef(typeof(Enums.DressSlot))] public int slot;
+    [FieldOffset(404)][EnumRef(typeof(Enums.ItemSource))] public int source;
     [FieldOffset(408)] public ResourcePointer spell;
     [FieldOffset(416)] public int stackLimit;
     [FieldOffset(420)] public string sysName;
@@ -124,8 +119,7 @@ public partial class ItemResource
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class StatBonuse
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int stat;
+            [FieldOffset(4)][EnumRef(typeof(Enums.InnateStats))] public int stat;
             [FieldOffset(8)] public NullablePointer value;
         }
     }
@@ -146,3 +140,4 @@ public partial class ItemResource
         }
     }
 }
+

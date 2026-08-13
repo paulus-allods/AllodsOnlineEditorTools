@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -21,7 +22,7 @@ public partial class AvatarNameRules
     [FieldOffset(20)] public WString matchUser;
     [FieldOffset(32)] public int maxLength;
     [FieldOffset(36)] public int minLength;
-    //TODO: ENUM
-    [FieldOffset(40)] public int transformation;
+    [FieldOffset(40)][EnumRef(typeof(Enums.NameTransformation))] public int transformation;
     [FieldOffset(48)] public WString matchMaster;
 }
+

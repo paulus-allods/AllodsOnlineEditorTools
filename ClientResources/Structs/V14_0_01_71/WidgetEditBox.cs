@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -81,23 +82,19 @@ public partial class WidgetEditBox
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Y
         {
-            //TODO: ENUM
-            [FieldOffset(4)][XdbName("Align")] public int align;
+            [FieldOffset(4)][XdbName("Align")][EnumRef(typeof(Enums.WidgetAlign))] public int align;
             [FieldOffset(8)][XdbName("HighPos")] public float highPos;
             [FieldOffset(12)][XdbName("Pos")] public float pos;
             [FieldOffset(16)][XdbName("Size")] public float size;
-            //TODO: ENUM
-            [FieldOffset(20)][XdbName("Sizing")] public int sizing;
+            [FieldOffset(20)][XdbName("Sizing")][EnumRef(typeof(Enums.WidgetSizing))] public int sizing;
         }
     }
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class TextStyle
     {
-        //TODO: ENUM
-        [FieldOffset(4)][XdbName("Align")] public int align;
-        //TODO: ENUM
-        [FieldOffset(8)] public int blendEffect;
+        [FieldOffset(4)][XdbName("Align")][EnumRef(typeof(Enums.AlignY))] public int align;
+        [FieldOffset(8)][EnumRef(typeof(Enums.BlendEffectType))] public int blendEffect;
         [FieldOffset(12)] public float lineSpacing;
         [FieldOffset(16)] public bool ellipsis;
         [FieldOffset(17)] public bool multiline;
@@ -106,3 +103,4 @@ public partial class WidgetEditBox
         [FieldOffset(20)] public bool wrapText;
     }
 }
+

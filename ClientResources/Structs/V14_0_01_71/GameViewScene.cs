@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -61,8 +62,7 @@ public partial class GameViewScene
             [FieldOffset(4)] public string guild;
             [FieldOffset(16)] public int level;
             [FieldOffset(20)] public int rankIndex;
-            //TODO: ENUM
-            [FieldOffset(24)] public int tabardType;
+            [FieldOffset(24)][EnumRef(typeof(Enums.TabardType))] public int tabardType;
             [FieldOffset(28)] public bool isLeader;
         }
     }
@@ -94,8 +94,7 @@ public partial class GameViewScene
         public class Device
         {
             [FieldOffset(4)] public NullablePointer device;
-            //TODO: ENUM
-            [FieldOffset(8)] public int slot;
+            [FieldOffset(8)][EnumRef(typeof(Enums.SlotName))] public int slot;
         }
     }
 
@@ -143,3 +142,4 @@ public partial class GameViewScene
         [FieldOffset(32)] public float yaw;
     }
 }
+

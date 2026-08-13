@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,6 +18,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class LootScheme
 {
-    //TODO: ENUM
-    [FieldOffset(28)] public int type;
+    [FieldOffset(28)][EnumRef(typeof(Enums.LootSchemeType))] public int type;
 }
+

@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,7 +18,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WeaponSpeedScaler
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int source;
+    [FieldOffset(24)][EnumRef(typeof(Enums.AttackSource))] public int source;
     [FieldOffset(28)] public bool normalize;
 }
+

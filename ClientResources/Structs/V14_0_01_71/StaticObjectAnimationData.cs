@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,8 +17,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class StaticObjectAnimationData
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int animation;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int animation;
     [FieldOffset(28)] public ResourcePointer staticObject;
     [FieldOffset(36)] public bool loopedAnimation;
 }
+

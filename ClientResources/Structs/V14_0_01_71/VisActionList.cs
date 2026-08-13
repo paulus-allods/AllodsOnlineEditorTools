@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -18,11 +19,11 @@ public partial class VisActionList
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public NullablePointer[] elements;
-    //TODO: ENUM
-    [FieldOffset(52)] public int play;
+    [FieldOffset(52)][EnumRef(typeof(Enums.PlayMode_1))] public int play;
     [FieldOffset(56)] public NullablePointer playWhile;
     [FieldOffset(60)] public bool preconditional;
     [FieldOffset(61)] public bool restartOnVisualChange;
     [FieldOffset(62)] public bool stopOnDeath;
     [FieldOffset(63)] public bool stopWhileWhenElementsEnded;
 }
+

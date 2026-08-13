@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -33,8 +34,7 @@ public partial class GameStateRoot
     public class LoadingProgressStage
     {
         [FieldOffset(4)] public float factor;
-        //TODO: ENUM
-        [FieldOffset(8)] public int stage;
+        [FieldOffset(8)][EnumRef(typeof(Enums.LoadingProgress))] public int stage;
     }
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -55,7 +55,7 @@ public partial class GameStateRoot
         [FieldOffset(12)] public int[] fpsRangesMs;
         [FieldOffset(28)] public int rangeDownTimeoutMs;
         [FieldOffset(32)] public int rangeUpTimeoutMs;
-        //TODO: ENUM
-        [FieldOffset(36)] public int type;
+        [FieldOffset(36)][EnumRef(typeof(Enums.EFPSType))] public int type;
     }
 }
+

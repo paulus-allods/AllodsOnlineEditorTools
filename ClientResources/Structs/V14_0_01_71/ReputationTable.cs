@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -24,8 +25,8 @@ public partial class ReputationTable
     public class Table
     {
         [FieldOffset(4)] public float buyMod;
-        //TODO: ENUM
-        [FieldOffset(8)] public int level;
+        [FieldOffset(8)][EnumRef(typeof(Enums.ReputationLevel))] public int level;
         [FieldOffset(12)] public int value;
     }
 }
+

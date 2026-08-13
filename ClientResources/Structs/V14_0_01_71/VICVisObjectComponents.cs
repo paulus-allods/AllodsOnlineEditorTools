@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,7 +17,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VICVisObjectComponents
 {
-    //TODO: ENUM
-    [FieldOffset(28)] public int target;
+    [FieldOffset(28)][EnumRef(typeof(Enums.EVICTargetVisObject))] public int target;
     [FieldOffset(32)] public NullablePointer[] visObjComponents;
 }
+

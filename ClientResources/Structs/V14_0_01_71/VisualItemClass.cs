@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -17,15 +18,12 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VisualItemClass
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int animationsType;
+    [FieldOffset(24)][EnumRef(typeof(Enums.ItemAnimationsType))] public int animationsType;
     [FieldOffset(28)] public BlockSound[] blockSounds;
     [FieldOffset(44)] public HitSound[] hitSounds;
-    //TODO: ENUM
-    [FieldOffset(60)] public int holdAnimation;
+    [FieldOffset(60)][EnumRef(typeof(Enums.Animations))] public int holdAnimation;
     [FieldOffset(64)] public ResourcePointer holdController;
-    //TODO: ENUM
-    [FieldOffset(72)] public int holdHand;
+    [FieldOffset(72)][EnumRef(typeof(Enums.HoldHand))] public int holdHand;
     [FieldOffset(76)] public Sound3D missSound;
     [FieldOffset(104)] public TextFileRef name;
     [FieldOffset(120)] public ResourcePointer replacement;
@@ -42,8 +40,7 @@ public partial class VisualItemClass
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class HitSound
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int hitMaterial;
+        [FieldOffset(4)][EnumRef(typeof(Enums.SFXMaterial))] public int hitMaterial;
         [FieldOffset(8)] public Sound3D hitSound;
     }
 
@@ -51,8 +48,7 @@ public partial class VisualItemClass
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class BlockSound
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int shieldMaterial;
+        [FieldOffset(4)][EnumRef(typeof(Enums.SFXMaterial))] public int shieldMaterial;
         [FieldOffset(8)] public Sound3D shieldSound;
     }
 
@@ -60,7 +56,7 @@ public partial class VisualItemClass
     public class Throwing
     {
         [FieldOffset(4)] public ResourcePointer projectile;
-        //TODO: ENUM
-        [FieldOffset(12)] public int throwAnimation;
+        [FieldOffset(12)][EnumRef(typeof(Enums.Animations))] public int throwAnimation;
     }
 }
+

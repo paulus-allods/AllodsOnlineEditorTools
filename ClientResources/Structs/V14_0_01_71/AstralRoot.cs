@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
@@ -33,8 +34,8 @@ public partial class AstralRoot
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Music
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int mobDensity;
+        [FieldOffset(4)][EnumRef(typeof(Enums.MobDensity))] public int mobDensity;
         [FieldOffset(8)] public Sound2D sound;
     }
 }
+

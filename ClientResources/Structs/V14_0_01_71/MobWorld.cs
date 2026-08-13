@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -28,8 +29,7 @@ public partial class MobWorld
     [FieldOffset(96)] public ResourcePointer kind;
     [FieldOffset(104)] public ResourcePointer mobEventsScripts;
     [FieldOffset(112)] public ResourcePointer modifier;
-    //TODO: ENUM
-    [FieldOffset(120)] public int overtipCustomView;
+    [FieldOffset(120)][EnumRef(typeof(Enums.OvertipCustomView))] public int overtipCustomView;
     [FieldOffset(124)] public ResourcePointer quality;
     [FieldOffset(132)] public TextFileRef title;
     [FieldOffset(148)] public ResourcePointer visMob;
@@ -39,3 +39,4 @@ public partial class MobWorld
     [FieldOffset(159)] public bool removeFromUI;
     [FieldOffset(160)] public bool usesWeapon;
 }
+

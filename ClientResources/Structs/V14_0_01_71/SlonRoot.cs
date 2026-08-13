@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -79,10 +80,8 @@ public partial class SlonRoot
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class StubAnimation
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int baseAnimation;
-        //TODO: ENUM
-        [FieldOffset(8)] public int[] stubFor;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int baseAnimation;
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations))] public int[] stubFor;
     }
 
     [StructSize(28)]
@@ -94,8 +93,7 @@ public partial class SlonRoot
         [FieldOffset(12)] public float fadeStartTime;
         [FieldOffset(16)] public NullablePointer offenderDeathScript;
         [FieldOffset(20)] public float sparkDelay;
-        //TODO: ENUM
-        [FieldOffset(24)] public int type;
+        [FieldOffset(24)][EnumRef(typeof(Enums.FatalityType))] public int type;
     }
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -141,3 +139,4 @@ public partial class SlonRoot
         [FieldOffset(132)] public float terrainLightmapBias;
     }
 }
+

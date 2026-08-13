@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,8 +21,7 @@ public partial class KillerCardBackground
 {
     [FieldOffset(24)] public TextFileRef description;
     [FieldOffset(40)] public TextFileRef name;
-    //TODO: ENUM
-    [FieldOffset(56)] public int quality;
+    [FieldOffset(56)][EnumRef(typeof(Enums.QualityEnum))] public int quality;
     [FieldOffset(60)] public ResourcePointer unlock;
     [FieldOffset(72)] public ResourcePointer texture;
 }

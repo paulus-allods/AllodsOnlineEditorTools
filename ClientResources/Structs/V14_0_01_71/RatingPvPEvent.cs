@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -24,8 +25,7 @@ public partial class RatingPvPEvent
     [FieldOffset(40)] public DescVar[] descVars;
     [FieldOffset(56)] public TextFileRef description;
     [FieldOffset(72)] public TextFileRef difficulty;
-    //TODO: ENUM
-    [FieldOffset(88)] public int difficultyMode;
+    [FieldOffset(88)][EnumRef(typeof(Enums.LFGEventDifficulty))] public int difficultyMode;
     [FieldOffset(92)] public float immediatelyStartFactor;
     [FieldOffset(96)] public InviteTimeout inviteTimeout;
     [FieldOffset(120)] public NullablePointer[] joinConditions;
@@ -35,8 +35,7 @@ public partial class RatingPvPEvent
     [FieldOffset(148)] public int minTeamSize;
     [FieldOffset(152)] public TextFileRef name;
     [FieldOffset(168)] public DescVar[] nameVars;
-    //TODO: ENUM
-    [FieldOffset(184)] public int policy;
+    [FieldOffset(184)][EnumRef(typeof(Enums.BattleJoinPolicy))] public int policy;
     [FieldOffset(188)] public Reward reward;
     [FieldOffset(288)] public NullablePointer[] showPredicates;
     [FieldOffset(304)] public ResourcePointer startTime;
@@ -47,8 +46,7 @@ public partial class RatingPvPEvent
     [FieldOffset(323)] public bool exclusive;
     [FieldOffset(324)][XdbName("internal")] public bool @internal;
     [FieldOffset(325)] public bool isHighPriority;
-    //TODO: ENUM
-    [FieldOffset(332)] public int binding;
+    [FieldOffset(332)][EnumRef(typeof(Enums.BindingScope))] public int binding;
     [FieldOffset(336)] public ResourcePointer cooldownResource;
     [FieldOffset(344)] public ResourcePointer[] maps;
     [FieldOffset(360)] public NullablePointer[] showDoubleRewardPredicates;
@@ -115,3 +113,4 @@ public partial class RatingPvPEvent
         }
     }
 }
+

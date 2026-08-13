@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -21,6 +22,6 @@ public partial class ProceduralEffectVisAction
     [FieldOffset(40)] public ResourcePointer proceduralEffect;
     [FieldOffset(48)] public float timeOff;
     [FieldOffset(52)] public float timeOn;
-    //TODO: ENUM
-    [FieldOffset(56)] public int useOn;
+    [FieldOffset(56)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
 }
+

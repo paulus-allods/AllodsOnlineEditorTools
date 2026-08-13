@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -15,6 +16,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class UsableDeviceClientPart
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int type;
+    [FieldOffset(24)][EnumRef(typeof(Enums.UsableDeviceTypeClient))] public int type;
 }
+

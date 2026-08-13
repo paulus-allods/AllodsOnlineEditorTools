@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,8 +20,7 @@ public partial class StateComponent
 {
     [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public AnimationKey[] animationKeys;
-    //TODO: ENUM
-    [FieldOffset(52)] public int[] animations;
+    [FieldOffset(52)][EnumRef(typeof(Enums.Animations))] public int[] animations;
     [FieldOffset(68)] public NullablePointer component;
     [FieldOffset(72)] public ResourcePointer controller;
     [FieldOffset(80)] public bool inheritParentAnimationIfHaveNoOwn;
@@ -32,8 +32,8 @@ public partial class StateComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AnimationKey
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
         [FieldOffset(8)] public float startTime;
     }
 }
+

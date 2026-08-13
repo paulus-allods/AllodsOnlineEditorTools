@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -22,8 +23,8 @@ public partial class DiminishingRoot
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class DiminishingGroup
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int controlType;
+        [FieldOffset(4)][EnumRef(typeof(Enums.EControlType))] public int controlType;
         [FieldOffset(8)] public ResourcePointer[] levels;
     }
 }
+

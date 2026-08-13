@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -30,8 +31,7 @@ public partial class DiceCraftSkillResource
     [FieldOffset(168)] public int skillScoreLevelCap;
     [FieldOffset(172)] public ResourcePointer skillSlot;
     [FieldOffset(180)] public string sysName;
-    //TODO: ENUM
-    [FieldOffset(192)] public int type;
+    [FieldOffset(192)][EnumRef(typeof(Enums.SkillType))] public int type;
     [FieldOffset(200)] public long zoneCooldown;
     [FieldOffset(208)] public bool hide;
     [FieldOffset(209)] public bool useLevels;
@@ -49,3 +49,4 @@ public partial class DiceCraftSkillResource
         [FieldOffset(44)] public int priority;
     }
 }
+

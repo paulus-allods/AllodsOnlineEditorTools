@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -22,8 +23,7 @@ public partial class VisualItem
     [FieldOffset(76)] public ResourcePointer braTexturePatches;
     [FieldOffset(84)] public ResourcePointer[] componentPacks;
     [FieldOffset(100)] public string[] disabledGeosets;
-    //TODO: ENUM
-    [FieldOffset(116)] public int dressSlot;
+    [FieldOffset(116)][EnumRef(typeof(Enums.DressSlot))] public int dressSlot;
     [FieldOffset(120)] public DualWield dualWield;
     [FieldOffset(148)] public NullablePointer[] dynamicComponents;
     [FieldOffset(164)] public NullablePointer grades;
@@ -32,12 +32,10 @@ public partial class VisualItem
     [FieldOffset(272)] public ResourcePointer mainHandTrail;
     [FieldOffset(280)] public Object[] objects;
     [FieldOffset(296)] public ResourcePointer pantsTexturePatches;
-    //TODO: ENUM
-    [FieldOffset(304)] public int sfxMaterial;
+    [FieldOffset(304)][EnumRef(typeof(Enums.SFXMaterial))] public int sfxMaterial;
     [FieldOffset(308)] public NullablePointer[] staticComponents;
     [FieldOffset(324)] public ResourcePointer texturePatches;
-    //TODO: ENUM
-    [FieldOffset(332)] public int underwear;
+    [FieldOffset(332)][EnumRef(typeof(Enums.HideUnderwear))] public int underwear;
     [FieldOffset(336)] public NullablePointer visItemEffects;
     [FieldOffset(340)] public VisualAliases visualAliases;
     [FieldOffset(360)] public ResourcePointer visualItemClass;
@@ -108,3 +106,4 @@ public partial class VisualItem
         }
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -27,7 +28,7 @@ public partial class DressCollectionObserver
     public class DressSlotObserver
     {
         [FieldOffset(4)] public TextFileRef description;
-        //TODO: ENUM
-        [FieldOffset(20)] public int slot;
+        [FieldOffset(20)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     }
 }
+

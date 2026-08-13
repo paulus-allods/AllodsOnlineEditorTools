@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,8 +21,7 @@ public partial class AnimationFromParentComponent
     [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public AnimationsReplacement[] animationsReplacements;
     [FieldOffset(52)] public ResourcePointer controller;
-    //TODO: ENUM
-    [FieldOffset(60)] public int ifAnimationNotExistsRun;
+    [FieldOffset(60)][EnumRef(typeof(Enums.Animations))] public int ifAnimationNotExistsRun;
     [FieldOffset(64)] public bool skipBlendOptimization;
     [FieldOffset(65)] public bool synchronizeAnimationPosition;
 
@@ -29,9 +29,8 @@ public partial class AnimationFromParentComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AnimationsReplacement
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] forAnimations;
-        //TODO: ENUM
-        [FieldOffset(20)] public int play;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] forAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Animations))] public int play;
     }
 }
+

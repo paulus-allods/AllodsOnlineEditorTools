@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -29,11 +30,10 @@ public partial class ChannelingComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class StartPoint
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int locator;
+        [FieldOffset(4)][EnumRef(typeof(Enums.FxLocators))] public int locator;
         [FieldOffset(8)] public string locatorName;
-        //TODO: ENUM
-        [FieldOffset(20)] public int member;
+        [FieldOffset(20)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(24)] public Vector3 shift;
     }
 }
+

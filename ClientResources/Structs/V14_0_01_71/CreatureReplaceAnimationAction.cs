@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,8 +17,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureReplaceAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int action;
-    //TODO: ENUM
-    [FieldOffset(40)] public int newAnimation;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Action))] public int action;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations))] public int newAnimation;
 }
+

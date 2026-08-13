@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -56,8 +57,7 @@ public partial class MobAnimations
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Animation
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int animation;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
             [FieldOffset(8)] public int rate;
         }
     }
@@ -72,3 +72,4 @@ public partial class MobAnimations
         [FieldOffset(20)] public int periodMin;
     }
 }
+

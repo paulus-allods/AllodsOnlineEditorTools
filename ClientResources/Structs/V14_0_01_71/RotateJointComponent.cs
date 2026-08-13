@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -24,9 +25,9 @@ public partial class RotateJointComponent
     public class Joint
     {
         [FieldOffset(4)] public string jointName;
-        //TODO: ENUM
-        [FieldOffset(16)] public int rotationAxis;
+        [FieldOffset(16)][EnumRef(typeof(Enums.Axis))] public int rotationAxis;
         [FieldOffset(20)] public float rotationSpeed;
         [FieldOffset(24)] public float scale;
     }
 }
+

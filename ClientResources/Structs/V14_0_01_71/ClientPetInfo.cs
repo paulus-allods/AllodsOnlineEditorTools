@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,18 +17,14 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class ClientPetInfo
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int blinkAnim;
-    //TODO: ENUM
-    [FieldOffset(28)] public int danceAnim;
-    //TODO: ENUM
-    [FieldOffset(32)] public int[] idleAnim;
-    //TODO: ENUM
-    [FieldOffset(48)] public int runAnim;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int blinkAnim;
+    [FieldOffset(28)][EnumRef(typeof(Enums.Animations))] public int danceAnim;
+    [FieldOffset(32)][EnumRef(typeof(Enums.Animations))] public int[] idleAnim;
+    [FieldOffset(48)][EnumRef(typeof(Enums.Animations))] public int runAnim;
     [FieldOffset(52)] public ResourcePointer teleportFx;
     [FieldOffset(60)] public float teleportFxScale;
     [FieldOffset(64)] public float teleportFxShift;
     [FieldOffset(68)] public ResourcePointer visObj;
-    //TODO: ENUM
-    [FieldOffset(76)] public int walkAnim;
+    [FieldOffset(76)][EnumRef(typeof(Enums.Animations))] public int walkAnim;
 }
+

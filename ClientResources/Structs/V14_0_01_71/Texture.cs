@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -21,12 +22,10 @@ public partial class Texture
     [FieldOffset(64)] public int height;
     [FieldOffset(68)] public int mipSW;
     [FieldOffset(72)] public int mipsNumber;
-    //TODO: ENUM
-    [FieldOffset(76)] public int pool;
+    [FieldOffset(76)][EnumRef(typeof(Enums.AllocatorPool))] public int pool;
     [FieldOffset(80)] public int realHeight;
     [FieldOffset(84)] public int realWidth;
-    //TODO: ENUM
-    [FieldOffset(88)] public int type;
+    [FieldOffset(88)][EnumRef(typeof(Enums.TextureElementType))] public int type;
     [FieldOffset(92)] public int width;
     [FieldOffset(96)] public bool alphaTex;
     [FieldOffset(97)] public bool atlasPart;
@@ -34,3 +33,4 @@ public partial class Texture
     [FieldOffset(99)] public bool generateMipChain;
     [FieldOffset(100)] public bool wrap;
 }
+

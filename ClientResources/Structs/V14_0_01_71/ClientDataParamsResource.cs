@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -26,8 +27,7 @@ public partial class ClientDataParamsResource
     public class Param
     {
         [FieldOffset(4)] public WString name;
-        //TODO: ENUM
-        [FieldOffset(16)] public int type;
+        [FieldOffset(16)][EnumRef(typeof(Enums.ClientDataParamType))] public int type;
     }
 
     [StructSize(20)]
@@ -35,7 +35,7 @@ public partial class ClientDataParamsResource
     public class ParamViewType
     {
         [FieldOffset(4)] public string name;
-        //TODO: ENUM
-        [FieldOffset(16)] public int viewType;
+        [FieldOffset(16)][EnumRef(typeof(Enums.ViewType))] public int viewType;
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -18,8 +19,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class AbilityGraphNode
 {
-    //TODO: ENUM
-    [FieldOffset(20)] public int quality;
+    [FieldOffset(20)][EnumRef(typeof(Enums.QualityEnum))] public int quality;
     [FieldOffset(24)] public ResourcePointer socket;
     [FieldOffset(32)] public int x;
     [FieldOffset(36)] public int y;
@@ -27,3 +27,4 @@ public partial class AbilityGraphNode
     [FieldOffset(44)] public bool start;
     [FieldOffset(52)] public ResourcePointer ability;
 }
+

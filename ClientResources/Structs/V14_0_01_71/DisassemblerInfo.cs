@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,6 +21,6 @@ public partial class DisassemblerInfo
 {
     [FieldOffset(24)] public ResourcePointer[] classes;
     [FieldOffset(40)] public ResourcePointer resource;
-    //TODO: ENUM
-    [FieldOffset(48)] public int[] slots;
+    [FieldOffset(48)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
 }
+

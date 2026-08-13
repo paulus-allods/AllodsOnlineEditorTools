@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,7 +21,7 @@ public partial class GuildColorsMaskComponent
     [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public ResourcePointer maskTexture;
     [FieldOffset(44)] public string[] shapeNames;
-    //TODO: ENUM
-    [FieldOffset(60)] public int usedShapes;
+    [FieldOffset(60)][EnumRef(typeof(Enums.ETargetShapes))] public int usedShapes;
     [FieldOffset(64)] public bool useGuildTexture;
 }
+

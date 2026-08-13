@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -32,7 +33,7 @@ public partial class CharacterRace
     public class RaceSexDesc
     {
         [FieldOffset(4)] public TextFileRef name;
-        //TODO: ENUM
-        [FieldOffset(20)] public int sex;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Sex))] public int sex;
     }
 }
+

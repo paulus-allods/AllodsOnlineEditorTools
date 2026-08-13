@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -26,9 +27,8 @@ public partial class PropertiesOfCreatureAnimations
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Fallback
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
-        //TODO: ENUM
-        [FieldOffset(8)] public int[] fallbackAnimations;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations))] public int[] fallbackAnimations;
     }
 }
+

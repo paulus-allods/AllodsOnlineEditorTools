@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -58,8 +59,7 @@ public partial class StatsRoot
                 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
                 public class SlotsStat
                 {
-                    //TODO: ENUM
-                    [FieldOffset(4)] public int[] dressSlots;
+                    [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int[] dressSlots;
                     [FieldOffset(20)] public ResourcePointer[] goldStats;
                     [FieldOffset(36)] public ResourcePointer[] silverStats;
                 }
@@ -67,3 +67,4 @@ public partial class StatsRoot
         }
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -63,9 +64,9 @@ public partial class AstralShadingParams
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class RandomNode
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int orientation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.NodeOrientationType))] public int orientation;
         [FieldOffset(8)] public float probability;
         [FieldOffset(12)] public ResourcePointer visObj;
     }
 }
+

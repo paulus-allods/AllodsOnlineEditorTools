@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,6 +18,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class CalcerProductionMachinePeriodsLeft
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int state;
+    [FieldOffset(24)][EnumRef(typeof(Enums.ProductionMachineState))] public int state;
 }
+

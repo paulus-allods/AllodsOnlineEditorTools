@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -22,8 +23,7 @@ public partial class WorldDropSuffix
     [FieldOffset(40)] public ResourcePointer group;
     [FieldOffset(48)] public TextFileRef name;
     [FieldOffset(64)] public ResourcePointer[] specialStats;
-    //TODO: ENUM
-    [FieldOffset(80)] public int[] stats;
+    [FieldOffset(80)][EnumRef(typeof(Enums.InnateStats))] public int[] stats;
 
     [StructSize(16)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -33,3 +33,4 @@ public partial class WorldDropSuffix
         [FieldOffset(12)] public NullablePointer statValue;
     }
 }
+

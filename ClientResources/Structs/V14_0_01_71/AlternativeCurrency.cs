@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -25,11 +26,9 @@ public partial class AlternativeCurrency
     [FieldOffset(72)] public ResourcePointer limitCurrency;
     [FieldOffset(80)] public int maxValue;
     [FieldOffset(84)] public TextFileRef name;
-    //TODO: ENUM
-    [FieldOffset(100)] public int storage;
+    [FieldOffset(100)][EnumRef(typeof(Enums.Storage))] public int storage;
     [FieldOffset(104)] public string sysName;
-    //TODO: ENUM
-    [FieldOffset(116)] public int visualizeMode;
+    [FieldOffset(116)][EnumRef(typeof(Enums.VisualizeMode))] public int visualizeMode;
     [FieldOffset(120)] public bool hideMaxValue;
     [FieldOffset(121)] public bool isClientReplicated;
     [FieldOffset(122)] public bool isCoupon;
@@ -44,3 +43,4 @@ public partial class AlternativeCurrency
         [FieldOffset(36)] public float value;
     }
 }
+

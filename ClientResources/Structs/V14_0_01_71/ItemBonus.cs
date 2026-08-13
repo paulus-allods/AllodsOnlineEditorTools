@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -27,8 +28,7 @@ public partial class ItemBonus
     [FieldOffset(64)] public int resistNature;
     [FieldOffset(68)] public NullablePointer secondaryMajorFactor;
     [FieldOffset(72)] public NullablePointer secondaryMinorFactor;
-    //TODO: ENUM
-    [FieldOffset(76)] public int[] secondaryStats;
+    [FieldOffset(76)][EnumRef(typeof(Enums.InnateStats))] public int[] secondaryStats;
     [FieldOffset(92)] public NullablePointer specialStatDefenceMod;
     [FieldOffset(96)] public NullablePointer specialStatOffenceMod;
     [FieldOffset(100)] public ResourcePointer[] specialStats;
@@ -43,3 +43,4 @@ public partial class ItemBonus
         [FieldOffset(12)] public NullablePointer statValue;
     }
 }
+

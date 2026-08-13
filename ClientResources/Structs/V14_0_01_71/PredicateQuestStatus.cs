@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,6 +21,6 @@ public partial class PredicateQuestStatus
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)] public ResourcePointer quest;
-    //TODO: ENUM
-    [FieldOffset(40)] public int status;
+    [FieldOffset(40)][EnumRef(typeof(Enums.QuestStatus))] public int status;
 }
+

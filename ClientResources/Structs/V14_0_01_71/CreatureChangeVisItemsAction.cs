@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -28,7 +29,7 @@ public partial class CreatureChangeVisItemsAction
     public class Item
     {
         [FieldOffset(4)] public ResourcePointer newItem;
-        //TODO: ENUM
-        [FieldOffset(12)] public int slot;
+        [FieldOffset(12)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     }
 }
+

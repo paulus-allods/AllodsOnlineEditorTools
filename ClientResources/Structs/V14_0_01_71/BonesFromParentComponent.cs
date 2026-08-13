@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,7 +18,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class BonesFromParentComponent
 {
     [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int bonesMode;
+    [FieldOffset(36)][EnumRef(typeof(Enums.EBonesMode))] public int bonesMode;
     [FieldOffset(40)] public string ownRootBone;
 }
+

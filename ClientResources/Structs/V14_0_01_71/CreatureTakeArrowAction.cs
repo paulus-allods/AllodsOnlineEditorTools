@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -19,7 +20,7 @@ public partial class CreatureTakeArrowAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public ResourcePointer arrow;
     [FieldOffset(44)] public int enchantedArrowIndex;
-    //TODO: ENUM
-    [FieldOffset(48)] public int rorate;
+    [FieldOffset(48)][EnumRef(typeof(Enums.ERotate))] public int rorate;
     [FieldOffset(52)] public bool forceTakeInHand;
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -52,10 +53,8 @@ public partial class SlonConstants
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class SoulSparkParams
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] afterDeathAnimations;
-        //TODO: ENUM
-        [FieldOffset(20)] public int gotoDeathRealmAnimation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] afterDeathAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Animations))] public int gotoDeathRealmAnimation;
         [FieldOffset(24)] public int sparkMovingMaxTime;
         [FieldOffset(28)] public float sparkMovingSpeed;
         [FieldOffset(32)] public ResourcePointer sparkVisObjectAlias;
@@ -72,8 +71,7 @@ public partial class SlonConstants
         [FieldOffset(32)] public float friction;
         [FieldOffset(36)] public float horSpeedMax;
         [FieldOffset(40)] public float horSpeedMin;
-        //TODO: ENUM
-        [FieldOffset(44)] public int[] lootBagAnimations;
+        [FieldOffset(44)][EnumRef(typeof(Enums.Animations))] public int[] lootBagAnimations;
         [FieldOffset(60)] public ResourcePointer lootBagVisObject;
         [FieldOffset(68)] public int timeToCorpseFadingMax;
         [FieldOffset(72)] public int timeToCorpseFadingMin;
@@ -88,3 +86,4 @@ public partial class SlonConstants
         }
     }
 }
+

@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,12 +17,10 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureTakeBowStringAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int creatureLocator;
+    [FieldOffset(36)][EnumRef(typeof(Enums.FxLocators))] public int creatureLocator;
     [FieldOffset(40)] public string creatureLocatorName;
     [FieldOffset(52)] public string itemLocatorName;
-    //TODO: ENUM
-    [FieldOffset(64)] public int itemsSlot;
-    //TODO: ENUM
-    [FieldOffset(68)] public int member;
+    [FieldOffset(64)][EnumRef(typeof(Enums.DressSlot))] public int itemsSlot;
+    [FieldOffset(68)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }
+

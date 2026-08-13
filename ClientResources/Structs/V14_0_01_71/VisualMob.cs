@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -22,8 +23,7 @@ public partial class VisualMob
     [FieldOffset(36)] public ColorCoefficients colorCoefficients;
     [FieldOffset(60)] public CreatureParameters creatureParameters;
     [FieldOffset(68)] public float decalScale;
-    //TODO: ENUM
-    [FieldOffset(72)] public int fixedIdleAnimation;
+    [FieldOffset(72)][EnumRef(typeof(Enums.Animations))] public int fixedIdleAnimation;
     [FieldOffset(76)] public int hitAnimationCooldown;
     [FieldOffset(80)] public int hitCritAnimationCooldown;
     [FieldOffset(84)] public Item[] items;
@@ -67,8 +67,7 @@ public partial class VisualMob
     public class Item
     {
         [FieldOffset(4)] public ResourcePointer item;
-        //TODO: ENUM
-        [FieldOffset(12)] public int slot;
+        [FieldOffset(12)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     }
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -95,10 +94,10 @@ public partial class VisualMob
             [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
             public class Value
             {
-                //TODO: ENUM
-                [FieldOffset(8)] public int controlName;
+                [FieldOffset(8)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
                 [FieldOffset(12)] public float value;
             }
         }
     }
 }
+

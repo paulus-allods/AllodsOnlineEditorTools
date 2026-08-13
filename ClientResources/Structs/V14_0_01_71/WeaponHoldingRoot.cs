@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -15,22 +16,14 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WeaponHoldingRoot
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int[] weaponAny;
-    //TODO: ENUM
-    [FieldOffset(40)] public int[] weaponBoast;
-    //TODO: ENUM
-    [FieldOffset(56)] public int[] weaponByState;
-    //TODO: ENUM
-    [FieldOffset(72)] public int[] weaponCast;
-    //TODO: ENUM
-    [FieldOffset(88)] public int[] weaponChargedWand;
-    //TODO: ENUM
-    [FieldOffset(104)] public int[] weaponMelee;
-    //TODO: ENUM
-    [FieldOffset(120)] public int[] weaponNone;
-    //TODO: ENUM
-    [FieldOffset(136)] public int[] weaponRanged;
-    //TODO: ENUM
-    [FieldOffset(152)] public int[] weaponWand;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int[] weaponAny;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations))] public int[] weaponBoast;
+    [FieldOffset(56)][EnumRef(typeof(Enums.Animations))] public int[] weaponByState;
+    [FieldOffset(72)][EnumRef(typeof(Enums.Animations))] public int[] weaponCast;
+    [FieldOffset(88)][EnumRef(typeof(Enums.Animations))] public int[] weaponChargedWand;
+    [FieldOffset(104)][EnumRef(typeof(Enums.Animations))] public int[] weaponMelee;
+    [FieldOffset(120)][EnumRef(typeof(Enums.Animations))] public int[] weaponNone;
+    [FieldOffset(136)][EnumRef(typeof(Enums.Animations))] public int[] weaponRanged;
+    [FieldOffset(152)][EnumRef(typeof(Enums.Animations))] public int[] weaponWand;
 }
+

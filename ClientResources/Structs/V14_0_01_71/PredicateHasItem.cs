@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,6 +21,6 @@ public partial class PredicateHasItem
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)] public NullablePointer[] predicates;
-    //TODO: ENUM
-    [FieldOffset(48)] public int slotType;
+    [FieldOffset(48)][EnumRef(typeof(Enums.ItemSlotType))] public int slotType;
 }
+

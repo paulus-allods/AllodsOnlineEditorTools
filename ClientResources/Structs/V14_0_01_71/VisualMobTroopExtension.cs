@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -49,11 +50,11 @@ public partial class VisualMobTroopExtension
                 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
                 public class Value
                 {
-                    //TODO: ENUM
-                    [FieldOffset(8)] public int controlName;
+                    [FieldOffset(8)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
                     [FieldOffset(12)] public float value;
                 }
             }
         }
     }
 }
+

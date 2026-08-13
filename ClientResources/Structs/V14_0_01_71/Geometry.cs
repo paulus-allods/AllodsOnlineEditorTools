@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
@@ -32,16 +33,14 @@ public partial class Geometry
     [FieldOffset(132)] public AABB geometryBox;
     [FieldOffset(156)] public GeometryFragment[] geometryFragments;
     [FieldOffset(172)] public int globalID;
-    //TODO: ENUM
-    [FieldOffset(176)] public int hideRule;
+    [FieldOffset(176)][EnumRef(typeof(Enums.HideRule))] public int hideRule;
     [FieldOffset(180)] public Blob2 indexBuffer;
     [FieldOffset(192)] public Joint[] joints;
     [FieldOffset(208)] public float[] lodDistances;
     [FieldOffset(224)] public float lodFactor;
     [FieldOffset(228)] public ModelElement[] modelElements;
     [FieldOffset(244)] public OccluderInfo[] occluderInfos;
-    //TODO: ENUM
-    [FieldOffset(260)] public int orientationMode;
+    [FieldOffset(260)][EnumRef(typeof(Enums.OrientationMode))] public int orientationMode;
     [FieldOffset(264)] public Part[] parts;
     [FieldOffset(280)] public PortalFragment[] portalFragments;
     [FieldOffset(296)] public NullablePointer rootMaterial;
@@ -51,8 +50,7 @@ public partial class Geometry
     [FieldOffset(324)] public ResourcePointer shadowSettings;
     [FieldOffset(332)] public Blob2 skeleton;
     [FieldOffset(344)] public float softFadeFactor;
-    //TODO: ENUM
-    [FieldOffset(348)] public int sortMode;
+    [FieldOffset(348)][EnumRef(typeof(Enums.SortMode))] public int sortMode;
     [FieldOffset(352)] public int version;
     [FieldOffset(356)] public Blob2 vertexBuffer;
     [FieldOffset(368)] public VertexDeclaration[] vertexDeclarations;
@@ -145,8 +143,7 @@ public partial class Geometry
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Material
         {
-            //TODO: ENUM
-            [FieldOffset(4)][XdbName("BlendEffect")] public int blendEffect;
+            [FieldOffset(4)][XdbName("BlendEffect")][EnumRef(typeof(Enums.GeometryBlendEffect))] public int blendEffect;
             [FieldOffset(8)] public ResourcePointer diffuseTexture;
             [FieldOffset(16)][XdbName("params")] public NullablePointer @params;
             [FieldOffset(20)] public float transparencyModifier;
@@ -181,8 +178,7 @@ public partial class Geometry
         public class Texcoord0
         {
             [FieldOffset(4)] public int offset;
-            //TODO: ENUM
-            [FieldOffset(8)] public int type;
+            [FieldOffset(8)][EnumRef(typeof(Enums.VertexElementType))] public int type;
         }
     }
 
@@ -244,3 +240,4 @@ public partial class Geometry
         [FieldOffset(20)] public float scale;
     }
 }
+

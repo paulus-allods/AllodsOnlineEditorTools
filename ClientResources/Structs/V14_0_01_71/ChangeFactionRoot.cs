@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -29,7 +30,7 @@ public partial class ChangeFactionRoot
     public class PridenFactionChoice
     {
         [FieldOffset(4)] public ResourcePointer faction;
-        //TODO: ENUM
-        [FieldOffset(12)] public int[] values;
+        [FieldOffset(12)][EnumRef(typeof(Enums.PridenFactionChoice))] public int[] values;
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -21,8 +22,7 @@ public partial class QuestCountAccumPrestige
     [FieldOffset(20)] public ResourcePointer[] autoRelatedItems;
     [FieldOffset(36)] public TextFileRef customName;
     [FieldOffset(52)] public TextFileRef description;
-    //TODO: ENUM
-    [FieldOffset(68)] public int[] dressSlots;
+    [FieldOffset(68)][EnumRef(typeof(Enums.DressSlot))] public int[] dressSlots;
     [FieldOffset(84)] public int limit;
     [FieldOffset(88)] public Location[] locations;
     [FieldOffset(104)] public LootTable[] lootTables;
@@ -52,3 +52,4 @@ public partial class QuestCountAccumPrestige
         [FieldOffset(40)] public bool isIndoor;
     }
 }
+

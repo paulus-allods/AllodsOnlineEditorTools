@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,8 +17,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class CreatureVisState
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int fixedIdleAnimation;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int fixedIdleAnimation;
     [FieldOffset(28)] public float scale;
     [FieldOffset(32)] public int stateID;
     [FieldOffset(36)] public TransferScript[] transferScripts;
@@ -30,3 +30,4 @@ public partial class CreatureVisState
         [FieldOffset(8)] public int toState;
     }
 }
+

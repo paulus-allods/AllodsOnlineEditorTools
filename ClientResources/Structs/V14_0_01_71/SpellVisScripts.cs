@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -21,8 +22,7 @@ public partial class SpellVisScripts
     [FieldOffset(40)] public NullablePointer actionBarCancel;
     [FieldOffset(44)] public NullablePointer actionBarComplite;
     [FieldOffset(48)] public NullablePointer actionBarStart;
-    //TODO: ENUM
-    [FieldOffset(52)] public int precastType;
+    [FieldOffset(52)][EnumRef(typeof(Enums.PrecastType))] public int precastType;
     [FieldOffset(56)] public NullablePointer wholeCasting;
     [FieldOffset(64)] public NullablePointer charged;
     [FieldOffset(68)] public NullablePointer launch;
@@ -46,3 +46,4 @@ public partial class SpellVisScripts
         [FieldOffset(8)] public float probabilityWithOverkill;
     }
 }
+

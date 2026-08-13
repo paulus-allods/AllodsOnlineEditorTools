@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,17 +18,14 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WidgetLayerTiledTexture
 {
-    //TODO: ENUM
-    [FieldOffset(24)][XdbName("BlendEffect")] public int blendEffect;
+    [FieldOffset(24)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffectType))] public int blendEffect;
     [FieldOffset(28)][XdbName("Color")] public int color;
     [FieldOffset(32)][XdbName("Grayed")] public bool grayed;
     [FieldOffset(33)] public bool flatPlacement;
     [FieldOffset(34)] public bool lazyLoad;
     [FieldOffset(40)][XdbName("Layout")] public Layout layout;
-    //TODO: ENUM
-    [FieldOffset(68)] public int layoutTypeX;
-    //TODO: ENUM
-    [FieldOffset(72)] public int layoutTypeY;
+    [FieldOffset(68)][EnumRef(typeof(Enums.WidgetLayerTiledLayoutType))] public int layoutTypeX;
+    [FieldOffset(72)][EnumRef(typeof(Enums.WidgetLayerTiledLayoutType))] public int layoutTypeY;
     [FieldOffset(76)] public ResourcePointer textureItem;
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -41,3 +39,4 @@ public partial class WidgetLayerTiledTexture
         [FieldOffset(24)][XdbName("TopY")] public int topY;
     }
 }
+

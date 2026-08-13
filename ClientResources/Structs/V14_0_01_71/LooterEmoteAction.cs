@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,11 +17,10 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class LooterEmoteAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int animateEmote;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations))] public int animateEmote;
     [FieldOffset(40)] public float fadeInTime;
     [FieldOffset(44)] public float fadeOutTime;
-    //TODO: ENUM
-    [FieldOffset(48)] public int mode;
+    [FieldOffset(48)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
     [FieldOffset(52)] public bool playWhileLooting;
 }
+

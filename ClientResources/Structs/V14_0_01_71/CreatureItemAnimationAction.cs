@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,12 +17,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureItemAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int animation;
-    //TODO: ENUM
-    [FieldOffset(40)] public int idleAnimation;
-    //TODO: ENUM
-    [FieldOffset(44)] public int itemsSlot;
-    //TODO: ENUM
-    [FieldOffset(48)] public int mode;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations))] public int animation;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations))] public int idleAnimation;
+    [FieldOffset(44)][EnumRef(typeof(Enums.DressSlot))] public int itemsSlot;
+    [FieldOffset(48)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 }
+

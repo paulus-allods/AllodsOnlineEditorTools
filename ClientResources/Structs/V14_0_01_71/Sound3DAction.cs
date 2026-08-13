@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -18,8 +19,7 @@ public partial class Sound3DAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public ResourcePointer alias;
-    //TODO: ENUM
-    [FieldOffset(44)] public int locator;
+    [FieldOffset(44)][EnumRef(typeof(Enums.FxLocators))] public int locator;
     [FieldOffset(48)] public string locatorName;
     [FieldOffset(60)] public Sound sound;
     [FieldOffset(88)] public bool forcedSoundStop;
@@ -33,3 +33,4 @@ public partial class Sound3DAction
         [FieldOffset(20)] public ResourcePointer project;
     }
 }
+

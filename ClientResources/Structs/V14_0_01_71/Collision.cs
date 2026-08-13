@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -19,7 +20,7 @@ public partial class Collision
 {
     [FieldOffset(24)] public AABB aabb;
     [FieldOffset(48)] public ResourcePointer collisionMesh;
-    //TODO: ENUM
-    [FieldOffset(56)] public int volume;
+    [FieldOffset(56)][EnumRef(typeof(Enums.CollisionVolume))] public int volume;
     [FieldOffset(60)] public bool hasVisualCollision;
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -24,8 +25,7 @@ public partial class CharacterClass
     [FieldOffset(68)] public float hitDice;
     [FieldOffset(72)] public ItemClasse[] itemClasses;
     [FieldOffset(88)] public float manaDice;
-    //TODO: ENUM
-    [FieldOffset(92)] public int manaType;
+    [FieldOffset(92)][EnumRef(typeof(Enums.ManaType))] public int manaType;
     [FieldOffset(96)] public ResourcePointer[] sharedAbilities;
     [FieldOffset(112)] public ResourcePointer[] sharedSpells;
     [FieldOffset(128)] public ResourcePointer talentsTable;
@@ -38,3 +38,4 @@ public partial class CharacterClass
         [FieldOffset(12)] public int minLevel;
     }
 }
+

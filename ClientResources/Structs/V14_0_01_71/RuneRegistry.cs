@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -39,8 +40,8 @@ public partial class RuneRegistry
     public class RuneSlot
     {
         [FieldOffset(4)] public NullablePointer requiredLevel;
-        //TODO: ENUM
-        [FieldOffset(8)] public int slot;
+        [FieldOffset(8)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(12)] public bool offensive;
     }
 }
+

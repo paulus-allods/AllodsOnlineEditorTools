@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,7 +17,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureTimeIntervalChannelPosAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(40)] public int channel;
+    [FieldOffset(40)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(44)] public string specialController;
 }
+

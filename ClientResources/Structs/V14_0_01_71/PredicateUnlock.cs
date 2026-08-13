@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,6 +21,6 @@ public partial class PredicateUnlock
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)] public ResourcePointer unlock;
-    //TODO: ENUM
-    [FieldOffset(40)] public int unlockCategory;
+    [FieldOffset(40)][EnumRef(typeof(Enums.UnlockCategory))] public int unlockCategory;
 }
+

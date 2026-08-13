@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -25,10 +26,8 @@ public partial class ParticleTrail
     [FieldOffset(140)] public float fadeStart;
     [FieldOffset(144)] public float fogFactor;
     [FieldOffset(148)] public float lifetime;
-    //TODO: ENUM
-    [FieldOffset(152)] public int orientation;
-    //TODO: ENUM
-    [FieldOffset(156)] public int spawnMode;
+    [FieldOffset(152)][EnumRef(typeof(Enums.Orientation))] public int orientation;
+    [FieldOffset(156)][EnumRef(typeof(Enums.SpawnMode))] public int spawnMode;
     [FieldOffset(160)] public float spawnRate;
     [FieldOffset(164)] public float width;
     [FieldOffset(168)] public float widthChangeSpeed;
@@ -65,10 +64,10 @@ public partial class ParticleTrail
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Diffuse
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int blendType;
+        [FieldOffset(4)][EnumRef(typeof(Enums.BlendType))] public int blendType;
         [FieldOffset(8)] public ResourcePointer diffuseTexture;
         [FieldOffset(16)] public float scaleU;
         [FieldOffset(20)] public float scaleV;
     }
 }
+

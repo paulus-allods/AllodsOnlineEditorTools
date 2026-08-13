@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -20,8 +21,7 @@ public partial class AttributeAnimation
     [FieldOffset(40)] public FileRef binaryFile;
     [FieldOffset(60)] public int endFrame;
     [FieldOffset(64)] public float fps;
-    //TODO: ENUM
-    [FieldOffset(68)] public int interpolation;
+    [FieldOffset(68)][EnumRef(typeof(Enums.InterpolationMode))] public int interpolation;
     [FieldOffset(72)] public int loopFrame;
     [FieldOffset(76)] public float speed;
     [FieldOffset(80)] public int startFrame;
@@ -37,3 +37,4 @@ public partial class AttributeAnimation
         [FieldOffset(20)] public int[] modelElement;
     }
 }
+

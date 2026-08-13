@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,8 +18,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class EffectMaterialParams
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int blendEffect;
+    [FieldOffset(24)][EnumRef(typeof(Enums.BlendEffect))] public int blendEffect;
     [FieldOffset(28)] public int color;
     [FieldOffset(32)] public ColorGrading colorGrading;
     [FieldOffset(40)] public MaskTexture colorGradingTexture;
@@ -50,8 +50,7 @@ public partial class EffectMaterialParams
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class MaskEffect
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int blendEffect;
+        [FieldOffset(4)][EnumRef(typeof(Enums.MaskBlendEffect))] public int blendEffect;
         [FieldOffset(8)] public CutoutEffect cutoutEffect;
         [FieldOffset(32)] public bool useAlpha;
         [FieldOffset(33)] public bool useRGB;
@@ -83,10 +82,8 @@ public partial class EffectMaterialParams
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class MaskTexture
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int addressModeU;
-        //TODO: ENUM
-        [FieldOffset(8)] public int addressModeV;
+        [FieldOffset(4)][EnumRef(typeof(Enums.TextureAddressMode))] public int addressModeU;
+        [FieldOffset(8)][EnumRef(typeof(Enums.TextureAddressMode))] public int addressModeV;
         [FieldOffset(12)] public Vector2 offset;
         [FieldOffset(20)] public Vector2 scale;
         [FieldOffset(28)] public ResourcePointer texture;
@@ -109,3 +106,4 @@ public partial class EffectMaterialParams
         [FieldOffset(33)] public bool useRandomFrame;
     }
 }
+

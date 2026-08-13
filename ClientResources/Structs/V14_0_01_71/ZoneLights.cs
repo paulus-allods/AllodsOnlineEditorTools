@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -123,8 +124,7 @@ public partial class ZoneLights
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class RandomLight
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int ambientSoundImpact;
+        [FieldOffset(4)][EnumRef(typeof(Enums.ESoundImpact))] public int ambientSoundImpact;
         [FieldOffset(8)] public float fadeInSeconds;
         [FieldOffset(12)] public float fadeOutSeconds;
         [FieldOffset(16)] public InstantLight light;
@@ -151,3 +151,4 @@ public partial class ZoneLights
         [FieldOffset(16)] public bool enable;
     }
 }
+

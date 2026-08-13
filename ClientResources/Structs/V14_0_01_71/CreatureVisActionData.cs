@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,6 +18,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureVisActionData
 {
     [FieldOffset(24)] public NullablePointer action;
-    //TODO: ENUM
-    [FieldOffset(28)] public int channel;
+    [FieldOffset(28)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
 }
+

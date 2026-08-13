@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -30,7 +31,7 @@ public partial class ShipUnit
     public class ClientDevice
     {
         [FieldOffset(4)] public ResourcePointer resource;
-        //TODO: ENUM
-        [FieldOffset(12)] public int slotName;
+        [FieldOffset(12)][EnumRef(typeof(Enums.SlotName))] public int slotName;
     }
 }
+

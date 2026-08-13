@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -38,8 +39,7 @@ public partial class EnchantRoot
     {
         [FieldOffset(4)] public float power;
         [FieldOffset(8)] public float secondary;
-        //TODO: ENUM
-        [FieldOffset(12)] public int slot;
+        [FieldOffset(12)][EnumRef(typeof(Enums.EnchantSlot))] public int slot;
         [FieldOffset(16)] public float stamina;
     }
 
@@ -53,3 +53,4 @@ public partial class EnchantRoot
         [FieldOffset(16)] public float secondaryMod;
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,9 +20,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class PredicateEquipped
 {
     [FieldOffset(24)] public bool hideText;
-    //TODO: ENUM
-    [FieldOffset(32)] public int dressType;
+    [FieldOffset(32)][EnumRef(typeof(Enums.DressSlot))] public int dressType;
     [FieldOffset(36)] public ResourcePointer itemClass;
     [FieldOffset(44)] public bool secondary;
     [FieldOffset(45)] public bool weaponRequired;
 }
+

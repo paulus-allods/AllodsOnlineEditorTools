@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
@@ -39,15 +40,12 @@ public partial class ParticleAnimation
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ParticleEmitter
     {
-        //TODO: ENUM
-        [FieldOffset(4)][XdbName("BlendEffect")] public int blendEffect;
+        [FieldOffset(4)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffect_1))] public int blendEffect;
         [FieldOffset(8)][XdbName("Color")] public int color;
-        //TODO: ENUM
-        [FieldOffset(12)][XdbName("RenderEffect")] public int renderEffect;
+        [FieldOffset(12)][XdbName("RenderEffect")][EnumRef(typeof(Enums.RenderEffect))] public int renderEffect;
         [FieldOffset(16)] public float ambientLightFactor;
         [FieldOffset(20)] public NullablePointer colorDescriptor;
-        //TODO: ENUM
-        [FieldOffset(24)] public int decalMirrorMode;
+        [FieldOffset(24)][EnumRef(typeof(Enums.MirrorMode))] public int decalMirrorMode;
         [FieldOffset(28)] public float fogFactor;
         [FieldOffset(32)] public string name;
         [FieldOffset(44)] public float pivotX;
@@ -74,8 +72,7 @@ public partial class ParticleAnimation
     public class Decal
     {
         [FieldOffset(4)] public int decalColor;
-        //TODO: ENUM
-        [FieldOffset(8)] public int decalMirrorMode;
+        [FieldOffset(8)][EnumRef(typeof(Enums.MirrorMode))] public int decalMirrorMode;
         [FieldOffset(12)] public float decalRotation;
         [FieldOffset(16)] public float decalSize;
         [FieldOffset(20)] public ResourcePointer decalTexture;
@@ -95,3 +92,4 @@ public partial class ParticleAnimation
         [FieldOffset(33)] public bool useRandomFrame;
     }
 }
+

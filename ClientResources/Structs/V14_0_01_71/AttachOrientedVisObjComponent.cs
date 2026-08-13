@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -21,10 +22,10 @@ public partial class AttachOrientedVisObjComponent
     [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public string locatorName;
     [FieldOffset(48)] public Vector3 offset;
-    //TODO: ENUM
-    [FieldOffset(60)] public int orientMode;
+    [FieldOffset(60)][EnumRef(typeof(Enums.EOrientMode))] public int orientMode;
     [FieldOffset(64)] public float scale;
     [FieldOffset(68)] public ResourcePointer visObject;
     [FieldOffset(76)] public bool isPortraitEnabled;
     [FieldOffset(77)] public bool scaleFromGlobal;
 }
+

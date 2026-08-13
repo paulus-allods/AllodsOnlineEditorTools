@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -28,8 +29,8 @@ public partial class ContestBoxResource
     {
         [FieldOffset(4)] public ResourcePointer image;
         [FieldOffset(12)] public ResourcePointer item;
-        //TODO: ENUM
-        [FieldOffset(20)] public int quality;
+        [FieldOffset(20)][EnumRef(typeof(Enums.QualityEnum))] public int quality;
         [FieldOffset(24)] public bool isImportant;
     }
 }
+

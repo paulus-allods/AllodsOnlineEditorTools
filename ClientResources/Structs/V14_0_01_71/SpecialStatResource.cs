@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -18,10 +19,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SpecialStatResource
 {
-    //TODO: ENUM
-    [FieldOffset(28)] public int[] availableSlots;
-    //TODO: ENUM
-    [FieldOffset(44)] public int budgetType;
+    [FieldOffset(28)][EnumRef(typeof(Enums.DressSlot))] public int[] availableSlots;
+    [FieldOffset(44)][EnumRef(typeof(Enums.BudgetType))] public int budgetType;
     [FieldOffset(48)] public DescVar[] descVars;
     [FieldOffset(64)] public TextFileRef description;
     [FieldOffset(80)] public FormulaModifier[] formulaModifiers;
@@ -36,8 +35,7 @@ public partial class SpecialStatResource
     public class FormulaModifier
     {
         [FieldOffset(4)] public NullablePointer calcer;
-        //TODO: ENUM
-        [FieldOffset(8)] public int formula;
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int formula;
     }
 
     [StructSize(40)]
@@ -50,3 +48,4 @@ public partial class SpecialStatResource
         [FieldOffset(36)] public float value;
     }
 }
+

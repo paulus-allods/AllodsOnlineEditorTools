@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,11 +18,9 @@ public partial class DeviceAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(40)] public Advanced advanced;
-    //TODO: ENUM
-    [FieldOffset(52)] public int[] animations;
+    [FieldOffset(52)][EnumRef(typeof(Enums.Animations))] public int[] animations;
     [FieldOffset(68)] public int channelId;
-    //TODO: ENUM
-    [FieldOffset(72)] public int mode;
+    [FieldOffset(72)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Advanced
@@ -30,3 +29,4 @@ public partial class DeviceAnimationAction
         [FieldOffset(8)] public bool backgroundAfterFirstKey;
     }
 }
+

@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -18,8 +19,7 @@ public partial class AnimationProperties
 {
     [FieldOffset(24)] public string headBoneName;
     [FieldOffset(36)] public float headTurnTime;
-    //TODO: ENUM
-    [FieldOffset(40)] public int kind;
+    [FieldOffset(40)][EnumRef(typeof(Enums.CreatureKind))] public int kind;
     [FieldOffset(44)] public float legAlignTime;
     [FieldOffset(48)] public float legRunTurnTime;
     [FieldOffset(52)] public float maxHeadAngle;
@@ -49,18 +49,15 @@ public partial class AnimationProperties
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class TargetTrackingParams
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] addedToUseAnimations;
-        //TODO: ENUM
-        [FieldOffset(20)] public int horizontalRotate;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] addedToUseAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Bone))] public int horizontalRotate;
         [FieldOffset(24)] public float maxHeadAngleToDown;
         [FieldOffset(28)] public float maxHeadAngleToSide;
         [FieldOffset(32)] public float maxHeadAngleToUp;
         [FieldOffset(36)] public string targetBoneName;
         [FieldOffset(48)] public float trackingTimeOut;
         [FieldOffset(52)] public Sound3D turnSound;
-        //TODO: ENUM
-        [FieldOffset(80)] public int verticalRotate;
+        [FieldOffset(80)][EnumRef(typeof(Enums.Bone))] public int verticalRotate;
         [FieldOffset(84)] public bool ingnoreRotateToTarget;
         [FieldOffset(85)] public bool noRotateBody;
         [FieldOffset(86)] public bool use;
@@ -68,3 +65,4 @@ public partial class AnimationProperties
         [FieldOffset(88)] public bool useOnlyAddedAnimations;
     }
 }
+

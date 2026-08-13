@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,8 +18,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class GameViewActionCreatureVisScript
 {
     [FieldOffset(20)] public PlaybackParameters playbackParameters;
-    //TODO: ENUM
-    [FieldOffset(88)] public int channel;
+    [FieldOffset(88)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(92)] public string creature;
     [FieldOffset(104)] public NullablePointer visAction;
     [FieldOffset(108)] public bool needRewind;
@@ -50,3 +50,4 @@ public partial class GameViewActionCreatureVisScript
         }
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -23,11 +24,11 @@ public partial class ItemMallCurrencyDescriptions
     public class Currencie
     {
         [FieldOffset(4)] public ResourcePointer contentKey;
-        //TODO: ENUM
-        [FieldOffset(12)] public int currencyId;
+        [FieldOffset(12)][EnumRef(typeof(Enums.ItemMallCurrency))] public int currencyId;
         [FieldOffset(16)] public TextFileRef description;
         [FieldOffset(32)] public ResourcePointer image;
         [FieldOffset(40)] public TextFileRef name;
         [FieldOffset(56)] public bool bindWarning;
     }
 }
+

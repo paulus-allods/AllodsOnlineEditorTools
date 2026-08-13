@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -27,8 +28,8 @@ public partial class TargetSaleResource
         [FieldOffset(4)] public NullablePointer amount;
         [FieldOffset(8)] public ResourcePointer baseItem;
         [FieldOffset(16)] public ResourcePointer itemMallItem;
-        //TODO: ENUM
-        [FieldOffset(24)] public int tag;
+        [FieldOffset(24)][EnumRef(typeof(Enums.SaleTag))] public int tag;
         [FieldOffset(28)] public TextFileRef text;
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -27,8 +28,7 @@ public partial class ChangeRoomRoot
     public class DefaultPrice
     {
         [FieldOffset(4)] public int greyListCost;
-        //TODO: ENUM
-        [FieldOffset(8)] public int type;
+        [FieldOffset(8)][EnumRef(typeof(Enums.ChangeType))] public int type;
         [FieldOffset(12)] public int whiteListCost;
     }
 
@@ -44,9 +44,9 @@ public partial class ChangeRoomRoot
         public class PriceEntrie
         {
             [FieldOffset(4)] public int greyListCost;
-            //TODO: ENUM
-            [FieldOffset(8)] public int type;
+            [FieldOffset(8)][EnumRef(typeof(Enums.ChangeType))] public int type;
             [FieldOffset(12)] public int whiteListCost;
         }
     }
 }
+

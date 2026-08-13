@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -28,8 +29,7 @@ public partial class RuleResource
     [FieldOffset(112)] public int rating;
     [FieldOffset(116)] public Reward reward;
     [FieldOffset(216)] public string sysName;
-    //TODO: ENUM
-    [FieldOffset(228)] public int[] types;
+    [FieldOffset(228)][EnumRef(typeof(Enums.RuleType))] public int[] types;
     [FieldOffset(244)] public ResourcePointer zone;
     [FieldOffset(252)] public bool alwaysHide;
     [FieldOffset(253)] public bool hideInactive;
@@ -83,3 +83,4 @@ public partial class RuleResource
         [FieldOffset(8)] public NullablePointer predicate;
     }
 }
+

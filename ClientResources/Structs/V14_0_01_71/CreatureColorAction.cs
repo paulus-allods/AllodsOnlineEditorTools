@@ -7,6 +7,7 @@
 #nullable disable
 
 using System.Numerics;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,14 +18,13 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureColorAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int blendMode;
+    [FieldOffset(36)][EnumRef(typeof(Enums.BlendMode))] public int blendMode;
     [FieldOffset(40)] public Quaternion colorFactor;
     [FieldOffset(56)] public int colorValue;
     [FieldOffset(60)] public int priority;
     [FieldOffset(64)] public float timeOff;
     [FieldOffset(68)] public float timeOn;
-    //TODO: ENUM
-    [FieldOffset(72)] public int useOn;
+    [FieldOffset(72)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
     [FieldOffset(76)] public bool ignoreDisable;
 }
+

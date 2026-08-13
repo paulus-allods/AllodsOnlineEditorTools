@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
@@ -28,8 +29,7 @@ public partial class SkeletalAnimation
     [FieldOffset(128)] public int endFrame;
     [FieldOffset(132)] public float fps;
     [FieldOffset(136)] public int loopFrame;
-    //TODO: ENUM
-    [FieldOffset(140)] public int[] maySubstituteMissingAnimations;
+    [FieldOffset(140)][EnumRef(typeof(Enums.Animations))] public int[] maySubstituteMissingAnimations;
     [FieldOffset(156)] public int scriptID;
     [FieldOffset(160)] public string scriptName;
     [FieldOffset(172)] public float speed;
@@ -45,3 +45,4 @@ public partial class SkeletalAnimation
         [FieldOffset(12)] public string name;
     }
 }
+

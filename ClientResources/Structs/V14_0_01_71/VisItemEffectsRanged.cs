@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,24 +18,17 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class VisItemEffectsRanged
 {
     [FieldOffset(24)] public string attachArrowLocatorInItem;
-    //TODO: ENUM
-    [FieldOffset(36)] public int[] attackAnimation;
-    //TODO: ENUM
-    [FieldOffset(52)] public int[] cheapShotAnimation;
-    //TODO: ENUM
-    [FieldOffset(68)] public int[] cheapShotStartAnimation;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations))] public int[] attackAnimation;
+    [FieldOffset(52)][EnumRef(typeof(Enums.Animations))] public int[] cheapShotAnimation;
+    [FieldOffset(68)][EnumRef(typeof(Enums.Animations))] public int[] cheapShotStartAnimation;
     [FieldOffset(84)] public ResourcePointer explosion;
     [FieldOffset(92)] public LoadHoldAnimation[] holdAnimations;
-    //TODO: ENUM
-    [FieldOffset(108)] public int[] loadAnimation;
+    [FieldOffset(108)][EnumRef(typeof(Enums.Animations))] public int[] loadAnimation;
     [FieldOffset(124)] public LoadHoldAnimation[] loadHoldAnimations;
     [FieldOffset(140)] public ResourcePointer projectile;
-    //TODO: ENUM
-    [FieldOffset(148)] public int[] rapidFireAnimation;
-    //TODO: ENUM
-    [FieldOffset(164)] public int[] readyAnimation;
-    //TODO: ENUM
-    [FieldOffset(180)] public int rotateArrowInItem;
+    [FieldOffset(148)][EnumRef(typeof(Enums.Animations))] public int[] rapidFireAnimation;
+    [FieldOffset(164)][EnumRef(typeof(Enums.Animations))] public int[] readyAnimation;
+    [FieldOffset(180)][EnumRef(typeof(Enums.ERotate))] public int rotateArrowInItem;
     [FieldOffset(184)] public ResourcePointer script;
     [FieldOffset(192)] public bool useTakeStringInHand;
 
@@ -42,8 +36,8 @@ public partial class VisItemEffectsRanged
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class LoadHoldAnimation
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] animations;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] animations;
         [FieldOffset(20)] public int rate;
     }
 }
+

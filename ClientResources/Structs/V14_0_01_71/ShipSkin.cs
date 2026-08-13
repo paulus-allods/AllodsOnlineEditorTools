@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -38,8 +39,7 @@ public partial class ShipSkin
         public class Slot
         {
             [FieldOffset(4)] public Device[] devices;
-            //TODO: ENUM
-            [FieldOffset(20)] public int slot;
+            [FieldOffset(20)][EnumRef(typeof(Enums.SlotName))] public int slot;
 
             [StructSize(16)]
             [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -51,3 +51,4 @@ public partial class ShipSkin
         }
     }
 }
+

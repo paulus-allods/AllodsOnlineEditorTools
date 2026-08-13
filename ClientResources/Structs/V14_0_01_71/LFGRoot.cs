@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -39,7 +40,7 @@ public partial class LFGRoot
     public class RoleSetting
     {
         [FieldOffset(4)] public int minCountInGroup;
-        //TODO: ENUM
-        [FieldOffset(8)] public int role;
+        [FieldOffset(8)][EnumRef(typeof(Enums.LFGRole))] public int role;
     }
 }
+

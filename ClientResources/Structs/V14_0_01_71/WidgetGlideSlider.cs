@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -42,8 +43,7 @@ public partial class WidgetGlideSlider
     [FieldOffset(261)] public bool clipContent;
     [FieldOffset(262)] public bool forceWheel;
     [FieldOffset(263)] public bool isProtected;
-    //TODO: ENUM
-    [FieldOffset(268)] public int moveArrangement;
+    [FieldOffset(268)][EnumRef(typeof(Enums.WidgetsArrangement))] public int moveArrangement;
     [FieldOffset(272)] public string reactionChanged;
     [FieldOffset(284)] public ResourcePointer sliderButton;
     [FieldOffset(296)] public float discreteStep;
@@ -68,13 +68,12 @@ public partial class WidgetGlideSlider
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class X
         {
-            //TODO: ENUM
-            [FieldOffset(4)][XdbName("Align")] public int align;
+            [FieldOffset(4)][XdbName("Align")][EnumRef(typeof(Enums.WidgetAlign))] public int align;
             [FieldOffset(8)][XdbName("HighPos")] public float highPos;
             [FieldOffset(12)][XdbName("Pos")] public float pos;
             [FieldOffset(16)][XdbName("Size")] public float size;
-            //TODO: ENUM
-            [FieldOffset(20)][XdbName("Sizing")] public int sizing;
+            [FieldOffset(20)][XdbName("Sizing")][EnumRef(typeof(Enums.WidgetSizing))] public int sizing;
         }
     }
 }
+

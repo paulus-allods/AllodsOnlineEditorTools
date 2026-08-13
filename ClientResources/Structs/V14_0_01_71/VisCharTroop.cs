@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -31,25 +32,21 @@ public partial class VisCharTroop
     {
         [FieldOffset(4)] public string archiAnimationSlotName;
         [FieldOffset(16)] public string mountSlotName;
-        //TODO: ENUM
-        [FieldOffset(28)] public int name;
+        [FieldOffset(28)][EnumRef(typeof(Enums.ETroopMember))] public int name;
         [FieldOffset(32)] public Vector2 positionIdle;
         [FieldOffset(40)] public Vector2 positionMelee;
         [FieldOffset(48)] public Vector2 positionRanged;
-        //TODO: ENUM
-        [FieldOffset(56)] public int[] slots;
+        [FieldOffset(56)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
     }
 
     [StructSize(32)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ArchiAnimation
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
-        //TODO: ENUM
-        [FieldOffset(8)] public int groupAnimation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations))] public int groupAnimation;
         [FieldOffset(12)] public int maxDelayTime;
-        //TODO: ENUM
-        [FieldOffset(16)] public int[] memberAnimations;
+        [FieldOffset(16)][EnumRef(typeof(Enums.Animations))] public int[] memberAnimations;
     }
 }
+

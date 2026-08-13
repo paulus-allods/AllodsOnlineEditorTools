@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -25,15 +26,13 @@ public partial class LotteryBoxRoot
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class CommonObject
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int idleAnimation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int idleAnimation;
         [FieldOffset(8)] public ResourcePointer item;
         [FieldOffset(16)][XdbName("object")] public ResourcePointer @object;
         [FieldOffset(24)] public Vector3 position;
         [FieldOffset(36)] public int rotate;
         [FieldOffset(40)] public float scale;
-        //TODO: ENUM
-        [FieldOffset(44)] public int[] winAnimations;
+        [FieldOffset(44)][EnumRef(typeof(Enums.Animations))] public int[] winAnimations;
     }
 
     [StructSize(28)]
@@ -47,15 +46,14 @@ public partial class LotteryBoxRoot
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Object
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int idleAnimation;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int idleAnimation;
             [FieldOffset(8)] public ResourcePointer item;
             [FieldOffset(16)][XdbName("object")] public ResourcePointer @object;
             [FieldOffset(24)] public Vector3 position;
             [FieldOffset(36)] public int rotate;
             [FieldOffset(40)] public float scale;
-            //TODO: ENUM
-            [FieldOffset(44)] public int[] winAnimations;
+            [FieldOffset(44)][EnumRef(typeof(Enums.Animations))] public int[] winAnimations;
         }
     }
 }
+

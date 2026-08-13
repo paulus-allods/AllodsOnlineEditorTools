@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,7 +21,7 @@ public partial class GuildBossAbility
 {
     [FieldOffset(20)] public ResourcePointer currency;
     [FieldOffset(32)] public long gearScorePoints;
-    //TODO: ENUM
-    [FieldOffset(40)] public int slot;
+    [FieldOffset(40)][EnumRef(typeof(Enums.GuildBossAbilitySlot))] public int slot;
     [FieldOffset(52)] public ResourcePointer abilityResource;
 }
+

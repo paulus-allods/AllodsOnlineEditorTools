@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,6 +20,6 @@ public partial class AliasVisObjectTemplate
 {
     [FieldOffset(24)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(44)] public ResourcePointer resource;
-    //TODO: ENUM
-    [FieldOffset(52)] public int[] searchPlaces;
+    [FieldOffset(52)][EnumRef(typeof(Enums.AliasSearchPlace))] public int[] searchPlaces;
 }
+

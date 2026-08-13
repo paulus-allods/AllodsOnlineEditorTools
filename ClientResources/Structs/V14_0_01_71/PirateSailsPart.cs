@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,6 +18,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class PirateSailsPart
 {
     [FieldOffset(24)] public ResourcePointer item;
-    //TODO: ENUM
-    [FieldOffset(32)] public int slot;
+    [FieldOffset(32)][EnumRef(typeof(Enums.SlotName))] public int slot;
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -36,10 +37,9 @@ public partial class VisEffectBaseList
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int[] animations;
-            //TODO: ENUM
-            [FieldOffset(20)] public int mode;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] animations;
+            [FieldOffset(20)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
         }
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -18,13 +19,11 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class Interactions
 {
-    //TODO: ENUM
-    [FieldOffset(20)] public int[] accessorFor;
+    [FieldOffset(20)][EnumRef(typeof(Enums.ItemSlotType))] public int[] accessorFor;
     [FieldOffset(36)] public ResourcePointer auction;
     [FieldOffset(44)] public ResourcePointer[] availableQuests;
     [FieldOffset(60)] public Cue[] cues;
-    //TODO: ENUM
-    [FieldOffset(76)] public int[] extended;
+    [FieldOffset(76)][EnumRef(typeof(Enums.ExtendedType))] public int[] extended;
     [FieldOffset(92)] public NullablePointer teleportMaster;
     [FieldOffset(96)] public NullablePointer trainer;
     [FieldOffset(100)] public ResourcePointer vendorTable;
@@ -40,3 +39,4 @@ public partial class Interactions
         [FieldOffset(4)] public ResourcePointer cue;
     }
 }
+

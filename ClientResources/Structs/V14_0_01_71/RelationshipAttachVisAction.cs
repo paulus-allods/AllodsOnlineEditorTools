@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -19,6 +20,6 @@ public partial class RelationshipAttachVisAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public NullablePointer enemyVisAction;
     [FieldOffset(40)] public NullablePointer friendVisAction;
-    //TODO: ENUM
-    [FieldOffset(44)] public int member;
+    [FieldOffset(44)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }
+

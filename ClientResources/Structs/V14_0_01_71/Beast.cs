@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,6 +20,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class Beast
 {
     [FieldOffset(24)] public ResourcePointer mob;
-    //TODO: ENUM
-    [FieldOffset(32)] public int type;
+    [FieldOffset(32)][EnumRef(typeof(Enums.BeastType))] public int type;
 }
+

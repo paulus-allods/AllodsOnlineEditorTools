@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -24,8 +25,7 @@ public partial class CreatureChannelDirectAction
     [FieldOffset(56)] public int fadeInTime;
     [FieldOffset(60)] public int fadeOutTime;
     [FieldOffset(64)] public float fxLength;
-    //TODO: ENUM
-    [FieldOffset(68)] public int multyTargetMode;
+    [FieldOffset(68)][EnumRef(typeof(Enums.MultyTargetChannelMode))] public int multyTargetMode;
     [FieldOffset(72)] public NullablePointer offendTime;
     [FieldOffset(76)] public SecondaryTargetParams secondaryTargetParams;
     [FieldOffset(112)] public NullablePointer startPoint;
@@ -46,3 +46,4 @@ public partial class CreatureChannelDirectAction
         [FieldOffset(33)] public bool scaleTextureV;
     }
 }
+

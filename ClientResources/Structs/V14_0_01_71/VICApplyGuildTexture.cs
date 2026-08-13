@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,6 +17,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class VICApplyGuildTexture
 {
     [FieldOffset(28)] public string[] shapeName;
-    //TODO: ENUM
-    [FieldOffset(44)] public int target;
+    [FieldOffset(44)][EnumRef(typeof(Enums.EVICTargetVisObject))] public int target;
 }
+

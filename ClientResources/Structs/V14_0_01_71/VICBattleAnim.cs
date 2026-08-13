@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -15,9 +16,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VICBattleAnim
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int storeAnim;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int storeAnim;
     [FieldOffset(28)] public float storeDelay;
-    //TODO: ENUM
-    [FieldOffset(32)] public int takeAnim;
+    [FieldOffset(32)][EnumRef(typeof(Enums.Animations))] public int takeAnim;
 }
+

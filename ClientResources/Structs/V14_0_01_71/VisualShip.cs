@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,8 +20,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VisualShip
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int cannonVisualType;
+    [FieldOffset(24)][EnumRef(typeof(Enums.CannonVisualType))] public int cannonVisualType;
     [FieldOffset(28)] public ResourcePointer[] compatibleSkins;
     [FieldOffset(44)] public TextFileRef description;
     [FieldOffset(60)] public ResourcePointer image;
@@ -39,18 +39,17 @@ public partial class VisualShip
         [FieldOffset(4)] public ResourcePointer[] allowedDeviceTypes;
         [FieldOffset(20)] public Vector3 coord;
         [FieldOffset(32)] public NullablePointer interfaceData;
-        //TODO: ENUM
-        [FieldOffset(36)] public int name;
+        [FieldOffset(36)][EnumRef(typeof(Enums.SlotName))] public int name;
         [FieldOffset(40)] public float pitch;
         [FieldOffset(44)] public float pitchRange;
         [FieldOffset(48)] public float roll;
         [FieldOffset(52)] public Quaternion rotation;
         [FieldOffset(68)] public float scale;
-        //TODO: ENUM
-        [FieldOffset(72)] public int side;
+        [FieldOffset(72)][EnumRef(typeof(Enums.ShipSide))] public int side;
         [FieldOffset(76)] public float yaw;
         [FieldOffset(80)] public float yawRange;
         [FieldOffset(84)] public bool canBeEmpty;
         [FieldOffset(85)] public bool isLootSlot;
     }
 }
+

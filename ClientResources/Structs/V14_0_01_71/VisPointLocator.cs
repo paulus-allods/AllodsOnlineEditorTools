@@ -7,6 +7,7 @@
 #nullable disable
 
 using System.Numerics;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,11 +18,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class VisPointLocator
 {
     [FieldOffset(20)] public Vector3 shift;
-    //TODO: ENUM
-    [FieldOffset(36)] public int from;
-    //TODO: ENUM
-    [FieldOffset(40)] public int locator;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ENodeFrom))] public int from;
+    [FieldOffset(40)][EnumRef(typeof(Enums.FxLocators))] public int locator;
     [FieldOffset(44)] public string locatorName;
-    //TODO: ENUM
-    [FieldOffset(56)] public int member;
+    [FieldOffset(56)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }
+

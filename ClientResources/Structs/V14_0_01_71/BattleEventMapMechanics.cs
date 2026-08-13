@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,8 +21,7 @@ public partial class BattleEventMapMechanics
 {
     [FieldOffset(24)] public Achievement[] achievements;
     [FieldOffset(40)] public RoundDuration duration;
-    //TODO: ENUM
-    [FieldOffset(64)] public int mechanicsType;
+    [FieldOffset(64)][EnumRef(typeof(Enums.MatchMakingMechanicsType))] public int mechanicsType;
     [FieldOffset(68)] public RoundDuration roundDuration;
     [FieldOffset(92)] public int roundsCount;
     [FieldOffset(96)] public ResourcePointer score;
@@ -51,3 +51,4 @@ public partial class BattleEventMapMechanics
         [FieldOffset(20)] public int second;
     }
 }
+

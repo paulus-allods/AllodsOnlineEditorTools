@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -27,9 +28,9 @@ public partial class ItemQuality
     [FieldOffset(64)] public ResourcePointer lootBagVisObject;
     [FieldOffset(72)] public float powerMult;
     [FieldOffset(76)] public float priceMod;
-    //TODO: ENUM
-    [FieldOffset(80)] public int quality;
+    [FieldOffset(80)][EnumRef(typeof(Enums.QualityEnum))] public int quality;
     [FieldOffset(84)] public float secondaryMajorMod;
     [FieldOffset(88)] public float secondaryMinorMod;
     [FieldOffset(92)] public float wisdomMod;
 }
+

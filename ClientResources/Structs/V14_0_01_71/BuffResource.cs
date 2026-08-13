@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -63,24 +64,19 @@ public partial class BuffResource
         [FieldOffset(62)] public bool muteFxSounds;
         [FieldOffset(68)] public bool ignoreParentRotation;
         [FieldOffset(69)] public bool ignoreProcedureFxScale;
-        //TODO: ENUM
-        [FieldOffset(72)] public int locator;
+        [FieldOffset(72)][EnumRef(typeof(Enums.FxLocators))] public int locator;
         [FieldOffset(76)] public string locatorName;
-        //TODO: ENUM
-        [FieldOffset(88)] public int member;
+        [FieldOffset(88)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(92)] public NullablePointer offendTime;
         [FieldOffset(96)] public Vector3 offset;
         [FieldOffset(108)] public Vector3 rotation;
-        //TODO: ENUM
-        [FieldOffset(120)] public int useVisObjectSettings;
+        [FieldOffset(120)][EnumRef(typeof(Enums.ECustomSettingsFrom))] public int useVisObjectSettings;
 
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int[] animations;
-            //TODO: ENUM
-            [FieldOffset(20)] public int mode;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] animations;
+            [FieldOffset(20)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
         }
     }
 
@@ -94,3 +90,4 @@ public partial class BuffResource
         [FieldOffset(36)] public float value;
     }
 }
+

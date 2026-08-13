@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -22,6 +23,6 @@ public partial class ItemMallCategoryResource
     [FieldOffset(40)] public ResourcePointer image;
     [FieldOffset(48)] public TextFileRef name;
     [FieldOffset(64)] public NullablePointer[] predicates;
-    //TODO: ENUM
-    [FieldOffset(80)] public int type;
+    [FieldOffset(80)][EnumRef(typeof(Enums.CategoryType))] public int type;
 }
+

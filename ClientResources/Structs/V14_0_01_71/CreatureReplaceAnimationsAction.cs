@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,34 +18,29 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureReplaceAnimationsAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int member;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ETroopMember))] public int member;
     [FieldOffset(40)] public OnBottom onBottom;
     [FieldOffset(80)] public OnBottom onMount;
     [FieldOffset(120)] public OnBottom onTop;
     [FieldOffset(160)] public ResourcePointer priority;
-    //TODO: ENUM
-    [FieldOffset(168)] public int replaceWhen;
-    //TODO: ENUM
-    [FieldOffset(172)] public int[] slots;
+    [FieldOffset(168)][EnumRef(typeof(Enums.EReplacementCase))] public int replaceWhen;
+    [FieldOffset(172)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
     [FieldOffset(188)] public bool restartOnVisualChange;
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class OnBottom
     {
         [FieldOffset(4)] public AnimationsReplacement[] animationsReplacements;
-        //TODO: ENUM
-        [FieldOffset(20)] public int[] notReplacedanimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Animations))] public int[] notReplacedanimations;
         [FieldOffset(36)] public bool skipAnimationIfNoReplacement;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class AnimationsReplacement
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int[] forAnimations;
-            //TODO: ENUM
-            [FieldOffset(20)] public int play;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] forAnimations;
+            [FieldOffset(20)][EnumRef(typeof(Enums.Animations))] public int play;
         }
     }
 }
+

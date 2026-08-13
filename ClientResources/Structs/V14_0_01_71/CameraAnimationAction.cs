@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -18,8 +19,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CameraAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int anim;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations))] public int anim;
     [FieldOffset(40)] public Vector3 offset;
     [FieldOffset(52)] public int playTimeMs;
     [FieldOffset(56)] public string slotName;
@@ -29,3 +29,4 @@ public partial class CameraAnimationAction
     [FieldOffset(84)] public bool isForMainAvatarOnly;
     [FieldOffset(85)] public bool isTargetRelated;
 }
+

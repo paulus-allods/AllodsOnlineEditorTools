@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -32,10 +33,10 @@ public partial class CharacterSoundVariation
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AnimationSound
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
         [FieldOffset(8)] public Sound3D sound;
         [FieldOffset(36)] public bool noRepeatSoundOnAnimationLoop;
         [FieldOffset(37)] public bool replaceOriginalSound;
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -41,8 +42,7 @@ public partial class Character
         public class ChargenEffect
         {
             [FieldOffset(4)] public string locator;
-            //TODO: ENUM
-            [FieldOffset(16)] public int runType;
+            [FieldOffset(16)][EnumRef(typeof(Enums.ChargenEffectRunType))] public int runType;
             [FieldOffset(20)] public float scale;
             [FieldOffset(24)] public ResourcePointer visObj;
         }
@@ -52,8 +52,7 @@ public partial class Character
         public class ChargenDressedItem
         {
             [FieldOffset(4)] public ResourcePointer item;
-            //TODO: ENUM
-            [FieldOffset(12)] public int slot;
+            [FieldOffset(12)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         }
 
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -71,7 +70,7 @@ public partial class Character
     public class DressItem
     {
         [FieldOffset(4)] public ResourcePointer item;
-        //TODO: ENUM
-        [FieldOffset(12)] public int slot;
+        [FieldOffset(12)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     }
 }
+

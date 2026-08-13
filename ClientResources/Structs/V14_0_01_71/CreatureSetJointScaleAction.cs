@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -18,6 +19,6 @@ public partial class CreatureSetJointScaleAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public string jointName;
     [FieldOffset(48)] public float jointScale;
-    //TODO: ENUM
-    [FieldOffset(52)] public int useOn;
+    [FieldOffset(52)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -29,8 +30,7 @@ public partial class MetaUpgradeAgent
         [FieldOffset(32)] public NullablePointer[] enhancerPredicates;
         [FieldOffset(48)] public NullablePointer[] predicates;
         [FieldOffset(64)] public NullablePointer[] sourcePredicates;
-        //TODO: ENUM
-        [FieldOffset(80)] public int upgradeChanceBehavior;
+        [FieldOffset(80)][EnumRef(typeof(Enums.UpgradeChanceBehavior))] public int upgradeChanceBehavior;
         [FieldOffset(84)] public float upgradeCostMultiplier;
         [FieldOffset(88)] public ResourcePointer upgradeCostMultiplierRate;
         [FieldOffset(96)] public NullablePointer upgradeVector;
@@ -54,3 +54,4 @@ public partial class MetaUpgradeAgent
         }
     }
 }
+

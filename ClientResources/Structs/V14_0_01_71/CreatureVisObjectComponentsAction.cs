@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,8 +18,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureVisObjectComponentsAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int member;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ETroopMember))] public int member;
     [FieldOffset(40)] public NullablePointer[] visObjComponents;
     [FieldOffset(56)] public bool stopOnDeath;
 }
+

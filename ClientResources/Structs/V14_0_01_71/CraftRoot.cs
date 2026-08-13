@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -42,8 +43,7 @@ public partial class CraftRoot
     {
         [FieldOffset(4)] public ResourcePointer item;
         [FieldOffset(12)] public NullablePointer[] predicates;
-        //TODO: ENUM
-        [FieldOffset(28)] public int[] properties;
+        [FieldOffset(28)][EnumRef(typeof(Enums.ToolProperty))] public int[] properties;
     }
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -60,3 +60,4 @@ public partial class CraftRoot
         [FieldOffset(8)] public ResourcePointer quality;
     }
 }
+

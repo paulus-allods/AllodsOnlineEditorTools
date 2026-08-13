@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -23,8 +24,7 @@ public partial class LFGDestination
     [FieldOffset(48)] public NullablePointer[] departPredicates;
     [FieldOffset(64)] public TextFileRef description;
     [FieldOffset(80)] public TextFileRef difficulty;
-    //TODO: ENUM
-    [FieldOffset(96)] public int difficultyMode;
+    [FieldOffset(96)][EnumRef(typeof(Enums.LFGEventDifficulty))] public int difficultyMode;
     [FieldOffset(100)] public ResourcePointer faction;
     [FieldOffset(108)] public GroupStabilizationTime groupQueueTime;
     [FieldOffset(132)] public GroupStabilizationTime groupStabilizationTime;
@@ -94,3 +94,4 @@ public partial class LFGDestination
         }
     }
 }
+

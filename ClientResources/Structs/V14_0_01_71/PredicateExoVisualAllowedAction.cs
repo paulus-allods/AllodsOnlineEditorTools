@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,7 +17,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class PredicateExoVisualAllowedAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int checkType;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ExoVisualAllowedType))] public int checkType;
     [FieldOffset(40)] public bool checkIsNotSet;
 }
+

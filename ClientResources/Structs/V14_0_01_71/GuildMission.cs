@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -21,8 +22,7 @@ public partial class GuildMission
     [FieldOffset(24)] public string counter;
     [FieldOffset(40)] public ResourcePointer currency;
     [FieldOffset(48)] public TextFileRef description;
-    //TODO: ENUM
-    [FieldOffset(64)] public int guildMissionType;
+    [FieldOffset(64)][EnumRef(typeof(Enums.GuildMissionType))] public int guildMissionType;
     [FieldOffset(68)] public ResourcePointer image;
     [FieldOffset(76)] public TextFileRef name;
     [FieldOffset(92)] public ResourcePointer[] requiredItems;
@@ -72,3 +72,4 @@ public partial class GuildMission
         }
     }
 }
+

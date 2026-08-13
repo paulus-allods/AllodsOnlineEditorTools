@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -22,7 +23,7 @@ public partial class AstralSpellChanneling
     [FieldOffset(48)] public string locatorTo;
     [FieldOffset(60)] public ResourcePointer projectileFx;
     [FieldOffset(68)] public ResourcePointer shieldExplosion;
-    //TODO: ENUM
-    [FieldOffset(76)] public int targetSettings;
+    [FieldOffset(76)][EnumRef(typeof(Enums.TargetingSettings))] public int targetSettings;
     [FieldOffset(80)] public bool ignoreShield;
 }
+

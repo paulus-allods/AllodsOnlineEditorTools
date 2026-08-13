@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -24,10 +25,8 @@ public partial class HaloTable
     {
         [FieldOffset(4)] public Level[] levels;
         [FieldOffset(20)] public ResourcePointer race;
-        //TODO: ENUM
-        [FieldOffset(28)] public int slot;
-        //TODO: ENUM
-        [FieldOffset(32)] public int zodiacSignSlot;
+        [FieldOffset(28)][EnumRef(typeof(Enums.SlotName))] public int slot;
+        [FieldOffset(32)][EnumRef(typeof(Enums.SlotName))] public int zodiacSignSlot;
 
         [StructSize(16)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -38,3 +37,4 @@ public partial class HaloTable
         }
     }
 }
+

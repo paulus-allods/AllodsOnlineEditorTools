@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -24,11 +25,11 @@ public partial class UIBindSection
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Bind
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int activationType;
+        [FieldOffset(4)][EnumRef(typeof(Enums.ActivationType))] public int activationType;
         [FieldOffset(8)] public string[] defaultKeys;
         [FieldOffset(24)] public TextFileRef name;
         [FieldOffset(40)] public string sysName;
         [FieldOffset(52)] public bool anyMods;
     }
 }
+

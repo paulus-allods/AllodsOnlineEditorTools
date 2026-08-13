@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -27,8 +28,7 @@ public partial class ClientMobPatrol
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Route
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
         [FieldOffset(8)] public int delay;
         [FieldOffset(12)] public Vector3 position;
         [FieldOffset(24)] public float yaw;
@@ -42,3 +42,4 @@ public partial class ClientMobPatrol
         [FieldOffset(8)] public int second;
     }
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using System.Numerics;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,21 +17,15 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VisualAutoLooterClass
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int animateHide;
-    //TODO: ENUM
-    [FieldOffset(28)] public int animateIdle;
-    //TODO: ENUM
-    [FieldOffset(32)] public int animateLoot;
-    //TODO: ENUM
-    [FieldOffset(36)] public int animateRun;
-    //TODO: ENUM
-    [FieldOffset(40)] public int animateShow;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int animateHide;
+    [FieldOffset(28)][EnumRef(typeof(Enums.Animations))] public int animateIdle;
+    [FieldOffset(32)][EnumRef(typeof(Enums.Animations))] public int animateLoot;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations))] public int animateRun;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations))] public int animateShow;
     [FieldOffset(44)] public Vector3 avatarOffset;
     [FieldOffset(56)] public float fadeInTime;
     [FieldOffset(60)] public float fadeOutTime;
-    //TODO: ENUM
-    [FieldOffset(64)] public int locator;
+    [FieldOffset(64)][EnumRef(typeof(Enums.FxLocators))] public int locator;
     [FieldOffset(68)] public string locatorName;
     [FieldOffset(80)] public Vector3 lootOffset;
     [FieldOffset(92)] public float maxRoll;
@@ -44,3 +39,4 @@ public partial class VisualAutoLooterClass
     [FieldOffset(124)] public float turnSpeeddownLim;
     [FieldOffset(128)] public float turnSpeedownMinAngle;
 }
+

@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -27,10 +28,8 @@ public partial class SpellArea
     [FieldOffset(152)] public int defaultAction;
     [FieldOffset(156)] public DescVar[] descVars;
     [FieldOffset(172)] public ResourcePointer durationBuff;
-    //TODO: ENUM
-    [FieldOffset(180)] public int element;
-    //TODO: ENUM
-    [FieldOffset(184)] public int iffPolicy;
+    [FieldOffset(180)][EnumRef(typeof(Enums.SubElement))] public int element;
+    [FieldOffset(184)][EnumRef(typeof(Enums.SpellIFFPolicy))] public int iffPolicy;
     [FieldOffset(188)] public ResourcePointer image;
     [FieldOffset(196)] public int level;
     [FieldOffset(200)] public Mechanics mechanics;
@@ -40,10 +39,8 @@ public partial class SpellArea
     [FieldOffset(288)] public NullablePointer range;
     [FieldOffset(292)] public ResourcePointer[] ranks;
     [FieldOffset(308)] public string sysName;
-    //TODO: ENUM
-    [FieldOffset(320)] public int targetType;
-    //TODO: ENUM
-    [FieldOffset(324)] public int uiSpellBookPageType;
+    [FieldOffset(320)][EnumRef(typeof(Enums.SpellTargetType))] public int targetType;
+    [FieldOffset(324)][EnumRef(typeof(Enums.UISpellBookPageType))] public int uiSpellBookPageType;
     [FieldOffset(328)] public NullablePointer useVisScipt;
     [FieldOffset(332)] public ResourcePointer visualScripts;
     [FieldOffset(340)] public bool autoAppendToActionPanel;
@@ -88,3 +85,4 @@ public partial class SpellArea
         [FieldOffset(44)] public int priority;
     }
 }
+

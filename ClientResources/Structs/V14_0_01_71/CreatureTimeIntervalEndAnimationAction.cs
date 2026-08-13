@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,11 +17,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureTimeIntervalEndAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(40)] public int channel;
+    [FieldOffset(40)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(44)] public string specialController;
-    //TODO: ENUM
-    [FieldOffset(60)] public int[] animations;
-    //TODO: ENUM
-    [FieldOffset(76)] public int mode;
+    [FieldOffset(60)][EnumRef(typeof(Enums.Animations))] public int[] animations;
+    [FieldOffset(76)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 }
+

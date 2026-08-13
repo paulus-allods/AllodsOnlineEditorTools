@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,8 +20,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class Enchant
 {
     [FieldOffset(24)] public NullablePointer[] attributes;
-    //TODO: ENUM
-    [FieldOffset(44)] public int[] secondaryStats;
-    //TODO: ENUM
-    [FieldOffset(60)] public int slot;
+    [FieldOffset(44)][EnumRef(typeof(Enums.InnateStats))] public int[] secondaryStats;
+    [FieldOffset(60)][EnumRef(typeof(Enums.EnchantSlot))] public int slot;
 }
+

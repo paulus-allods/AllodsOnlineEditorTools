@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -15,8 +16,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class InterfaceToggle
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int toggleTarget;
+    [FieldOffset(24)][EnumRef(typeof(Enums.ToggleTarget))] public int toggleTarget;
     [FieldOffset(28)] public bool hide;
     [FieldOffset(29)] public bool hideCursor;
 }
+

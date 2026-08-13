@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -22,9 +23,9 @@ public partial class VICVisObjectByCharComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Case
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int[] animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int[] animation;
         [FieldOffset(20)] public ResourcePointer[] visCharacterTemplate;
         [FieldOffset(36)] public NullablePointer visObjComponent;
     }
 }
+

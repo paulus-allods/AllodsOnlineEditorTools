@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -35,8 +36,7 @@ public partial class QuestResource
     [FieldOffset(192)] public LootTable[] lootTable;
     [FieldOffset(208)] public TextFileRef name;
     [FieldOffset(224)] public string plotline;
-    //TODO: ENUM
-    [FieldOffset(236)] public int questCategory;
+    [FieldOffset(236)][EnumRef(typeof(Enums.QuestCategory))] public int questCategory;
     [FieldOffset(240)] public NullablePointer repeatPolicy;
     [FieldOffset(244)] public NullablePointer requiredLevel;
     [FieldOffset(248)] public ReturnLocation returnLocation;
@@ -45,8 +45,7 @@ public partial class QuestResource
     [FieldOffset(400)] public NullablePointer[] startConditions;
     [FieldOffset(416)] public TextFileRef startText;
     [FieldOffset(432)] public GoalVar[] startTextVars;
-    //TODO: ENUM
-    [FieldOffset(448)] public int type;
+    [FieldOffset(448)][EnumRef(typeof(Enums.QuestType))] public int type;
     [FieldOffset(452)] public int uiPriority;
     [FieldOffset(456)] public ResourcePointer zone;
     [FieldOffset(464)] public bool canBeSkipped;
@@ -136,3 +135,4 @@ public partial class QuestResource
         [FieldOffset(40)] public bool isIndoor;
     }
 }
+

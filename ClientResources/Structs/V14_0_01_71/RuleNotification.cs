@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -18,7 +19,7 @@ public partial class RuleNotification
 {
     [FieldOffset(24)] public ResourcePointer image;
     [FieldOffset(32)] public TextFileRef text;
-    //TODO: ENUM
-    [FieldOffset(48)] public int type;
+    [FieldOffset(48)][EnumRef(typeof(Enums.RuleNotificationType))] public int type;
     [FieldOffset(52)] public bool hideInactive;
 }
+

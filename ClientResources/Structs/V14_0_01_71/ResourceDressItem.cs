@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -19,7 +20,7 @@ public partial class ResourceDressItem
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(36)] public int count;
-    //TODO: ENUM
-    [FieldOffset(40)] public int slot;
+    [FieldOffset(40)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     [FieldOffset(44)] public bool secondary;
 }
+

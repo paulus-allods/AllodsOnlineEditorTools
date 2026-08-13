@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -22,10 +23,9 @@ public partial class SFXMaterialPairTable
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class PairSound
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int materialFirst;
-        //TODO: ENUM
-        [FieldOffset(8)] public int materialSecond;
+        [FieldOffset(4)][EnumRef(typeof(Enums.SFXMaterial))] public int materialFirst;
+        [FieldOffset(8)][EnumRef(typeof(Enums.SFXMaterial))] public int materialSecond;
         [FieldOffset(12)] public Sound3D sound;
     }
 }
+

@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,8 +18,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class CylinderWithHeight
 {
-    //TODO: ENUM
-    [FieldOffset(20)] public int objectsProvider;
+    [FieldOffset(20)][EnumRef(typeof(Enums.ShapeObjectsProvider))] public int objectsProvider;
     [FieldOffset(28)] public float bottomPlane;
     [FieldOffset(32)] public float topPlane;
 }
+

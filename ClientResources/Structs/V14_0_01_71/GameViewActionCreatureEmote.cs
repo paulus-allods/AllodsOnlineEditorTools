@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,8 +17,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class GameViewActionCreatureEmote
 {
     [FieldOffset(20)] public PlaybackParameters playbackParameters;
-    //TODO: ENUM
-    [FieldOffset(88)] public int animation;
+    [FieldOffset(88)][EnumRef(typeof(Enums.Animations))] public int animation;
     [FieldOffset(92)] public string creature;
 
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -47,3 +47,4 @@ public partial class GameViewActionCreatureEmote
         }
     }
 }
+

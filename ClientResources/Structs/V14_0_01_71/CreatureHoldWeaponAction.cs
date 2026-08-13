@@ -6,6 +6,7 @@
 
 #nullable disable
 
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -16,8 +17,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureHoldWeaponAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int hold;
+    [FieldOffset(36)][EnumRef(typeof(Enums.EHoldWeapon))] public int hold;
     [FieldOffset(40)] public float time;
     [FieldOffset(44)] public bool boast;
 }
+

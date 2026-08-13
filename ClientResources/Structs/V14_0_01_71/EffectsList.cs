@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -26,12 +27,11 @@ public partial class EffectsList
         [FieldOffset(8)] public ResourcePointer effect;
         [FieldOffset(16)] public int fadeInTime;
         [FieldOffset(20)] public int fadeOutTime;
-        //TODO: ENUM
-        [FieldOffset(24)] public int locator;
+        [FieldOffset(24)][EnumRef(typeof(Enums.FxLocators))] public int locator;
         [FieldOffset(28)] public string locatorName;
-        //TODO: ENUM
-        [FieldOffset(40)] public int member;
+        [FieldOffset(40)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(44)] public int rate;
         [FieldOffset(48)] public bool fixPoint;
     }
 }
+

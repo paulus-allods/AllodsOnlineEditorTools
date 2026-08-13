@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -21,6 +22,6 @@ public partial class Question
     [FieldOffset(24)][XdbName("params")] public NullablePointer @params;
     [FieldOffset(28)] public NullablePointer questionCustomData;
     [FieldOffset(32)] public NullablePointer result;
-    //TODO: ENUM
-    [FieldOffset(36)] public int showResults;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ShowResultsType))] public int showResults;
 }
+

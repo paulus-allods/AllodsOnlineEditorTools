@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -25,7 +26,7 @@ public partial class CreatureVisActionCreateController
     public class ParentController
     {
         [FieldOffset(4)] public string specialControllerName;
-        //TODO: ENUM
-        [FieldOffset(16)] public int type;
+        [FieldOffset(16)][EnumRef(typeof(Enums.AnimationControllerIdType))] public int type;
     }
 }
+

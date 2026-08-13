@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -20,6 +21,6 @@ public partial class GuildBannerResource
 {
     [FieldOffset(24)] public ResourcePointer currency;
     [FieldOffset(32)] public ResourcePointer previewItem;
-    //TODO: ENUM
-    [FieldOffset(40)] public int tabardType;
+    [FieldOffset(40)][EnumRef(typeof(Enums.TabardType))] public int tabardType;
 }
+

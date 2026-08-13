@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,8 +18,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 public partial class CreatureAttachSelfAction
 {
     [FieldOffset(20)] public string visActionID;
-    //TODO: ENUM
-    [FieldOffset(36)] public int attachTo;
+    [FieldOffset(36)][EnumRef(typeof(Enums.EUseCreature))] public int attachTo;
     [FieldOffset(40)] public string locatorName;
     [FieldOffset(52)] public string[] memberLocatorName;
     [FieldOffset(68)] public NullablePointer playAttachTo;
@@ -28,3 +28,4 @@ public partial class CreatureAttachSelfAction
     [FieldOffset(84)] public NullablePointer playOnSelfWhenStopped;
     [FieldOffset(88)] public bool notifyCamera;
 }
+

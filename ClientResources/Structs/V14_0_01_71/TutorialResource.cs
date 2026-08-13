@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -26,13 +27,11 @@ public partial class TutorialResource
     [FieldOffset(92)] public ResourcePointer nextTutorial;
     [FieldOffset(100)] public PopUp[] popUps;
     [FieldOffset(116)] public ResourcePointer[] requiredContentKeys;
-    //TODO: ENUM
-    [FieldOffset(132)] public int runType;
+    [FieldOffset(132)][EnumRef(typeof(Enums.TutorialRunType))] public int runType;
     [FieldOffset(136)] public TextFileRef shortText;
     [FieldOffset(152)] public string sysName;
     [FieldOffset(164)] public TextFileRef text;
-    //TODO: ENUM
-    [FieldOffset(180)] public int viewType;
+    [FieldOffset(180)][EnumRef(typeof(Enums.TutorialViewType))] public int viewType;
     [FieldOffset(184)] public bool isForced;
     [FieldOffset(185)] public bool isUnlearnable;
 
@@ -44,3 +43,4 @@ public partial class TutorialResource
         [FieldOffset(16)] public TextFileRef text;
     }
 }
+

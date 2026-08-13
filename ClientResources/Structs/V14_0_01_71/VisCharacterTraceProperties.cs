@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -22,8 +23,7 @@ public partial class VisCharacterTraceProperties
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Animation
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
         [FieldOffset(8)] public Key[] keys;
 
         [StructSize(20)]
@@ -37,10 +37,10 @@ public partial class VisCharacterTraceProperties
             public class Action
             {
                 [FieldOffset(4)] public ResourcePointer effects;
-                //TODO: ENUM
-                [FieldOffset(12)] public int standartLocator;
+                [FieldOffset(12)][EnumRef(typeof(Enums.TraceLocators))] public int standartLocator;
                 [FieldOffset(16)] public string uncommonLocator;
             }
         }
     }
 }
+

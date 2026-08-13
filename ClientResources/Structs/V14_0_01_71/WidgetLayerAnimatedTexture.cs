@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using JetBrains.Annotations;
@@ -17,8 +18,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WidgetLayerAnimatedTexture
 {
-    //TODO: ENUM
-    [FieldOffset(24)][XdbName("BlendEffect")] public int blendEffect;
+    [FieldOffset(24)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffectType))] public int blendEffect;
     [FieldOffset(28)][XdbName("Color")] public int color;
     [FieldOffset(32)][XdbName("Grayed")] public bool grayed;
     [FieldOffset(33)] public bool flatPlacement;
@@ -50,3 +50,4 @@ public partial class WidgetLayerAnimatedTexture
         }
     }
 }
+

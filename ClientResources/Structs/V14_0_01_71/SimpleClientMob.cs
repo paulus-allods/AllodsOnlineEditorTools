@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -17,9 +18,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V14_0_01_71;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SimpleClientMob
 {
-    //TODO: ENUM
-    [FieldOffset(24)] public int animation;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int animation;
     [FieldOffset(28)] public Vector3 position;
     [FieldOffset(40)] public ResourcePointer visualMob;
     [FieldOffset(48)] public float yaw;
 }
+

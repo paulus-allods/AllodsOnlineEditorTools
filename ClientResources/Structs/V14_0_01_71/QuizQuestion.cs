@@ -7,6 +7,7 @@
 #nullable disable
 
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 
@@ -18,6 +19,6 @@ public partial class QuizQuestion
 {
     [FieldOffset(24)] public ResourcePointer image;
     [FieldOffset(32)] public TextFileRef text;
-    //TODO: ENUM
-    [FieldOffset(48)] public int type;
+    [FieldOffset(48)][EnumRef(typeof(Enums.QuizQuestionType))] public int type;
 }
+

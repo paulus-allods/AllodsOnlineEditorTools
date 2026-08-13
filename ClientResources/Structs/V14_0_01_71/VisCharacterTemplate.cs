@@ -8,6 +8,7 @@
 
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
 using JetBrains.Annotations;
@@ -29,8 +30,7 @@ public partial class VisCharacterTemplate
     [FieldOffset(116)] public ResourcePointer defaultDress;
     [FieldOffset(124)] public ResourcePointer defaultSoundVariation;
     [FieldOffset(132)] public ResourcePointer extension;
-    //TODO: ENUM
-    [FieldOffset(140)] public int gender;
+    [FieldOffset(140)][EnumRef(typeof(Enums.Gender))] public int gender;
     [FieldOffset(144)] public string[] hairColoredGeosets;
     [FieldOffset(160)] public float height;
     [FieldOffset(164)] public string helmGeoset;
@@ -78,8 +78,7 @@ public partial class VisCharacterTemplate
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class PortraitSettings
         {
-            //TODO: ENUM
-            [FieldOffset(4)] public int animation;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
             [FieldOffset(8)] public int animationTime;
             [FieldOffset(12)] public Vector3 cameraAnchor;
             [FieldOffset(24)] public Quaternion cameraRotation;
@@ -141,8 +140,7 @@ public partial class VisCharacterTemplate
         public class ParentController
         {
             [FieldOffset(4)] public string specialControllerName;
-            //TODO: ENUM
-            [FieldOffset(16)] public int type;
+            [FieldOffset(16)][EnumRef(typeof(Enums.AnimationControllerIdType))] public int type;
         }
     }
 
@@ -166,11 +164,11 @@ public partial class VisCharacterTemplate
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class PortraitSettings
     {
-        //TODO: ENUM
-        [FieldOffset(4)] public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations))] public int animation;
         [FieldOffset(8)] public int animationTime;
         [FieldOffset(12)] public Vector3 cameraAnchor;
         [FieldOffset(24)] public Quaternion cameraRotation;
         [FieldOffset(40)] public float projSettingsVWidth;
     }
 }
+
