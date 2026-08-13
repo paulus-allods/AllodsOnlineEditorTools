@@ -20,14 +20,14 @@ internal class FileRefBinaryConverter : BinaryConverter<FileRef>
         if (context.FileRefKind == FileRefKind.PakFileRef)
         {
             var metadata = context.CurrentDatabaseMetadata;
-            if (metadata.PakFileRefOffsets is not null && !metadata.PakFileRefOffsets.Contains(offset))
-            {
-                //BUG: throw new InvalidDataException($"PakFileRef at offset {offset} is not listed in the database's PakFileRef offset table");
-            }
-
             var packIndex = reader.ReadInt(offset + 12);
             var fileIndex = reader.ReadInt(offset + 16);
             file = context.ResolvePakFileRef(packIndex, fileIndex);
+
+            if (file.Length > 0 && metadata.PakFileRefOffsets is not null && !metadata.PakFileRefOffsets.Contains(offset))
+            {
+                throw new InvalidDataException($"PakFileRef at offset {offset} pointing to {file} is not listed in the database's PakFileRef offset table");
+            }
         }
         else
         {
