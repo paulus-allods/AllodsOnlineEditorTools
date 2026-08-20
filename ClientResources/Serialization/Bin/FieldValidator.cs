@@ -18,14 +18,14 @@ internal static partial class FieldValidator
     private static partial Regex FileExtensionRegex();
 
     [Conditional("DEBUG")]
-    public static void ValidatePlainString(string value, int offset)
+    public static void ValidatePlainString(string value, long offset)
     {
         Debug.Assert(!FileExtensionRegex().IsMatch(value) || PlainStringExemptions.Any(value.EndsWith),
             $"String field at offset {offset} contains '{value}', which looks like a file reference; the field is probably a FileRef/TextFileRef wrongly marked as string");
     }
 
     [Conditional("DEBUG")]
-    public static void ValidateFileRef(string value, int offset)
+    public static void ValidateFileRef(string value, long offset)
     {
         Debug.Assert(
             value.Length == 0 || value.Contains(NoSource, StringComparison.InvariantCulture) ||
@@ -34,14 +34,14 @@ internal static partial class FieldValidator
     }
 
     [Conditional("DEBUG")]
-    public static void ValidateTextFileRef(string value, int offset)
+    public static void ValidateTextFileRef(string value, long offset)
     {
         Debug.Assert(value.Length == 0 || value.EndsWith(".txt", StringComparison.InvariantCulture),
             $"TextFileRef field at offset {offset} contains '{value}', which does not end with .txt; the field is probably not a TextFileRef");
     }
 
     [Conditional("DEBUG")]
-    public static void ValidateEnumRef(FieldInfo field, int offset, Type enumRef, object? value)
+    public static void ValidateEnumRef(FieldInfo field, long offset, Type enumRef, object? value)
     {
         switch (value)
         {

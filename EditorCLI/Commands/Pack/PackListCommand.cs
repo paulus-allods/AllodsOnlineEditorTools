@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Text;
 using System.Text.RegularExpressions;
-using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Logging.Abstractions;
 using Spectre.Console;
@@ -31,19 +31,18 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
         public string? Types { get; set; }
     }
 
-    public override int Execute(CommandContext context, PackListCommandSettings settings,
-        CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, PackListCommandSettings settings, CancellationToken cancellationToken)
     {
-        var (metadata, _) = DatabaseLoader.LoadDatabases(settings.BinPath, NullLoggerFactory.Instance);
+        var databases = DatabaseLoader.LoadDatabases(settings.BinPath, NullLoggerFactory.Instance);
 
         var typeFilter = settings.Types?
             .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
         var tree = new DirectoryTree();
-        foreach (var meta in metadata.Values)
+        foreach (var meta in databases.Values.Select(database => database.Metadata))
         {
-            foreach (var (dbid, path) in meta.Dbid2File)
+            foreach (var (dbid, path) in meta.DbId2File)
             {
                 if (typeFilter is not null && !typeFilter.Contains(meta.GetStructType(dbid) ?? string.Empty))
                 {

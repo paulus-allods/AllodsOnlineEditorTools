@@ -7,7 +7,7 @@ internal class FileRefBinaryConverter : BinaryConverter<FileRef>
     public override int GetSize(Type type, BinaryStructSerializerContext context) =>
         context.FileRefKind is FileRefKind.FileRef2 or FileRefKind.PakFileRef ? 20 : 12;
 
-    protected override FileRef ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
+    protected override FileRef ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert,
         BinaryStructSerializerContext context)
     {
         if (context.FileRefKind == FileRefKind.None)
@@ -24,7 +24,7 @@ internal class FileRefBinaryConverter : BinaryConverter<FileRef>
             var fileIndex = reader.ReadInt(offset + 16);
             file = context.ResolvePakFileRef(packIndex, fileIndex);
 
-            if (file.Length > 0 && metadata.PakFileRefOffsets is not null && !metadata.PakFileRefOffsets.Contains(offset))
+            if (file.Length > 0 && metadata.PakFileRefOffsets is not null && !metadata.PakFileRefOffsets.Contains((int)offset))
             {
                 throw new InvalidDataException($"PakFileRef at offset {offset} pointing to {file} is not listed in the database's PakFileRef offset table");
             }
@@ -38,8 +38,7 @@ internal class FileRefBinaryConverter : BinaryConverter<FileRef>
         return new FileRef(file);
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, FileRef value,
-        BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, long offset, FileRef value, BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

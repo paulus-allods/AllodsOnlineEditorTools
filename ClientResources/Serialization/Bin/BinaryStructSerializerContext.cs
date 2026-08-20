@@ -1,4 +1,5 @@
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 using Microsoft.Extensions.Logging;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;

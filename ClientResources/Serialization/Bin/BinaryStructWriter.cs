@@ -1,4 +1,5 @@
 using System.Buffers.Binary;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 

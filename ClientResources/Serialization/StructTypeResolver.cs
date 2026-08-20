@@ -42,7 +42,7 @@ public sealed class StructTypeResolver
             : throw new InvalidOperationException($"No struct type is registered for xdb name '{xdbName}'");
 
     public static StructTypeResolver FromVersion(GameVersion version, ILogger<StructTypeResolver>? logger = null) =>
-        FromNamespace(version.Namespace, logger);
+        FromNamespace(version.FullNamespace, logger);
 
     public static StructTypeResolver FromNamespace(string versionNamespace, ILogger<StructTypeResolver>? logger = null)
     {

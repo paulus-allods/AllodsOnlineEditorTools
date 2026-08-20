@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Converters;
 
@@ -7,7 +8,7 @@ internal class NullablePointerBinaryConverter : BinaryConverter<NullablePointer>
 {
     public override int GetSize(Type type, BinaryStructSerializerContext context) => 4;
 
-    protected override NullablePointer ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
+    protected override NullablePointer ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert,
         BinaryStructSerializerContext context)
     {
         if (!reader.TryGetPointerFix(offset, out var pointerFix))
@@ -23,8 +24,7 @@ internal class NullablePointerBinaryConverter : BinaryConverter<NullablePointer>
         return new NullablePointer(nested);
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, NullablePointer value,
-        BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, long offset, NullablePointer value, BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Converters;
 
@@ -11,8 +12,7 @@ internal class ArrayBinaryConverter : BinaryConverter<Array>
         return type.IsArray;
     }
 
-    protected override Array ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    protected override Array ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         var elementType = typeToConvert.GetElementType();
         Debug.Assert(elementType is not null);
@@ -37,8 +37,7 @@ internal class ArrayBinaryConverter : BinaryConverter<Array>
         return result;
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, Array? value,
-        BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, long offset, Array? value, BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

@@ -26,7 +26,8 @@ internal sealed class GenerateStructCodeCommand(
         [CommandArgument(0, "<Bin>")]
         public string BinPath { get; set; } = string.Empty;
 
-        [CommandArgument(1, "<version>")] public string Version { get; init; } = string.Empty;
+        [CommandArgument(1, "<version>")]
+        public string Version { get; init; } = string.Empty;
 
         [Description(
             "Hex address of the metainfo pointer. If omitted (together with --register-metainfo), auto-discovery is used.")]
@@ -42,7 +43,8 @@ internal sealed class GenerateStructCodeCommand(
         [DefaultValue("output")]
         public string OutputDirectory { get; init; } = string.Empty;
 
-        [CommandOption("--types-xml")] public string? TypesXmlFile { get; init; }
+        [CommandOption("--types-xml")]
+        public string? TypesXmlFile { get; init; }
 
         [Description(
             "Struct names to generate (comma-separated or repeated). When provided, structs are taken from this list instead of being derived from the pack.bin databases.")]
@@ -127,10 +129,12 @@ internal sealed class GenerateStructCodeCommand(
         var version = settings.Version;
         var versionDir = $"{settings.OutputDirectory}/{version}/";
 
-        if (!GameVersion.ByName.TryGetValue(version, out var gameVersion))
+        var gameVersion = GameVersion.Versions.Values.FirstOrDefault(v =>
+            string.Equals(v.Namespace, version, StringComparison.OrdinalIgnoreCase));
+        if (gameVersion is null)
         {
             logger.LogWarning(
-                "Version {Version} is not declared in GameVersions.resx; FileRef inference will be disabled", version);
+                "Namespace {Version} is not declared in GameVersion.cs; FileRef inference will be disabled", version);
         }
 
         var generator = new StructCodeGenerator(collection, settings.TypesXmlFile, version,

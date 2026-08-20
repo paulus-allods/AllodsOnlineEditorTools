@@ -1,3 +1,5 @@
+using AllodsOnlineEditorTools.ClientResources.Structs;
+
 namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 
 public sealed class ResourceSerializationContext
@@ -26,13 +28,11 @@ public sealed class ResourceSerializationContext
 
     public Type ResolveDocumentType(string versionNamespace, string typeName)
     {
-        if (!versionNamespace.StartsWith(StructsNamespacePrefix, StringComparison.Ordinal))
+        if (!versionNamespace.StartsWith(GameVersion.StructsNamespace, StringComparison.Ordinal))
         {
             throw new InvalidOperationException($"$version '{versionNamespace}' is not a known structs namespace");
         }
 
         return StructTypeResolverCache.ForNamespace(versionNamespace).ResolveByName(typeName);
     }
-
-    private const string StructsNamespacePrefix = "AllodsOnlineEditorTools.ClientResources.Structs";
 }

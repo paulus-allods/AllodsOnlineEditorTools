@@ -1,71 +1,80 @@
-using System.Diagnostics;
-using System.Globalization;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Diagnostics.CodeAnalysis;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Structs;
 
 public class GameVersion
 {
-    public static readonly IReadOnlyDictionary<ulong, GameVersion> Versions;
-    public static readonly IReadOnlyDictionary<string, GameVersion> ByName;
+    /// <summary>Root namespace every per-version struct namespace lives under.</summary>
+    public static readonly string StructsNamespace = typeof(GameVersion).Namespace!;
 
-    public string Hash { get; set; } = string.Empty;
-    public string Version { get; set; } = string.Empty;
-    public bool NeedPacks { get; set; }
-    public string Game { get; set; } = string.Empty;
-    public string Namespace { get; set; } = string.Empty;
+    public string Name { get; private init; } = string.Empty;
+    private string Hash { get; init; } = string.Empty;
+    public bool NeedPacks => FileRefKind == FileRefKind.PakFileRef;
 
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public FileRefKind FileRefKind { get; set; } = FileRefKind.None;
+    /// <summary>The version-specific namespace segment (e.g. <c>V1_1_02_0</c>), or empty if no structs are
+    /// generated for this version yet.</summary>
+    public string Namespace { get; private init; } = string.Empty;
 
-    public override string ToString() => $"{Game}: {Version} ({Hash})";
+    /// <summary>The fully-qualified struct namespace for this version, or empty if none are generated yet.</summary>
+    public string FullNamespace => Namespace.Length == 0 ? string.Empty : $"{StructsNamespace}.{Namespace}";
 
-    static GameVersion()
-    {
-        var byHash = new Dictionary<ulong, GameVersion>();
-        var byName = new Dictionary<string, GameVersion>(StringComparer.OrdinalIgnoreCase);
-        var resourceManager = GameVersions.ResourceManager;
-        var resourceSet = resourceManager.GetResourceSet(CultureInfo.InvariantCulture, true, true);
+    /// <summary>
+    /// The on-disk pack layout to use when repacking this version. The reader does not consult it: it
+    /// detects the format from the payload instead. Defaults to <see cref="DatabaseFormat.V1"/>.
+    /// </summary>
+    public DatabaseFormat DatabaseFormat { get; init; } = DatabaseFormat.V1;
 
-        if (resourceSet != null)
+    public FileRefKind FileRefKind { get; init; } = FileRefKind.None;
+
+    public override string ToString() => $"{Name} ({Hash})";
+
+    /// <summary>Looks a version up by its raw header bytes.</summary>
+    public static bool TryGetByVersion(byte[] version, [NotNullWhen(true)] out GameVersion? gameVersion) => Versions.TryGetValue(Convert.ToHexString(version), out gameVersion);
+
+    /// <summary>
+    /// The supported client versions.
+    /// </summary>
+    private static readonly GameVersion[] All =
+    [
+        new()
         {
-            foreach (System.Collections.DictionaryEntry entry in resourceSet)
-            {
-                if (entry.Value is not string json)
-                {
-                    continue;
-                }
+            Name = "Allods Online 1.1.02.0", Hash = "5847DB469364493C", Namespace = nameof(V1_1_02_0), FileRefKind = FileRefKind.FileRef,
+        },
+        new()
+        {
+            Name = "Allods Online 1.1.04.44", Hash = "304C70AC5A6F33D0", FileRefKind = FileRefKind.FileRef,
+        },
+        new()
+        {
+            Name = "Allods Online 4.0.02.4X", Hash = "641AD1D48E1FD7EC", Namespace = nameof(V4_0_02_43), FileRefKind = FileRefKind.FileRef2,
+        },
+        new()
+        {
+            Name = "Allods Online 3.0.0.X", Hash = "2060B40B8CBE5B8D", Namespace = nameof(V3_0_00_89), FileRefKind = FileRefKind.FileRef2,
+        },
+        new()
+        {
+            Name = "Allods Online 7.0.00.7X", Hash = "7025BD5027724A6D", Namespace = nameof(V7_0_00_76), FileRefKind = FileRefKind.FileRef2,
+        },
+        new()
+        {
+            Name = "Cloud Pirates 1.7.7", Hash = "B077EC9F77A40AA0", FileRefKind = FileRefKind.None,
+        },
+        new()
+        {
+            Name = "Allods Online 14.0.00.21", Hash = "44068E78E8E67876", Namespace = nameof(V14_0_01_71), FileRefKind = FileRefKind.PakFileRef,
+        },
+        new()
+        {
+            Name = "Allods Online 14.0.01.71", Hash = "983A36AC75DB9EC5", Namespace = nameof(V14_0_01_71), FileRefKind = FileRefKind.PakFileRef,
+        },
+        new()
+        {
+            Name = "Allods Online 17.0.01.55", Hash = "C4022E5973040000441E2B41", FileRefKind = FileRefKind.PakFileRef, DatabaseFormat = DatabaseFormat.V2,
+        },
+    ];
 
-                try
-                {
-                    var version = JsonSerializer.Deserialize<GameVersion>(json);
-                    if (version == null)
-                    {
-                        continue;
-                    }
-
-                    var hashStr = version.Hash.StartsWith("0x", StringComparison.Ordinal)
-                        ? version.Hash[2..]
-                        : version.Hash;
-                    var hash = ulong.Parse(hashStr, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
-
-                    byHash[hash] = version;
-
-                    if (entry.Key is string name)
-                    {
-                        byName[name] = version;
-                    }
-                }
-                catch (Exception ex) when (ex is JsonException or FormatException or OverflowException)
-                {
-                    Trace.TraceWarning($"Skipping invalid GameVersions.resx entry '{entry.Key}': {ex.Message}");
-                }
-            }
-        }
-
-        Versions = byHash;
-        ByName = byName;
-    }
+    public static readonly IReadOnlyDictionary<string, GameVersion> Versions = All.ToDictionary(version => version.Hash, StringComparer.OrdinalIgnoreCase);
 }

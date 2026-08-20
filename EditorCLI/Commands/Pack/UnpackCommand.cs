@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Jdb;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 using AllodsOnlineEditorTools.ClientResources.Structs;
@@ -53,17 +54,19 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
     public override int Execute(CommandContext context, UnpackCommandSettings settings,
         CancellationToken cancellationToken)
     {
-        var (metadata, data) = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
+        var databases = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
 
-        if (!metadata.TryGetValue("pack.bin", out var mainBinaryPackedDatabaseMetadata))
+        if (!databases.TryGetValue("pack.bin", out var mainDatabase))
         {
             throw new InvalidDataException(
                 $"No pack.bin database found in '{settings.BinPath}'; cannot unpack without the main database");
         }
 
-        if (!GameVersion.Versions.TryGetValue(mainBinaryPackedDatabaseMetadata.Version, out var version))
+        var mainMetadata = mainDatabase.Metadata;
+        if (!GameVersion.TryGetByVersion(mainMetadata.Version, out var version))
         {
-            throw new NotSupportedException($"Unsupported version: {mainBinaryPackedDatabaseMetadata.Version:X}");
+            throw new NotSupportedException(
+                $"Unsupported version: 0x{Convert.ToHexString(mainMetadata.Version)}");
         }
 
         PacksRegistry? packsRegistry = null;
@@ -80,18 +83,18 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
         logger.LogInformation("Loading structs for version {version}", version.ToString());
 
-        var typeResolver = InitStructs(metadata, version, settings.Strict);
+        var typeResolver = InitStructs(databases, version, settings.Strict);
 
         var caster = settings.CastToVersion is null
             ? null
-            : CreateCaster(settings.CastToVersion, version, metadata, settings.Strict);
+            : CreateCaster(settings.CastToVersion, version, databases, settings.Strict);
 
         if (!settings.Dry)
         {
             Directory.CreateDirectory(settings.OutputDirectory);
         }
 
-        int totalFiles = metadata.Values.Sum(m => m.Dbid2File.Count);
+        int totalFiles = databases.Values.Sum(d => d.Metadata.DbId2File.Count);
 
         logger.LogInformation("Start unpacking {TotalFiles} files", totalFiles);
 
@@ -123,12 +126,14 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
             }
         }
 
-        foreach (var entry in metadata)
+        foreach (var entry in databases)
         {
+            var databaseMetadata = entry.Value.Metadata;
+            var databaseData = entry.Value.Data;
             var serializerContext = new BinaryStructSerializerContext()
             {
-                CurrentDatabaseMetadata = entry.Value,
-                MainDatabaseMetadata = mainBinaryPackedDatabaseMetadata,
+                CurrentDatabaseMetadata = databaseMetadata,
+                MainDatabaseMetadata = mainMetadata,
                 TypeResolver = typeResolver,
                 FileRefKind = version.FileRefKind,
                 Packs = packsRegistry,
@@ -138,11 +143,11 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
             var resourceContext = new ResourceSerializationContext { EnumRefOverrides = caster?.EnumRefOverrides, };
             var serializer = CreateSerializer(settings.Format, resourceContext, loggerFactory);
 
-            Parallel.ForEach(entry.Value.Dbid2File, fileEntry =>
+            Parallel.ForEach(databaseMetadata.DbId2File, fileEntry =>
             {
                 if (caster is not null)
                 {
-                    var structName = entry.Value.GetStructType(fileEntry.Key);
+                    var structName = databaseMetadata.GetStructType(fileEntry.Key);
                     if (structName is null || !caster.CanCast(structName))
                     {
                         ReportProgress();
@@ -152,14 +157,14 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
                 using (logger.BeginScope("Database:{Database} File:{File}", entry.Key, fileEntry.Value))
                 {
-                    var result = BinaryStructSerializer.Deserialize(data[entry.Key], fileEntry.Key, serializerContext,
+                    var result = BinaryStructSerializer.Deserialize(databaseData, fileEntry.Key, serializerContext,
                         binaryOptions);
                     if (caster is not null)
                     {
                         result = caster.Cast(result, resourceContext);
                     }
 
-                    entry.Value.Dbid2Resid.TryGetValue(fileEntry.Key, out int resourceId);
+                    databaseMetadata.DbId2ResId.TryGetValue(fileEntry.Key, out int resourceId);
                     var content = serializer.SerializeResource(result, resourceId);
 
                     if (!settings.Dry)
@@ -192,12 +197,14 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
         };
 
     private StructCaster CreateCaster(string targetVersionName, GameVersion sourceVersion,
-        Dictionary<string, DatabaseMetadata> metadata, bool strictMode)
+        Dictionary<string, BinDatabase> databases, bool strictMode)
     {
-        if (!GameVersion.ByName.TryGetValue(targetVersionName, out var targetVersion))
+        var targetVersion = GameVersion.Versions.Values.FirstOrDefault(v =>
+            string.Equals(v.Name, targetVersionName, StringComparison.OrdinalIgnoreCase));
+        if (targetVersion is null)
         {
             throw new ArgumentException(
-                $"Unknown cast target version '{targetVersionName}'; known versions: {string.Join(", ", GameVersion.ByName.Keys)}");
+                $"Unknown cast target version '{targetVersionName}'; known versions: {string.Join(", ", GameVersion.Versions.Values.Select(v => v.Name))}");
         }
 
         var targetStructs = StructTypeResolver.FromVersion(targetVersion).ByName;
@@ -210,7 +217,7 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
         var caster = new StructCaster(StructTypeResolver.FromVersion(sourceVersion).ByName, targetStructs,
             loggerFactory.CreateLogger<StructCaster>());
-        caster.Analyze(metadata.Values.SelectMany(m => m.Structs).Distinct());
+        caster.Analyze(databases.Values.SelectMany(d => d.Metadata.Structs).Distinct());
 
         if (caster.IncompatibilityCount > 0)
         {
@@ -227,13 +234,13 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
         return caster;
     }
 
-    private StructTypeResolver InitStructs(Dictionary<string, DatabaseMetadata> metadata, GameVersion allodsGameVersion,
+    private StructTypeResolver InitStructs(Dictionary<string, BinDatabase> databases, GameVersion allodsGameVersion,
         bool strictMode)
     {
         var typeResolver =
             StructTypeResolver.FromVersion(allodsGameVersion, loggerFactory.CreateLogger<StructTypeResolver>());
 
-        var structs = metadata.Values.SelectMany(m => m.Structs).ToHashSet();
+        var structs = databases.Values.SelectMany(d => d.Metadata.Structs).ToHashSet();
         var missingStructs = structs.Except(typeResolver.Types.Select(s => s.Name)).ToList();
 
         foreach (var missingStruct in missingStructs)

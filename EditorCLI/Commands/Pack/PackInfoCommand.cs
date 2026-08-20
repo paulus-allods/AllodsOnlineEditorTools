@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 using AllodsOnlineEditorTools.ClientResources.Structs;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
@@ -10,8 +11,7 @@ namespace EditorCLI.Commands.Pack;
 
 [UsedImplicitly]
 [Description("Display information about a packed database (version, structs, packs, texts, file count)")]
-internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory loggerFactory)
-    : Command<PackInfoCommand.PackInfoCommandSettings>
+internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory loggerFactory) : Command<PackInfoCommand.PackInfoCommandSettings>
 {
     [UsedImplicitly]
     public class PackInfoCommandSettings : CommandSettings
@@ -23,12 +23,6 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         [Description("Name of the .bin database to analyze (required when the Bin folder/pak contains more than one)")]
         [CommandArgument(1, "[File]")]
         public string? File { get; set; }
-
-        [CommandOption("--version")]
-        [Description(
-            "Display the database hash version and matching version name (on by default; disable with --no-version)")]
-        [DefaultValue(true)]
-        public bool ShowVersion { get; set; }
 
         [CommandOption("--no-version")]
         [Description("Hide the database hash version")]
@@ -50,28 +44,27 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         public bool ShowTexts { get; set; }
     }
 
-    public override int Execute(CommandContext context, PackInfoCommandSettings settings,
-        CancellationToken cancellationToken)
+    public override int Execute(CommandContext context, PackInfoCommandSettings settings, CancellationToken cancellationToken)
     {
-        var (metadata, _) = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
+        var databases = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
 
-        if (metadata.Count == 0)
+        if (databases.Count == 0)
         {
             console.MarkupLineInterpolated($"[red]info:[/] no databases found in '{settings.BinPath}'");
             return 1;
         }
 
-        if (!TrySelectDatabase(metadata, settings.File, out var database))
+        if (!TrySelectDatabase(databases, settings.File, out var database))
         {
             return 1;
         }
 
-        if (settings.ShowVersion && !settings.HideVersion)
+        if (!settings.HideVersion)
         {
-            var versionName = GameVersion.Versions.TryGetValue(database.Version, out var version)
+            var versionName = GameVersion.TryGetByVersion(database.Version, out var version)
                 ? version.ToString()
                 : "unknown";
-            console.MarkupLineInterpolated($"[yellow]Version:[/] 0x{database.Version:X16} ({versionName})");
+            console.MarkupLineInterpolated($"[yellow]Version:[/] 0x{Convert.ToHexString(database.Version)} ({versionName})");
         }
 
         if (settings.ShowStructs)
@@ -105,60 +98,70 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
 
         if (settings.ShowTexts)
         {
-            var texts = database.TextFileRefNames.Values
-                .Where(t => !string.IsNullOrEmpty(t))
-                .Distinct()
-                .OrderBy(t => t, StringComparer.OrdinalIgnoreCase)
-                .ToList();
-            console.MarkupLineInterpolated($"[yellow]Text files ({texts.Count}):[/]");
-            foreach (var text in texts)
+            if (database.TextFileRefNames is null)
             {
-                console.WriteLine(text);
+                console.MarkupLine("[yellow] Database has no texts");
+            }
+            else
+            {
+                var texts = database.TextFileRefNames.Values
+                    .Where(t => !string.IsNullOrEmpty(t))
+                    .Distinct()
+                    .OrderBy(t => t, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+                console.MarkupLineInterpolated($"[yellow]Text files ({texts.Count}):[/]");
+                foreach (var text in texts)
+                {
+                    console.WriteLine(text);
+                }
             }
         }
 
-        console.MarkupLineInterpolated($"[yellow]Total files:[/] {database.Dbid2File.Count}");
+        var rootCount = database.DbId2File.Count;
+        var fileCount = database.ObjId2DbId is { } objIds
+            ? $"{rootCount + objIds.Count} ({rootCount} root)"
+            : $"{rootCount}";
+        console.MarkupLineInterpolated($"[yellow]Total files:[/] {fileCount}");
 
         return 0;
     }
 
-    private bool TrySelectDatabase(Dictionary<string, DatabaseMetadata> metadata, string? file,
-        out DatabaseMetadata database)
+    private bool TrySelectDatabase(Dictionary<string, BinDatabase> databases, string? file, out DatabaseMetadata database)
     {
         if (string.IsNullOrEmpty(file))
         {
-            if (metadata.Count == 1)
+            if (databases.Count == 1)
             {
-                database = metadata.Values.First();
+                database = databases.Values.First().Metadata;
                 return true;
             }
 
             console.MarkupLineInterpolated(
-                $"[red]info:[/] input contains {metadata.Count} databases; specify which .bin to analyze");
-            ListDatabases(metadata);
+                $"[red]info:[/] input contains {databases.Count} databases; specify which .bin to analyze");
+            ListDatabases(databases);
             database = null!;
             return false;
         }
 
         // Match the requested name, tolerating a missing .bin extension.
         var name = Path.GetExtension(file).Equals(".bin", StringComparison.OrdinalIgnoreCase) ? file : file + ".bin";
-        var match = metadata.Keys.FirstOrDefault(k => k.Equals(name, StringComparison.OrdinalIgnoreCase));
+        var match = databases.Keys.FirstOrDefault(k => k.Equals(name, StringComparison.OrdinalIgnoreCase));
         if (match is null)
         {
             console.MarkupLineInterpolated($"[red]info:[/] no database named '{file}' was found");
-            ListDatabases(metadata);
+            ListDatabases(databases);
             database = null!;
             return false;
         }
 
-        database = metadata[match];
+        database = databases[match].Metadata;
         return true;
     }
 
-    private void ListDatabases(Dictionary<string, DatabaseMetadata> metadata)
+    private void ListDatabases(Dictionary<string, BinDatabase> databases)
     {
         console.MarkupLine("[yellow]Available databases:[/]");
-        foreach (var name in metadata.Keys.OrderBy(k => k, StringComparer.OrdinalIgnoreCase))
+        foreach (var name in databases.Keys.OrderBy(k => k, StringComparer.OrdinalIgnoreCase))
         {
             console.WriteLine(name);
         }

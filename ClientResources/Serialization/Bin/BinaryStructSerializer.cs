@@ -2,7 +2,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 
 public static class BinaryStructSerializer
 {
-    public static object Deserialize(ReadOnlySpan<byte> buffer, int offset, BinaryStructSerializerContext context,
+    public static object Deserialize(ReadOnlySpan<byte> buffer, long offset, BinaryStructSerializerContext context,
         BinarySerializerOptions options)
     {
         var reader = new BinaryStructReader(buffer, context, options);

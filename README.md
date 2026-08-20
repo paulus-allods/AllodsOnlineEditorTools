@@ -6,7 +6,8 @@ Tooling for reading, converting, and inspecting the client resources of the MMO
 [Allods Online](https://allods.ru/). It parses the game's binary databases and
 textures and converts them into editable, human-readable formats.
 
-> **Disclaimer** — This is an unofficial, fan-made project. It is not affiliated
+> [!NOTE]
+> This is an unofficial, fan-made project. It is not affiliated
 > with or endorsed by Allods Team, my.games. It ships no game assets;
 > you need your own copy of the game to use it.
 >
@@ -31,10 +32,13 @@ textures and converts them into editable, human-readable formats.
 - **Compress / decompress** : zlib helpers for the game's compressed files.
 
 ### Supported versions
+> [!IMPORTANT]
+> Versions not mentioned in this table are **not** supported.
+
 
 Each client version is identified by its database hash, so the right struct/enum
 model is selected automatically when a database is opened. The authoritative list
-lives in [`ClientResources/GameVersions.resx`](ClientResources/GameVersions.resx).
+lives in [`ClientResources/Structs/GameVersion.cs`](ClientResources/Structs/GameVersion.cs).
 
 | Game          | Version        | Support state                             |
 |---------------|----------------|-------------------------------------------|
@@ -43,22 +47,16 @@ lives in [`ClientResources/GameVersions.resx`](ClientResources/GameVersions.resx
 | Allods Online | `4.0.02.4x`    | ✅ Supported                              |
 | Allods Online | `7.0.00.7x`    | ✅ Supported                              |
 | Allods Online | `14.0.01.71`   | ✅ Supported                              |
-| Cloud Pirates | `1.7.7`        | ❌ Parsing only, assets export is planned |
-| Allods Online | `15.0 -> 17.0` | ❌ Planned                                |
+| Cloud Pirates | `1.7.7`        | 🚧 Parsing only, no unpack                |
+| Allods Online | `17.0.01.55`   | 🚧 Parsing only, no unpack                |
 
-> **⚠️ Important — bin database format changed in 15.0**
-> The structure of the `.bin` databases changed significantly starting with
-> client version **15.0** and is **not currently supported**. Unpacking targets
-> the earlier database format; support for the 15.0+ layout is planned but not
-> yet implemented.
 
 ### Cross-version casting (`--as`)
 
-Enum names can only be recovered for a version when its `types.xml` is
-available. For versions where it is not, `pack unpack --as <version>` unpacks
-the binary with the source version's struct layout, then **casts** each
-resource to the target version's definitions before serializing — so the
-output gets the target's enum names and type model:
+`pack unpack --as <version>` unpacks the binary with the source version's
+struct layout, then **casts** each resource to the target version's
+definitions before serializing, so the output gets the target's enum names
+and type model:
 
 - Fields are matched by name. A struct present in both versions with
   identical fields casts fully; if some fields differ, only the matching
@@ -91,11 +89,14 @@ editor format and is there mainly for compatibility.
 
 The [`doc/`](doc) folder documents the custom `.bin` database format:
 
-- [`doc/bin-format.md`](doc/bin-format.md) — a prose description of the format:
+- [`doc/bin-format.md`](doc/bin-format.md), a prose description of the format:
   its zlib compression, chunk framing, and every chunk.
-- [`doc/allods_bin.hexpat`](doc/allods_bin.hexpat) — an
-  [ImHex](https://imhex.werwolv.net/) pattern you can apply to a decompressed
-  database to explore its structure interactively.
+- [`doc/allods_bin_v1.hexpat`](doc/allods_bin_v1.hexpat),
+  [`doc/allods_bin_v2_x86.hexpat`](doc/allods_bin_v2_x86.hexpat) and
+  [`doc/allods_bin_v2_x64.hexpat`](doc/allods_bin_v2_x64.hexpat),
+  [ImHex](https://imhex.werwolv.net/) patterns you can apply to a decompressed
+  database to explore its structure interactively, one per format version and
+  client architecture.
 
 ## Requirements
 
@@ -119,6 +120,7 @@ dotnet publish EditorCLI/EditorCLI.csproj -c Release -r win-x64 --self-contained
   -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true
 ```
 
+> [!WARNING]
 > **Run in Release for normal use.** Debug builds enable extra `Debug.Assert`
 > checks that guard the reverse-engineered format parsers. Some of these may
 > trigger while unpacking real data and this is expected: they are development
@@ -150,20 +152,18 @@ EditorCLI utils decompress <input> -o <output>
 
 Run any command with `--help` for its full set of options.
 
-## Note on struct code generation
-
-The `generate structs` command relies on an internal, non-public component that
-inspects a running game process to recover struct layouts. That component is
-**not part of this repository**, so `generate structs` is disabled in the
-open-source build and will report that it is unavailable. The generated struct
-model it produces is already checked in under `ClientResources/Structs`.
+> [!NOTE]
+> The `generate structs` command relies on an internal, non-public component that
+> inspects a running game process to recover struct layouts. That component is
+> **not part of this repository**, so `generate structs` is disabled in the
+> open-source build and will report that it is unavailable. The generated struct
+> model it produces is already checked in under `ClientResources/Structs`.
 
 ## Planned features
 
 - **Repacking** : write changes back into `.bin` archives.
 - **DDS texture import** : convert a `.dds` back into the game's texture
   format (the `texture dds import` command exists but is not functional yet).
-- **Support for the 15.0+ bin format** (see the notice above).
 - **Blender plugin integration** : import game geometry directly into Blender.
 - **Godot engine plugin integration** : bring assets into Godot.
 - **More asset conversion** ; additional formats such as sounds, maps, more texture
@@ -177,6 +177,6 @@ Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-Released under the [MIT License](LICENSE) — you may use, modify, and
+Released under the [MIT License](LICENSE): you may use, modify, and
 redistribute it freely, including commercially, as long as the copyright and
 license notice are preserved.

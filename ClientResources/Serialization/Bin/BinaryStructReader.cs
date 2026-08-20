@@ -1,6 +1,7 @@
 using System.Buffers.Binary;
 using System.Diagnostics;
 using System.Text;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 
@@ -11,7 +12,7 @@ public ref struct BinaryStructReader(
 {
     private readonly ReadOnlySpan<byte> _buffer = buffer;
 
-    public Type ReadType(int offset, bool nullable)
+    public Type ReadType(long offset, bool nullable)
     {
         if (!context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out var fix))
         {
@@ -23,7 +24,7 @@ public ref struct BinaryStructReader(
             throw new InvalidDataException($"Expected a type pointer fix at offset {offset}, got {fix.Type}");
         }
 
-        var structName = context.CurrentDatabaseMetadata.Structs[fix.Value];
+        var structName = context.CurrentDatabaseMetadata.Structs[(int)fix.Value];
         if (!context.TypeResolver.TryResolveByName(structName, out var type))
         {
             throw new InvalidOperationException($"Struct implementation not found for '{structName}'");
@@ -35,7 +36,7 @@ public ref struct BinaryStructReader(
         return type;
     }
 
-    public object ReadObject(int offset, Type type)
+    public object ReadObject(long offset, Type type)
     {
         if (type.IsAbstract)
         {
@@ -64,7 +65,7 @@ public ref struct BinaryStructReader(
         return result;
     }
 
-    public object? ReadField(int offset, Type type)
+    public object? ReadField(long offset, Type type)
     {
         var converter = options.GetConverter(type);
         if (converter is not null)
@@ -78,34 +79,19 @@ public ref struct BinaryStructReader(
     }
 
 
-    public int ReadInt(int offset)
-    {
-        return BinaryPrimitives.ReadInt32LittleEndian(_buffer.Slice(offset, 4));
-    }
+    public int ReadInt(long offset) => BinaryPrimitives.ReadInt32LittleEndian(_buffer.Slice((int)offset, 4));
 
-    public long ReadLong(int offset)
-    {
-        return BinaryPrimitives.ReadInt64LittleEndian(_buffer.Slice(offset, 8));
-    }
+    public long ReadLong(long offset) => BinaryPrimitives.ReadInt64LittleEndian(_buffer.Slice((int)offset, 8));
 
-    public float ReadFloat(int offset)
-    {
-        return BinaryPrimitives.ReadSingleLittleEndian(_buffer.Slice(offset, 4));
-    }
+    public float ReadFloat(long offset) => BinaryPrimitives.ReadSingleLittleEndian(_buffer.Slice((int)offset, 4));
 
-    public double ReadDouble(int offset)
-    {
-        return BinaryPrimitives.ReadDoubleLittleEndian(_buffer.Slice(offset, 8));
-    }
+    public double ReadDouble(long offset) => BinaryPrimitives.ReadDoubleLittleEndian(_buffer.Slice((int)offset, 8));
 
-    public bool ReadBool(int offset)
-    {
-        return _buffer[offset] != 0;
-    }
+    public bool ReadBool(long offset) => _buffer[(int)offset] != 0;
 
     // Default string payloads (plain strings, file refs, text-file refs) are single-byte/ASCII;
     // only fields the schema marks as wide (WString) are UTF-16LE. The length prefix is a byte count either way.
-    public string ReadString(int offset)
+    public string ReadString(long offset)
     {
         var result = ReadString(offset, Encoding.UTF8);
         Debug.Assert(!HasInvalidControlCharacters(result),
@@ -113,14 +99,14 @@ public ref struct BinaryStructReader(
         return result;
     }
 
-    public string ReadUnicodeString(int offset) => ReadString(offset, Encoding.Unicode);
+    public string ReadUnicodeString(long offset) => ReadString(offset, Encoding.Unicode);
 
     // Control characters other than tab/newline/carriage-return: their presence in a decoded string
     // usually signals a String/WString encoding mismatch (single-byte data read as UTF-16LE or vice versa).
     public static bool HasInvalidControlCharacters(string value) =>
         value.Any(c => c < 0x20 && c != '\t' && c != '\n' && c != '\r');
 
-    private string ReadString(int offset, Encoding encoding)
+    private string ReadString(long offset, Encoding encoding)
     {
         if (!context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out var fix))
         {
@@ -139,13 +125,10 @@ public ref struct BinaryStructReader(
             throw new InvalidDataException($"Negative string length ({length}) at offset {offset}");
         }
 
-        return length > 0 ? encoding.GetString(_buffer.Slice(fix.Value, length)).TrimEnd('\0') : string.Empty;
+        return length > 0 ? encoding.GetString(_buffer.Slice((int)fix.Value, length)).TrimEnd('\0') : string.Empty;
     }
 
-    public bool TryGetPointerFix(int offset, out PointerFix pointerFix)
-    {
-        return context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out pointerFix);
-    }
+    public bool TryGetPointerFix(long offset, out PointerFix pointerFix) => context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out pointerFix);
 
     public int GetSize(Type type) => options.GetTypeSize(type, context);
 }

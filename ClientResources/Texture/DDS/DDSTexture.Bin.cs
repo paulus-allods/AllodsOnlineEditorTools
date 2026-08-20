@@ -90,7 +90,7 @@ public partial class DDSTexture
 
     public ITexture GenerateMetadata(GameVersion version)
     {
-        var typeName = $"{version.Namespace}.Texture";
+        var typeName = $"{version.FullNamespace}.Texture";
         var textureType = Assembly.GetExecutingAssembly().GetType(typeName);
 
         if (textureType == null)

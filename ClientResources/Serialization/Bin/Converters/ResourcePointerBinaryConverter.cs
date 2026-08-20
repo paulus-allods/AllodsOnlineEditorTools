@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Converters;
 
@@ -7,8 +8,7 @@ internal class ResourcePointerBinaryConverter : BinaryConverter<ResourcePointer>
 {
     public override int GetSize(Type type, BinaryStructSerializerContext context) => 8;
 
-    protected override ResourcePointer ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    protected override ResourcePointer ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         if (!reader.TryGetPointerFix(offset, out var pointerFix))
         {
@@ -20,7 +20,7 @@ internal class ResourcePointerBinaryConverter : BinaryConverter<ResourcePointer>
         Debug.Assert(pointerFix.Type == PointerFix.FixType.DbIdRef);
 
         var database = pointerFix.External ? context.MainDatabaseMetadata : context.CurrentDatabaseMetadata;
-        var file = database.Dbid2File[pointerFix.Value];
+        var file = database.DbId2File[pointerFix.Value];
 
         var structName = database.GetStructType(pointerFix.Value)
                          ?? throw new InvalidOperationException($"No struct type for DbId {pointerFix.Value}.");
@@ -28,8 +28,7 @@ internal class ResourcePointerBinaryConverter : BinaryConverter<ResourcePointer>
         return new ResourcePointer(file, type);
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, ResourcePointer value,
-        BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, long offset, ResourcePointer value, BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

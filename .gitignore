@@ -11,3 +11,5 @@ riderModule.iml
 *.DotSettings.user
 .mcp.json
 CLAUDE.md
+*.bin
+*.bin.decompressed

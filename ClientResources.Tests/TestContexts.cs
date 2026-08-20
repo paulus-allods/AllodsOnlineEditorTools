@@ -1,6 +1,7 @@
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
+using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace ClientResources.Tests;
 
@@ -8,15 +9,15 @@ internal static class TestContexts
 {
     private static DatabaseMetadata EmptyMetadata() => new()
     {
-        Version = 0,
+        Version = [],
         ResourceSystemVersion = 0,
         TextFileRefNames = new Dictionary<int, string>(),
         Structs = [],
-        Dbid2File = new Dictionary<int, string>(),
-        File2Dbid = new Dictionary<string, int>(),
-        Resid2Dbid = new Dictionary<int, int>(),
-        Dbid2Resid = new Dictionary<int, int>(),
-        Fixes = new Dictionary<int, PointerFix>(),
+        DbId2File = new Dictionary<long, string>(),
+        File2DbId = new Dictionary<string, long>(),
+        ResId2DbId = new Dictionary<int, long>(),
+        DbId2ResId = new Dictionary<long, int>(),
+        Fixes = new Dictionary<long, PointerFix>(),
         Packs = null,
     };
 

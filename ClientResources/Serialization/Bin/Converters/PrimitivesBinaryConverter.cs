@@ -32,7 +32,7 @@ internal class PrimitivesBinaryConverter : BinaryConverter<object>
         return type.IsPrimitive || type == typeof(string);
     }
 
-    protected override object ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
+    protected override object ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert,
         BinaryStructSerializerContext context)
     {
         if (typeToConvert == typeof(int))
@@ -70,8 +70,7 @@ internal class PrimitivesBinaryConverter : BinaryConverter<object>
         throw new NotSupportedException($"Unknown primitive: {typeToConvert.Name}");
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, object? value,
-        BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, long offset, object? value, BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }

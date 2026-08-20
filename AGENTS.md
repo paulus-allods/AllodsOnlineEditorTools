@@ -43,11 +43,9 @@ Always make sure both pass before proposing a change. CI runs the same commands.
   exactly where a confident guess produces silent data corruption. Any change
   must be verified against real game data, and state which client version it was
   verified against.
-- **The `Bin` database format changed in client 15.0** and is not yet supported.
-  The `.pak` archive format itself is unchanged. Don't conflate the two.
+- Don't conflate ".bin" database format, sometimes referred as "pack.bin", and ".pak" archives that are archive files that may contain bin databases.
 - **Never commit game assets** or copyrighted data. This repo ships none.
-- Supported client versions are declared in
-  `ClientResources/GameVersions.resx`.
+- Supported client versions are declared in `ClientResources/Structs/GameVersion.cs`.
 
 ## Conventions
 

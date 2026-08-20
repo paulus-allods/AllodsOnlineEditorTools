@@ -17,11 +17,11 @@ public class StructLayoutValidation
     // sizing depends on the version's FileRefKind, so the version travels with the type.
     private static IEnumerable<TestCaseData> StructCases()
     {
-        foreach (var (name, version) in GameVersion.ByName)
+        foreach (var version in GameVersion.Versions.Values)
         {
             foreach (var type in LoadStructs(version))
             {
-                yield return new TestCaseData(version, type).SetArgDisplayNames(name, type.Name);
+                yield return new TestCaseData(version, type).SetArgDisplayNames(version.Name, type.Name);
             }
         }
     }

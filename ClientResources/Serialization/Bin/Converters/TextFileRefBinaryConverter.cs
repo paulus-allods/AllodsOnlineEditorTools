@@ -7,8 +7,7 @@ internal class TextFileRefBinaryConverter : BinaryConverter<TextFileRef>
 {
     public override int GetSize(Type type, BinaryStructSerializerContext context) => 16;
 
-    protected override TextFileRef ReadValue(ref BinaryStructReader reader, int offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    protected override TextFileRef ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         var txtFile = reader.ReadString(offset);
         FieldValidator.ValidateTextFileRef(txtFile, offset);
@@ -21,8 +20,7 @@ internal class TextFileRefBinaryConverter : BinaryConverter<TextFileRef>
         return new TextFileRef(txtFile);
     }
 
-    protected override void WriteValue(BinaryStructWriter writer, int offset, TextFileRef value,
-        BinaryStructSerializerContext context)
+    protected override void WriteValue(BinaryStructWriter writer, long offset, TextFileRef value, BinaryStructSerializerContext context)
     {
         throw new NotImplementedException();
     }
