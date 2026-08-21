@@ -26,6 +26,7 @@ internal sealed class GenerateStructCodeCommand(
         [CommandArgument(0, "<Bin>")]
         public string BinPath { get; set; } = string.Empty;
 
+        [Description("Namespace of the game version the generated code targets (e.g. V14_0_01_71)")]
         [CommandArgument(1, "<version>")]
         public string Version { get; init; } = string.Empty;
 
@@ -129,16 +130,12 @@ internal sealed class GenerateStructCodeCommand(
         var version = settings.Version;
         var versionDir = $"{settings.OutputDirectory}/{version}/";
 
-        var gameVersion = GameVersion.Versions.Values.FirstOrDefault(v =>
-            string.Equals(v.Namespace, version, StringComparison.OrdinalIgnoreCase));
-        if (gameVersion is null)
+        if (!GameVersion.TryGetByNamespace(version, out var gameVersion))
         {
-            logger.LogWarning(
-                "Namespace {Version} is not declared in GameVersion.cs; FileRef inference will be disabled", version);
+            logger.LogWarning("Namespace {Version} is not declared in GameVersion.cs; FileRef inference will be disabled", version);
         }
 
-        var generator = new StructCodeGenerator(collection, settings.TypesXmlFile, version,
-            gameVersion?.FileRefKind ?? FileRefKind.None, logger);
+        var generator = new StructCodeGenerator(collection, settings.TypesXmlFile, version, gameVersion?.FileRefKind ?? FileRefKind.None, logger);
 
         if (settings.DryRun)
         {
@@ -153,8 +150,7 @@ internal sealed class GenerateStructCodeCommand(
 
         if (generator.EnumCount > 0)
         {
-            var enumGenerated = WriteTemplates(enumDir, "enums", generator.BuildEnumTemplates(), t => t.Name,
-                t => t.TransformText());
+            var enumGenerated = WriteTemplates(enumDir, "enums", generator.BuildEnumTemplates(), t => t.Name, t => t.TransformText());
             logger.LogInformation("Enum code generation completed: {Number} enums generated", enumGenerated);
         }
 

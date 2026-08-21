@@ -22,12 +22,26 @@ public class GameVersion
     private string Hash { get; init; } = string.Empty;
 
     public bool NeedPacks => FileRefKind == FileRefKind.PakFileRef;
+    /// <summary>Whether struct definitions are generated for this version.</summary>
+    public bool HasStructs => Namespace.Length != 0;
     /// <summary>The fully-qualified struct namespace for this version, or empty if none are generated yet.</summary>
-    public string FullNamespace => Namespace.Length == 0 ? string.Empty : $"{StructsNamespace}.{Namespace}";
+    public string FullNamespace => HasStructs ? $"{StructsNamespace}.{Namespace}" : string.Empty;
     public override string ToString() => $"{Name} ({Hash})";
 
     /// <summary>Looks a version up by its raw header bytes.</summary>
     public static bool TryGetByVersion(byte[] version, [NotNullWhen(true)] out GameVersion? gameVersion) => Versions.TryGetValue(Convert.ToHexString(version), out gameVersion);
+
+    /// <summary>
+    /// Looks a version up by its <see cref="Namespace"/>, the form used whenever a version is named in a
+    /// command argument. Versions sharing a namespace are interchangeable here: they resolve to the same
+    /// structs and agree on <see cref="FileRefKind"/>, so any one of them may be returned.
+    /// </summary>
+    public static bool TryGetByNamespace(string versionNamespace, [NotNullWhen(true)] out GameVersion? gameVersion)
+    {
+        gameVersion = Versions.Values.FirstOrDefault(version =>
+            version.HasStructs && string.Equals(version.Namespace, versionNamespace, StringComparison.OrdinalIgnoreCase));
+        return gameVersion is not null;
+    }
 
     /// <summary>
     /// The supported client versions.
@@ -60,7 +74,7 @@ public class GameVersion
         },
         new()
         {
-            Name = "Allods Online 14.0.00.21", Hash = "44068E78E8E67876", Namespace = nameof(V14_0_01_71), FileRefKind = FileRefKind.PakFileRef,
+            Name = "Allods Online 14.0.00.21", Hash = "44068E78E8E67876", FileRefKind = FileRefKind.PakFileRef,
         },
         new()
         {
@@ -73,4 +87,11 @@ public class GameVersion
     ];
 
     public static readonly IReadOnlyDictionary<string, GameVersion> Versions = All.ToDictionary(version => version.Hash, StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>The distinct namespaces accepted by version arguments.</summary>
+    public static readonly IReadOnlyList<string> StructNamespaces = Versions.Values
+        .Where(version => version.HasStructs)
+        .Select(version => version.Namespace)
+        .Distinct(StringComparer.OrdinalIgnoreCase)
+        .ToList();
 }

@@ -38,7 +38,13 @@ textures and converts them into editable, human-readable formats.
 
 Each client version is identified by its database hash, so the right struct/enum
 model is selected automatically when a database is opened. The authoritative list
-lives in [`ClientResources/Structs/GameVersion.cs`](ClientResources/Structs/GameVersion.cs).
+lives in [`ClientResources/Structs/GameVersion.cs`](ClientResources/Structs/GameVersion.cs);
+`EditorCLI info versions` prints it.
+
+Wherever a command takes a version argument, the version is named by its struct
+namespace (e.g. `V4_0_02_43`), not by its display name. Those namespaces are
+listed by `EditorCLI info versions --namespaces` and in the `--help` of every
+command that takes one.
 
 | Game          | Version        | Support state                             |
 |---------------|----------------|-------------------------------------------|
@@ -148,6 +154,10 @@ EditorCLI texture bin export <texture.jdb> <resources-root> -o out -f PNG
 # zlib compress / decompress
 EditorCLI utils compress <input> -o <output>
 EditorCLI utils decompress <input> -o <output>
+
+# List the supported client versions (add --namespaces for the bare list
+# of values accepted by --as and other version arguments)
+EditorCLI info versions
 ```
 
 Run any command with `--help` for its full set of options.

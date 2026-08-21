@@ -1,11 +1,16 @@
+using System.Text;
 using EditorCLI;
+using EditorCLI.Commands;
 using EditorCLI.Commands.Generation;
+using EditorCLI.Commands.Info;
 using EditorCLI.Commands.Pack;
 using EditorCLI.Commands.Texture;
 using EditorCLI.Commands.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Spectre.Console.Cli;
+
+Console.OutputEncoding = Encoding.UTF8;
 
 var services = new ServiceCollection();
 services.AddLogging(builder =>
@@ -21,6 +26,7 @@ app.Configure(config =>
 {
     // Fail on unrecognized options instead of collecting them as remaining arguments.
     config.UseStrictParsing();
+    config.SetHelpProvider(new VersionAwareHelpProvider(config.Settings));
 
     config.AddBranch("pack", pack =>
     {
@@ -47,6 +53,10 @@ app.Configure(config =>
     {
         utils.AddCommand<CompressCommand>("compress");
         utils.AddCommand<DecompressCommand>("decompress");
+    });
+    config.AddBranch("info", info =>
+    {
+        info.AddCommand<InfoVersionsCommand>("versions");
     });
 });
 

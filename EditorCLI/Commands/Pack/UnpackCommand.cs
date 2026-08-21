@@ -47,7 +47,7 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
         [CommandOption("--as <version>")]
         [Description(
-            "Cast resources to another game version before serializing, incompatible resources/fields are skipped with a warning")]
+            "Cast resources to another game version (see supported versions) before serializing, incompatible resources/fields are skipped with a warning")]
         public string? CastToVersion { get; set; }
     }
 
@@ -69,12 +69,20 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
                 $"Unsupported version: 0x{Convert.ToHexString(mainMetadata.Version)}");
         }
 
+        if (!version.HasStructs)
+        {
+            throw new NotSupportedException(
+                $"Unsupported version: {version} has no struct definitions, nothing can be unpacked");
+        }
+
         PacksRegistry? packsRegistry = null;
         if (version.NeedPacks)
         {
             if (settings.PacksDirectory is null)
             {
-                throw new ArgumentException("Packs directory is required for this version");
+                throw new ArgumentException(
+                    $"Version {version} requires a Packs directory; pass it as the second argument, " +
+                    $"e.g. 'unpack {settings.BinPath} <path-to-folder-containing-game-data-pak-files>'");
             }
 
             logger.LogInformation("Loading packs from {PacksDirectory}", settings.PacksDirectory);
@@ -196,21 +204,19 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
             _ => throw new NotSupportedException($"Unsupported output format: {format}"),
         };
 
-    private StructCaster CreateCaster(string targetVersionName, GameVersion sourceVersion,
+    private StructCaster CreateCaster(string targetNamespace, GameVersion sourceVersion,
         Dictionary<string, BinDatabase> databases, bool strictMode)
     {
-        var targetVersion = GameVersion.Versions.Values.FirstOrDefault(v =>
-            string.Equals(v.Name, targetVersionName, StringComparison.OrdinalIgnoreCase));
-        if (targetVersion is null)
+        if (!GameVersion.TryGetByNamespace(targetNamespace, out var targetVersion))
         {
             throw new ArgumentException(
-                $"Unknown cast target version '{targetVersionName}'; known versions: {string.Join(", ", GameVersion.Versions.Values.Select(v => v.Name))}");
+                $"Unknown cast target version '{targetNamespace}'; known versions: {string.Join(", ", GameVersion.StructNamespaces)}");
         }
 
         var targetStructs = StructTypeResolver.FromVersion(targetVersion).ByName;
         if (targetStructs.Count == 0)
         {
-            throw new InvalidOperationException($"Cast target version '{targetVersionName}' has no compiled structs");
+            throw new InvalidOperationException($"Cast target version '{targetNamespace}' has no compiled structs");
         }
 
         logger.LogInformation("Casting resources from {Source} to {Target}", sourceVersion, targetVersion);
@@ -224,11 +230,11 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
             if (strictMode)
             {
                 throw new InvalidOperationException(
-                    $"{caster.IncompatibilityCount} struct(s)/field(s) cannot be cast to '{targetVersionName}' (strict mode)");
+                    $"{caster.IncompatibilityCount} struct(s)/field(s) cannot be cast to '{targetNamespace}' (strict mode)");
             }
 
             logger.LogWarning("{Count} struct(s)/field(s) cannot be cast to {Target} and will be skipped",
-                caster.IncompatibilityCount, targetVersionName);
+                caster.IncompatibilityCount, targetNamespace);
         }
 
         return caster;
