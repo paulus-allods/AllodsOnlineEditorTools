@@ -22,8 +22,7 @@ internal class ResourcePointerBinaryConverter : BinaryConverter<ResourcePointer>
         var database = pointerFix.External ? context.MainDatabaseMetadata : context.CurrentDatabaseMetadata;
         var file = database.DbId2File[pointerFix.Value];
 
-        var structName = database.GetStructType(pointerFix.Value)
-                         ?? throw new InvalidOperationException($"No struct type for DbId {pointerFix.Value}.");
+        var structName = database.GetStructType(pointerFix.Value) ?? throw new InvalidOperationException($"No struct type for DbId {pointerFix.Value}.");
         var type = context.TypeResolver.TryResolveByName(structName, out var impl) ? impl : null;
         return new ResourcePointer(file, type);
     }

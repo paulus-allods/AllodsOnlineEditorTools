@@ -13,8 +13,7 @@ namespace EditorCLI.Commands.Pack;
 
 [UsedImplicitly]
 [Description("Unpack bin databases to jdb or xdb files")]
-internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactory loggerFactory)
-    : Command<UnpackCommand.UnpackCommandSettings>
+internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactory loggerFactory) : Command<UnpackCommand.UnpackCommandSettings>
 {
     [UsedImplicitly]
     public class UnpackCommandSettings : CommandSettings
@@ -51,28 +50,24 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
         public string? CastToVersion { get; set; }
     }
 
-    public override int Execute(CommandContext context, UnpackCommandSettings settings,
-        CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, UnpackCommandSettings settings, CancellationToken cancellationToken)
     {
         var databases = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
 
         if (!databases.TryGetValue("pack.bin", out var mainDatabase))
         {
-            throw new InvalidDataException(
-                $"No pack.bin database found in '{settings.BinPath}'; cannot unpack without the main database");
+            throw new InvalidDataException($"No pack.bin database found in '{settings.BinPath}'; cannot unpack without the main database");
         }
 
         var mainMetadata = mainDatabase.Metadata;
         if (!GameVersion.TryGetByVersion(mainMetadata.Version, out var version))
         {
-            throw new NotSupportedException(
-                $"Unsupported version: 0x{Convert.ToHexString(mainMetadata.Version)}");
+            throw new NotSupportedException($"Unsupported version: 0x{Convert.ToHexString(mainMetadata.Version)}");
         }
 
         if (!version.HasStructs)
         {
-            throw new NotSupportedException(
-                $"Unsupported version: {version} has no struct definitions, nothing can be unpacked");
+            throw new NotSupportedException($"Unsupported version: {version} has no struct definitions, nothing can be unpacked");
         }
 
         PacksRegistry? packsRegistry = null;
@@ -80,9 +75,8 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
         {
             if (settings.PacksDirectory is null)
             {
-                throw new ArgumentException(
-                    $"Version {version} requires a Packs directory; pass it as the second argument, " +
-                    $"e.g. 'unpack {settings.BinPath} <path-to-folder-containing-game-data-pak-files>'");
+                throw new ArgumentException($"Version {version} requires a Packs directory; pass it as the second argument, " +
+                                            $"e.g. 'unpack {settings.BinPath} <path-to-folder-containing-game-data-pak-files>'");
             }
 
             logger.LogInformation("Loading packs from {PacksDirectory}", settings.PacksDirectory);
@@ -93,9 +87,7 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
         var typeResolver = InitStructs(databases, version, settings.Strict);
 
-        var caster = settings.CastToVersion is null
-            ? null
-            : CreateCaster(settings.CastToVersion, version, databases, settings.Strict);
+        var caster = settings.CastToVersion is null ? null : CreateCaster(settings.CastToVersion, version, databases, settings.Strict);
 
         if (!settings.Dry)
         {
@@ -165,8 +157,7 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
                 using (logger.BeginScope("Database:{Database} File:{File}", entry.Key, fileEntry.Value))
                 {
-                    var result = BinaryStructSerializer.Deserialize(databaseData, fileEntry.Key, serializerContext,
-                        binaryOptions);
+                    var result = BinaryStructSerializer.Deserialize(databaseData, fileEntry.Key, serializerContext, binaryOptions);
                     if (caster is not null)
                     {
                         result = caster.Cast(result, resourceContext);
@@ -178,11 +169,9 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
                     if (!settings.Dry)
                     {
                         var directoryName = Path.GetDirectoryName(fileEntry.Value) ??
-                                            throw new InvalidOperationException(
-                                                $"Directory name is null for path {fileEntry.Value}");
+                                            throw new InvalidOperationException($"Directory name is null for path {fileEntry.Value}");
                         Directory.CreateDirectory(Path.Combine(settings.OutputDirectory, directoryName));
-                        var path = Path.ChangeExtension(Path.Combine(settings.OutputDirectory, fileEntry.Value),
-                            extension);
+                        var path = Path.ChangeExtension(Path.Combine(settings.OutputDirectory, fileEntry.Value), extension);
                         File.WriteAllText(path, content);
                     }
                 }
@@ -194,23 +183,18 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
         return 0;
     }
 
-    private static IResourceWriter CreateSerializer(OutputFormat format, ResourceSerializationContext context,
-        ILoggerFactory loggerFactory) => format switch
-        {
-            OutputFormat.Jdb => new JdbStructSerializer(JdbStructSerializerOptions.Default, context,
-                loggerFactory.CreateLogger<JdbStructSerializer>()),
-            OutputFormat.Xdb => new XdbStructSerializer(XdbStructSerializerOptions.Default, context,
-                loggerFactory.CreateLogger<XdbStructSerializer>()),
-            _ => throw new NotSupportedException($"Unsupported output format: {format}"),
-        };
+    private static IResourceWriter CreateSerializer(OutputFormat format, ResourceSerializationContext context, ILoggerFactory loggerFactory) => format switch
+    {
+        OutputFormat.Jdb => new JdbStructSerializer(JdbStructSerializerOptions.Default, context, loggerFactory.CreateLogger<JdbStructSerializer>()),
+        OutputFormat.Xdb => new XdbStructSerializer(XdbStructSerializerOptions.Default, context, loggerFactory.CreateLogger<XdbStructSerializer>()),
+        _ => throw new NotSupportedException($"Unsupported output format: {format}"),
+    };
 
-    private StructCaster CreateCaster(string targetNamespace, GameVersion sourceVersion,
-        Dictionary<string, BinDatabase> databases, bool strictMode)
+    private StructCaster CreateCaster(string targetNamespace, GameVersion sourceVersion, Dictionary<string, BinDatabase> databases, bool strictMode)
     {
         if (!GameVersion.TryGetByNamespace(targetNamespace, out var targetVersion))
         {
-            throw new ArgumentException(
-                $"Unknown cast target version '{targetNamespace}'; known versions: {string.Join(", ", GameVersion.StructNamespaces)}");
+            throw new ArgumentException($"Unknown cast target version '{targetNamespace}'; known versions: {string.Join(", ", GameVersion.StructNamespaces)}");
         }
 
         var targetStructs = StructTypeResolver.FromVersion(targetVersion).ByName;
@@ -221,30 +205,25 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
         logger.LogInformation("Casting resources from {Source} to {Target}", sourceVersion, targetVersion);
 
-        var caster = new StructCaster(StructTypeResolver.FromVersion(sourceVersion).ByName, targetStructs,
-            loggerFactory.CreateLogger<StructCaster>());
+        var caster = new StructCaster(StructTypeResolver.FromVersion(sourceVersion).ByName, targetStructs, loggerFactory.CreateLogger<StructCaster>());
         caster.Analyze(databases.Values.SelectMany(d => d.Metadata.Structs).Distinct());
 
         if (caster.IncompatibilityCount > 0)
         {
             if (strictMode)
             {
-                throw new InvalidOperationException(
-                    $"{caster.IncompatibilityCount} struct(s)/field(s) cannot be cast to '{targetNamespace}' (strict mode)");
+                throw new InvalidOperationException($"{caster.IncompatibilityCount} struct(s)/field(s) cannot be cast to '{targetNamespace}' (strict mode)");
             }
 
-            logger.LogWarning("{Count} struct(s)/field(s) cannot be cast to {Target} and will be skipped",
-                caster.IncompatibilityCount, targetNamespace);
+            logger.LogWarning("{Count} struct(s)/field(s) cannot be cast to {Target} and will be skipped", caster.IncompatibilityCount, targetNamespace);
         }
 
         return caster;
     }
 
-    private StructTypeResolver InitStructs(Dictionary<string, BinDatabase> databases, GameVersion allodsGameVersion,
-        bool strictMode)
+    private StructTypeResolver InitStructs(Dictionary<string, BinDatabase> databases, GameVersion allodsGameVersion, bool strictMode)
     {
-        var typeResolver =
-            StructTypeResolver.FromVersion(allodsGameVersion, loggerFactory.CreateLogger<StructTypeResolver>());
+        var typeResolver = StructTypeResolver.FromVersion(allodsGameVersion, loggerFactory.CreateLogger<StructTypeResolver>());
 
         var structs = databases.Values.SelectMany(d => d.Metadata.Structs).ToHashSet();
         var missingStructs = structs.Except(typeResolver.Types.Select(s => s.Name)).ToList();
@@ -256,8 +235,7 @@ internal sealed class UnpackCommand(ILogger<UnpackCommand> logger, ILoggerFactor
 
         if (missingStructs.Count > 0 && strictMode)
         {
-            throw new InvalidOperationException(
-                $"{missingStructs.Count} struct(s) referenced by the databases have no implementation (strict mode)");
+            throw new InvalidOperationException($"{missingStructs.Count} struct(s) referenced by the databases have no implementation (strict mode)");
         }
 
         return typeResolver;

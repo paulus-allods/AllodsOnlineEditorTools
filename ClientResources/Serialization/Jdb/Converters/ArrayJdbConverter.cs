@@ -12,8 +12,7 @@ internal class ArrayJdbConverter : JdbConverter<Array>
         var items = new List<object?>(value.Length);
         // Dispatch on each item's runtime type so heterogeneous token arrays (e.g. [EnumRef] name/number
         // mixes) serialize element-wise; for uniform arrays this is the declared element type anyway.
-        items.AddRange(from object? item in value
-                       select serializer.SerializeField(item, item?.GetType() ?? elementType, null));
+        items.AddRange(from object? item in value select serializer.SerializeField(item, item?.GetType() ?? elementType, null));
         return items;
     }
 

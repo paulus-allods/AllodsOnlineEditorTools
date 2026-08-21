@@ -5,8 +5,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization.Jdb.Converters;
 
 internal class BigVector3JdbConverter : JdbConverter<BigVector3>
 {
-    protected override object WriteValue(JdbStructSerializer serializer, BigVector3 value)
-        => new Dictionary<string, object?> { ["x"] = value.X, ["y"] = value.Y, ["z"] = value.Z };
+    protected override object WriteValue(JdbStructSerializer serializer, BigVector3 value) =>
+        new Dictionary<string, object?> { ["x"] = value.X, ["y"] = value.Y, ["z"] = value.Z };
 
     protected override BigVector3 ReadValue(JdbStructSerializer serializer, JsonElement element, Type type)
     {

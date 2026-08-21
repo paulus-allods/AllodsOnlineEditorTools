@@ -35,8 +35,7 @@ public class StructModelCacheTests
 
     [Test]
     public void AllPublicInstanceFields_AreModelled() =>
-        Assert.That(StructModelCache.Get(typeof(Sample)).Fields.Select(f => f.Name),
-            Is.EquivalentTo(["plain", "renamed", "race", "located"]));
+        Assert.That(StructModelCache.Get(typeof(Sample)).Fields.Select(f => f.Name), Is.EquivalentTo(["plain", "renamed", "race", "located"]));
 
     [Test]
     public void FieldXdbName_DefaultsToFieldName() =>

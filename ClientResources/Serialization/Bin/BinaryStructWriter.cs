@@ -21,8 +21,7 @@ public sealed class BinaryStructWriter(BinaryStructSerializerContext context, Bi
         {
             if (field.Offset is not { } fieldOffset)
             {
-                throw new InvalidOperationException(
-                    $"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
+                throw new InvalidOperationException($"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
             }
 
             WriteField(offset + fieldOffset, field.GetValue(value), field.FieldType);
@@ -40,8 +39,7 @@ public sealed class BinaryStructWriter(BinaryStructSerializerContext context, Bi
 
         if (type.IsClass)
         {
-            WriteObject(offset,
-                value ?? throw new InvalidOperationException($"Cannot write null object of type '{type.Name}'"), type);
+            WriteObject(offset, value ?? throw new InvalidOperationException($"Cannot write null object of type '{type.Name}'"), type);
             return;
         }
 

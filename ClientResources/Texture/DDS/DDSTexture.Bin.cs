@@ -16,12 +16,7 @@ public partial class DDSTexture
 
         var texture = new DDSTexture
         {
-            Header =
-            {
-                Flags = DDSFlags.DDSD_CAPS | DDSFlags.DDSD_HEIGHT |
-                        DDSFlags.DDSD_WIDTH | DDSFlags.DDSD_PIXELFORMAT |
-                        DDSFlags.DDSD_LINEARSIZE
-            }
+            Header = { Flags = DDSFlags.DDSD_CAPS | DDSFlags.DDSD_HEIGHT | DDSFlags.DDSD_WIDTH | DDSFlags.DDSD_PIXELFORMAT | DDSFlags.DDSD_LINEARSIZE }
         };
 
         if (hasMipMaps)
@@ -34,8 +29,7 @@ public partial class DDSTexture
         texture.Header.PitchOrLinearSize = dataSize;
         texture.Header.Depth = 0;
         texture.Header.MipMapCount = hasMipMaps ? mipMapCount : 0;
-        texture.Header.SetCustomMetadata("AllodsOnlineEditorTools",
-            Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "", "");
+        texture.Header.SetCustomMetadata("AllodsOnlineEditorTools", Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "", "");
 
         texture.Header.PixelFormat.Size = 32;
         texture.Header.PixelFormat.Flags = DDSPixelFormatFlags.DDPF_FOURCC;
@@ -100,8 +94,7 @@ public partial class DDSTexture
 
         if (Activator.CreateInstance(textureType) is not ITexture textureInstance)
         {
-            throw new InvalidOperationException(
-                $"Failed to create instance of {typeName}, make sure it inherits ITexture interface");
+            throw new InvalidOperationException($"Failed to create instance of {typeName}, make sure it inherits ITexture interface");
         }
 
         SetField(textureInstance, "width", (int)Width);
@@ -119,9 +112,7 @@ public partial class DDSTexture
 
     private static void SetField(ITexture texture, string fieldName, object value)
     {
-        var field = texture.GetType().GetField(fieldName)
-                    ?? throw new InvalidOperationException(
-                        $"Field '{fieldName}' not found on {texture.GetType().Name}");
+        var field = texture.GetType().GetField(fieldName) ?? throw new InvalidOperationException($"Field '{fieldName}' not found on {texture.GetType().Name}");
         field.SetValue(texture, value);
     }
 }

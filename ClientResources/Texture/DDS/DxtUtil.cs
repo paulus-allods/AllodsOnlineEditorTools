@@ -58,8 +58,7 @@ public static class DxtUtil
         return imageData;
     }
 
-    private static void DecompressDxt1Block(BinaryReader imageReader, int x, int y, int width, int height,
-        byte[] imageData)
+    private static void DecompressDxt1Block(BinaryReader imageReader, int x, int y, int width, int height, byte[] imageData)
     {
         var c0 = imageReader.ReadUInt16();
         var c1 = imageReader.ReadUInt16();
@@ -100,8 +99,7 @@ public static class DxtUtil
         }
     }
 
-    private static void DecompressDxt3Block(BinaryReader imageReader, int x, int y, int width, int height,
-        byte[] imageData)
+    private static void DecompressDxt3Block(BinaryReader imageReader, int x, int y, int width, int height, byte[] imageData)
     {
         var alphaBytes = imageReader.ReadBytes(8);
 
@@ -130,8 +128,7 @@ public static class DxtUtil
         }
     }
 
-    private static void DecompressDxt5Block(BinaryReader imageReader, int x, int y, int width, int height,
-        byte[] imageData)
+    private static void DecompressDxt5Block(BinaryReader imageReader, int x, int y, int width, int height, byte[] imageData)
     {
         var alpha0 = imageReader.ReadByte();
         var alpha1 = imageReader.ReadByte();
@@ -192,8 +189,7 @@ public static class DxtUtil
     private static Rgb Average(Rgb a, Rgb b) =>
         new((byte)((a.R + b.R) / 2), (byte)((a.G + b.G) / 2), (byte)((a.B + b.B) / 2));
 
-    private static void WritePixel(byte[] imageData, int x, int y, int blockX, int blockY, int width, int height,
-        Rgb color, byte a)
+    private static void WritePixel(byte[] imageData, int x, int y, int blockX, int blockY, int width, int height, Rgb color, byte a)
     {
         var px = (x << 2) + blockX;
         var py = (y << 2) + blockY;

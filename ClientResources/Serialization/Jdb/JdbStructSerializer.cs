@@ -3,10 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Jdb;
 
-public class JdbStructSerializer(
-    JdbStructSerializerOptions options,
-    ResourceSerializationContext context,
-    ILogger? logger = null)
+public class JdbStructSerializer(JdbStructSerializerOptions options, ResourceSerializationContext context, ILogger? logger = null)
     : StructSerializer<IJdbConverter, object, JsonElement>(options, context, logger)
 {
     private readonly JsonSerializerOptions _writeOptions = new() { WriteIndented = options.PrettyPrint };
@@ -35,10 +32,7 @@ public class JdbStructSerializer(
         using var doc = JsonDocument.Parse(text);
         var root = doc.RootElement;
 
-        resourceId = root.TryGetProperty("$resourceId", out var idElement) &&
-                     idElement.ValueKind == JsonValueKind.Number
-            ? idElement.GetInt32()
-            : 0;
+        resourceId = root.TryGetProperty("$resourceId", out var idElement) && idElement.ValueKind == JsonValueKind.Number ? idElement.GetInt32() : 0;
 
         return DeserializeObject(root, ResolveDocumentType(root));
     }
@@ -73,16 +67,16 @@ public class JdbStructSerializer(
 
     protected override object BeginObject(string name) => new Dictionary<string, object?>();
 
-    protected override void AddField(object objectNode, string name, object? child)
-        => ((Dictionary<string, object?>)objectNode)[name] = child;
+    protected override void AddField(object objectNode, string name, object? child) =>
+        ((Dictionary<string, object?>)objectNode)[name] = child;
 
     protected override object? WriteNull(string name) => null;
 
     protected override object? WriteConverted(IJdbConverter converter, string name, object value) =>
         converter.Write(this, value);
 
-    protected override bool TryGetChild(JsonElement objectNode, string name, out JsonElement child)
-        => objectNode.TryGetProperty(name, out child);
+    protected override bool TryGetChild(JsonElement objectNode, string name, out JsonElement child) =>
+        objectNode.TryGetProperty(name, out child);
 
     protected override bool IsNull(JsonElement node) => node.ValueKind == JsonValueKind.Null;
 

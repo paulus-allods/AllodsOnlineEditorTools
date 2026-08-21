@@ -13,10 +13,7 @@ using Spectre.Console.Cli;
 namespace EditorCLI.Commands.Generation;
 
 [UsedImplicitly]
-internal sealed class GenerateStructCodeCommand(
-    IAnsiConsole console,
-    ILogger<GenerateStructCodeCommand> logger,
-    ILoggerFactory loggerFactory)
+internal sealed class GenerateStructCodeCommand(IAnsiConsole console, ILogger<GenerateStructCodeCommand> logger, ILoggerFactory loggerFactory)
     : Command<GenerateStructCodeCommand.GenerateStructCodeCommandSettings>
 {
     [UsedImplicitly]
@@ -30,13 +27,11 @@ internal sealed class GenerateStructCodeCommand(
         [CommandArgument(1, "<version>")]
         public string Version { get; init; } = string.Empty;
 
-        [Description(
-            "Hex address of the metainfo pointer. If omitted (together with --register-metainfo), auto-discovery is used.")]
+        [Description("Hex address of the metainfo pointer. If omitted (together with --register-metainfo), auto-discovery is used.")]
         [CommandOption("--metainfo <ADDR>")]
         public string? MetainfoPointer { get; init; }
 
-        [Description(
-            "Hex address of the metainfo registrators array. If omitted (together with --metainfo), auto-discovery is used.")]
+        [Description("Hex address of the metainfo registrators array. If omitted (together with --metainfo), auto-discovery is used.")]
         [CommandOption("--register-metainfo <ADDR>")]
         public string? RegisterMetainfoArrayPointer { get; init; }
 
@@ -52,8 +47,7 @@ internal sealed class GenerateStructCodeCommand(
         [CommandOption("--structs <NAMES>")]
         public string[] Structs { get; init; } = [];
 
-        [Description(
-            "Generate the Animations enum from the SkeletalAnimation instances in the databases (merged with types.xml when provided).")]
+        [Description("Generate the Animations enum from the SkeletalAnimation instances in the databases (merged with types.xml when provided).")]
         [CommandOption("--animations")]
         [DefaultValue(false)]
         public bool Animations { get; init; }
@@ -68,14 +62,12 @@ internal sealed class GenerateStructCodeCommand(
             var hasMeta = !string.IsNullOrWhiteSpace(MetainfoPointer);
             var hasReg = !string.IsNullOrWhiteSpace(RegisterMetainfoArrayPointer);
             return hasMeta != hasReg
-                ? ValidationResult.Error(
-                    "Either provide both --metainfo and --register-metainfo, or neither (for auto-discovery).")
+                ? ValidationResult.Error("Either provide both --metainfo and --register-metainfo, or neither (for auto-discovery).")
                 : ValidationResult.Success();
         }
     }
 
-    public override int Execute(CommandContext context, GenerateStructCodeCommandSettings settings,
-        CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, GenerateStructCodeCommandSettings settings, CancellationToken cancellationToken)
     {
 #if IS_OPEN_SOURCE_BUILD
         logger.LogError(
@@ -99,28 +91,18 @@ internal sealed class GenerateStructCodeCommand(
         int? registerPtrAddr = string.IsNullOrWhiteSpace(settings.RegisterMetainfoArrayPointer)
             ? null
             : Convert.ToInt32(settings.RegisterMetainfoArrayPointer, 16);
-        int? metainfoPtrAddr = string.IsNullOrWhiteSpace(settings.MetainfoPointer)
-            ? null
-            : Convert.ToInt32(settings.MetainfoPointer, 16);
+        int? metainfoPtrAddr = string.IsNullOrWhiteSpace(settings.MetainfoPointer) ? null : Convert.ToInt32(settings.MetainfoPointer, 16);
 
-        var structNames = settings.Structs
-            .SelectMany(s => s.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
-            .Distinct()
+        var structNames = settings.Structs.SelectMany(s => s.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)).Distinct()
             .ToArray();
 
         if (structNames.Length > 0)
         {
-            logger.LogInformation("Generating {Count} struct(s) from the provided list instead of the databases",
-                structNames.Length);
+            logger.LogInformation("Generating {Count} struct(s) from the provided list instead of the databases", structNames.Length);
         }
 
-        var collection = new StructCollector(loggerFactory).Collect(
-            gameProcesses[0].Id,
-            settings.BinPath,
-            settings.Animations,
-            registerPtrAddr,
-            metainfoPtrAddr,
-            structNames);
+        var collection = new StructCollector(loggerFactory).Collect(gameProcesses[0].Id, settings.BinPath, settings.Animations, registerPtrAddr,
+            metainfoPtrAddr, structNames);
 
         if (collection is null)
         {
@@ -144,8 +126,7 @@ internal sealed class GenerateStructCodeCommand(
 
         var enumDir = $"{versionDir}Enums/";
 
-        var structGenerated = WriteTemplates(versionDir, "structs", generator.BuildStructTemplates(), t => t.Name,
-            t => t.TransformText());
+        var structGenerated = WriteTemplates(versionDir, "structs", generator.BuildStructTemplates(), t => t.Name, t => t.TransformText());
         logger.LogInformation("Struct code generation completed: {Number} struct generated", structGenerated);
 
         if (generator.EnumCount > 0)
@@ -169,8 +150,7 @@ internal sealed class GenerateStructCodeCommand(
 
         return 0;
 
-        int WriteTemplates<T>(string dir, string kind, IEnumerable<T> templates, Func<T, string> name,
-            Func<T, string> render)
+        int WriteTemplates<T>(string dir, string kind, IEnumerable<T> templates, Func<T, string> name, Func<T, string> render)
         {
             var count = 0;
             console.Status().Spinner(Spinner.Known.Ascii).Start($"Generating {kind}", _ =>

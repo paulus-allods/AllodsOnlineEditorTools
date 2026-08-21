@@ -32,8 +32,7 @@ internal class PrimitivesBinaryConverter : BinaryConverter<object>
         return type.IsPrimitive || type == typeof(string);
     }
 
-    protected override object ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    protected override object ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         if (typeToConvert == typeof(int))
         {

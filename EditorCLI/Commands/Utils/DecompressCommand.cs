@@ -8,8 +8,7 @@ namespace EditorCLI.Commands.Utils;
 
 [UsedImplicitly]
 [Description("Decompress a zlib compressed file")]
-internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
-    : Command<DecompressCommand.DecompressCommandSettings>
+internal sealed class DecompressCommand(ILogger<DecompressCommand> logger) : Command<DecompressCommand.DecompressCommandSettings>
 {
     [UsedImplicitly]
     public class DecompressCommandSettings : CommandSettings
@@ -23,8 +22,7 @@ internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
         public string? OutputPath { get; set; }
     }
 
-    public override int Execute(CommandContext context, DecompressCommandSettings settings,
-        CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, DecompressCommandSettings settings, CancellationToken cancellationToken)
     {
         if (!File.Exists(settings.InputPath))
         {
@@ -47,9 +45,7 @@ internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
         }
         catch (InvalidDataException ex)
         {
-            logger.LogError(
-                "Failed to decompress {InputPath}: {Message}. The file does not appear to be a zlib stream.",
-                settings.InputPath, ex.Message);
+            logger.LogError("Failed to decompress {InputPath}: {Message}. The file does not appear to be a zlib stream.", settings.InputPath, ex.Message);
             return 1;
         }
 
@@ -92,8 +88,6 @@ internal sealed class DecompressCommand(ILogger<DecompressCommand> logger)
 
     private static string ResolveOutputPath(string inputPath)
     {
-        return inputPath.EndsWith(".z", StringComparison.OrdinalIgnoreCase)
-            ? inputPath[..^2]
-            : inputPath + ".decompressed";
+        return inputPath.EndsWith(".z", StringComparison.OrdinalIgnoreCase) ? inputPath[..^2] : inputPath + ".decompressed";
     }
 }

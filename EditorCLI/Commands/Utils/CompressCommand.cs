@@ -8,8 +8,7 @@ namespace EditorCLI.Commands.Utils;
 
 [UsedImplicitly]
 [Description("Compress a file using zlib")]
-internal sealed class CompressCommand(ILogger<CompressCommand> logger)
-    : Command<CompressCommand.CompressCommandSettings>
+internal sealed class CompressCommand(ILogger<CompressCommand> logger) : Command<CompressCommand.CompressCommandSettings>
 {
     [UsedImplicitly]
     public class CompressCommandSettings : CommandSettings
@@ -38,8 +37,7 @@ internal sealed class CompressCommand(ILogger<CompressCommand> logger)
         }
     }
 
-    public override int Execute(CommandContext context, CompressCommandSettings settings,
-        CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, CompressCommandSettings settings, CancellationToken cancellationToken)
     {
         if (!File.Exists(settings.InputPath))
         {
@@ -58,8 +56,8 @@ internal sealed class CompressCommand(ILogger<CompressCommand> logger)
             input.CopyTo(zlib);
         }
 
-        logger.LogInformation("Compressed {InputPath} to {OutputPath} with compression level {Level}",
-            settings.InputPath, outputPath, settings.CompressionLevel);
+        logger.LogInformation("Compressed {InputPath} to {OutputPath} with compression level {Level}", settings.InputPath, outputPath,
+            settings.CompressionLevel);
 
         return 0;
     }

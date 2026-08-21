@@ -41,8 +41,7 @@ public static class FourCC
     {
         return Encoding.ASCII.GetString(new byte[]
         {
-            (byte)(fourCC & 0xFF), (byte)((fourCC >> 8) & 0xFF), (byte)((fourCC >> 16) & 0xFF),
-            (byte)((fourCC >> 24) & 0xFF)
+            (byte)(fourCC & 0xFF), (byte)((fourCC >> 8) & 0xFF), (byte)((fourCC >> 16) & 0xFF), (byte)((fourCC >> 24) & 0xFF)
         });
     }
 

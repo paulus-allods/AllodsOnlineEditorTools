@@ -8,8 +8,7 @@ internal class NullablePointerBinaryConverter : BinaryConverter<NullablePointer>
 {
     public override int GetSize(Type type, BinaryStructSerializerContext context) => 4;
 
-    protected override NullablePointer ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    protected override NullablePointer ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         if (!reader.TryGetPointerFix(offset, out var pointerFix))
         {

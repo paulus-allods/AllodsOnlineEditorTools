@@ -44,7 +44,7 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         public bool ShowTexts { get; set; }
     }
 
-    public override int Execute(CommandContext context, PackInfoCommandSettings settings, CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, PackInfoCommandSettings settings, CancellationToken cancellationToken)
     {
         var databases = DatabaseLoader.LoadDatabases(settings.BinPath, loggerFactory);
 
@@ -61,18 +61,13 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
 
         if (!settings.HideVersion)
         {
-            var versionName = GameVersion.TryGetByVersion(database.Version, out var version)
-                ? version.ToString()
-                : "unknown";
+            var versionName = GameVersion.TryGetByVersion(database.Version, out var version) ? version.ToString() : "unknown";
             console.MarkupLineInterpolated($"[yellow]Version:[/] 0x{Convert.ToHexString(database.Version)} ({versionName})");
         }
 
         if (settings.ShowStructs)
         {
-            var structs = database.Structs
-                .Distinct()
-                .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
-                .ToList();
+            var structs = database.Structs.Distinct().OrderBy(s => s, StringComparer.OrdinalIgnoreCase).ToList();
             console.MarkupLineInterpolated($"[yellow]Structs ({structs.Count}):[/]");
             foreach (var name in structs)
             {
@@ -104,10 +99,7 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
             }
             else
             {
-                var texts = database.TextFileRefNames.Values
-                    .Where(t => !string.IsNullOrEmpty(t))
-                    .Distinct()
-                    .OrderBy(t => t, StringComparer.OrdinalIgnoreCase)
+                var texts = database.TextFileRefNames.Values.Where(t => !string.IsNullOrEmpty(t)).Distinct().OrderBy(t => t, StringComparer.OrdinalIgnoreCase)
                     .ToList();
                 console.MarkupLineInterpolated($"[yellow]Text files ({texts.Count}):[/]");
                 foreach (var text in texts)
@@ -118,9 +110,7 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
         }
 
         var rootCount = database.DbId2File.Count;
-        var fileCount = database.ObjId2DbId is { } objIds
-            ? $"{rootCount + objIds.Count} ({rootCount} root)"
-            : $"{rootCount}";
+        var fileCount = database.ObjId2DbId is { } objIds ? $"{rootCount + objIds.Count} ({rootCount} root)" : $"{rootCount}";
         console.MarkupLineInterpolated($"[yellow]Total files:[/] {fileCount}");
 
         return 0;
@@ -136,8 +126,7 @@ internal sealed class PackInfoCommand(IAnsiConsole console, ILoggerFactory logge
                 return true;
             }
 
-            console.MarkupLineInterpolated(
-                $"[red]info:[/] input contains {databases.Count} databases; specify which .bin to analyze");
+            console.MarkupLineInterpolated($"[red]info:[/] input contains {databases.Count} databases; specify which .bin to analyze");
             ListDatabases(databases);
             database = null!;
             return false;

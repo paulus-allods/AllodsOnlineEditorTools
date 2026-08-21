@@ -13,9 +13,7 @@ internal class TextFileRefBinaryConverter : BinaryConverter<TextFileRef>
         FieldValidator.ValidateTextFileRef(txtFile, offset);
         var id = reader.ReadInt(offset + 12);
         // I have only seen id = -1 in V7+ up to now
-        Debug.Assert(
-            id == -1 && txtFile == "" ||
-            (context.MainDatabaseMetadata.TextFileRefNames.TryGetValue(id, out var tableName) && tableName == txtFile),
+        Debug.Assert(id == -1 && txtFile == "" || (context.MainDatabaseMetadata.TextFileRefNames.TryGetValue(id, out var tableName) && tableName == txtFile),
             $"TextFileRef at offset {offset} has txt-files table id {id} which does not map back to '{txtFile}'");
         return new TextFileRef(txtFile);
     }

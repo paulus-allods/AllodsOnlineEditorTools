@@ -13,8 +13,7 @@ internal abstract class BinaryConverter<T> : IBinaryConverter
         return type == typeof(T);
     }
 
-    public object? Read(ref BinaryStructReader reader, long offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    public object? Read(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         return ReadValue(ref reader, offset, typeToConvert, context);
     }

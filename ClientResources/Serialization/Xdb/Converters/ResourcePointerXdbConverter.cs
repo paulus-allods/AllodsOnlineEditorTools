@@ -16,16 +16,11 @@ internal class ResourcePointerXdbConverter : XdbConverter<ResourcePointer>
 
         if (value.Type is null)
         {
-            serializer.Logger.LogWarning(
-                "Resource pointer to {Href} has no resolved type; writing href without an xpointer", value.Href);
+            serializer.Logger.LogWarning("Resource pointer to {Href} has no resolved type; writing href without an xpointer", value.Href);
         }
 
-        var typeName = value.Type is not null
-            ? XdbNameAttribute.Resolve(value.Type)
-            : string.Empty;
-        var href = string.IsNullOrEmpty(typeName)
-            ? $"/{value.Href}"
-            : $"/{value.Href}#xpointer(/{typeName})";
+        var typeName = value.Type is not null ? XdbNameAttribute.Resolve(value.Type) : string.Empty;
+        var href = string.IsNullOrEmpty(typeName) ? $"/{value.Href}" : $"/{value.Href}#xpointer(/{typeName})";
         return new XElement(elementName, new XAttribute("href", href));
     }
 

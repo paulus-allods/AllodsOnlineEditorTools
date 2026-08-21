@@ -7,10 +7,7 @@ internal class BigVector3XdbConverter : XdbConverter<BigVector3>
 {
     protected override XElement WriteValue(XdbStructSerializer serializer, string elementName, BigVector3 value)
     {
-        return new XElement(elementName,
-            new XAttribute("x", value.X),
-            new XAttribute("y", value.Y),
-            new XAttribute("z", value.Z));
+        return new XElement(elementName, new XAttribute("x", value.X), new XAttribute("y", value.Y), new XAttribute("z", value.Z));
     }
 
     protected override BigVector3 ReadValue(XdbStructSerializer serializer, XElement element, Type type)

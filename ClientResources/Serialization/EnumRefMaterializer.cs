@@ -51,12 +51,7 @@ public static class EnumRefMaterializer
     /// <paramref name="readItems"/> (the array case) as token text; only the one matching
     /// <paramref name="fieldType"/> is invoked, keeping this method free of any format-specific element type.
     /// </summary>
-    public static bool TryDematerialize(
-        Type fieldType,
-        Type enumType,
-        Func<string> readScalar,
-        Func<IEnumerable<string>> readItems,
-        out object? carrier)
+    public static bool TryDematerialize(Type fieldType, Type enumType, Func<string> readScalar, Func<IEnumerable<string>> readItems, out object? carrier)
     {
         if (fieldType == typeof(int))
         {

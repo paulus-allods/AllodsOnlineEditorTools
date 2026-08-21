@@ -132,19 +132,14 @@ public class StructCasterTests
             ["OrphanStruct"] = typeof(V1.OrphanStruct),
             ["NoEnumMob"] = typeof(V1.NoEnumMob),
         };
-        var targetStructs = new Dictionary<string, Type>
-        {
-            ["Mob"] = typeof(V2.Mob),
-            ["NoEnumMob"] = typeof(V2.NoEnumMob),
-        };
+        var targetStructs = new Dictionary<string, Type> { ["Mob"] = typeof(V2.Mob), ["NoEnumMob"] = typeof(V2.NoEnumMob), };
         var logger = new CollectingLogger();
         var caster = new StructCaster(sourceStructs, targetStructs, logger);
         caster.Analyze(structNames);
         return (caster, logger);
     }
 
-    private static StructCaster CreateCaster(IReadOnlyDictionary<string, Type> source,
-        IReadOnlyDictionary<string, Type> target, params string[] names)
+    private static StructCaster CreateCaster(IReadOnlyDictionary<string, Type> source, IReadOnlyDictionary<string, Type> target, params string[] names)
     {
         var caster = new StructCaster(source, target, new CollectingLogger());
         caster.Analyze(names);
@@ -278,8 +273,7 @@ public class StructCasterTests
         using (Assert.EnterMultipleScope())
         {
             Assert.That(result.animation, Is.EqualTo((int)SourceAnimation.RUN));
-            Assert.That(caster.EnumRefOverrides[(typeof(V2.Mob), nameof(V2.Mob.animation))],
-                Is.EqualTo(typeof(SourceAnimation)));
+            Assert.That(caster.EnumRefOverrides[(typeof(V2.Mob), nameof(V2.Mob.animation))], Is.EqualTo(typeof(SourceAnimation)));
         }
     }
 
@@ -302,10 +296,8 @@ public class StructCasterTests
     {
         // items is Item[] where Item differs across versions (same name, different Type), so the array
         // branch must recurse into the nested-struct branch for each element.
-        var caster = CreateCaster(
-            new Dictionary<string, Type> { ["Holder"] = typeof(NestedArrV1.Holder) },
-            new Dictionary<string, Type> { ["Holder"] = typeof(NestedArrV2.Holder) },
-            "Holder");
+        var caster = CreateCaster(new Dictionary<string, Type> { ["Holder"] = typeof(NestedArrV1.Holder) },
+            new Dictionary<string, Type> { ["Holder"] = typeof(NestedArrV2.Holder) }, "Holder");
 
         var result = (NestedArrV2.Holder)caster.Cast(new NestedArrV1.Holder());
 
@@ -316,10 +308,8 @@ public class StructCasterTests
     public void FileRef_IsCopiedAcrossVersions()
     {
         // FileRef is one type across versions; the copy is handled by the identity branch.
-        var caster = CreateCaster(
-            new Dictionary<string, Type> { ["Holder"] = typeof(RefV1.Holder) },
-            new Dictionary<string, Type> { ["Holder"] = typeof(RefV2.Holder) },
-            "Holder");
+        var caster = CreateCaster(new Dictionary<string, Type> { ["Holder"] = typeof(RefV1.Holder) },
+            new Dictionary<string, Type> { ["Holder"] = typeof(RefV2.Holder) }, "Holder");
 
         var result = (RefV2.Holder)caster.Cast(new RefV1.Holder());
 

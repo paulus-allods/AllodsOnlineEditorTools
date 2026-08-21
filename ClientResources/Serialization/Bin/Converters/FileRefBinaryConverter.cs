@@ -7,8 +7,7 @@ internal class FileRefBinaryConverter : BinaryConverter<FileRef>
     public override int GetSize(Type type, BinaryStructSerializerContext context) =>
         context.FileRefKind is FileRefKind.FileRef2 or FileRefKind.PakFileRef ? 20 : 12;
 
-    protected override FileRef ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert,
-        BinaryStructSerializerContext context)
+    protected override FileRef ReadValue(ref BinaryStructReader reader, long offset, Type typeToConvert, BinaryStructSerializerContext context)
     {
         if (context.FileRefKind == FileRefKind.None)
         {

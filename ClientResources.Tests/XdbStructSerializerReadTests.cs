@@ -19,29 +19,22 @@ namespace ClientResources.Tests;
 [TestFixture]
 public class XdbStructSerializerReadTests
 {
-    private static readonly XdbStructSerializer Writer = new(XdbStructSerializerOptions.Default,
-        ResourceSerializationContext.Default);
+    private static readonly XdbStructSerializer Writer = new(XdbStructSerializerOptions.Default, ResourceSerializationContext.Default);
 
-    private static readonly XdbStructSerializer Reader = new(
-        XdbStructSerializerOptions.Default,
+    private static readonly XdbStructSerializer Reader = new(XdbStructSerializerOptions.Default,
         new ResourceSerializationContext
         {
-            TypeResolver = StructTypeResolver.FromTypes(
-                typeof(IntHolder), typeof(LongHolder), typeof(FloatHolder), typeof(DoubleHolder),
-                typeof(BoolHolder), typeof(StringHolder), typeof(EnumRefHolder), typeof(IntArrayHolder),
-                typeof(FileRefHolder), typeof(TextFileRefHolder), typeof(NullablePointerHolder),
-                typeof(EmptyNullablePointerHolder), typeof(Vector2Holder), typeof(Vector3Holder),
-                typeof(QuaternionHolder), typeof(BigVector3Holder), typeof(AabbHolder), typeof(RenamedHolder),
-                typeof(SampleResource), typeof(SampleParams),
-                typeof(AABB), typeof(PredicateHonorRankLess), typeof(AnimationProperties),
-                typeof(AstralIslandTeleport)),
+            TypeResolver = StructTypeResolver.FromTypes(typeof(IntHolder), typeof(LongHolder), typeof(FloatHolder), typeof(DoubleHolder),
+                typeof(BoolHolder), typeof(StringHolder), typeof(EnumRefHolder), typeof(IntArrayHolder), typeof(FileRefHolder), typeof(TextFileRefHolder),
+                typeof(NullablePointerHolder), typeof(EmptyNullablePointerHolder), typeof(Vector2Holder), typeof(Vector3Holder), typeof(QuaternionHolder),
+                typeof(BigVector3Holder), typeof(AabbHolder), typeof(RenamedHolder), typeof(SampleResource), typeof(SampleParams), typeof(AABB),
+                typeof(PredicateHonorRankLess), typeof(AnimationProperties), typeof(AstralIslandTeleport)),
         });
 
-    private static T RoundTrip<T>(T obj) where T : notnull
-        => (T)Reader.ParseResource(Writer.SerializeResource(obj, 0), out _);
+    private static T RoundTrip<T>(T obj) where T : notnull => (T)Reader.ParseResource(Writer.SerializeResource(obj, 0), out _);
 
-    private static T RoundTripField<T>(T value)
-        => (T)Reader.DeserializeField(Writer.SerializeField(value, "field", typeof(T))!, typeof(T))!;
+    private static T RoundTripField<T>(T value) =>
+        (T)Reader.DeserializeField(Writer.SerializeField(value, "field", typeof(T))!, typeof(T))!;
 
     [Test]
     public void Int() => Assert.That(RoundTripField(100000), Is.EqualTo(100000));
@@ -95,9 +88,8 @@ public class XdbStructSerializerReadTests
         Is.EqualTo(new BigVector3(0, 0, 0, 1.25f, 2.5f, 3.75f)));
 
     [Test]
-    public void ResourcePointer_StripsRootAndXpointer()
-        => Assert.That(RoundTripField(new ResourcePointer("Material/userinfo.xdb", typeof(SampleMaterial))).Href,
-            Is.EqualTo("Material/userinfo.xdb"));
+    public void ResourcePointer_StripsRootAndXpointer() => Assert.That(
+        RoundTripField(new ResourcePointer("Material/userinfo.xdb", typeof(SampleMaterial))).Href, Is.EqualTo("Material/userinfo.xdb"));
 
     [Test]
     public void EnumRef_RoundTripsCarrierInts()
@@ -112,16 +104,14 @@ public class XdbStructSerializerReadTests
     }
 
     [Test]
-    public void Array_RoundTrips()
-        => Assert.That(RoundTrip(new IntArrayHolder()).shaderIndices, Is.EqualTo([0, 1, 2]));
+    public void Array_RoundTrips() => Assert.That(RoundTrip(new IntArrayHolder()).shaderIndices, Is.EqualTo([0, 1, 2]));
 
     [Test]
     public void FileRefs_RoundTrip()
     {
         using (Assert.EnterMultipleScope())
         {
-            Assert.That(RoundTrip(new FileRefHolder()).binaryFile.Name,
-                Is.EqualTo("Characters/Elf_female/ElfFemale.(Geometry).bin"));
+            Assert.That(RoundTrip(new FileRefHolder()).binaryFile.Name, Is.EqualTo("Characters/Elf_female/ElfFemale.(Geometry).bin"));
             Assert.That(RoundTrip(new TextFileRefHolder()).description.Name, Is.EqualTo("Texts/description.txt"));
         }
     }
@@ -150,16 +140,14 @@ public class XdbStructSerializerReadTests
     }
 
     [Test]
-    public void NullablePointer_RoundTripsPolymorphicTarget()
-        => Assert.That(((SampleParams)RoundTrip(new NullablePointerHolder()).@params.Value!).intensity, Is.EqualTo(5));
+    public void NullablePointer_RoundTripsPolymorphicTarget() =>
+        Assert.That(((SampleParams)RoundTrip(new NullablePointerHolder()).@params.Value!).intensity, Is.EqualTo(5));
 
     [Test]
-    public void EmptyNullablePointer_ReadsBackAsEmpty()
-        => Assert.That(RoundTrip(new EmptyNullablePointerHolder()).@params.Value, Is.Null);
+    public void EmptyNullablePointer_ReadsBackAsEmpty() => Assert.That(RoundTrip(new EmptyNullablePointerHolder()).@params.Value, Is.Null);
 
     [Test]
-    public void RenamedField_RoundTrips()
-        => Assert.That(RoundTrip(new RenamedHolder()).name, Is.EqualTo("Foo"));
+    public void RenamedField_RoundTrips() => Assert.That(RoundTrip(new RenamedHolder()).name, Is.EqualTo("Foo"));
 
     [Test]
     public void ParseResource_ReadsRootTypeAndResourceId()
@@ -191,8 +179,7 @@ public class XdbStructSerializerReadTests
     {
         using (Assert.EnterMultipleScope())
         {
-            Assert.That(RoundTrip(new PredicateHonorRankLess { rank = (int)HonorRank.HRButcher }).rank,
-                Is.EqualTo((int)HonorRank.HRButcher));
+            Assert.That(RoundTrip(new PredicateHonorRankLess { rank = (int)HonorRank.HRButcher }).rank, Is.EqualTo((int)HonorRank.HRButcher));
             Assert.That(RoundTrip(new PredicateHonorRankLess { rank = 99 }).rank, Is.EqualTo(99));
         }
     }
@@ -206,8 +193,7 @@ public class XdbStructSerializerReadTests
             Assert.That(parsed.kind, Is.EqualTo((int)CreatureKind.CREATURE_KIND_SEMIVERTICAL));
             Assert.That(parsed.targetTrackingParams.verticalRotate, Is.EqualTo((int)Bone.Spine));
             Assert.That(parsed.targetTrackingParams.horizontalRotate, Is.EqualTo((int)Bone.Head));
-            Assert.That(parsed.targetTrackingParams.addedToUseAnimations,
-                Is.EqualTo([(int)Animations.idle, (int)Animations.idle01]));
+            Assert.That(parsed.targetTrackingParams.addedToUseAnimations, Is.EqualTo([(int)Animations.idle, (int)Animations.idle01]));
         }
     }
 

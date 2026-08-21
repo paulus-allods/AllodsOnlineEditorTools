@@ -5,10 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 
-public class StructCaster(
-    IReadOnlyDictionary<string, Type> sourceStructs,
-    IReadOnlyDictionary<string, Type> targetStructs,
-    ILogger logger)
+public class StructCaster(IReadOnlyDictionary<string, Type> sourceStructs, IReadOnlyDictionary<string, Type> targetStructs, ILogger logger)
 {
     private delegate object? ConvertFunc(object? value, ResourceSerializationContext? context);
 
@@ -41,8 +38,7 @@ public class StructCaster(
 
             if (!targetStructs.TryGetValue(name, out var targetType))
             {
-                logger.LogWarning(
-                    "Struct {Struct} has no implementation in the target version; its resources will be skipped", name);
+                logger.LogWarning("Struct {Struct} has no implementation in the target version; its resources will be skipped", name);
                 IncompatibilityCount++;
                 continue;
             }
@@ -59,8 +55,7 @@ public class StructCaster(
     {
         if (!_plansBySourceType.TryGetValue(source.GetType(), out var plan))
         {
-            throw new InvalidOperationException(
-                $"No cast plan for '{source.GetType().Name}'; call {nameof(Analyze)} first and check {nameof(CanCast)}");
+            throw new InvalidOperationException($"No cast plan for '{source.GetType().Name}'; call {nameof(Analyze)} first and check {nameof(CanCast)}");
         }
 
         return CastWithPlan(source, plan, context);
@@ -68,8 +63,7 @@ public class StructCaster(
 
     private static object CastWithPlan(object source, TypeCastPlan plan, ResourceSerializationContext? context)
     {
-        var result = Activator.CreateInstance(plan.TargetType)
-                     ?? throw new InvalidOperationException($"Failed to create instance of '{plan.TargetType.Name}'");
+        var result = Activator.CreateInstance(plan.TargetType) ?? throw new InvalidOperationException($"Failed to create instance of '{plan.TargetType.Name}'");
         foreach (var (target, value) in plan.Defaults)
         {
             target.SetValue(result, value);
@@ -108,8 +102,7 @@ public class StructCaster(
             var xdbName = sourceField.XdbName;
             if (!targetFields.TryGetValue(xdbName, out var targetField))
             {
-                logger.LogWarning("Field {Struct}.{Field} does not exist in the target version; it will be dropped",
-                    sourceType.Name, sourceField.Name);
+                logger.LogWarning("Field {Struct}.{Field} does not exist in the target version; it will be dropped", sourceType.Name, sourceField.Name);
                 IncompatibilityCount++;
                 continue;
             }
@@ -119,9 +112,8 @@ public class StructCaster(
             var (supported, convert) = BuildFieldConverter(sourceField, targetField);
             if (!supported)
             {
-                logger.LogWarning(
-                    "Field {Struct}.{Field} cannot be cast from {SourceType} to {TargetType}; it will be dropped",
-                    sourceType.Name, sourceField.Name, sourceField.FieldType.Name, targetField.FieldType.Name);
+                logger.LogWarning("Field {Struct}.{Field} cannot be cast from {SourceType} to {TargetType}; it will be dropped", sourceType.Name,
+                    sourceField.Name, sourceField.FieldType.Name, targetField.FieldType.Name);
                 IncompatibilityCount++;
                 continue;
             }
@@ -133,9 +125,8 @@ public class StructCaster(
         {
             if (!matchedTargetFields.Contains(xdbName))
             {
-                logger.LogWarning(
-                    "Field {Struct}.{Field} does not exist in the source version; it will be left at its default value",
-                    targetType.Name, targetField.Name);
+                logger.LogWarning("Field {Struct}.{Field} does not exist in the source version; it will be left at its default value", targetType.Name,
+                    targetField.Name);
                 IncompatibilityCount++;
                 if (targetField.FieldType == typeof(ResourcePointer))
                 {
@@ -191,20 +182,20 @@ public class StructCaster(
         }
 
         return (true, (value, ctx) =>
-                {
-                    if (value is not Array sourceArray)
-                    {
-                        return null;
-                    }
+        {
+            if (value is not Array sourceArray)
+            {
+                return null;
+            }
 
-                    var targetArray = Array.CreateInstance(targetElement, sourceArray.Length);
-                    for (var i = 0; i < sourceArray.Length; i++)
-                    {
-                        targetArray.SetValue(elementConvert(sourceArray.GetValue(i), ctx), i);
-                    }
+            var targetArray = Array.CreateInstance(targetElement, sourceArray.Length);
+            for (var i = 0; i < sourceArray.Length; i++)
+            {
+                targetArray.SetValue(elementConvert(sourceArray.GetValue(i), ctx), i);
+            }
 
-                    return targetArray;
-                }
+            return targetArray;
+        }
         );
     }
 
@@ -214,8 +205,7 @@ public class StructCaster(
         return (value, context) => value is null ? null : CastWithPlan(value, plan, context);
     }
 
-    private (bool Supported, ConvertFunc? Convert) BuildEnumAwareConverter(StructField sourceField,
-        StructField targetField)
+    private (bool Supported, ConvertFunc? Convert) BuildEnumAwareConverter(StructField sourceField, StructField targetField)
     {
         var sourceAttr = sourceField.Field.GetCustomAttribute<EnumRefAttribute>();
         var targetAttr = targetField.Field.GetCustomAttribute<EnumRefAttribute>();
@@ -225,8 +215,7 @@ public class StructCaster(
             _enumRefOverrides[(targetField.DeclaringType!, targetField.Name)] = sourceAttr?.EnumType;
             if (sourceAttr is null && targetAttr is not null)
             {
-                logger.LogWarning(
-                    "Field {Struct}.{Field} uses the source enum on cast but the source version has none; raw numbers will be written",
+                logger.LogWarning("Field {Struct}.{Field} uses the source enum on cast but the source version has none; raw numbers will be written",
                     targetField.DeclaringType!.Name, targetField.Name);
             }
 
@@ -244,26 +233,24 @@ public class StructCaster(
         var valueMap = BuildEnumValueMap(sourceEnum, targetEnum);
         if (sourceField.FieldType == typeof(int))
         {
-            return (true,
-                (value, _) =>
-                    value is int intValue ? RemapEnumValue(intValue, sourceEnum, targetEnum, valueMap) : value);
+            return (true, (value, _) => value is int intValue ? RemapEnumValue(intValue, sourceEnum, targetEnum, valueMap) : value);
         }
 
         return (true, (value, _) =>
-                {
-                    if (value is not int[] values)
-                    {
-                        return value;
-                    }
+        {
+            if (value is not int[] values)
+            {
+                return value;
+            }
 
-                    var remapped = new int[values.Length];
-                    for (var i = 0; i < values.Length; i++)
-                    {
-                        remapped[i] = RemapEnumValue(values[i], sourceEnum, targetEnum, valueMap);
-                    }
+            var remapped = new int[values.Length];
+            for (var i = 0; i < values.Length; i++)
+            {
+                remapped[i] = RemapEnumValue(values[i], sourceEnum, targetEnum, valueMap);
+            }
 
-                    return remapped;
-                }
+            return remapped;
+        }
         );
     }
 
@@ -290,9 +277,8 @@ public class StructCaster(
 
         if (_reportedEnumMisses.TryAdd((sourceEnum, targetEnum, value), 0))
         {
-            logger.LogWarning(
-                "Enum value {Value} ({Name}) of {SourceEnum} has no counterpart in {TargetEnum}; the numeric value is kept",
-                value, Enum.GetName(sourceEnum, value) ?? "unnamed", sourceEnum.Name, targetEnum.Name);
+            logger.LogWarning("Enum value {Value} ({Name}) of {SourceEnum} has no counterpart in {TargetEnum}; the numeric value is kept", value,
+                Enum.GetName(sourceEnum, value) ?? "unnamed", sourceEnum.Name, targetEnum.Name);
         }
 
         return value;

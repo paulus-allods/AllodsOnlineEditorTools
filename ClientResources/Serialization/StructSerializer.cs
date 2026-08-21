@@ -6,8 +6,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
     ConverterRegistry<TConverter> options,
     ResourceSerializationContext context,
-    ILogger? logger) : IResourceWriter, IResourceReader
-    where TConverter : class, ITypeConverter
+    ILogger? logger) : IResourceWriter, IResourceReader where TConverter : class, ITypeConverter
 {
     protected ResourceSerializationContext Context => context;
     public ILogger Logger => logger ?? NullLogger.Instance;
@@ -25,8 +24,7 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
 
         foreach (var field in StructModelCache.Get(obj.GetType()).Fields)
         {
-            var child = SerializeFieldNode(field.GetValue(obj), field.XdbName, field.FieldType,
-                context.ResolveEnumRef(field));
+            var child = SerializeFieldNode(field.GetValue(obj), field.XdbName, field.FieldType, context.ResolveEnumRef(field));
             AddField(node, field.XdbName, child);
         }
 
@@ -35,8 +33,7 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
 
     protected TWriteNode? SerializeFieldNode(object? value, string name, Type type, Type? enumRef)
     {
-        if (enumRef is not null && value is not null
-                                && EnumRefMaterializer.TryMaterialize(value, type, enumRef, out var token))
+        if (enumRef is not null && value is not null && EnumRefMaterializer.TryMaterialize(value, type, enumRef, out var token))
         {
             return SerializeFieldNode(token, name, token!.GetType(), null);
         }
@@ -57,8 +54,7 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
 
     protected object DeserializeObjectNode(TReadNode node, Type type)
     {
-        var obj = Activator.CreateInstance(type)
-                  ?? throw new InvalidOperationException($"Failed to create instance of {type.FullName}");
+        var obj = Activator.CreateInstance(type) ?? throw new InvalidOperationException($"Failed to create instance of {type.FullName}");
 
         foreach (var field in StructModelCache.Get(type).Fields)
         {

@@ -76,8 +76,7 @@ internal sealed class BinDatabaseReader
         // V2 always emits it. Either way it runs to end-of-stream, so the same EOF guard covers both.
         if (reader.BaseStream.Position != reader.BaseStream.Length)
         {
-            pakFileRefOffsets = ReadPakFileRefOffsets(
-                ReadChunk(reader, DatabaseChunkId.PakFileRefs, _wordSize.PointerSize), data.Length);
+            pakFileRefOffsets = ReadPakFileRefOffsets(ReadChunk(reader, DatabaseChunkId.PakFileRefs, _wordSize.PointerSize), data.Length);
 
             var packsChunkId = (DatabaseChunkId)reader.ReadInt32();
             if (packsChunkId != DatabaseChunkId.Packs)
@@ -217,7 +216,9 @@ internal sealed class BinDatabaseReader
 
         Debug.Assert(resId2DbIdCount is HashTableMaxBucketCount or 0);
         Debug.Assert(dbId2ResIdCount is HashTableMaxBucketCount or 0);
-        Debug.Assert(_databaseFormat == DatabaseFormat.V1 ? dbId2FileBucketCount is HashTableMaxBucketCount or 0 : objId2DbIdBucketCount is HashTableMaxBucketCount or 0);
+        Debug.Assert(_databaseFormat == DatabaseFormat.V1
+            ? dbId2FileBucketCount is HashTableMaxBucketCount or 0
+            : objId2DbIdBucketCount is HashTableMaxBucketCount or 0);
 
         var (objId2DbId, dbId2ObjId) = _databaseFormat == DatabaseFormat.V2 ? ReadObjId2DbId(reader, objId2DbIdOffset, objId2DbIdBucketCount) : (null, null);
         var (dbId2File, file2DbId) = ReadDbId2File(reader, dbId2FileOffset, dbId2FileBucketCount);
@@ -250,8 +251,7 @@ internal sealed class BinDatabaseReader
             var adler32 = reader.ReadUInt32();
             if (adler32 % bucketCount != bucket)
             {
-                throw new InvalidDataException(
-                    $"dbId2file entry hash {adler32} does not match hash table bucket {bucket}");
+                throw new InvalidDataException($"dbId2file entry hash {adler32} does not match hash table bucket {bucket}");
             }
 
             // The block is [delimiter(4), adler32(4), name(size - 9), '\0']; the name is size - 9 bytes.
@@ -259,8 +259,7 @@ internal sealed class BinDatabaseReader
             var computedChecksum = Adler32.Compute(nameBytes);
             if (computedChecksum != adler32)
             {
-                throw new InvalidDataException(
-                    $"dbId2file entry checksum mismatch: expected {adler32}, computed {computedChecksum}");
+                throw new InvalidDataException($"dbId2file entry checksum mismatch: expected {adler32}, computed {computedChecksum}");
             }
 
             var filename = Encoding.UTF8.GetString(nameBytes).TrimEnd('\0');
@@ -338,8 +337,8 @@ internal sealed class BinDatabaseReader
         return structs;
     }
 
-    private IDictionary<int, long> ReadResId2DbId(BinaryReader reader, long tableOffset, int bucketCount,
-        IDictionary<long, string> dbId2File, string name, ILogger logger)
+    private IDictionary<int, long> ReadResId2DbId(BinaryReader reader, long tableOffset, int bucketCount, IDictionary<long, string> dbId2File, string name,
+        ILogger logger)
     {
         // 65521 buckets of (s32 rel, s32 count); each pair is (pointer resId, pointer dbId), bucketed by
         // resId % 65521.
@@ -353,8 +352,8 @@ internal sealed class BinDatabaseReader
 
             if (!map.TryAdd(resId, dbId))
             {
-                logger.LogWarning("In {Database}, files {ExistingFile} and {File} have the same resource id {ResId}",
-                    name, FileName(dbId2File, map[resId]), FileName(dbId2File, dbId), resId);
+                logger.LogWarning("In {Database}, files {ExistingFile} and {File} have the same resource id {ResId}", name, FileName(dbId2File, map[resId]),
+                    FileName(dbId2File, dbId), resId);
             }
         });
 
@@ -378,7 +377,8 @@ internal sealed class BinDatabaseReader
         return map;
     }
 
-    private static string FileName(IDictionary<long, string> dbId2File, long dbId) => dbId2File.TryGetValue(dbId, out var file) ? file : $"dbId {dbId}";
+    private static string FileName(IDictionary<long, string> dbId2File, long dbId) =>
+        dbId2File.TryGetValue(dbId, out var file) ? file : $"dbId {dbId}";
 
     private IDictionary<long, PointerFix> ReadFixes(byte[] fixesChunk)
     {

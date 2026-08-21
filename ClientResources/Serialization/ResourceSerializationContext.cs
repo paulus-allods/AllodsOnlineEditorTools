@@ -11,9 +11,8 @@ public sealed class ResourceSerializationContext
 
     public Type? ResolveEnumRef(StructField field)
     {
-        if (field.DeclaringType is not null
-            && EnumRefOverrides is not null
-            && EnumRefOverrides.TryGetValue((field.DeclaringType, field.Name), out var overrideEnum))
+        if (field.DeclaringType is not null && EnumRefOverrides is not null &&
+            EnumRefOverrides.TryGetValue((field.DeclaringType, field.Name), out var overrideEnum))
         {
             return overrideEnum;
         }
@@ -23,8 +22,7 @@ public sealed class ResourceSerializationContext
 
     public Type ResolveByXdbName(string xdbName) =>
         (TypeResolver ?? throw new InvalidOperationException(
-            "xdb read needs a StructTypeResolver (the version must be supplied explicitly); none was provided"))
-        .ResolveByXdbName(xdbName);
+            "xdb read needs a StructTypeResolver (the version must be supplied explicitly); none was provided")).ResolveByXdbName(xdbName);
 
     public Type ResolveDocumentType(string versionNamespace, string typeName)
     {

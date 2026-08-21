@@ -21,9 +21,7 @@ internal class NullablePointerXdbConverter : XdbConverter<NullablePointer>
 
     protected override NullablePointer ReadValue(XdbStructSerializer serializer, XElement element, Type type)
     {
-        var typeName = element.Attribute("type")?.Value
-                       ?? throw new InvalidOperationException(
-                           "NullablePointer element is missing its 'type' attribute");
+        var typeName = element.Attribute("type")?.Value ?? throw new InvalidOperationException("NullablePointer element is missing its 'type' attribute");
         var concreteType = serializer.ResolveXdbType(typeName);
         return new NullablePointer(serializer.DeserializeObject(element, concreteType));
     }

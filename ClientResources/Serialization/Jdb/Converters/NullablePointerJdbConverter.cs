@@ -25,6 +25,6 @@ internal class NullablePointerJdbConverter : JdbConverter<NullablePointer>
         return document;
     }
 
-    protected override NullablePointer ReadValue(JdbStructSerializer serializer, JsonElement element, Type type)
-        => new(serializer.DeserializeObject(element, serializer.ResolveDocumentType(element)));
+    protected override NullablePointer ReadValue(JdbStructSerializer serializer, JsonElement element, Type type) =>
+        new(serializer.DeserializeObject(element, serializer.ResolveDocumentType(element)));
 }

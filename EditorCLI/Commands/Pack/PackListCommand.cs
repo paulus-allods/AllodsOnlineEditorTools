@@ -20,8 +20,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
         [CommandArgument(0, "<Bin>")]
         public string BinPath { get; set; } = string.Empty;
 
-        [Description(
-            "Path inside the database to list; supports * and ? wildcards in the last segment (e.g. Textures, textures/toto, Textures/Toto/Tata*)")]
+        [Description("Path inside the database to list; supports * and ? wildcards in the last segment (e.g. Textures, textures/toto, Textures/Toto/Tata*)")]
         [CommandArgument(1, "[Path]")]
         public string? Path { get; set; }
 
@@ -31,12 +30,11 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
         public string? Types { get; set; }
     }
 
-    public override int Execute(CommandContext context, PackListCommandSettings settings, CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, PackListCommandSettings settings, CancellationToken cancellationToken)
     {
         var databases = DatabaseLoader.LoadDatabases(settings.BinPath, NullLoggerFactory.Instance);
 
-        var typeFilter = settings.Types?
-            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+        var typeFilter = settings.Types?.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
         var tree = new DirectoryTree();
@@ -59,8 +57,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
             return 1;
         }
 
-        foreach (var entry in entries.OrderByDescending(e => e.IsDirectory)
-                     .ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase))
+        foreach (var entry in entries.OrderByDescending(e => e.IsDirectory).ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase))
         {
             if (entry.IsDirectory)
             {
@@ -160,10 +157,7 @@ internal sealed class PackListCommand(IAnsiConsole console) : Command<PackListCo
             }
 
             var regex = GlobToRegex(pattern);
-            entries = childrenOfDir
-                .Where(c => regex.IsMatch(c.Key))
-                .Select(c => new Entry(c.Key, c.Value))
-                .ToList();
+            entries = childrenOfDir.Where(c => regex.IsMatch(c.Key)).Select(c => new Entry(c.Key, c.Value)).ToList();
             return true;
         }
 

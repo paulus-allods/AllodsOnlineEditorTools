@@ -10,6 +10,5 @@ internal class WStringXdbConverter : XdbConverter<WString>
         return value.Value is { Length: > 0 } text ? new XElement(elementName, text) : new XElement(elementName);
     }
 
-    protected override WString ReadValue(XdbStructSerializer serializer, XElement element, Type type)
-        => new(element.Value);
+    protected override WString ReadValue(XdbStructSerializer serializer, XElement element, Type type) => new(element.Value);
 }

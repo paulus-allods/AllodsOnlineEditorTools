@@ -14,10 +14,13 @@ internal sealed class InfoVersionsCommand(IAnsiConsole console) : Command<InfoVe
     [UsedImplicitly]
     public class InfoVersionsCommandSettings : CommandSettings
     {
-        [CommandOption("--namespaces")][Description("Print only the version namespaces accepted by version arguments")][DefaultValue(false)] public bool NamespacesOnly { get; init; }
+        [CommandOption("--namespaces")]
+        [Description("Print only the version namespaces accepted by version arguments")]
+        [DefaultValue(false)]
+        public bool NamespacesOnly { get; init; }
     }
 
-    public override int Execute(CommandContext context, InfoVersionsCommandSettings settings, CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, InfoVersionsCommandSettings settings, CancellationToken cancellationToken)
     {
         if (settings.NamespacesOnly)
         {
@@ -38,12 +41,8 @@ internal sealed class InfoVersionsCommand(IAnsiConsole console) : Command<InfoVe
 
         foreach (var version in GameVersion.Versions.Values)
         {
-            table.AddRow(
-                new Markup(version.Name.EscapeMarkup()),
-                version.HasStructs ? new Markup(version.Namespace.EscapeMarkup()) : new Markup("[dim]-[/]"),
-                new Markup(StructCount(version)),
-                new Markup(version.DatabaseFormat.ToString()),
-                new Markup(version.FileRefKind.ToString()));
+            table.AddRow(new Markup(version.Name.EscapeMarkup()), version.HasStructs ? new Markup(version.Namespace.EscapeMarkup()) : new Markup("[dim]-[/]"),
+                new Markup(StructCount(version)), new Markup(version.DatabaseFormat.ToString()), new Markup(version.FileRefKind.ToString()));
         }
 
         console.Write(table);

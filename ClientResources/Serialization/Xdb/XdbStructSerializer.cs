@@ -3,10 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
 
-public class XdbStructSerializer(
-    XdbStructSerializerOptions options,
-    ResourceSerializationContext context,
-    ILogger? logger = null)
+public class XdbStructSerializer(XdbStructSerializerOptions options, ResourceSerializationContext context, ILogger? logger = null)
     : StructSerializer<IXdbConverter, XElement, XElement>(options, context, logger)
 {
     private static readonly XDeclaration XmlDeclaration = new("1.0", "UTF-8", null);
@@ -25,8 +22,7 @@ public class XdbStructSerializer(
 
     public override object ParseResource(string text, out int resourceId)
     {
-        var root = XDocument.Parse(text).Root
-                   ?? throw new InvalidOperationException("xdb document has no root element");
+        var root = XDocument.Parse(text).Root ?? throw new InvalidOperationException("xdb document has no root element");
 
         var idText = root.Element("Header")?.Element("resourceId")?.Value;
         resourceId = int.TryParse(idText, out var id) ? id : 0;
@@ -36,13 +32,12 @@ public class XdbStructSerializer(
 
     public XElement SerializeObject(object? obj, string name) => SerializeObjectNode(obj, name);
 
-    public XElement? SerializeField(object? value, string name, Type type, Type? enumRef = null)
-        => SerializeFieldNode(value, name, type, enumRef);
+    public XElement? SerializeField(object? value, string name, Type type, Type? enumRef = null) =>
+        SerializeFieldNode(value, name, type, enumRef);
 
     public object DeserializeObject(XElement element, Type type) => DeserializeObjectNode(element, type);
 
-    public object? DeserializeField(XElement element, Type type, Type? enumRef = null)
-        => DeserializeFieldNode(element, type, enumRef);
+    public object? DeserializeField(XElement element, Type type, Type? enumRef = null) => DeserializeFieldNode(element, type, enumRef);
 
     internal Type ResolveXdbType(string xdbName) => Context.ResolveByXdbName(xdbName);
 
@@ -58,8 +53,7 @@ public class XdbStructSerializer(
 
     protected override XElement WriteNull(string name) => new(name);
 
-    protected override XElement? WriteConverted(IXdbConverter converter, string name, object value)
-        => converter.Write(this, name, value);
+    protected override XElement? WriteConverted(IXdbConverter converter, string name, object value) => converter.Write(this, name, value);
 
     protected override bool TryGetChild(XElement objectNode, string name, out XElement child)
     {
@@ -73,6 +67,5 @@ public class XdbStructSerializer(
     protected override IEnumerable<string> ReadItemTokens(XElement node) =>
         node.Elements("Item").Select(item => item.Value);
 
-    protected override object? ReadConverted(IXdbConverter converter, XElement node, Type type)
-        => converter.Read(this, node, type);
+    protected override object? ReadConverted(IXdbConverter converter, XElement node, Type type) => converter.Read(this, node, type);
 }

@@ -27,9 +27,7 @@ internal static partial class FieldValidator
     [Conditional("DEBUG")]
     public static void ValidateFileRef(string value, long offset)
     {
-        Debug.Assert(
-            value.Length == 0 || value.Contains(NoSource, StringComparison.InvariantCulture) ||
-            FileRefExtensions.Any(value.EndsWith),
+        Debug.Assert(value.Length == 0 || value.Contains(NoSource, StringComparison.InvariantCulture) || FileRefExtensions.Any(value.EndsWith),
             $"FileRef field at offset {offset} contains '{value}', which does not end with a known file extension ({string.Join(", ", FileRefExtensions)}); the field is probably not a FileRef");
     }
 

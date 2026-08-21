@@ -39,11 +39,9 @@ internal sealed class BinExportCommand : Command<BinExportCommand.BinExportComma
         }
     }
 
-    public override int Execute(CommandContext context, BinExportCommandSettings settings,
-        CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, BinExportCommandSettings settings, CancellationToken cancellationToken)
     {
-        var jsonSerializer =
-            new JdbStructSerializer(JdbStructSerializerOptions.Default, ResourceSerializationContext.Default);
+        var jsonSerializer = new JdbStructSerializer(JdbStructSerializerOptions.Default, ResourceSerializationContext.Default);
         var metadata = jsonSerializer.ParseResource(File.ReadAllText(settings.File), out _);
 
         if (metadata is not ITexture texture)

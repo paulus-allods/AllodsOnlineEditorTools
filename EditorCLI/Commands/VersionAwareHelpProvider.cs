@@ -25,9 +25,8 @@ internal sealed class VersionAwareHelpProvider(ICommandAppSettings settings) : H
         }
 
         // A single renderable: consecutive ones are concatenated inline rather than stacked.
-        footer.Add(new Markup(
-            $"\n[yellow]SUPPORTED VERSIONS:[/]\n    {string.Join(", ", GameVersion.StructNamespaces)}\n\n" +
-            $"Run [blue]{model.ApplicationName.EscapeMarkup()} info versions[/] for details.\n"));
+        footer.Add(new Markup($"\n[yellow]SUPPORTED VERSIONS:[/]\n    {string.Join(", ", GameVersion.StructNamespaces)}\n\n" +
+                              $"Run [blue]{model.ApplicationName.EscapeMarkup()} info versions[/] for details.\n"));
 
         return footer;
     }

@@ -59,12 +59,11 @@ public static class DatabaseLoader
 
         var database = BinDatabaseReader.Read(decompressed, name, logger);
 
-        var versionName = GameVersion.TryGetByVersion(database.Metadata.Version, out var version)
-            ? version.ToString()
-            : "unknown";
+        var versionName = GameVersion.TryGetByVersion(database.Metadata.Version, out var version) ? version.ToString() : "unknown";
         var rootCount = database.Metadata.File2DbId.Count;
         var fileCount = database.Metadata.DbId2ObjId is { } dbId2ObjId ? $"{rootCount + dbId2ObjId.Count} ({rootCount} root)" : $"{rootCount}";
-        logger.LogInformation("Loaded database: {File}, version {Version}, {Files} files, {Structs} structs", name, versionName, fileCount, database.Metadata.Structs.Count);
+        logger.LogInformation("Loaded database: {File}, version {Version}, {Files} files, {Structs} structs", name, versionName, fileCount,
+            database.Metadata.Structs.Count);
 
         return database;
     }

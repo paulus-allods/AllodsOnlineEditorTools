@@ -7,8 +7,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 /// Order matters: the first converter whose <see cref="ITypeConverter.CanConvert"/> matches wins.
 /// A registry holds no serialization context, so instances are safe to share across databases and threads.
 /// </summary>
-public abstract class ConverterRegistry<TConverter>(IReadOnlyList<TConverter> converters)
-    where TConverter : class, ITypeConverter
+public abstract class ConverterRegistry<TConverter>(IReadOnlyList<TConverter> converters) where TConverter : class, ITypeConverter
 {
     private readonly ConcurrentDictionary<Type, TConverter?> _cache = new();
 

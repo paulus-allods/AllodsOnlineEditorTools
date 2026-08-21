@@ -5,10 +5,7 @@ using AllodsOnlineEditorTools.ClientResources.Serialization.Bin.Database;
 
 namespace AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 
-public ref struct BinaryStructReader(
-    ReadOnlySpan<byte> buffer,
-    BinaryStructSerializerContext context,
-    BinarySerializerOptions options)
+public ref struct BinaryStructReader(ReadOnlySpan<byte> buffer, BinaryStructSerializerContext context, BinarySerializerOptions options)
 {
     private readonly ReadOnlySpan<byte> _buffer = buffer;
 
@@ -43,14 +40,12 @@ public ref struct BinaryStructReader(
             throw new InvalidOperationException($"Cannot read abstract type '{type.Name}'");
         }
 
-        var result = Activator.CreateInstance(type)
-                     ?? throw new InvalidOperationException($"Failed to create instance of '{type.Name}'");
+        var result = Activator.CreateInstance(type) ?? throw new InvalidOperationException($"Failed to create instance of '{type.Name}'");
         foreach (var field in StructModelCache.Get(type).Fields)
         {
             if (field.Offset is not { } fieldOffset)
             {
-                throw new InvalidOperationException(
-                    $"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
+                throw new InvalidOperationException($"Field '{type.Name}.{field.Name}' is missing {nameof(FieldOffsetAttribute)}");
             }
 
             var value = ReadField(offset + fieldOffset, field.FieldType);
@@ -73,11 +68,8 @@ public ref struct BinaryStructReader(
             return converter.Read(ref this, offset, type, context);
         }
 
-        return type.IsClass
-            ? ReadObject(offset, type)
-            : throw new InvalidOperationException($"No binary converter registered for type '{type.Name}'");
+        return type.IsClass ? ReadObject(offset, type) : throw new InvalidOperationException($"No binary converter registered for type '{type.Name}'");
     }
-
 
     public int ReadInt(long offset) => BinaryPrimitives.ReadInt32LittleEndian(_buffer.Slice((int)offset, 4));
 
@@ -115,8 +107,7 @@ public ref struct BinaryStructReader(
 
         if (fix.Type != PointerFix.FixType.Direct)
         {
-            throw new InvalidDataException(
-                $"Expected a direct pointer fix for string at offset {offset}, got {fix.Type}");
+            throw new InvalidDataException($"Expected a direct pointer fix for string at offset {offset}, got {fix.Type}");
         }
 
         var length = ReadInt(offset + 4);
@@ -128,7 +119,8 @@ public ref struct BinaryStructReader(
         return length > 0 ? encoding.GetString(_buffer.Slice((int)fix.Value, length)).TrimEnd('\0') : string.Empty;
     }
 
-    public bool TryGetPointerFix(long offset, out PointerFix pointerFix) => context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out pointerFix);
+    public bool TryGetPointerFix(long offset, out PointerFix pointerFix) =>
+        context.CurrentDatabaseMetadata.Fixes.TryGetValue(offset, out pointerFix);
 
     public int GetSize(Type type) => options.GetTypeSize(type, context);
 }

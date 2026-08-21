@@ -25,8 +25,7 @@ internal sealed class DDSImportCommand : Command<DDSImportCommand.DDSImportComma
         public bool GenerateMetadata { get; set; }
     }
 
-    public override int Execute(CommandContext context, DDSImportCommandSettings settings,
-        CancellationToken cancellationToken)
+    protected override int Execute(CommandContext context, DDSImportCommandSettings settings, CancellationToken cancellationToken)
     {
         var dds = DDSTexture.LoadDDS(settings.File);
         return 0;

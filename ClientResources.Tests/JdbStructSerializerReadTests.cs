@@ -12,8 +12,7 @@ namespace ClientResources.Tests;
 [TestFixture]
 public class JdbStructSerializerReadTests
 {
-    private static readonly JdbStructSerializer Serializer =
-        new(new JdbStructSerializerOptions(false), ResourceSerializationContext.Default);
+    private static readonly JdbStructSerializer Serializer = new(new JdbStructSerializerOptions(false), ResourceSerializationContext.Default);
 
     [Test]
     public void RoundTrip_NestedVectors()
@@ -66,8 +65,7 @@ public class JdbStructSerializerReadTests
             Assert.That(parsed.kind, Is.EqualTo(original.kind));
             Assert.That(parsed.targetTrackingParams.verticalRotate, Is.EqualTo((int)Bone.Spine));
             Assert.That(parsed.targetTrackingParams.horizontalRotate, Is.EqualTo((int)Bone.Head));
-            Assert.That(parsed.targetTrackingParams.addedToUseAnimations,
-                Is.EqualTo([(int)Animations.idle, (int)Animations.idle01]));
+            Assert.That(parsed.targetTrackingParams.addedToUseAnimations, Is.EqualTo([(int)Animations.idle, (int)Animations.idle01]));
         }
     }
 
@@ -115,8 +113,7 @@ public class JdbStructSerializerReadTests
         Is.EqualTo(new Quaternion(0.1f, 0.2f, 0.3f, 0.4f)));
 
     [Test]
-    public void RoundTripField_BigVector3() => Assert.That(RoundTripField(new BigVector3(0, 0, 0, 1, 2, 3)),
-        Is.EqualTo(new BigVector3(0, 0, 0, 1, 2, 3)));
+    public void RoundTripField_BigVector3() => Assert.That(RoundTripField(new BigVector3(0, 0, 0, 1, 2, 3)), Is.EqualTo(new BigVector3(0, 0, 0, 1, 2, 3)));
 
     [Test]
     public void RoundTripField_FileRef() =>
@@ -131,11 +128,9 @@ public class JdbStructSerializerReadTests
         Assert.That(RoundTripField(new WString("héllo")).Value, Is.EqualTo("héllo"));
 
     [Test]
-    public void RoundTripField_Enum() => Assert.That(RoundTripField(SampleEnum.CREATURE_KIND_HORIZONTAL),
-        Is.EqualTo(SampleEnum.CREATURE_KIND_HORIZONTAL));
+    public void RoundTripField_Enum() => Assert.That(RoundTripField(SampleEnum.CREATURE_KIND_HORIZONTAL), Is.EqualTo(SampleEnum.CREATURE_KIND_HORIZONTAL));
 
     [Test]
-    public void RoundTripField_ResourcePointer_HrefBecomesJdb()
-        => Assert.That(RoundTripField(new ResourcePointer("Material/userinfo.xdb", null)).Href,
-            Is.EqualTo("Material/userinfo.jdb"));
+    public void RoundTripField_ResourcePointer_HrefBecomesJdb() =>
+        Assert.That(RoundTripField(new ResourcePointer("Material/userinfo.xdb", null)).Href, Is.EqualTo("Material/userinfo.jdb"));
 }

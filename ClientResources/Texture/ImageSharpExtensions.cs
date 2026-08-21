@@ -17,8 +17,7 @@ public static class ImageSharpExtensions
                 TextureType.DXT1 => DxtUtil.DecompressDxt1(dds.MipMaps[0], texture.GetWidth(), texture.GetHeight()),
                 TextureType.DXT3 => DxtUtil.DecompressDxt3(dds.MipMaps[0], texture.GetWidth(), texture.GetHeight()),
                 TextureType.DXT5 => DxtUtil.DecompressDxt5(dds.MipMaps[0], texture.GetWidth(), texture.GetHeight()),
-                _ => throw new NotSupportedException(
-                    $"Texture type {texture.GetTextureType()} cannot be converted to image")
+                _ => throw new NotSupportedException($"Texture type {texture.GetTextureType()} cannot be converted to image")
             };
             return Image.LoadPixelData<Rgba32>(bitmap, texture.GetWidth(), texture.GetHeight());
         }

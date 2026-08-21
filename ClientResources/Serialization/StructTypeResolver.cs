@@ -32,14 +32,10 @@ public sealed class StructTypeResolver
     public bool TryResolveByName(string name, [NotNullWhen(true)] out Type? type) => ByName.TryGetValue(name, out type);
 
     public Type ResolveByName(string name) =>
-        ByName.TryGetValue(name, out var type)
-            ? type
-            : throw new InvalidOperationException($"No struct type is registered for name '{name}'");
+        ByName.TryGetValue(name, out var type) ? type : throw new InvalidOperationException($"No struct type is registered for name '{name}'");
 
     public Type ResolveByXdbName(string xdbName) =>
-        _byXdbName.TryGetValue(xdbName, out var type)
-            ? type
-            : throw new InvalidOperationException($"No struct type is registered for xdb name '{xdbName}'");
+        _byXdbName.TryGetValue(xdbName, out var type) ? type : throw new InvalidOperationException($"No struct type is registered for xdb name '{xdbName}'");
 
     public static StructTypeResolver FromVersion(GameVersion version, ILogger<StructTypeResolver>? logger = null) =>
         FromNamespace(version.FullNamespace, logger);
@@ -53,8 +49,7 @@ public sealed class StructTypeResolver
         var byXdbName = new Dictionary<string, Type>();
         foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
         {
-            if (type is not { IsClass: true, IsNested: false, Namespace: not null }
-                || !IsInNamespace(type.Namespace, versionNamespace))
+            if (type is not { IsClass: true, IsNested: false, Namespace: not null } || !IsInNamespace(type.Namespace, versionNamespace))
             {
                 continue;
             }
@@ -63,8 +58,7 @@ public sealed class StructTypeResolver
             var xdbName = XdbNameAttribute.Resolve(type);
             if (byXdbName.TryGetValue(xdbName, out var existing) && existing != type)
             {
-                log.LogWarning("Duplicate xdb name '{XdbName}' for {Existing} and {Type}; last wins", xdbName,
-                    existing.FullName, type.FullName);
+                log.LogWarning("Duplicate xdb name '{XdbName}' for {Existing} and {Type}; last wins", xdbName, existing.FullName, type.FullName);
             }
 
             byXdbName[xdbName] = type;
@@ -74,10 +68,9 @@ public sealed class StructTypeResolver
     }
 
     public static StructTypeResolver FromTypes(params Type[] types) =>
-        new(types.Where(t => !t.IsNested).ToDictionary(t => t.Name),
-            types.ToDictionary(XdbNameAttribute.Resolve));
+        new(types.Where(t => !t.IsNested).ToDictionary(t => t.Name), types.ToDictionary(XdbNameAttribute.Resolve));
 
-    private static bool IsInNamespace(string typeNamespace, string versionNamespace)
-        => typeNamespace == versionNamespace ||
-           typeNamespace.StartsWith(versionNamespace + ".", StringComparison.Ordinal);
+    private static bool IsInNamespace(string typeNamespace, string versionNamespace) => typeNamespace == versionNamespace ||
+                                                                                        typeNamespace.StartsWith(versionNamespace + ".",
+                                                                                            StringComparison.Ordinal);
 }

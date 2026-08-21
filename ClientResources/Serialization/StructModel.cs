@@ -38,10 +38,7 @@ public static class StructModelCache
         for (var i = 0; i < fields.Length; i++)
         {
             var field = fields[i];
-            structFields[i] = new StructField(
-                field,
-                XdbNameAttribute.Resolve(field),
-                field.GetCustomAttribute<EnumRefAttribute>()?.EnumType,
+            structFields[i] = new StructField(field, XdbNameAttribute.Resolve(field), field.GetCustomAttribute<EnumRefAttribute>()?.EnumType,
                 field.GetCustomAttribute<FieldOffsetAttribute>()?.Offset);
         }
 

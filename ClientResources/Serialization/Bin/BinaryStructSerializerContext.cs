@@ -22,8 +22,7 @@ public class BinaryStructSerializerContext
 
         if (Packs is null || CurrentDatabaseMetadata.Packs is null)
         {
-            throw new InvalidOperationException(
-                "Cannot resolve PakFileRef without a packs registry and database pack list");
+            throw new InvalidOperationException("Cannot resolve PakFileRef without a packs registry and database pack list");
         }
 
         return Packs.GetFilename(CurrentDatabaseMetadata.Packs[packIndex], fileIndex);

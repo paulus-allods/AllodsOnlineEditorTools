@@ -58,9 +58,8 @@ public class DatabaseMetadata
 
     public string? GetStructType(long dbid)
     {
-        if (Fixes.TryGetValue(dbid, out var fix)
-            && fix.Type is PointerFix.FixType.Type or PointerFix.FixType.Generic
-            && fix.Value >= 0 && fix.Value < Structs.Count)
+        if (Fixes.TryGetValue(dbid, out var fix) && fix.Type is PointerFix.FixType.Type or PointerFix.FixType.Generic && fix.Value >= 0 &&
+            fix.Value < Structs.Count)
         {
             return Structs[(int)fix.Value];
         }
