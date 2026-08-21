@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,11 +28,7 @@ public partial class ReputationTable
     public class Table
     {
         [FieldOffset(4)] public float buyMod;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.ReputationLevel))]
-        public int level;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.ReputationLevel))] public int level;
         [FieldOffset(12)] public int value;
     }
 }

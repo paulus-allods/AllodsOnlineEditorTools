@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,22 +22,11 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class MapRegion
 {
     [FieldOffset(24)][XdbName("Areas")] public Area[] areas;
-
-    [FieldOffset(40)]
-    [XdbName("BinaryFile")]
-    public FileRef binaryFile;
-
-    [FieldOffset(60)]
-    [XdbName("BinaryFileDown")]
-    public FileRef binaryFileDown;
-
+    [FieldOffset(40)][XdbName("BinaryFile")] public FileRef binaryFile;
+    [FieldOffset(60)][XdbName("BinaryFileDown")] public FileRef binaryFileDown;
     [FieldOffset(80)][XdbName("Layers")] public ResourcePointer layers;
     [FieldOffset(88)][XdbName("Objects")] public Object[] objects;
-
-    [FieldOffset(104)]
-    [XdbName("UsedLayers")]
-    public int[] usedLayers;
-
+    [FieldOffset(104)][XdbName("UsedLayers")] public int[] usedLayers;
     [FieldOffset(120)] public ResourcePointer[][] ambiences;
     [FieldOffset(136)] public ResourcePointer[][] musics;
     [FieldOffset(152)] public ResourcePointer[][] tiles;
@@ -66,17 +54,9 @@ public partial class MapRegion
     public class Object
     {
         [FieldOffset(4)][XdbName("Position")] public Position position;
-
-        [FieldOffset(20)]
-        [XdbName("Rotation")]
-        public Rotation rotation;
-
+        [FieldOffset(20)][XdbName("Rotation")] public Rotation rotation;
         [FieldOffset(36)][XdbName("Scale")] public Scale scale;
-
-        [FieldOffset(44)]
-        [XdbName("StaticObjectTemplate")]
-        public ResourcePointer staticObjectTemplate;
-
+        [FieldOffset(44)][XdbName("StaticObjectTemplate")] public ResourcePointer staticObjectTemplate;
         [FieldOffset(52)] public NullablePointer data;
 
         [StructSize(16)]

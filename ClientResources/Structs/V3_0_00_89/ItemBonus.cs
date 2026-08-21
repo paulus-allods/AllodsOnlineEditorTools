@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,19 +25,13 @@ public partial class ItemBonus
     [FieldOffset(40)] public int resistNature;
     [FieldOffset(44)] public int resistElemental;
     [FieldOffset(48)] public int resistDivine;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.SubElement))]
-    public int damageElement;
+    [FieldOffset(52)][EnumRef(typeof(Enums.SubElement))] public int damageElement;
 
     [StructSize(12)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class StatBonuse
     {
         [FieldOffset(4)] public int value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.InnateStats))]
-        public int stat;
+        [FieldOffset(8)][EnumRef(typeof(Enums.InnateStats))] public int stat;
     }
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -25,4 +24,3 @@ public partial class AvatarNameRules
     [FieldOffset(40)][EnumRef(typeof(Enums.NameTransformation))] public int transformation;
     [FieldOffset(48)] public WString matchMaster;
 }
-

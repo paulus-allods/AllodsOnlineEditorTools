@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class WeaponSpeedScaler
     [FieldOffset(24)][EnumRef(typeof(Enums.AttackSource))] public int source;
     [FieldOffset(28)] public bool normalize;
 }
-

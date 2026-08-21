@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -34,9 +33,6 @@ public partial class ShipUnit
     public class ClientDevice
     {
         [FieldOffset(4)] public ResourcePointer resource;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int slotName;
+        [FieldOffset(12)][EnumRef(typeof(Enums.SlotName))] public int slotName;
     }
 }

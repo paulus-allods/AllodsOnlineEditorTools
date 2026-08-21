@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -34,4 +33,3 @@ public partial class ShipUnit
         [FieldOffset(12)][EnumRef(typeof(Enums.SlotName))] public int slotName;
     }
 }
-

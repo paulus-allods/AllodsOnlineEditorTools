@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -22,4 +21,3 @@ public partial class CharacterSex
     [FieldOffset(24)] public TextFileRef name;
     [FieldOffset(40)][EnumRef(typeof(Enums.Sex))] public int sex;
 }
-

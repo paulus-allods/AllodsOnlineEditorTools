@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,10 +27,7 @@ public partial class VesselResource
     [FieldOffset(56)] public TextFileRef name;
     [FieldOffset(72)] public Prices prices;
     [FieldOffset(108)] public Researche[] researches;
-
-    [FieldOffset(124)]
-    [EnumRef(typeof(Enums.VesselType))]
-    public int type;
+    [FieldOffset(124)][EnumRef(typeof(Enums.VesselType))] public int type;
 
     [StructSize(36)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

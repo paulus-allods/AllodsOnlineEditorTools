@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SkyObject
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public bool useSoftClipping;
     [FieldOffset(37)] public bool useSkySphereRadius;
     [FieldOffset(38)] public bool useSceneFog;

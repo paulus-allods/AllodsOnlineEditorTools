@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -31,4 +30,3 @@ public partial class PropertiesOfCreatureAnimations
         [FieldOffset(8)][EnumRef(typeof(Enums.Animations))] public int[] fallbackAnimations;
     }
 }
-

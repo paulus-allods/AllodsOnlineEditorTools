@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class FightMechanicsResource
 {
     [FieldOffset(24)] public ResourcePointer[] achievementsFirst;
     [FieldOffset(40)] public ResourcePointer[] achievementsSecond;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.MatchMakingMechanicsType))]
-    public int mechanicsType;
+    [FieldOffset(56)][EnumRef(typeof(Enums.MatchMakingMechanicsType))] public int mechanicsType;
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -20,4 +19,3 @@ public partial class VICVisObjectComponents
     [FieldOffset(28)][EnumRef(typeof(Enums.EVICTargetVisObject))] public int target;
     [FieldOffset(32)] public NullablePointer[] visObjComponents;
 }
-

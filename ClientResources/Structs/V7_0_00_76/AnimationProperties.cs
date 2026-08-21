@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,11 +23,7 @@ public partial class AnimationProperties
 {
     [FieldOffset(24)] public string headBoneName;
     [FieldOffset(36)] public float headTurnTime;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.CreatureKind))]
-    public int kind;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.CreatureKind))] public int kind;
     [FieldOffset(44)] public float legAlignTime;
     [FieldOffset(48)] public float legRunTurnTime;
     [FieldOffset(52)] public float maxHeadAngle;
@@ -60,25 +55,15 @@ public partial class AnimationProperties
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class TargetTrackingParams
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] addedToUseAnimations;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.Bone))]
-        public int horizontalRotate;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] addedToUseAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Bone))] public int horizontalRotate;
         [FieldOffset(24)] public float maxHeadAngleToDown;
         [FieldOffset(28)] public float maxHeadAngleToSide;
         [FieldOffset(32)] public float maxHeadAngleToUp;
         [FieldOffset(36)] public string targetBoneName;
         [FieldOffset(48)] public float trackingTimeOut;
         [FieldOffset(52)] public Sound2D turnSound;
-
-        [FieldOffset(76)]
-        [EnumRef(typeof(Enums.Bone))]
-        public int verticalRotate;
-
+        [FieldOffset(76)][EnumRef(typeof(Enums.Bone))] public int verticalRotate;
         [FieldOffset(80)] public bool ingnoreRotateToTarget;
         [FieldOffset(81)] public bool noRotateBody;
         [FieldOffset(82)] public bool use;

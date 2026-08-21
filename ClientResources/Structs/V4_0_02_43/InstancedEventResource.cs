@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -33,11 +32,7 @@ public partial class InstancedEventResource
     [FieldOffset(140)] public ResourcePointer unlock;
     [FieldOffset(148)] public ResourcePointer ticket;
     [FieldOffset(156)] public ResourcePointer startTime;
-
-    [FieldOffset(164)]
-    [EnumRef(typeof(Enums.MatchMakingMechanicsType))]
-    public int mechanicsType;
-
+    [FieldOffset(164)][EnumRef(typeof(Enums.MatchMakingMechanicsType))] public int mechanicsType;
     [FieldOffset(168)] public int maxVisitsPerWeek;
     [FieldOffset(172)] public int maxVisitsPerDay;
     [FieldOffset(176)] public bool leaderOnly;

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -41,11 +40,7 @@ public partial class PlayerCameraSettings
     {
         [FieldOffset(4)] public float panSpeed;
         [FieldOffset(8)] public float tlitSpeed;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.AutoreturnType))]
-        public int type;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.AutoreturnType))] public int type;
         [FieldOffset(16)] public float zoomSpeed;
     }
 

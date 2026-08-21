@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -49,4 +48,3 @@ public partial class VisCharTroop
         [FieldOffset(16)][EnumRef(typeof(Enums.Animations))] public int[] memberAnimations;
     }
 }
-

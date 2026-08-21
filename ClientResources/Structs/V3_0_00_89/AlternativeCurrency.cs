@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 public partial class AlternativeCurrency
 {
     [FieldOffset(24)] public string sysName;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.Storage))]
-    public int storage;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.Storage))] public int storage;
     [FieldOffset(40)] public TextFileRef name;
     [FieldOffset(56)] public int maxValue;
     [FieldOffset(60)] public ResourcePointer image;

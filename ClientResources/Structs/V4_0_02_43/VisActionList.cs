@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,10 +26,6 @@ public partial class VisActionList
     [FieldOffset(37)] public bool stopOnDeath;
     [FieldOffset(38)] public bool preconditional;
     [FieldOffset(40)] public NullablePointer playWhile;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.PlayMode))]
-    public int play;
-
+    [FieldOffset(44)][EnumRef(typeof(Enums.PlayMode))] public int play;
     [FieldOffset(48)] public NullablePointer[] elements;
 }

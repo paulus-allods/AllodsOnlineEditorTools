@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,41 +23,17 @@ public partial class VisItemEffectsRanged
 {
     [FieldOffset(24)] public bool useTakeStringInHand;
     [FieldOffset(28)] public ResourcePointer script;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.ERotate))]
-    public int rotateArrowInItem;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] readyAnimation;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] rapidFireAnimation;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.ERotate))] public int rotateArrowInItem;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] readyAnimation;
+    [FieldOffset(56)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] rapidFireAnimation;
     [FieldOffset(72)] public ResourcePointer projectile;
     [FieldOffset(80)] public LoadHoldAnimation[] loadHoldAnimations;
-
-    [FieldOffset(96)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] loadAnimation;
-
+    [FieldOffset(96)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] loadAnimation;
     [FieldOffset(112)] public LoadHoldAnimation[] holdAnimations;
     [FieldOffset(128)] public ResourcePointer explosion;
-
-    [FieldOffset(136)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] cheapShotStartAnimation;
-
-    [FieldOffset(152)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] cheapShotAnimation;
-
-    [FieldOffset(168)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] attackAnimation;
-
+    [FieldOffset(136)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] cheapShotStartAnimation;
+    [FieldOffset(152)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] cheapShotAnimation;
+    [FieldOffset(168)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] attackAnimation;
     [FieldOffset(184)] public string attachArrowLocatorInItem;
 
     [StructSize(24)]
@@ -66,9 +41,6 @@ public partial class VisItemEffectsRanged
     public class LoadHoldAnimation
     {
         [FieldOffset(4)] public int rate;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] animations;
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
     }
 }

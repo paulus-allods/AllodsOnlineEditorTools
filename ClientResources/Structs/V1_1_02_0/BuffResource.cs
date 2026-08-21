@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,11 +30,7 @@ public partial class BuffResource
     [FieldOffset(108)] public ResourcePointer[] uiComponents;
     [FieldOffset(124)] public string sysUIScriptName;
     [FieldOffset(136)] public int stackLimit;
-
-    [FieldOffset(140)]
-    [EnumRef(typeof(Enums.SpellResistType))]
-    public int resistType;
-
+    [FieldOffset(140)][EnumRef(typeof(Enums.SpellResistType))] public int resistType;
     [FieldOffset(144)] public ResourcePointer[] ranks;
     [FieldOffset(160)] public bool needVisualizeDuration;
     [FieldOffset(161)] public bool needVisualize;
@@ -49,10 +44,7 @@ public partial class BuffResource
     [FieldOffset(188)] public ResourcePointer[] groups;
     [FieldOffset(204)] public int duration;
     [FieldOffset(208)][XdbName("Name")] public TextFileRef name;
-
-    [FieldOffset(224)]
-    [XdbName("Description")]
-    public TextFileRef description;
+    [FieldOffset(224)][XdbName("Description")] public TextFileRef description;
 
     [StructSize(92)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -68,28 +60,16 @@ public partial class BuffResource
         [FieldOffset(52)] public ResourcePointer effectAlias;
         [FieldOffset(60)] public int delay;
         [FieldOffset(68)] public NullablePointer offendTime;
-
-        [FieldOffset(72)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(72)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(76)] public string locatorName;
-
-        [FieldOffset(88)]
-        [EnumRef(typeof(Enums.FxLocators))]
-        public int locator;
+        [FieldOffset(88)][EnumRef(typeof(Enums.FxLocators))] public int locator;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.AnimationFlag))]
-            public int mode;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] animations;
+            [FieldOffset(4)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
         }
     }
 }

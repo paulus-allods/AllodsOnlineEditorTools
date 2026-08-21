@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SunShaftsComponent
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public ResourcePointer sunShafts;
     [FieldOffset(44)] public string slotName;
     [FieldOffset(56)] public string pivotName;

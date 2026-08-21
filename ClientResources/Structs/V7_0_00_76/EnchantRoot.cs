@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -52,11 +51,7 @@ public partial class EnchantRoot
     {
         [FieldOffset(4)] public float power;
         [FieldOffset(8)] public float secondary;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.EnchantSlot))]
-        public int slot;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.EnchantSlot))] public int slot;
         [FieldOffset(16)] public float stamina;
     }
 }

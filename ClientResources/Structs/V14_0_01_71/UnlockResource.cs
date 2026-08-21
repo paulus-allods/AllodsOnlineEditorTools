@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -27,4 +26,3 @@ public partial class UnlockResource
     [FieldOffset(76)] public string sysUIScriptName;
     [FieldOffset(88)] public bool isHidden;
 }
-

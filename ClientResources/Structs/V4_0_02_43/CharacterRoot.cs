@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,13 +30,8 @@ public partial class CharacterRoot
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ManaType
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.InnateStats))]
-        public int[] primaryStats;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.ManaType))]
-        public int manaType;
+        [FieldOffset(4)][EnumRef(typeof(Enums.InnateStats))] public int[] primaryStats;
+        [FieldOffset(20)][EnumRef(typeof(Enums.ManaType))] public int manaType;
     }
 
     [StructSize(28)]

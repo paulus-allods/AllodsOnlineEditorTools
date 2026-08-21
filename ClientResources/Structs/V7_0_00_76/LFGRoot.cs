@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -37,10 +36,7 @@ public partial class LFGRoot
     public class RoleSetting
     {
         [FieldOffset(4)] public int minCountInGroup;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.LFGRole))]
-        public int role;
+        [FieldOffset(8)][EnumRef(typeof(Enums.LFGRole))] public int role;
     }
 
     [StructSize(4)]

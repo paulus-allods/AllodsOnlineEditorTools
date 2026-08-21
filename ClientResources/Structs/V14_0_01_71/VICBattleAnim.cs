@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -20,4 +19,3 @@ public partial class VICBattleAnim
     [FieldOffset(28)] public float storeDelay;
     [FieldOffset(32)][EnumRef(typeof(Enums.Animations))] public int takeAnim;
 }
-

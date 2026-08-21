@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -35,10 +34,7 @@ public partial class AstralRoot
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Music
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.MobDensity))]
-        public int mobDensity;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.MobDensity))] public int mobDensity;
         [FieldOffset(8)] public Sound2D sound;
     }
 }

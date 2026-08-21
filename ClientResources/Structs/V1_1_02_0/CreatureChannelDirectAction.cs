@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,11 +26,7 @@ public partial class CreatureChannelDirectAction
     [FieldOffset(40)] public NullablePointer startPoint;
     [FieldOffset(44)] public SecondaryTargetParams secondaryTargetParams;
     [FieldOffset(72)] public NullablePointer offendTime;
-
-    [FieldOffset(76)]
-    [EnumRef(typeof(Enums.MultyTargetChannelMode))]
-    public int multyTargetMode;
-
+    [FieldOffset(76)][EnumRef(typeof(Enums.MultyTargetChannelMode))] public int multyTargetMode;
     [FieldOffset(80)] public int fadeOutTime;
     [FieldOffset(84)] public int fadeInTime;
     [FieldOffset(88)] public NullablePointer endPoint;

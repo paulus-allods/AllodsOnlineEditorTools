@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,7 +21,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class StatMechanicsInnateStat
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.InnateStats))]
-    public int stat;
+    [FieldOffset(24)][EnumRef(typeof(Enums.InnateStats))] public int stat;
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -26,4 +25,3 @@ public partial class VisActionList
     [FieldOffset(62)] public bool stopOnDeath;
     [FieldOffset(63)] public bool stopWhileWhenElementsEnded;
 }
-

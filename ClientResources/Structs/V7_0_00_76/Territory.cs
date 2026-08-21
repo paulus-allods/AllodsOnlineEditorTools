@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class Territory
 {
-    [FieldOffset(24)]
-    [XdbName("FModSoundLanguage")]
-    public string fModSoundLanguage;
-
+    [FieldOffset(24)][XdbName("FModSoundLanguage")] public string fModSoundLanguage;
     [FieldOffset(36)] public ResourcePointer ingameSupport;
     [FieldOffset(44)] public ResourcePointer[] languageRules;
     [FieldOffset(60)] public int minimalAuctionNameLength;

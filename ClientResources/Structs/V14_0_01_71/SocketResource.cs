@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class SocketResource
     [FieldOffset(28)] public NullablePointer moveToCondition;
     [FieldOffset(32)] public ResourcePointer quality;
 }
-

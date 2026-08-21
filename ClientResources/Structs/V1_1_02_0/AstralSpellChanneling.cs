@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class AstralSpellChanneling
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.TargetingSettings))]
-    public int targetSettings;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.TargetingSettings))] public int targetSettings;
     [FieldOffset(28)] public ResourcePointer shieldExplosion;
     [FieldOffset(36)] public ResourcePointer projectileFx;
     [FieldOffset(44)] public string locatorName;

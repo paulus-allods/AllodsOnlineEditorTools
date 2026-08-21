@@ -14,7 +14,7 @@ namespace ClientResources.Tests;
 
 // Shared fixtures for the xdb and jdb serializer test suites (write + read files).
 // Class-level [XdbName] is used by xdb (element / pointer type names) but invisible to jdb, which keys
-// $type by the CLR type name — so a single fixture serves both formats.
+// $type by the CLR type name, so a single fixture serves both formats.
 
 internal enum SampleEnum
 {

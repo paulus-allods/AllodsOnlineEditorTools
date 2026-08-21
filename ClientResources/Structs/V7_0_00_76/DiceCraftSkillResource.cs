@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -33,11 +32,7 @@ public partial class DiceCraftSkillResource
     [FieldOffset(164)] public int scorePerCharacterLevel;
     [FieldOffset(168)] public ResourcePointer skillSlot;
     [FieldOffset(176)] public string sysName;
-
-    [FieldOffset(188)]
-    [EnumRef(typeof(Enums.SkillType))]
-    public int type;
-
+    [FieldOffset(188)][EnumRef(typeof(Enums.SkillType))] public int type;
     [FieldOffset(192)] public long zoneCooldown;
     [FieldOffset(200)] public bool hide;
     [FieldOffset(201)] public bool useLevels;

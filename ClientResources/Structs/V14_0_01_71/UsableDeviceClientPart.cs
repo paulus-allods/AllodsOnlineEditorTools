@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -18,4 +17,3 @@ public partial class UsableDeviceClientPart
 {
     [FieldOffset(24)][EnumRef(typeof(Enums.UsableDeviceTypeClient))] public int type;
 }
-

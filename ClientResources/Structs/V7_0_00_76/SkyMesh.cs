@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -51,22 +50,10 @@ public partial class SkyMesh
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Color0
         {
-            [FieldOffset(4)]
-            [XdbName("GradientSkyHi")]
-            public int gradientSkyHi;
-
-            [FieldOffset(8)]
-            [XdbName("GradientSkyLo")]
-            public int gradientSkyLo;
-
-            [FieldOffset(12)]
-            [XdbName("GradientSunHi")]
-            public int gradientSunHi;
-
-            [FieldOffset(16)]
-            [XdbName("GradientSunLo")]
-            public int gradientSunLo;
-
+            [FieldOffset(4)][XdbName("GradientSkyHi")] public int gradientSkyHi;
+            [FieldOffset(8)][XdbName("GradientSkyLo")] public int gradientSkyLo;
+            [FieldOffset(12)][XdbName("GradientSunHi")] public int gradientSunHi;
+            [FieldOffset(16)][XdbName("GradientSunLo")] public int gradientSunLo;
             [FieldOffset(20)] public float facingValueSky;
             [FieldOffset(24)] public float facingValueSun;
         }

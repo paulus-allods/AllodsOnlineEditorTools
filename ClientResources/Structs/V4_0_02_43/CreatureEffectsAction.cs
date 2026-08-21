@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,10 +25,7 @@ public partial class CreatureEffectsAction
     [FieldOffset(36)] public VisualEffect[] visualEffects;
     [FieldOffset(52)] public bool stopOnDeath;
     [FieldOffset(53)] public bool restartOnVisCreatureChange;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.EffectCategory))]
-    public int category;
+    [FieldOffset(56)][EnumRef(typeof(Enums.EffectCategory))] public int category;
 
     [StructSize(96)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -44,34 +40,18 @@ public partial class CreatureEffectsAction
         [FieldOffset(28)] public EffectAnimations effectAnimations;
         [FieldOffset(52)] public ResourcePointer effectAlias;
         [FieldOffset(60)] public int delay;
-
-        [FieldOffset(68)]
-        [EnumRef(typeof(Enums.ECustomSettingsFrom))]
-        public int useVisObjectSettings;
-
+        [FieldOffset(68)][EnumRef(typeof(Enums.ECustomSettingsFrom))] public int useVisObjectSettings;
         [FieldOffset(72)] public NullablePointer offendTime;
-
-        [FieldOffset(76)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(76)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(80)] public string locatorName;
-
-        [FieldOffset(92)]
-        [EnumRef(typeof(Enums.FxLocators))]
-        public int locator;
+        [FieldOffset(92)][EnumRef(typeof(Enums.FxLocators))] public int locator;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.AnimationFlag))]
-            public int mode;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] animations;
+            [FieldOffset(4)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
         }
     }
 }

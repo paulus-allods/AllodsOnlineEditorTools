@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -35,32 +34,13 @@ public partial class VisualAutoLooterClass
     [FieldOffset(64)] public float maxRoll;
     [FieldOffset(68)] public Vector3 lootOffset;
     [FieldOffset(80)] public string locatorName;
-
-    [FieldOffset(92)]
-    [EnumRef(typeof(Enums.FxLocators))]
-    public int locator;
-
+    [FieldOffset(92)][EnumRef(typeof(Enums.FxLocators))] public int locator;
     [FieldOffset(96)] public float fadeOutTime;
     [FieldOffset(100)] public float fadeInTime;
     [FieldOffset(104)] public Vector3 avatarOffset;
-
-    [FieldOffset(116)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animateShow;
-
-    [FieldOffset(120)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animateRun;
-
-    [FieldOffset(124)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animateLoot;
-
-    [FieldOffset(128)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animateIdle;
-
-    [FieldOffset(132)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animateHide;
+    [FieldOffset(116)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animateShow;
+    [FieldOffset(120)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animateRun;
+    [FieldOffset(124)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animateLoot;
+    [FieldOffset(128)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animateIdle;
+    [FieldOffset(132)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animateHide;
 }

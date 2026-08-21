@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,8 +24,5 @@ public partial class SpellSimpleCooldown
     [FieldOffset(24)] public long duration;
     [FieldOffset(32)] public ResourcePointer group;
     [FieldOffset(40)] public NullablePointer scaler;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.SpellStage))]
-    public int stage;
+    [FieldOffset(44)][EnumRef(typeof(Enums.SpellStage))] public int stage;
 }

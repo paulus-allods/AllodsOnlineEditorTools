@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class DeviceVisActionList
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(40)] public NullablePointer[] elements;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.PlayMode_1))]
-    public int play;
+    [FieldOffset(56)][EnumRef(typeof(Enums.PlayMode_1))] public int play;
 }

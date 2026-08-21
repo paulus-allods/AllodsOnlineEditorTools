@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -28,4 +27,3 @@ public partial class CreatureAttachSelfAction
     [FieldOffset(84)] public NullablePointer playOnSelfWhenStopped;
     [FieldOffset(88)] public bool notifyCamera;
 }
-

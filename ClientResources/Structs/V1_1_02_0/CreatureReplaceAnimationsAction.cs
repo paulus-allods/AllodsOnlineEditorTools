@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,21 +24,13 @@ public partial class CreatureReplaceAnimationsAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public OnTop[] onTop;
     [FieldOffset(52)] public OnTop[] onBottom;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.ETroopMember))]
-    public int member;
+    [FieldOffset(68)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 
     [StructSize(12)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class OnTop
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int oldAnimation;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int newAnimation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int oldAnimation;
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int newAnimation;
     }
 }

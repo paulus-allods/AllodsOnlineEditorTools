@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -24,4 +23,3 @@ public partial class GuildBossState
     [FieldOffset(48)] public ResourcePointer mobWorld;
     [FieldOffset(56)] public bool showInPreview;
 }
-

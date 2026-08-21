@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -30,10 +29,7 @@ public partial class ClientDataParamsResource
     public class ParamViewType
     {
         [FieldOffset(4)] public string name;
-
-        [FieldOffset(16)]
-        [EnumRef(typeof(Enums.ViewType))]
-        public int viewType;
+        [FieldOffset(16)][EnumRef(typeof(Enums.ViewType))] public int viewType;
     }
 
     [StructSize(20)]
@@ -41,9 +37,6 @@ public partial class ClientDataParamsResource
     public class Param
     {
         [FieldOffset(4)] public WString name;
-
-        [FieldOffset(16)]
-        [EnumRef(typeof(Enums.ClientDataParamType))]
-        public int type;
+        [FieldOffset(16)][EnumRef(typeof(Enums.ClientDataParamType))] public int type;
     }
 }

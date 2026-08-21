@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,17 +21,10 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class AnimationFromParentComponent
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public AnimationsReplacement[] animationsReplacements;
     [FieldOffset(52)] public ResourcePointer controller;
-
-    [FieldOffset(60)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int ifAnimationNotExistsRun;
-
+    [FieldOffset(60)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int ifAnimationNotExistsRun;
     [FieldOffset(64)] public bool skipBlendOptimization;
     [FieldOffset(65)] public bool synchronizeAnimationPosition;
 
@@ -40,12 +32,7 @@ public partial class AnimationFromParentComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AnimationsReplacement
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] forAnimations;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int play;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] forAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int play;
     }
 }

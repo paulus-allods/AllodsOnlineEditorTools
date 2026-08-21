@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,9 +21,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class PredicateHasPsionicContact
 {
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.PsionicContactType))]
-    public int type;
-
+    [FieldOffset(28)][EnumRef(typeof(Enums.PsionicContactType))] public int type;
     [FieldOffset(32)] public bool spellTarget;
 }

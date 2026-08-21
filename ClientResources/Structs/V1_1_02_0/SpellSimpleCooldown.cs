@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SpellSimpleCooldown
 {
-    [FieldOffset(20)]
-    [EnumRef(typeof(Enums.SpellStage))]
-    public int stage;
-
+    [FieldOffset(20)][EnumRef(typeof(Enums.SpellStage))] public int stage;
     [FieldOffset(24)] public NullablePointer scaler;
     [FieldOffset(28)] public ResourcePointer group;
     [FieldOffset(36)] public int duration;

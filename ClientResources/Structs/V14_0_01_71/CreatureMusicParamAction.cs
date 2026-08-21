@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class CreatureMusicParamAction
     [FieldOffset(44)] public ResourcePointer parameter;
     [FieldOffset(52)] public float value;
 }
-

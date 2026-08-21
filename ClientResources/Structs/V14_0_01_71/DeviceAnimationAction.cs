@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -29,4 +28,3 @@ public partial class DeviceAnimationAction
         [FieldOffset(8)] public bool backgroundAfterFirstKey;
     }
 }
-

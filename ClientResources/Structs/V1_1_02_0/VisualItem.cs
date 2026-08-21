@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,27 +24,15 @@ public partial class VisualItem
     [FieldOffset(24)] public ResourcePointer visualItemClass;
     [FieldOffset(32)] public VisualAliases visualAliases;
     [FieldOffset(52)] public NullablePointer visItemEffects;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.HideUnderwear))]
-    public int underwear;
-
+    [FieldOffset(56)][EnumRef(typeof(Enums.HideUnderwear))] public int underwear;
     [FieldOffset(60)] public ResourcePointer texturePatches;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.SFXMaterial))]
-    public int sfxMaterial;
-
+    [FieldOffset(68)][EnumRef(typeof(Enums.SFXMaterial))] public int sfxMaterial;
     [FieldOffset(72)] public Object[] objects;
     [FieldOffset(88)] public HiddenLocators hiddenLocators;
     [FieldOffset(140)] public HiddenLocators hiddenGeosets;
     [FieldOffset(192)] public NullablePointer grades;
     [FieldOffset(196)] public DualWield dualWield;
-
-    [FieldOffset(224)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int dressSlot;
-
+    [FieldOffset(224)][EnumRef(typeof(Enums.DressSlot))] public int dressSlot;
     [FieldOffset(228)] public string[] disabledGeosets;
     [FieldOffset(244)] public NullablePointer[] components;
     [FieldOffset(260)] public ArmorShapes armorShapes;

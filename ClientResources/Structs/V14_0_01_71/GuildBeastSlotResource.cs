@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class GuildBeastSlotResource
     [FieldOffset(24)] public string customName;
     [FieldOffset(40)][EnumRef(typeof(Enums.GuildBeastSlotType))] public int slot;
 }
-

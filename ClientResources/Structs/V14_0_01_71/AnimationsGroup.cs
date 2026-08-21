@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -20,4 +19,3 @@ public partial class AnimationsGroup
     [FieldOffset(24)][EnumRef(typeof(Enums.Animations))] public int[] animations;
     [FieldOffset(40)] public ResourcePointer[] subGroups;
 }
-

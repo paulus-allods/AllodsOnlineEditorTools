@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,7 +21,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class PredicateGuildRight
 {
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.GuildMemberRight))]
-    public int memberRight;
+    [FieldOffset(28)][EnumRef(typeof(Enums.GuildMemberRight))] public int memberRight;
 }

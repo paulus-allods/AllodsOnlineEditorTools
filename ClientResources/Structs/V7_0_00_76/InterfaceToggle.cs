@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class InterfaceToggle
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.ToggleTarget))]
-    public int toggleTarget;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.ToggleTarget))] public int toggleTarget;
     [FieldOffset(28)] public bool hide;
     [FieldOffset(29)] public bool hideCursor;
 }

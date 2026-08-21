@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class GameViewScript
 {
-    [FieldOffset(24)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
+    [FieldOffset(24)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(40)] public NullablePointer[] actions;
     [FieldOffset(56)] public CameraPlacement cameraPlacement;
 

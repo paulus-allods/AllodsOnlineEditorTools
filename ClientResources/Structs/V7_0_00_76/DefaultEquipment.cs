@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,9 +28,6 @@ public partial class DefaultEquipment
     public class SlotDevice
     {
         [FieldOffset(4)] public ResourcePointer device;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.PlaceName))]
-        public int slot;
+        [FieldOffset(12)][EnumRef(typeof(Enums.PlaceName))] public int slot;
     }
 }

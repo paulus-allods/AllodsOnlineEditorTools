@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -89,94 +88,33 @@ public partial class SlonRoot
         [FieldOffset(16)] public ResourcePointer animatedPointLightColor;
         [FieldOffset(24)] public ResourcePointer animatedDiffuseColor;
         [FieldOffset(32)] public ResourcePointer animatedAmbientColor;
-
-        [FieldOffset(40)]
-        [XdbName("WaterGradientStart")]
-        public int waterGradientStart;
-
-        [FieldOffset(44)]
-        [XdbName("WaterGradientEnd")]
-        public int waterGradientEnd;
-
-        [FieldOffset(48)]
-        [XdbName("TerrainSpecularColor")]
-        public int terrainSpecularColor;
-
-        [FieldOffset(52)]
-        [XdbName("TerrainContourPower")]
-        public float terrainContourPower;
-
-        [FieldOffset(56)]
-        [XdbName("TerrainContourColor")]
-        public int terrainContourColor;
-
-        [FieldOffset(60)]
-        [XdbName("SunLightYaw")]
-        public float sunLightYaw;
-
-        [FieldOffset(64)]
-        [XdbName("SunLightPitch")]
-        public float sunLightPitch;
-
-        [FieldOffset(68)]
-        [XdbName("SpecularWaterColor")]
-        public int specularWaterColor;
-
-        [FieldOffset(72)]
-        [XdbName("SpecularColor")]
-        public int specularColor;
-
-        [FieldOffset(76)]
-        [XdbName("SelfIllumColor")]
-        public int selfIllumColor;
-
-        [FieldOffset(80)]
-        [XdbName("PointLightColor")]
-        public int pointLightColor;
-
-        [FieldOffset(84)]
-        [XdbName("FogStart")]
-        public float fogStart;
-
+        [FieldOffset(40)][XdbName("WaterGradientStart")] public int waterGradientStart;
+        [FieldOffset(44)][XdbName("WaterGradientEnd")] public int waterGradientEnd;
+        [FieldOffset(48)][XdbName("TerrainSpecularColor")] public int terrainSpecularColor;
+        [FieldOffset(52)][XdbName("TerrainContourPower")] public float terrainContourPower;
+        [FieldOffset(56)][XdbName("TerrainContourColor")] public int terrainContourColor;
+        [FieldOffset(60)][XdbName("SunLightYaw")] public float sunLightYaw;
+        [FieldOffset(64)][XdbName("SunLightPitch")] public float sunLightPitch;
+        [FieldOffset(68)][XdbName("SpecularWaterColor")] public int specularWaterColor;
+        [FieldOffset(72)][XdbName("SpecularColor")] public int specularColor;
+        [FieldOffset(76)][XdbName("SelfIllumColor")] public int selfIllumColor;
+        [FieldOffset(80)][XdbName("PointLightColor")] public int pointLightColor;
+        [FieldOffset(84)][XdbName("FogStart")] public float fogStart;
         [FieldOffset(88)][XdbName("FogEnd")] public float fogEnd;
-
-        [FieldOffset(92)]
-        [XdbName("FogColor")]
-        public int fogColor;
-
-        [FieldOffset(96)]
-        [XdbName("FadeStart")]
-        public float fadeStart;
-
-        [FieldOffset(100)]
-        [XdbName("FadeEnd")]
-        public float fadeEnd;
-
-        [FieldOffset(104)]
-        [XdbName("DiffuseColor")]
-        public int diffuseColor;
-
-        [FieldOffset(108)]
-        [XdbName("ContourColor")]
-        public int contourColor;
-
-        [FieldOffset(112)]
-        [XdbName("AmbientFactor")]
-        public float ambientFactor;
-
-        [FieldOffset(116)]
-        [XdbName("AmbientColor")]
-        public int ambientColor;
+        [FieldOffset(92)][XdbName("FogColor")] public int fogColor;
+        [FieldOffset(96)][XdbName("FadeStart")] public float fadeStart;
+        [FieldOffset(100)][XdbName("FadeEnd")] public float fadeEnd;
+        [FieldOffset(104)][XdbName("DiffuseColor")] public int diffuseColor;
+        [FieldOffset(108)][XdbName("ContourColor")] public int contourColor;
+        [FieldOffset(112)][XdbName("AmbientFactor")] public float ambientFactor;
+        [FieldOffset(116)][XdbName("AmbientColor")] public int ambientColor;
     }
 
     [StructSize(16)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Fatalitie
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.FatalityType))]
-        public int type;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.FatalityType))] public int type;
         [FieldOffset(8)] public NullablePointer offenderDeathScript;
         [FieldOffset(12)] public NullablePointer casterFxScript;
     }

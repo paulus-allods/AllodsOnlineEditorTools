@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -30,10 +29,7 @@ public partial class UIBindSection
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Bind
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.ActivationType))]
-        public int activationType;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.ActivationType))] public int activationType;
         [FieldOffset(8)] public string[] defaultKeys;
         [FieldOffset(24)] public TextFileRef name;
         [FieldOffset(40)] public string sysName;

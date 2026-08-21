@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,10 +23,7 @@ public partial class CreatureEffectsOnTarget
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public VisualEffect[] visualEffects;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.DirectionFlag))]
-    public int direction;
+    [FieldOffset(56)][EnumRef(typeof(Enums.DirectionFlag))] public int direction;
 
     [StructSize(92)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -43,28 +39,16 @@ public partial class CreatureEffectsOnTarget
         [FieldOffset(52)] public ResourcePointer effectAlias;
         [FieldOffset(60)] public int delay;
         [FieldOffset(68)] public NullablePointer offendTime;
-
-        [FieldOffset(72)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(72)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(76)] public string locatorName;
-
-        [FieldOffset(88)]
-        [EnumRef(typeof(Enums.FxLocators))]
-        public int locator;
+        [FieldOffset(88)][EnumRef(typeof(Enums.FxLocators))] public int locator;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.AnimationFlag))]
-            public int mode;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] animations;
+            [FieldOffset(4)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
         }
     }
 }

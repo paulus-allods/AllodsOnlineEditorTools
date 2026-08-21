@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -43,11 +42,7 @@ public partial class QuestResource
     [FieldOffset(352)] public Sharing sharing;
     [FieldOffset(360)] public NullablePointer[] startConditions;
     [FieldOffset(376)] public TextFileRef startText;
-
-    [FieldOffset(392)]
-    [EnumRef(typeof(Enums.QuestType))]
-    public int type;
-
+    [FieldOffset(392)][EnumRef(typeof(Enums.QuestType))] public int type;
     [FieldOffset(396)] public int uiPriority;
     [FieldOffset(400)] public ResourcePointer zone;
     [FieldOffset(408)] public bool canBeSkipped;

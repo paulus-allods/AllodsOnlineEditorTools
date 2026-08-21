@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,11 +31,7 @@ public partial class DressSlotStats
         [FieldOffset(8)] public float specialWMod;
         [FieldOffset(12)] public float specialRMod;
         [FieldOffset(16)] public float specialLMod;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int slot;
-
+        [FieldOffset(20)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(24)] public ResourcePointer quality;
         [FieldOffset(32)] public float offhandResistanceBudgetMod;
         [FieldOffset(36)] public float offenceMod;

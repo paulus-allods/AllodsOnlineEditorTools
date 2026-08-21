@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,11 +23,7 @@ public partial class BattleEventMapMechanics
 {
     [FieldOffset(24)] public Achievement[] achievements;
     [FieldOffset(40)] public Duration duration;
-
-    [FieldOffset(64)]
-    [EnumRef(typeof(Enums.MatchMakingMechanicsType))]
-    public int mechanicsType;
-
+    [FieldOffset(64)][EnumRef(typeof(Enums.MatchMakingMechanicsType))] public int mechanicsType;
     [FieldOffset(68)] public Duration roundDuration;
     [FieldOffset(92)] public int roundsCount;
     [FieldOffset(96)] public ResourcePointer score;

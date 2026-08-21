@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -20,4 +19,3 @@ public partial class CreatureReplaceAnimationAction
     [FieldOffset(36)][EnumRef(typeof(Enums.Action))] public int action;
     [FieldOffset(40)][EnumRef(typeof(Enums.Animations))] public int newAnimation;
 }
-

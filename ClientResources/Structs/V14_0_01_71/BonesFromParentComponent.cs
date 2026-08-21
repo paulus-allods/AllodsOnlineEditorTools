@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class BonesFromParentComponent
     [FieldOffset(36)][EnumRef(typeof(Enums.EBonesMode))] public int bonesMode;
     [FieldOffset(40)] public string ownRootBone;
 }
-

@@ -91,7 +91,7 @@ public abstract class StructSerializer<TConverter, TWriteNode, TReadNode>(
     /// <summary>Creates the empty node an object serializes into (xdb: a named element; jdb: a dictionary).</summary>
     protected abstract TWriteNode BeginObject(string name);
 
-    /// <summary>Attaches a field's serialized <paramref name="child"/> to its object node — xdb adds the
+    /// <summary>Attaches a field's serialized <paramref name="child"/> to its object node: xdb adds the
     /// self-named element (and skips a null/omitted one); jdb keys it under <paramref name="name"/>.</summary>
     protected abstract void AddField(TWriteNode objectNode, string name, TWriteNode? child);
 

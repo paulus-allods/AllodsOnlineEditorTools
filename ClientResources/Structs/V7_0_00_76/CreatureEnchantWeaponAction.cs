@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class CreatureEnchantWeaponAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public ResourcePointer enchant;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.EItemEnchantTargets))]
-    public int whatToEnchant;
+    [FieldOffset(44)][EnumRef(typeof(Enums.EItemEnchantTargets))] public int whatToEnchant;
 }

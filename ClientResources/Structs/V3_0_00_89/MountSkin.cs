@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,14 +24,7 @@ public partial class MountSkin
     [FieldOffset(24)] public ResourcePointer visualMount;
     [FieldOffset(32)] public ResourcePointer image;
     [FieldOffset(40)] public ResourcePointer alias;
-
-    [FieldOffset(48)]
-    [XdbName("SourceDescription")]
-    public TextFileRef sourceDescription;
-
+    [FieldOffset(48)][XdbName("SourceDescription")] public TextFileRef sourceDescription;
     [FieldOffset(64)][XdbName("Name")] public TextFileRef name;
-
-    [FieldOffset(80)]
-    [XdbName("Description")]
-    public TextFileRef description;
+    [FieldOffset(80)][XdbName("Description")] public TextFileRef description;
 }

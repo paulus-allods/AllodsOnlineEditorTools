@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -48,11 +47,7 @@ public partial class PlayerCameraSettings
     public class Autoreturn
     {
         [FieldOffset(4)] public float zoomSpeed;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.AutoreturnType))]
-        public int type;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.AutoreturnType))] public int type;
         [FieldOffset(12)] public float tlitSpeed;
         [FieldOffset(16)] public float panSpeed;
     }

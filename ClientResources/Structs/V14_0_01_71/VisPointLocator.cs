@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class VisPointLocator
     [FieldOffset(44)] public string locatorName;
     [FieldOffset(56)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }
-

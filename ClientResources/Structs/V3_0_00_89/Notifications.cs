@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,19 +21,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class Notifications
 {
-    [FieldOffset(24)]
-    [XdbName("NotInGuild")]
-    public ResourcePointer notInGuild;
-
-    [FieldOffset(32)]
-    [XdbName("ItemCannotUpdateSymbolics")]
-    public ResourcePointer itemCannotUpdateSymbolics;
-
-    [FieldOffset(40)]
-    [XdbName("HasNoRight")]
-    public ResourcePointer hasNoRight;
-
-    [FieldOffset(48)]
-    [XdbName("GuildCannotHaveSymbolics")]
-    public ResourcePointer guildCannotHaveSymbolics;
+    [FieldOffset(24)][XdbName("NotInGuild")] public ResourcePointer notInGuild;
+    [FieldOffset(32)][XdbName("ItemCannotUpdateSymbolics")] public ResourcePointer itemCannotUpdateSymbolics;
+    [FieldOffset(40)][XdbName("HasNoRight")] public ResourcePointer hasNoRight;
+    [FieldOffset(48)][XdbName("GuildCannotHaveSymbolics")] public ResourcePointer guildCannotHaveSymbolics;
 }

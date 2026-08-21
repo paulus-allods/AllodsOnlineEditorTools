@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,21 +23,14 @@ public partial class DressSlotSettings
 {
     [FieldOffset(24)] public AddedComponent[] addedComponents;
     [FieldOffset(40)] public ResourcePointer emptyVisItem;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int[] slotOrder;
-
+    [FieldOffset(48)][EnumRef(typeof(Enums.DressSlot))] public int[] slotOrder;
     [FieldOffset(64)] public VisItemFallback[] visItemFallbacks;
 
     [StructSize(40)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AddedComponent
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int dressSlot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int dressSlot;
         [FieldOffset(8)] public NullablePointer[] dynamicComponents;
         [FieldOffset(24)] public NullablePointer[] staticComponents;
     }
@@ -47,10 +39,7 @@ public partial class DressSlotSettings
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class VisItemFallback
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int dressSlot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int dressSlot;
         [FieldOffset(8)] public ResourcePointer visItem;
     }
 }

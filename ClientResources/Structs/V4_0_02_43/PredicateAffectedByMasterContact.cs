@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,10 +22,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class PredicateAffectedByMasterContact
 {
     [FieldOffset(20)] public bool hideText;
-
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.PsionicContactType))]
-    public int contactType;
-
+    [FieldOffset(28)][EnumRef(typeof(Enums.PsionicContactType))] public int contactType;
     [FieldOffset(32)] public bool checkContactType;
 }

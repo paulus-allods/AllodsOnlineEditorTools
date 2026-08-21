@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,25 +26,11 @@ public partial class MapRegion
     [FieldOffset(44)] public ResourcePointer[][] tiles;
     [FieldOffset(60)] public ResourcePointer[][] musics;
     [FieldOffset(76)] public ResourcePointer[][] ambiences;
-
-    [FieldOffset(92)]
-    [XdbName("UsedLayers")]
-    public int[] usedLayers;
-
-    [FieldOffset(108)]
-    [XdbName("Objects")]
-    public Object[] objects;
-
+    [FieldOffset(92)][XdbName("UsedLayers")] public int[] usedLayers;
+    [FieldOffset(108)][XdbName("Objects")] public Object[] objects;
     [FieldOffset(124)][XdbName("Layers")] public ResourcePointer layers;
-
-    [FieldOffset(132)]
-    [XdbName("BinaryFileDown")]
-    public FileRef binaryFileDown;
-
-    [FieldOffset(152)]
-    [XdbName("BinaryFile")]
-    public FileRef binaryFile;
-
+    [FieldOffset(132)][XdbName("BinaryFileDown")] public FileRef binaryFileDown;
+    [FieldOffset(152)][XdbName("BinaryFile")] public FileRef binaryFile;
     [FieldOffset(172)][XdbName("Areas")] public Area[] areas;
 
     [StructSize(56)]
@@ -53,20 +38,10 @@ public partial class MapRegion
     public class Object
     {
         [FieldOffset(4)] public NullablePointer data;
-
-        [FieldOffset(8)]
-        [XdbName("StaticObjectTemplate")]
-        public ResourcePointer staticObjectTemplate;
-
+        [FieldOffset(8)][XdbName("StaticObjectTemplate")] public ResourcePointer staticObjectTemplate;
         [FieldOffset(16)][XdbName("Scale")] public Scale scale;
-
-        [FieldOffset(24)]
-        [XdbName("Rotation")]
-        public Rotation rotation;
-
-        [FieldOffset(40)]
-        [XdbName("Position")]
-        public Position position;
+        [FieldOffset(24)][XdbName("Rotation")] public Rotation rotation;
+        [FieldOffset(40)][XdbName("Position")] public Position position;
 
         [StructSize(8)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

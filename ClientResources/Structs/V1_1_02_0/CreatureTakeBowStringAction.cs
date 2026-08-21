@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,19 +22,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 public partial class CreatureTakeBowStringAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.ETroopMember))]
-    public int member;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int itemsSlot;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.ETroopMember))] public int member;
+    [FieldOffset(40)][EnumRef(typeof(Enums.DressSlot))] public int itemsSlot;
     [FieldOffset(44)] public string itemLocatorName;
     [FieldOffset(56)] public string creatureLocatorName;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.FxLocators))]
-    public int creatureLocator;
+    [FieldOffset(68)][EnumRef(typeof(Enums.FxLocators))] public int creatureLocator;
 }

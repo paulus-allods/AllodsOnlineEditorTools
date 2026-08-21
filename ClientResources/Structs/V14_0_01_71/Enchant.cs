@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class Enchant
     [FieldOffset(44)][EnumRef(typeof(Enums.InnateStats))] public int[] secondaryStats;
     [FieldOffset(60)][EnumRef(typeof(Enums.EnchantSlot))] public int slot;
 }
-

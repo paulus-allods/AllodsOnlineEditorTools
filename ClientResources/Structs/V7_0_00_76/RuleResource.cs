@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,11 +31,7 @@ public partial class RuleResource
     [FieldOffset(112)] public int rating;
     [FieldOffset(116)] public Reward reward;
     [FieldOffset(216)] public string sysName;
-
-    [FieldOffset(228)]
-    [EnumRef(typeof(Enums.RuleType))]
-    public int[] types;
-
+    [FieldOffset(228)][EnumRef(typeof(Enums.RuleType))] public int[] types;
     [FieldOffset(244)] public ResourcePointer zone;
     [FieldOffset(252)] public bool alwaysHide;
     [FieldOffset(253)] public bool hideInactive;

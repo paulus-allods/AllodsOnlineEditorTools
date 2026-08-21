@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,16 +23,9 @@ public partial class DeviceAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(40)] public Advanced advanced;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] animations;
-
+    [FieldOffset(52)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
     [FieldOffset(68)] public int channelId;
-
-    [FieldOffset(72)]
-    [EnumRef(typeof(Enums.AnimationFlag))]
-    public int mode;
+    [FieldOffset(72)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 
     [StructSize(12)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

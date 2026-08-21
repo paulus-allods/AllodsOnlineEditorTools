@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,11 +35,7 @@ public partial class AnimationProperties
     [FieldOffset(172)] public float maxHeadAngle;
     [FieldOffset(176)] public float legRunTurnTime;
     [FieldOffset(180)] public float legAlignTime;
-
-    [FieldOffset(184)]
-    [EnumRef(typeof(Enums.CreatureKind))]
-    public int kind;
-
+    [FieldOffset(184)][EnumRef(typeof(Enums.CreatureKind))] public int kind;
     [FieldOffset(188)] public float headTurnTime;
     [FieldOffset(192)] public string headBoneName;
     [FieldOffset(204)] public bool groundNormalByBoundingBox;
@@ -52,10 +47,7 @@ public partial class AnimationProperties
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class TargetTrackingParams
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Bone))]
-        public int verticalRotate;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Bone))] public int verticalRotate;
         [FieldOffset(8)] public bool useOnlyAddedAnimations;
         [FieldOffset(9)] public bool useInEveryAnimation;
         [FieldOffset(10)] public bool use;
@@ -67,14 +59,8 @@ public partial class AnimationProperties
         [FieldOffset(60)] public float maxHeadAngleToSide;
         [FieldOffset(64)] public float maxHeadAngleToDown;
         [FieldOffset(68)] public bool ingnoreRotateToTarget;
-
-        [FieldOffset(72)]
-        [EnumRef(typeof(Enums.Bone))]
-        public int horizontalRotate;
-
-        [FieldOffset(76)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] addedToUseAnimations;
+        [FieldOffset(72)][EnumRef(typeof(Enums.Bone))] public int horizontalRotate;
+        [FieldOffset(76)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] addedToUseAnimations;
     }
 
     [StructSize(12)]

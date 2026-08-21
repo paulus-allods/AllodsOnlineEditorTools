@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -22,4 +21,3 @@ public partial class DamageThresholdHealthCalcer
     [FieldOffset(24)][EnumRef(typeof(Enums.DamageThresholdHealthType))] public int healthType;
     [FieldOffset(28)] public ResourcePointer resource;
 }
-

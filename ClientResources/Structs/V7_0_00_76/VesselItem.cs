@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,11 +26,7 @@ public partial class VesselItem
     [FieldOffset(56)] public int energy;
     [FieldOffset(60)] public ResourcePointer image;
     [FieldOffset(68)] public int level;
-
-    [FieldOffset(72)]
-    [EnumRef(typeof(Enums.PlaceName))]
-    public int[] places;
-
+    [FieldOffset(72)][EnumRef(typeof(Enums.PlaceName))] public int[] places;
     [FieldOffset(88)] public Prices prices;
     [FieldOffset(124)] public Researche[] researches;
 

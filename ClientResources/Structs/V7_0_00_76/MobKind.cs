@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,14 +23,7 @@ public partial class MobKind
 {
     [FieldOffset(24)] public NullablePointer attackRangeStats;
     [FieldOffset(28)] public string className;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.ManaType))]
-    public int manaType;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.ManaType))] public int manaType;
     [FieldOffset(44)] public TextFileRef name;
-
-    [FieldOffset(60)]
-    [EnumRef(typeof(Enums.CreatureRace))]
-    public int race;
+    [FieldOffset(60)][EnumRef(typeof(Enums.CreatureRace))] public int race;
 }

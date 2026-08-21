@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -21,4 +20,3 @@ public partial class CreatureSetAnimationPropertiesAction
     [FieldOffset(36)] public ResourcePointer animationProperties;
     [FieldOffset(44)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
 }
-

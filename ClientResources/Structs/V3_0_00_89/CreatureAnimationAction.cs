@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,69 +22,31 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 public partial class CreatureAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.UseAnimationFlag))]
-    public int use;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.UseAnimationFlag))] public int use;
     [FieldOffset(40)] public string specialController;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.AnimationFlag))]
-    public int mode;
-
+    [FieldOffset(52)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
     [FieldOffset(56)] public NullablePointer channelOverrideScript;
-
-    [FieldOffset(60)]
-    [EnumRef(typeof(Enums.AnimationChannelOverrideMode))]
-    public int channelOverrideMode;
-
-    [FieldOffset(64)]
-    [EnumRef(typeof(Enums.AnimationDefaultControllers))]
-    public int channelOverrideControllers;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-    public int channel;
-
-    [FieldOffset(72)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] animations;
-
+    [FieldOffset(60)][EnumRef(typeof(Enums.AnimationChannelOverrideMode))] public int channelOverrideMode;
+    [FieldOffset(64)][EnumRef(typeof(Enums.AnimationDefaultControllers))] public int channelOverrideControllers;
+    [FieldOffset(68)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
+    [FieldOffset(72)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
     [FieldOffset(88)] public Advanced advanced;
 
     [StructSize(104)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Advanced
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.EWaitRealEvent))]
-        public int waitRealEvent;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.ETurnToTarget))]
-        public int turnToTarget;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.EWaitRealEvent))] public int waitRealEvent;
+        [FieldOffset(8)][EnumRef(typeof(Enums.ETurnToTarget))] public int turnToTarget;
         [FieldOffset(12)] public bool stopIfRotated;
         [FieldOffset(13)] public bool stopIfMoved;
         [FieldOffset(16)] public float speed;
         [FieldOffset(20)] public bool skipIfFixedIdleAnimation;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.ActionOffendType))]
-        public int offendType;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.ActionOffendType))] public int offendType;
         [FieldOffset(28)] public bool eventPlaybackEnd;
         [FieldOffset(29)] public bool disableRandomFirstFrame;
-
-        [FieldOffset(32)]
-        [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-        public int channelAfterFirstKey;
-
-        [FieldOffset(36)]
-        [EnumRef(typeof(Enums.ChangeChannelMode))]
-        public int changeChannelAfterFirstKey;
-
+        [FieldOffset(32)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channelAfterFirstKey;
+        [FieldOffset(36)][EnumRef(typeof(Enums.ChangeChannelMode))] public int changeChannelAfterFirstKey;
         [FieldOffset(40)] public bool backgroundAfterFirstKey;
         [FieldOffset(44)] public AutoHasten autoHasten;
         [FieldOffset(56)] public AnimationKeysSound[] animationKeysSound;
@@ -97,10 +58,7 @@ public partial class CreatureAnimationAction
         public class AutoHasten
         {
             [FieldOffset(4)] public int timeToBeLeft;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.EAutoHasten))]
-            public int mode;
+            [FieldOffset(8)][EnumRef(typeof(Enums.EAutoHasten))] public int mode;
         }
 
         [StructSize(12)]

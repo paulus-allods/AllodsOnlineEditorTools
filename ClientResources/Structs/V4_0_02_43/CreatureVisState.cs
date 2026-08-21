@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,10 +24,7 @@ public partial class CreatureVisState
     [FieldOffset(24)] public TransferScript[] transferScripts;
     [FieldOffset(40)] public int stateID;
     [FieldOffset(44)] public float scale;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int fixedIdleAnimation;
+    [FieldOffset(48)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int fixedIdleAnimation;
 
     [StructSize(12)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

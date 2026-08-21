@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -26,4 +25,3 @@ public partial class AstralSpellChanneling
     [FieldOffset(76)][EnumRef(typeof(Enums.TargetingSettings))] public int targetSettings;
     [FieldOffset(80)] public bool ignoreShield;
 }
-

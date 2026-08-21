@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,11 +26,7 @@ public partial class VisProjectile
     [FieldOffset(44)] public Rotation rotation;
     [FieldOffset(60)] public float pointInTargetMin;
     [FieldOffset(64)] public float pointInTargetMax;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.EAxis))]
-    public int mainAxis;
-
+    [FieldOffset(68)][EnumRef(typeof(Enums.EAxis))] public int mainAxis;
     [FieldOffset(72)] public ResourcePointer explosion;
     [FieldOffset(80)] public ResourcePointer effectFx;
     [FieldOffset(88)] public string effectBone;

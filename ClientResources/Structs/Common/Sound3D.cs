@@ -1,9 +1,7 @@
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
-
 
 namespace AllodsOnlineEditorTools.ClientResources.Structs.Common;
 

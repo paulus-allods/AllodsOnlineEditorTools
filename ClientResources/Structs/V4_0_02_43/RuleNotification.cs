@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class RuleNotification
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.RuleNotificationType))]
-    public int type;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.RuleNotificationType))] public int type;
     [FieldOffset(28)] public TextFileRef text;
     [FieldOffset(44)] public ResourcePointer image;
     [FieldOffset(52)] public bool hideInactive;

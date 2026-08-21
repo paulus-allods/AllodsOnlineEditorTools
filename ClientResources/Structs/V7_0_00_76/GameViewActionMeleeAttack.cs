@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,15 +27,8 @@ public partial class GameViewActionMeleeAttack
     [FieldOffset(108)] public string targetCreature;
     [FieldOffset(124)] public int damageAbsorbed;
     [FieldOffset(128)] public int damageBlocked;
-
-    [FieldOffset(132)]
-    [EnumRef(typeof(Enums.SubElement))]
-    public int element;
-
-    [FieldOffset(136)]
-    [EnumRef(typeof(Enums.DamageSource))]
-    public int source;
-
+    [FieldOffset(132)][EnumRef(typeof(Enums.SubElement))] public int element;
+    [FieldOffset(136)][EnumRef(typeof(Enums.DamageSource))] public int source;
     [FieldOffset(140)] public bool isCritical;
     [FieldOffset(141)] public bool isDamageDealt;
     [FieldOffset(142)] public bool isLethal;

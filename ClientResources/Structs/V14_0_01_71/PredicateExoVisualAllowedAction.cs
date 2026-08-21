@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -20,4 +19,3 @@ public partial class PredicateExoVisualAllowedAction
     [FieldOffset(36)][EnumRef(typeof(Enums.ExoVisualAllowedType))] public int checkType;
     [FieldOffset(40)] public bool checkIsNotSet;
 }
-

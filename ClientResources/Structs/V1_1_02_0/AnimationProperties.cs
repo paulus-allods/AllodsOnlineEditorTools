@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -33,11 +32,7 @@ public partial class AnimationProperties
     [FieldOffset(128)] public float maxHeadAngle;
     [FieldOffset(132)] public float legRunTurnTime;
     [FieldOffset(136)] public float legAlignTime;
-
-    [FieldOffset(140)]
-    [EnumRef(typeof(Enums.CreatureKind))]
-    public int kind;
-
+    [FieldOffset(140)][EnumRef(typeof(Enums.CreatureKind))] public int kind;
     [FieldOffset(144)] public float headTurnTime;
     [FieldOffset(148)] public string headBoneName;
     [FieldOffset(160)] public bool groundNormalByBoundingBox;
@@ -48,10 +43,7 @@ public partial class AnimationProperties
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class TargetTrackingParams
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Bone))]
-        public int verticalRotate;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Bone))] public int verticalRotate;
         [FieldOffset(8)] public bool useInEveryAnimation;
         [FieldOffset(9)] public bool use;
         [FieldOffset(12)] public string targetBoneName;
@@ -59,14 +51,8 @@ public partial class AnimationProperties
         [FieldOffset(28)] public float maxHeadAngleToSide;
         [FieldOffset(32)] public float maxHeadAngleToDown;
         [FieldOffset(36)] public bool ingnoreRotateToTarget;
-
-        [FieldOffset(40)]
-        [EnumRef(typeof(Enums.Bone))]
-        public int horizontalRotate;
-
-        [FieldOffset(44)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] addedToUseAnimations;
+        [FieldOffset(40)][EnumRef(typeof(Enums.Bone))] public int horizontalRotate;
+        [FieldOffset(44)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] addedToUseAnimations;
     }
 
     [StructSize(12)]

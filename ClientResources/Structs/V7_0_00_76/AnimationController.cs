@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class AnimationController
 {
-    [FieldOffset(24)]
-    [XdbName("SkeletonParts")]
-    public SkeletonPart[] skeletonParts;
-
+    [FieldOffset(24)][XdbName("SkeletonParts")] public SkeletonPart[] skeletonParts;
     [FieldOffset(40)] public bool animationFeedBack;
     [FieldOffset(41)] public bool defaultFlag;
     [FieldOffset(42)] public bool useMaterialAnimation;

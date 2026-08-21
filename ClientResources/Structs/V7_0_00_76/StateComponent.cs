@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,16 +21,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class StateComponent
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public AnimationKey[] animationKeys;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] animations;
-
+    [FieldOffset(52)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
     [FieldOffset(68)] public NullablePointer component;
     [FieldOffset(72)] public ResourcePointer controller;
     [FieldOffset(80)] public bool stopForOtherAnimation;
@@ -42,10 +34,7 @@ public partial class StateComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AnimationKey
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
         [FieldOffset(8)] public float startTime;
     }
 }

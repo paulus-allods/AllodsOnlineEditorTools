@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 public partial class ProceduralEffectVisAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.ERiderMember))]
-    public int useOn;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
     [FieldOffset(40)] public float timeOn;
     [FieldOffset(44)] public float timeOff;
     [FieldOffset(48)] public ResourcePointer proceduralEffect;

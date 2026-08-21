@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class CreatureTimeIntervalChannelSpeedAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-    public int channel;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(44)] public string specialController;
     [FieldOffset(60)] public float endSpeed;
     [FieldOffset(64)] public int endTime;

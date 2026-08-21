@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -22,4 +21,3 @@ public partial class RuleNotification
     [FieldOffset(48)][EnumRef(typeof(Enums.RuleNotificationType))] public int type;
     [FieldOffset(52)] public bool hideInactive;
 }
-

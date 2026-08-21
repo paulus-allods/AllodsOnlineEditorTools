@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,10 +27,7 @@ public partial class VICVisObjectByCharComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Case
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] animation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animation;
         [FieldOffset(20)] public ResourcePointer[] visCharacterTemplate;
         [FieldOffset(36)] public NullablePointer visObjComponent;
     }

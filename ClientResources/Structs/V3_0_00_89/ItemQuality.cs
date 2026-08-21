@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class ItemQuality
 {
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.QualityEnum))]
-    public int quality;
-
+    [FieldOffset(28)][EnumRef(typeof(Enums.QualityEnum))] public int quality;
     [FieldOffset(32)] public float priceMod;
     [FieldOffset(36)] public float powerMult;
     [FieldOffset(40)] public ResourcePointer lootBagVisObject;

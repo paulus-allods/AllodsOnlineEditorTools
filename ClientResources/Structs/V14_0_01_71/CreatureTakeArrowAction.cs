@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class CreatureTakeArrowAction
     [FieldOffset(48)][EnumRef(typeof(Enums.ERotate))] public int rorate;
     [FieldOffset(52)] public bool forceTakeInHand;
 }
-

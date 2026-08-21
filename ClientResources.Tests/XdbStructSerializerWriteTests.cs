@@ -43,7 +43,7 @@ public class XdbStructSerializerWriteTests
     public void Long_SerializesAsText()
         => Assert.That(Xml(Field(1631568172L, "crc", typeof(long))), Is.EqualTo("<crc>1631568172</crc>"));
 
-    // Sample: <run>6.5</run> (AnimationProperties.xdb) — float goes through XdbFloat.ToXdbString.
+    // Sample: <run>6.5</run> (AnimationProperties.xdb). Float goes through XdbFloat.ToXdbString.
     [Test]
     public void Float_UsesXdbFloatFormatting()
         => Assert.That(Xml(Field(6.5f, "run", typeof(float))), Is.EqualTo("<run>6.5</run>"));
@@ -111,7 +111,7 @@ public class XdbStructSerializerWriteTests
         => Assert.That(Xml(Field(new[] { "vs_2_0" }, "profiles", typeof(string[]))),
             Is.EqualTo("<profiles><Item>vs_2_0</Item></profiles>"));
 
-    // Sample: <objects /> (default.(VisualItem).xdb) — empty arrays are empty elements.
+    // Sample: <objects /> (default.(VisualItem).xdb). Empty arrays are empty elements.
     [Test]
     public void EmptyArray_SerializesAsEmptyElement()
         => Assert.That(Xml(Field(Array.Empty<int>(), "objects", typeof(int[]))), Is.EqualTo("<objects />"));
@@ -147,7 +147,7 @@ public class XdbStructSerializerWriteTests
 
     // ---------------------------------------------------------------- ResourcePointer
 
-    // Sample: href="/Material/userinfo.xdb#xpointer(/MaterialTemplate)" — typed pointer.
+    // Sample: href="/Material/userinfo.xdb#xpointer(/MaterialTemplate)" (typed pointer).
     [Test]
     public void ResourcePointer_WithType_SerializesXPointerHref()
         => Assert.That(
@@ -200,7 +200,7 @@ public class XdbStructSerializerWriteTests
 
     // ---------------------------------------------------------------- Nested struct
 
-    // Sample: <aabb><center .../><extents .../></aabb> (Geometry.xdb) — nested types reflect their fields.
+    // Sample: <aabb><center .../><extents .../></aabb> (Geometry.xdb). Nested types reflect their fields.
     [Test]
     public void NestedStruct_ReflectsFieldsRecursively()
         => Assert.That(

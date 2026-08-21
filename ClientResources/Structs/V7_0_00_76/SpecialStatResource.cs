@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,14 +21,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SpecialStatResource
 {
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int[] availableSlots;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.BudgetType))]
-    public int budgetType;
-
+    [FieldOffset(28)][EnumRef(typeof(Enums.DressSlot))] public int[] availableSlots;
+    [FieldOffset(44)][EnumRef(typeof(Enums.BudgetType))] public int budgetType;
     [FieldOffset(48)] public DescVar[] descVars;
     [FieldOffset(64)] public TextFileRef description;
     [FieldOffset(80)] public FormulaModifier[] formulaModifiers;
@@ -53,9 +46,6 @@ public partial class SpecialStatResource
     public class FormulaModifier
     {
         [FieldOffset(4)] public NullablePointer calcer;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int formula;
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int formula;
     }
 }

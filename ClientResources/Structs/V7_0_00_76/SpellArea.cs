@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,25 +24,14 @@ public partial class SpellArea
     [FieldOffset(28)] public ContextActionInfo contextActionInfo;
     [FieldOffset(76)] public ResourcePointer[] groups;
     [FieldOffset(92)] public ResourcePointer[] interruptsActionGroups;
-
-    [FieldOffset(112)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
+    [FieldOffset(112)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(128)][XdbName("Name")] public TextFileRef name;
     [FieldOffset(144)] public ResourcePointer aeMarker;
     [FieldOffset(152)] public int defaultAction;
     [FieldOffset(156)] public DescVar[] descVars;
     [FieldOffset(172)] public ResourcePointer durationBuff;
-
-    [FieldOffset(180)]
-    [EnumRef(typeof(Enums.SubElement))]
-    public int element;
-
-    [FieldOffset(184)]
-    [EnumRef(typeof(Enums.SpellIFFPolicy))]
-    public int iffPolicy;
-
+    [FieldOffset(180)][EnumRef(typeof(Enums.SubElement))] public int element;
+    [FieldOffset(184)][EnumRef(typeof(Enums.SpellIFFPolicy))] public int iffPolicy;
     [FieldOffset(188)] public ResourcePointer image;
     [FieldOffset(196)] public int level;
     [FieldOffset(200)] public Mechanics mechanics;
@@ -53,15 +41,8 @@ public partial class SpellArea
     [FieldOffset(288)] public NullablePointer range;
     [FieldOffset(292)] public ResourcePointer[] ranks;
     [FieldOffset(308)] public string sysName;
-
-    [FieldOffset(320)]
-    [EnumRef(typeof(Enums.SpellTargetType))]
-    public int targetType;
-
-    [FieldOffset(324)]
-    [EnumRef(typeof(Enums.UISpellBookPageType))]
-    public int uiSpellBookPageType;
-
+    [FieldOffset(320)][EnumRef(typeof(Enums.SpellTargetType))] public int targetType;
+    [FieldOffset(324)][EnumRef(typeof(Enums.UISpellBookPageType))] public int uiSpellBookPageType;
     [FieldOffset(328)] public NullablePointer useVisScipt;
     [FieldOffset(332)] public ResourcePointer visualScripts;
     [FieldOffset(340)] public bool autoAppendToActionPanel;

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,11 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WidgetLayerAnimatedTexture
 {
-    [FieldOffset(24)]
-    [XdbName("BlendEffect")]
-    [EnumRef(typeof(Enums.BlendEffectType))]
-    public int blendEffect;
-
+    [FieldOffset(24)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffectType))] public int blendEffect;
     [FieldOffset(28)][XdbName("Color")] public int color;
     [FieldOffset(32)][XdbName("Grayed")] public bool grayed;
     [FieldOffset(33)] public bool flatPlacement;

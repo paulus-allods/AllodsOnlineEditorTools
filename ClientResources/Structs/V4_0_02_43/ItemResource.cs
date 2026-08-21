@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,25 +30,11 @@ public partial class ItemResource
     [FieldOffset(100)] public string sysName;
     [FieldOffset(112)] public int stackLimit;
     [FieldOffset(116)] public ResourcePointer spell;
-
-    [FieldOffset(124)]
-    [EnumRef(typeof(Enums.ItemSource))]
-    public int source;
-
-    [FieldOffset(128)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int slot;
-
-    [FieldOffset(132)]
-    [EnumRef(typeof(Enums.ShowItemContextAction))]
-    public int showItemContextAction;
-
+    [FieldOffset(124)][EnumRef(typeof(Enums.ItemSource))] public int source;
+    [FieldOffset(128)][EnumRef(typeof(Enums.DressSlot))] public int slot;
+    [FieldOffset(132)][EnumRef(typeof(Enums.ShowItemContextAction))] public int showItemContextAction;
     [FieldOffset(136)] public bool ritual;
-
-    [FieldOffset(140)]
-    [EnumRef(typeof(Enums.ReputationLevel))]
-    public int requiredReputation;
-
+    [FieldOffset(140)][EnumRef(typeof(Enums.ReputationLevel))] public int requiredReputation;
     [FieldOffset(144)] public int requiredLevel;
     [FieldOffset(148)] public ResourcePointer quality;
     [FieldOffset(156)] public NullablePointer prices;
@@ -59,11 +44,7 @@ public partial class ItemResource
     [FieldOffset(184)] public TextFileRef name;
     [FieldOffset(200)] public long lifeLengthCap;
     [FieldOffset(208)] public int level;
-
-    [FieldOffset(212)]
-    [EnumRef(typeof(Enums.ItemMallType))]
-    public int itemMallType;
-
+    [FieldOffset(212)][EnumRef(typeof(Enums.ItemMallType))] public int itemMallType;
     [FieldOffset(216)] public ResourcePointer itemMallImage;
     [FieldOffset(224)] public TextFileRef itemMallDescription;
     [FieldOffset(240)] public ResourcePointer itemClass;
@@ -83,11 +64,7 @@ public partial class ItemResource
     [FieldOffset(352)] public ResourcePointer category;
     [FieldOffset(360)] public bool canDrop;
     [FieldOffset(361)] public bool canBeDeposited;
-
-    [FieldOffset(364)]
-    [EnumRef(typeof(Enums.Binding))]
-    public int binding;
-
+    [FieldOffset(364)][EnumRef(typeof(Enums.Binding))] public int binding;
     [FieldOffset(368)] public TextFileRef bindDescription;
     [FieldOffset(384)] public ActionPreviewInfo actionPreviewInfo;
     [FieldOffset(460)] public ActionGroupsBonuse[] actionGroupsBonuses;
@@ -114,11 +91,7 @@ public partial class ItemResource
     {
         [FieldOffset(4)] public float value;
         [FieldOffset(8)] public TextFileRef text;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(28)] public string name;
     }
 
@@ -152,10 +125,7 @@ public partial class ItemResource
         public class StatBonuse
         {
             [FieldOffset(4)] public float value;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.InnateStats))]
-            public int stat;
+            [FieldOffset(8)][EnumRef(typeof(Enums.InnateStats))] public int stat;
         }
     }
 }

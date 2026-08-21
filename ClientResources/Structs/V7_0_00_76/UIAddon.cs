@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,17 +22,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class UIAddon
 {
     [FieldOffset(24)][XdbName("Forms")] public Form[] forms;
-
-    [FieldOffset(40)]
-    [XdbName("MainFormId")]
-    public string mainFormId;
-
+    [FieldOffset(40)][XdbName("MainFormId")] public string mainFormId;
     [FieldOffset(52)][XdbName("Name")] public string name;
-
-    [FieldOffset(64)]
-    [XdbName("ScriptFileRefs")]
-    public FileRef[] scriptFileRefs;
-
+    [FieldOffset(64)][XdbName("ScriptFileRefs")] public FileRef[] scriptFileRefs;
     [FieldOffset(80)] public string[] addonGroups;
     [FieldOffset(96)] public ResourcePointer aliasVisObjects;
     [FieldOffset(104)] public ResourcePointer contentKey;
@@ -49,14 +40,8 @@ public partial class UIAddon
     [FieldOffset(224)] public TexturesGroup[] texturesGroups;
     [FieldOffset(240)] public ResourcePointer visActions;
     [FieldOffset(248)] public ResourcePointer visObjects;
-
-    [FieldOffset(256)]
-    [XdbName("AutoStart")]
-    public bool autoStart;
-
-    [FieldOffset(257)]
-    [XdbName("Managed")]
-    public bool managed;
+    [FieldOffset(256)][XdbName("AutoStart")] public bool autoStart;
+    [FieldOffset(257)][XdbName("Managed")] public bool managed;
 
     [StructSize(24)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

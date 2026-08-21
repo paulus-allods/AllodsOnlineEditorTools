@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -26,4 +25,3 @@ public partial class WeaponHoldingRoot
     [FieldOffset(136)][EnumRef(typeof(Enums.Animations))] public int[] weaponRanged;
     [FieldOffset(152)][EnumRef(typeof(Enums.Animations))] public int[] weaponWand;
 }
-

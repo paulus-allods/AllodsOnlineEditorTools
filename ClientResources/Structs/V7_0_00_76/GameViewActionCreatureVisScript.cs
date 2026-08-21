@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class GameViewActionCreatureVisScript
 {
     [FieldOffset(20)] public PlaybackParameters playbackParameters;
-
-    [FieldOffset(88)]
-    [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-    public int channel;
-
+    [FieldOffset(88)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(92)] public string creature;
     [FieldOffset(104)] public NullablePointer visAction;
     [FieldOffset(108)] public bool needRewind;

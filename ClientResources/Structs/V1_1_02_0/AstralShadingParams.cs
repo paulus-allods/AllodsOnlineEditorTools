@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,44 +35,14 @@ public partial class AstralShadingParams
     [FieldOffset(96)] public float astralDropSpeed;
     [FieldOffset(100)] public float astralDropSize;
     [FieldOffset(104)] public float astralDropLifeTime;
-
-    [FieldOffset(108)]
-    [XdbName("HaloStart")]
-    public float haloStart;
-
-    [FieldOffset(112)]
-    [XdbName("HaloIntensity")]
-    public float haloIntensity;
-
-    [FieldOffset(116)]
-    [XdbName("HaloEnd")]
-    public float haloEnd;
-
-    [FieldOffset(120)]
-    [XdbName("HaloColor")]
-    public int haloColor;
-
-    [FieldOffset(124)]
-    [XdbName("ForceFieldOuterColor")]
-    public int forceFieldOuterColor;
-
-    [FieldOffset(128)]
-    [XdbName("ForceFieldInnerColor")]
-    public int forceFieldInnerColor;
-
-    [FieldOffset(132)]
-    [XdbName("ForceFieldGradientColor")]
-    public int forceFieldGradientColor;
-
-    [FieldOffset(136)]
-    [XdbName("DiffuseColor")]
-    public int diffuseColor;
-
-    [FieldOffset(140)]
-    [XdbName("ContourColor")]
-    public int contourColor;
-
-    [FieldOffset(144)]
-    [XdbName("AmbientColor")]
-    public int ambientColor;
+    [FieldOffset(108)][XdbName("HaloStart")] public float haloStart;
+    [FieldOffset(112)][XdbName("HaloIntensity")] public float haloIntensity;
+    [FieldOffset(116)][XdbName("HaloEnd")] public float haloEnd;
+    [FieldOffset(120)][XdbName("HaloColor")] public int haloColor;
+    [FieldOffset(124)][XdbName("ForceFieldOuterColor")] public int forceFieldOuterColor;
+    [FieldOffset(128)][XdbName("ForceFieldInnerColor")] public int forceFieldInnerColor;
+    [FieldOffset(132)][XdbName("ForceFieldGradientColor")] public int forceFieldGradientColor;
+    [FieldOffset(136)][XdbName("DiffuseColor")] public int diffuseColor;
+    [FieldOffset(140)][XdbName("ContourColor")] public int contourColor;
+    [FieldOffset(144)][XdbName("AmbientColor")] public int ambientColor;
 }

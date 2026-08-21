@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class CreatureSetAnimationPropertiesAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public ResourcePointer animationProperties;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.ERiderMember))]
-    public int useOn;
+    [FieldOffset(44)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
 }

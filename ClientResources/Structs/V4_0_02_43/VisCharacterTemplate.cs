@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -59,11 +58,7 @@ public partial class VisCharacterTemplate
     [FieldOffset(436)] public string helmGeoset;
     [FieldOffset(448)] public float height;
     [FieldOffset(452)] public string[] hairColoredGeosets;
-
-    [FieldOffset(468)]
-    [EnumRef(typeof(Enums.Gender))]
-    public int gender;
-
+    [FieldOffset(468)][EnumRef(typeof(Enums.Gender))] public int gender;
     [FieldOffset(472)] public ResourcePointer extension;
     [FieldOffset(480)] public bool disableCorpseThrowing;
     [FieldOffset(484)] public float desiredMountSize;
@@ -146,10 +141,7 @@ public partial class VisCharacterTemplate
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class ParentController
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.AnimationControllerIdType))]
-            public int type;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.AnimationControllerIdType))] public int type;
             [FieldOffset(8)] public string specialControllerName;
         }
     }
@@ -162,10 +154,7 @@ public partial class VisCharacterTemplate
         [FieldOffset(8)] public Quaternion cameraRotation;
         [FieldOffset(24)] public Vector3 cameraAnchor;
         [FieldOffset(36)] public int animationTime;
-
-        [FieldOffset(40)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
+        [FieldOffset(40)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
     }
 
     [StructSize(8)]
@@ -190,10 +179,7 @@ public partial class VisCharacterTemplate
             [FieldOffset(8)] public Quaternion cameraRotation;
             [FieldOffset(24)] public Vector3 cameraAnchor;
             [FieldOffset(36)] public int animationTime;
-
-            [FieldOffset(40)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int animation;
+            [FieldOffset(40)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
         }
     }
 }

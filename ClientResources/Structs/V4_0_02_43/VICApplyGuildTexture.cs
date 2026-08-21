@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,9 +21,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VICApplyGuildTexture
 {
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.EVICTargetVisObject))]
-    public int target;
-
+    [FieldOffset(28)][EnumRef(typeof(Enums.EVICTargetVisObject))] public int target;
     [FieldOffset(32)] public string[] shapeName;
 }

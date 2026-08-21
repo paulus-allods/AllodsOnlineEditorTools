@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -39,4 +38,3 @@ public partial class MobWorld
     [FieldOffset(159)] public bool removeFromUI;
     [FieldOffset(160)] public bool usesWeapon;
 }
-

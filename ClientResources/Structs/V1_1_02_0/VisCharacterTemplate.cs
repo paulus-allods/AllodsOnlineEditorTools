@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -54,11 +53,7 @@ public partial class VisCharacterTemplate
     [FieldOffset(420)] public string helmGeoset;
     [FieldOffset(432)] public float height;
     [FieldOffset(436)] public string[] hairColoredGeosets;
-
-    [FieldOffset(452)]
-    [EnumRef(typeof(Enums.Gender))]
-    public int gender;
-
+    [FieldOffset(452)][EnumRef(typeof(Enums.Gender))] public int gender;
     [FieldOffset(456)] public ResourcePointer extension;
     [FieldOffset(464)] public bool disableCorpseThrowing;
     [FieldOffset(468)] public float desiredMountSize;
@@ -139,10 +134,7 @@ public partial class VisCharacterTemplate
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class ParentController
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.AnimationControllerIdType))]
-            public int type;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.AnimationControllerIdType))] public int type;
             [FieldOffset(8)] public string specialControllerName;
         }
     }
@@ -155,9 +147,6 @@ public partial class VisCharacterTemplate
         [FieldOffset(8)] public Quaternion cameraRotation;
         [FieldOffset(24)] public Vector3 cameraAnchor;
         [FieldOffset(36)] public int animationTime;
-
-        [FieldOffset(40)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
+        [FieldOffset(40)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
     }
 }

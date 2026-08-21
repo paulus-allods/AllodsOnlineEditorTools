@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -33,4 +32,3 @@ public partial class ChangeFactionRoot
         [FieldOffset(12)][EnumRef(typeof(Enums.PridenFactionChoice))] public int[] values;
     }
 }
-

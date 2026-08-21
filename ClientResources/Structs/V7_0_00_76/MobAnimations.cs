@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -55,10 +54,7 @@ public partial class MobAnimations
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Animation
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int animation;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
             [FieldOffset(8)] public int rate;
         }
     }

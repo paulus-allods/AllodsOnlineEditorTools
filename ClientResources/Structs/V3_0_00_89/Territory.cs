@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,8 +27,5 @@ public partial class Territory
     [FieldOffset(28)] public WString shortName;
     [FieldOffset(40)] public ResourcePointer parentTerritory;
     [FieldOffset(48)] public ResourcePointer[] languageRules;
-
-    [FieldOffset(64)]
-    [XdbName("FModSoundLanguage")]
-    public string fModSoundLanguage;
+    [FieldOffset(64)][XdbName("FModSoundLanguage")] public string fModSoundLanguage;
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -30,9 +29,6 @@ public partial class EnchantRoot
     public class BudgetMod
     {
         [FieldOffset(4)] public float value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.EnchantSlot))]
-        public int slot;
+        [FieldOffset(8)][EnumRef(typeof(Enums.EnchantSlot))] public int slot;
     }
 }

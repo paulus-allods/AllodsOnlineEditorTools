@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,11 +27,7 @@ public partial class QuestCountKillAvatar
     [FieldOffset(56)] public Location[] locations;
     [FieldOffset(72)] public int limit;
     [FieldOffset(76)] public bool isInternal;
-
-    [FieldOffset(80)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int[] dressSlots;
-
+    [FieldOffset(80)][EnumRef(typeof(Enums.DressSlot))] public int[] dressSlots;
     [FieldOffset(96)] public TextFileRef description;
     [FieldOffset(112)] public TextFileRef customName;
     [FieldOffset(128)] public ResourcePointer[] autoRelatedItems;

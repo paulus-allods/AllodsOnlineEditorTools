@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,10 +27,7 @@ public partial class VisCharacterTraceProperties
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Animation
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
         [FieldOffset(8)] public Key[] keys;
 
         [StructSize(20)]
@@ -45,11 +41,7 @@ public partial class VisCharacterTraceProperties
             public class Action
             {
                 [FieldOffset(4)] public ResourcePointer effects;
-
-                [FieldOffset(12)]
-                [EnumRef(typeof(Enums.TraceLocators))]
-                public int standartLocator;
-
+                [FieldOffset(12)][EnumRef(typeof(Enums.TraceLocators))] public int standartLocator;
                 [FieldOffset(16)] public string uncommonLocator;
             }
         }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -39,4 +38,3 @@ public partial class CharacterSoundVariation
         [FieldOffset(37)] public bool replaceOriginalSound;
     }
 }
-

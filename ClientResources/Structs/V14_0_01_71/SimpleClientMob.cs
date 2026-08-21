@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,4 +22,3 @@ public partial class SimpleClientMob
     [FieldOffset(40)] public ResourcePointer visualMob;
     [FieldOffset(48)] public float yaw;
 }
-

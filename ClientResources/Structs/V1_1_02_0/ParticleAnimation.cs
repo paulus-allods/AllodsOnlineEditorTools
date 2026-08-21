@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,10 +35,7 @@ public partial class ParticleAnimation
     [FieldOffset(100)] public FileRef binaryFile;
     [FieldOffset(112)] public Blob animation;
     [FieldOffset(124)] public AABB aabb;
-
-    [FieldOffset(148)]
-    [XdbName("ParticleEmitters")]
-    public ParticleEmitter[] particleEmitters;
+    [FieldOffset(148)][XdbName("ParticleEmitters")] public ParticleEmitter[] particleEmitters;
 
     [StructSize(12)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -60,25 +56,10 @@ public partial class ParticleAnimation
         [FieldOffset(28)] public bool distortionEmitter;
         [FieldOffset(29)] public bool decalEmitter;
         [FieldOffset(32)] public float ambientLightFactor;
-
-        [FieldOffset(36)]
-        [XdbName("WorldSpaceEmitter")]
-        public bool worldSpaceEmitter;
-
-        [FieldOffset(37)]
-        [XdbName("UseLooping")]
-        public bool useLooping;
-
-        [FieldOffset(40)]
-        [XdbName("RenderEffect")]
-        [EnumRef(typeof(Enums.RenderEffect))]
-        public int renderEffect;
-
+        [FieldOffset(36)][XdbName("WorldSpaceEmitter")] public bool worldSpaceEmitter;
+        [FieldOffset(37)][XdbName("UseLooping")] public bool useLooping;
+        [FieldOffset(40)][XdbName("RenderEffect")][EnumRef(typeof(Enums.RenderEffect))] public int renderEffect;
         [FieldOffset(44)][XdbName("Color")] public int color;
-
-        [FieldOffset(48)]
-        [XdbName("BlendEffect")]
-        [EnumRef(typeof(Enums.BlendEffect))]
-        public int blendEffect;
+        [FieldOffset(48)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffect))] public int blendEffect;
     }
 }

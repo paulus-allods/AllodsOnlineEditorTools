@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -21,4 +20,3 @@ public partial class CreatureAnimationSetSpeedAction
     [FieldOffset(40)] public string specialController;
     [FieldOffset(52)] public float speed;
 }
-

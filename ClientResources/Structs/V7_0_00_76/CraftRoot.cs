@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -60,9 +59,6 @@ public partial class CraftRoot
     {
         [FieldOffset(4)] public ResourcePointer item;
         [FieldOffset(12)] public NullablePointer[] predicates;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.ToolProperty))]
-        public int[] properties;
+        [FieldOffset(28)][EnumRef(typeof(Enums.ToolProperty))] public int[] properties;
     }
 }

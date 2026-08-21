@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -136,10 +135,7 @@ public partial class GMUIHelper
     public class EquipmentData
     {
         [FieldOffset(4)] public int presetsCount;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int[] slots;
+        [FieldOffset(8)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
     }
 
     [StructSize(52)]

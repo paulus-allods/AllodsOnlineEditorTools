@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,17 +27,9 @@ public partial class AlternativeCurrency
     [FieldOffset(56)] public ResourcePointer limitCurrency;
     [FieldOffset(64)] public int maxValue;
     [FieldOffset(68)] public TextFileRef name;
-
-    [FieldOffset(84)]
-    [EnumRef(typeof(Enums.Storage))]
-    public int storage;
-
+    [FieldOffset(84)][EnumRef(typeof(Enums.Storage))] public int storage;
     [FieldOffset(88)] public string sysName;
-
-    [FieldOffset(100)]
-    [EnumRef(typeof(Enums.VisualizeMode))]
-    public int visualizeMode;
-
+    [FieldOffset(100)][EnumRef(typeof(Enums.VisualizeMode))] public int visualizeMode;
     [FieldOffset(104)] public bool hideMaxValue;
     [FieldOffset(105)] public bool isClientReplicated;
     [FieldOffset(106)] public bool isCoupon;

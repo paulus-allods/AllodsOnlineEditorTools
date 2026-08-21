@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,20 +22,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class CreatureItemAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animation;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int idleAnimation;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int itemsSlot;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.AnimationFlag))]
-    public int mode;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int idleAnimation;
+    [FieldOffset(44)][EnumRef(typeof(Enums.DressSlot))] public int itemsSlot;
+    [FieldOffset(48)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 }

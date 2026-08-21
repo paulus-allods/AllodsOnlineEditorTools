@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class DressableCost
     [FieldOffset(24)] public float multiplier;
     [FieldOffset(28)][EnumRef(typeof(Enums.DressSlot))] public int slot;
 }
-

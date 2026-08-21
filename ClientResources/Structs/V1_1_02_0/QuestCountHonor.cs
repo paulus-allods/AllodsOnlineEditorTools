@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,8 +25,5 @@ public partial class QuestCountHonor
     [FieldOffset(24)] public int limit;
     [FieldOffset(28)] public bool isInternal;
     [FieldOffset(32)] public TextFileRef customName;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.HonorRank))]
-    public int rank;
+    [FieldOffset(52)][EnumRef(typeof(Enums.HonorRank))] public int rank;
 }

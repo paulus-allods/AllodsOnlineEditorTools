@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,8 +22,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class ResourceImmutable
 {
     [FieldOffset(24)] public bool hideText;
-
-    [FieldOffset(36)]
-    [XdbName("delegate")]
-    public NullablePointer @delegate;
+    [FieldOffset(36)][XdbName("delegate")] public NullablePointer @delegate;
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,14 +27,8 @@ public partial class SFXMaterialPairTable
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class PairSound
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.SFXMaterial))]
-        public int materialFirst;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.SFXMaterial))]
-        public int materialSecond;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.SFXMaterial))] public int materialFirst;
+        [FieldOffset(8)][EnumRef(typeof(Enums.SFXMaterial))] public int materialSecond;
         [FieldOffset(12)] public Sound2D sound;
     }
 }

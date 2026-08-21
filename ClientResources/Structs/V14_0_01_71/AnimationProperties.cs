@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
@@ -65,4 +64,3 @@ public partial class AnimationProperties
         [FieldOffset(88)] public bool useOnlyAddedAnimations;
     }
 }
-

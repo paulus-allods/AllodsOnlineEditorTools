@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class PredicateQuestStatus
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)] public ResourcePointer quest;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.QuestStatus))]
-    public int status;
+    [FieldOffset(40)][EnumRef(typeof(Enums.QuestStatus))] public int status;
 }

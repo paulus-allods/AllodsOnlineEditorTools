@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,11 +30,7 @@ public partial class ItemBonus
     [FieldOffset(64)] public int resistNature;
     [FieldOffset(68)] public NullablePointer secondaryMajorFactor;
     [FieldOffset(72)] public NullablePointer secondaryMinorFactor;
-
-    [FieldOffset(76)]
-    [EnumRef(typeof(Enums.InnateStats))]
-    public int[] secondaryStats;
-
+    [FieldOffset(76)][EnumRef(typeof(Enums.InnateStats))] public int[] secondaryStats;
     [FieldOffset(92)] public NullablePointer specialStatDefenceMod;
     [FieldOffset(96)] public NullablePointer specialStatOffenceMod;
     [FieldOffset(100)] public ResourcePointer[] specialStats;

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,19 +22,11 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class SpellVisScripts
 {
     [FieldOffset(24)] public NullablePointer wholeCasting;
-
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.PrecastType))]
-    public int precastType;
-
+    [FieldOffset(28)][EnumRef(typeof(Enums.PrecastType))] public int precastType;
     [FieldOffset(32)] public NullablePointer actionBarStart;
     [FieldOffset(36)] public NullablePointer actionBarComplite;
     [FieldOffset(40)] public NullablePointer actionBarCancel;
-
-    [FieldOffset(44)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
+    [FieldOffset(44)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(64)] public bool useOwnKillingParams;
     [FieldOffset(68)] public PlayOnTargets playOnTargets;
     [FieldOffset(80)] public OwnKillingParams ownKillingParams;

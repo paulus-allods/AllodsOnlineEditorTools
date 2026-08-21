@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -35,53 +34,18 @@ public partial class WidgetEditLine
     [FieldOffset(108)] public float fade;
     [FieldOffset(112)] public bool clipContent;
     [FieldOffset(116)] public BindSection[] bindSections;
-
-    [FieldOffset(132)]
-    [XdbName("Visible")]
-    public bool visible;
-
-    [FieldOffset(133)]
-    [XdbName("TransparentInput")]
-    public bool transparentInput;
-
-    [FieldOffset(136)]
-    [XdbName("TabOrder")]
-    public int tabOrder;
-
-    [FieldOffset(140)]
-    [XdbName("Priority")]
-    public int priority;
-
-    [FieldOffset(144)]
-    [XdbName("Placement")]
-    public Placement placement;
-
-    [FieldOffset(224)]
-    [XdbName("PickChildrenOnly")]
-    public bool pickChildrenOnly;
-
+    [FieldOffset(132)][XdbName("Visible")] public bool visible;
+    [FieldOffset(133)][XdbName("TransparentInput")] public bool transparentInput;
+    [FieldOffset(136)][XdbName("TabOrder")] public int tabOrder;
+    [FieldOffset(140)][XdbName("Priority")] public int priority;
+    [FieldOffset(144)][XdbName("Placement")] public Placement placement;
+    [FieldOffset(224)][XdbName("PickChildrenOnly")] public bool pickChildrenOnly;
     [FieldOffset(228)][XdbName("Name")] public string name;
-
-    [FieldOffset(240)]
-    [XdbName("IgnoreDblClick")]
-    public bool ignoreDblClick;
-
-    [FieldOffset(244)]
-    [XdbName("FrontLayer")]
-    public ResourcePointer frontLayer;
-
-    [FieldOffset(252)]
-    [XdbName("Enabled")]
-    public bool enabled;
-
-    [FieldOffset(256)]
-    [XdbName("Children")]
-    public ResourcePointer[] children;
-
-    [FieldOffset(272)]
-    [XdbName("BackLayer")]
-    public ResourcePointer backLayer;
-
+    [FieldOffset(240)][XdbName("IgnoreDblClick")] public bool ignoreDblClick;
+    [FieldOffset(244)][XdbName("FrontLayer")] public ResourcePointer frontLayer;
+    [FieldOffset(252)][XdbName("Enabled")] public bool enabled;
+    [FieldOffset(256)][XdbName("Children")] public ResourcePointer[] children;
+    [FieldOffset(272)][XdbName("BackLayer")] public ResourcePointer backLayer;
     [FieldOffset(284)] public ResourcePointer selectionLayer;
     [FieldOffset(292)] public WString selectionClassName;
     [FieldOffset(304)] public string reactionUp;
@@ -91,38 +55,14 @@ public partial class WidgetEditLine
     [FieldOffset(344)] public bool isPassword;
     [FieldOffset(348)] public WString globalClassName;
     [FieldOffset(360)] public string filterAlias;
-
-    [FieldOffset(372)]
-    [XdbName("TextStyle")]
-    public TextStyle textStyle;
-
-    [FieldOffset(396)]
-    [XdbName("ReactionEsc")]
-    public string reactionEsc;
-
-    [FieldOffset(408)]
-    [XdbName("ReactionEnter")]
-    public string reactionEnter;
-
-    [FieldOffset(420)]
-    [XdbName("ReactionChanged")]
-    public string reactionChanged;
-
-    [FieldOffset(432)]
-    [XdbName("CursorWidth")]
-    public int cursorWidth;
-
-    [FieldOffset(436)]
-    [XdbName("CursorChangeTimeMs")]
-    public int cursorChangeTimeMs;
-
-    [FieldOffset(440)]
-    [XdbName("Cursor2Layer")]
-    public ResourcePointer cursor2Layer;
-
-    [FieldOffset(448)]
-    [XdbName("Cursor1Layer")]
-    public ResourcePointer cursor1Layer;
+    [FieldOffset(372)][XdbName("TextStyle")] public TextStyle textStyle;
+    [FieldOffset(396)][XdbName("ReactionEsc")] public string reactionEsc;
+    [FieldOffset(408)][XdbName("ReactionEnter")] public string reactionEnter;
+    [FieldOffset(420)][XdbName("ReactionChanged")] public string reactionChanged;
+    [FieldOffset(432)][XdbName("CursorWidth")] public int cursorWidth;
+    [FieldOffset(436)][XdbName("CursorChangeTimeMs")] public int cursorChangeTimeMs;
+    [FieldOffset(440)][XdbName("Cursor2Layer")] public ResourcePointer cursor2Layer;
+    [FieldOffset(448)][XdbName("Cursor1Layer")] public ResourcePointer cursor1Layer;
 
     [StructSize(32)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -140,28 +80,17 @@ public partial class WidgetEditLine
         [FieldOffset(20)] public ResourcePointer sizingWidget;
         [FieldOffset(28)][XdbName("Y")] public Y y;
         [FieldOffset(52)][XdbName("X")] public Y x;
-
-        [FieldOffset(76)]
-        [XdbName("QuantumScale")]
-        public bool quantumScale;
+        [FieldOffset(76)][XdbName("QuantumScale")] public bool quantumScale;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Y
         {
-            [FieldOffset(4)]
-            [XdbName("Sizing")]
-            [EnumRef(typeof(Enums.WidgetSizing))]
-            public int sizing;
-
+            [FieldOffset(4)][XdbName("Sizing")][EnumRef(typeof(Enums.WidgetSizing))] public int sizing;
             [FieldOffset(8)][XdbName("Size")] public float size;
             [FieldOffset(12)][XdbName("Pos")] public float pos;
             [FieldOffset(16)][XdbName("HighPos")] public float highPos;
-
-            [FieldOffset(20)]
-            [XdbName("Align")]
-            [EnumRef(typeof(Enums.WidgetAlign))]
-            public int align;
+            [FieldOffset(20)][XdbName("Align")][EnumRef(typeof(Enums.WidgetAlign))] public int align;
         }
     }
 
@@ -175,14 +104,7 @@ public partial class WidgetEditLine
         [FieldOffset(7)] public bool multiline;
         [FieldOffset(8)] public float lineSpacing;
         [FieldOffset(12)] public bool ellipsis;
-
-        [FieldOffset(16)]
-        [EnumRef(typeof(Enums.BlendEffectType))]
-        public int blendEffect;
-
-        [FieldOffset(20)]
-        [XdbName("Align")]
-        [EnumRef(typeof(Enums.AlignY))]
-        public int align;
+        [FieldOffset(16)][EnumRef(typeof(Enums.BlendEffectType))] public int blendEffect;
+        [FieldOffset(20)][XdbName("Align")][EnumRef(typeof(Enums.AlignY))] public int align;
     }
 }

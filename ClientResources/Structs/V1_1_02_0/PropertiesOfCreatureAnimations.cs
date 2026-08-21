@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,12 +30,7 @@ public partial class PropertiesOfCreatureAnimations
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Fallback
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] fallbackAnimations;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] fallbackAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
     }
 }

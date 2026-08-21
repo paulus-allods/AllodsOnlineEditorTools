@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,11 +31,7 @@ public partial class Geometry
     [FieldOffset(63)] public bool useColors;
     [FieldOffset(64)] public int startFrame;
     [FieldOffset(68)] public int sourceFileCRC;
-
-    [FieldOffset(72)]
-    [EnumRef(typeof(Enums.SortMode))]
-    public int sortMode;
-
+    [FieldOffset(72)][EnumRef(typeof(Enums.SortMode))] public int sortMode;
     [FieldOffset(76)] public Blob skeleton;
     [FieldOffset(88)] public SceneNode[] sceneNodes;
     [FieldOffset(104)] public float scaleDistanceStart;
@@ -46,11 +41,7 @@ public partial class Geometry
     [FieldOffset(120)] public bool portalModel;
     [FieldOffset(124)] public PortalFragment[] portalFragments;
     [FieldOffset(140)] public Part[] parts;
-
-    [FieldOffset(156)]
-    [EnumRef(typeof(Enums.OrientationMode))]
-    public int orientationMode;
-
+    [FieldOffset(156)][EnumRef(typeof(Enums.OrientationMode))] public int orientationMode;
     [FieldOffset(160)] public bool optimizeMesh;
     [FieldOffset(164)] public OccluderInfo[] occluderInfos;
     [FieldOffset(180)] public ModelElement[] modelElements;
@@ -77,10 +68,7 @@ public partial class Geometry
     [FieldOffset(360)] public AreaFragment[] areaFragments;
     [FieldOffset(376)] public bool absoluteDistanceFade;
     [FieldOffset(380)] public AABB aabb;
-
-    [FieldOffset(404)]
-    [XdbName("SkeletalAnimation")]
-    public ResourcePointer skeletalAnimation;
+    [FieldOffset(404)][XdbName("SkeletalAnimation")] public ResourcePointer skeletalAnimation;
 
     [StructSize(92)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -99,10 +87,7 @@ public partial class Geometry
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Weights
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.VertexElementType))]
-            public int type;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.VertexElementType))] public int type;
             [FieldOffset(8)] public int offset;
         }
     }
@@ -188,11 +173,7 @@ public partial class Geometry
             [FieldOffset(33)] public bool scrollAlpha;
             [FieldOffset(36)][XdbName("params")] public NullablePointer @params;
             [FieldOffset(40)] public ResourcePointer diffuseTexture;
-
-            [FieldOffset(48)]
-            [XdbName("BlendEffect")]
-            [EnumRef(typeof(Enums.BlendEffect))]
-            public int blendEffect;
+            [FieldOffset(48)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffect))] public int blendEffect;
         }
 
         [StructSize(20)]

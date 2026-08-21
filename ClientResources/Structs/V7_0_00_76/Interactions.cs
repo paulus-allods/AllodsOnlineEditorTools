@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,18 +21,11 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class Interactions
 {
-    [FieldOffset(20)]
-    [EnumRef(typeof(Enums.ItemSlotType))]
-    public int[] accessorFor;
-
+    [FieldOffset(20)][EnumRef(typeof(Enums.ItemSlotType))] public int[] accessorFor;
     [FieldOffset(36)] public ResourcePointer auction;
     [FieldOffset(44)] public ResourcePointer[] availableQuests;
     [FieldOffset(60)] public Cue[] cues;
-
-    [FieldOffset(76)]
-    [EnumRef(typeof(Enums.ExtendedType))]
-    public int[] extended;
-
+    [FieldOffset(76)][EnumRef(typeof(Enums.ExtendedType))] public int[] extended;
     [FieldOffset(92)] public NullablePointer teleportMaster;
     [FieldOffset(96)] public NullablePointer trainer;
     [FieldOffset(100)] public ResourcePointer vendorTable;

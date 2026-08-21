@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -22,4 +21,3 @@ public partial class RelationshipAttachVisAction
     [FieldOffset(40)] public NullablePointer friendVisAction;
     [FieldOffset(44)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }
-

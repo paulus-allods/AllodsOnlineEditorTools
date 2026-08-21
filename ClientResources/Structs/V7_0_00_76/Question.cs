@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,8 +24,5 @@ public partial class Question
     [FieldOffset(24)][XdbName("params")] public NullablePointer @params;
     [FieldOffset(28)] public NullablePointer questionCustomData;
     [FieldOffset(32)] public NullablePointer result;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.ShowResultsType))]
-    public int showResults;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ShowResultsType))] public int showResults;
 }

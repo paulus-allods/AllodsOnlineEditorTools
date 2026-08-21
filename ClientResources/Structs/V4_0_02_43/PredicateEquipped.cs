@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,8 +25,5 @@ public partial class PredicateEquipped
     [FieldOffset(32)] public bool weaponRequired;
     [FieldOffset(33)] public bool secondary;
     [FieldOffset(36)] public ResourcePointer itemClass;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int dressType;
+    [FieldOffset(44)][EnumRef(typeof(Enums.DressSlot))] public int dressType;
 }

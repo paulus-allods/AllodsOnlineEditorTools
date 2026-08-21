@@ -7,8 +7,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 
 /// <summary>
 /// A public field of a serializable struct, reflected once and cached. Carries the format-neutral facts
-/// every pipeline stage needs: the xdb element name — which is also the identity used as the cross-version
-/// match key by <see cref="StructCaster"/> — the <see cref="EnumRefAttribute"/> enum type (if any), and the
+/// every pipeline stage needs: the xdb element name (which is also the identity used as the cross-version
+/// match key by <see cref="StructCaster"/>), the <see cref="EnumRefAttribute"/> enum type (if any), and the
 /// binary <see cref="FieldOffsetAttribute"/> offset (null on structs that are never read from binary, e.g.
 /// test fixtures).
 /// </summary>

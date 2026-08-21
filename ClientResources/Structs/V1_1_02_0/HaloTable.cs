@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,14 +27,8 @@ public partial class HaloTable
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Halo
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int zodiacSignSlot;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int slot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.SlotName))] public int zodiacSignSlot;
+        [FieldOffset(8)][EnumRef(typeof(Enums.SlotName))] public int slot;
         [FieldOffset(12)] public ResourcePointer race;
         [FieldOffset(20)] public Level[] levels;
 

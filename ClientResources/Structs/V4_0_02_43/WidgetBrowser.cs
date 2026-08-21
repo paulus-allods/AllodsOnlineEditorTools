@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -35,53 +34,18 @@ public partial class WidgetBrowser
     [FieldOffset(108)] public float fade;
     [FieldOffset(112)] public bool clipContent;
     [FieldOffset(116)] public BindSection[] bindSections;
-
-    [FieldOffset(132)]
-    [XdbName("Visible")]
-    public bool visible;
-
-    [FieldOffset(133)]
-    [XdbName("TransparentInput")]
-    public bool transparentInput;
-
-    [FieldOffset(136)]
-    [XdbName("TabOrder")]
-    public int tabOrder;
-
-    [FieldOffset(140)]
-    [XdbName("Priority")]
-    public int priority;
-
-    [FieldOffset(144)]
-    [XdbName("Placement")]
-    public Placement placement;
-
-    [FieldOffset(224)]
-    [XdbName("PickChildrenOnly")]
-    public bool pickChildrenOnly;
-
+    [FieldOffset(132)][XdbName("Visible")] public bool visible;
+    [FieldOffset(133)][XdbName("TransparentInput")] public bool transparentInput;
+    [FieldOffset(136)][XdbName("TabOrder")] public int tabOrder;
+    [FieldOffset(140)][XdbName("Priority")] public int priority;
+    [FieldOffset(144)][XdbName("Placement")] public Placement placement;
+    [FieldOffset(224)][XdbName("PickChildrenOnly")] public bool pickChildrenOnly;
     [FieldOffset(228)][XdbName("Name")] public string name;
-
-    [FieldOffset(240)]
-    [XdbName("IgnoreDblClick")]
-    public bool ignoreDblClick;
-
-    [FieldOffset(244)]
-    [XdbName("FrontLayer")]
-    public ResourcePointer frontLayer;
-
-    [FieldOffset(252)]
-    [XdbName("Enabled")]
-    public bool enabled;
-
-    [FieldOffset(256)]
-    [XdbName("Children")]
-    public ResourcePointer[] children;
-
-    [FieldOffset(272)]
-    [XdbName("BackLayer")]
-    public ResourcePointer backLayer;
-
+    [FieldOffset(240)][XdbName("IgnoreDblClick")] public bool ignoreDblClick;
+    [FieldOffset(244)][XdbName("FrontLayer")] public ResourcePointer frontLayer;
+    [FieldOffset(252)][XdbName("Enabled")] public bool enabled;
+    [FieldOffset(256)][XdbName("Children")] public ResourcePointer[] children;
+    [FieldOffset(272)][XdbName("BackLayer")] public ResourcePointer backLayer;
     [FieldOffset(284)] public int wheelScrollJsStep;
     [FieldOffset(288)] public TextFileRef wheelScrollJsCustomTemplate;
     [FieldOffset(304)] public bool stretchOnResize;
@@ -120,28 +84,17 @@ public partial class WidgetBrowser
         [FieldOffset(20)] public ResourcePointer sizingWidget;
         [FieldOffset(28)][XdbName("Y")] public Y y;
         [FieldOffset(52)][XdbName("X")] public Y x;
-
-        [FieldOffset(76)]
-        [XdbName("QuantumScale")]
-        public bool quantumScale;
+        [FieldOffset(76)][XdbName("QuantumScale")] public bool quantumScale;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Y
         {
-            [FieldOffset(4)]
-            [XdbName("Sizing")]
-            [EnumRef(typeof(Enums.WidgetSizing))]
-            public int sizing;
-
+            [FieldOffset(4)][XdbName("Sizing")][EnumRef(typeof(Enums.WidgetSizing))] public int sizing;
             [FieldOffset(8)][XdbName("Size")] public float size;
             [FieldOffset(12)][XdbName("Pos")] public float pos;
             [FieldOffset(16)][XdbName("HighPos")] public float highPos;
-
-            [FieldOffset(20)]
-            [XdbName("Align")]
-            [EnumRef(typeof(Enums.WidgetAlign))]
-            public int align;
+            [FieldOffset(20)][XdbName("Align")][EnumRef(typeof(Enums.WidgetAlign))] public int align;
         }
     }
 
@@ -150,9 +103,6 @@ public partial class WidgetBrowser
     public class PageUrlFilteringOptions
     {
         [FieldOffset(4)] public string[] urlFilters;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.UrlFilteringMode))]
-        public int urlFilteringMode;
+        [FieldOffset(20)][EnumRef(typeof(Enums.UrlFilteringMode))] public int urlFilteringMode;
     }
 }

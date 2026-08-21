@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,11 +24,7 @@ public partial class QuestCountItem
     [FieldOffset(20)] public ResourcePointer[] autoRelatedItems;
     [FieldOffset(36)] public TextFileRef customName;
     [FieldOffset(52)] public TextFileRef description;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int[] dressSlots;
-
+    [FieldOffset(68)][EnumRef(typeof(Enums.DressSlot))] public int[] dressSlots;
     [FieldOffset(84)] public int limit;
     [FieldOffset(88)] public Location[] locations;
     [FieldOffset(104)] public LootTable[] lootTables;

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,10 +35,7 @@ public partial class ModelMorphSettings
         public class Value
         {
             [FieldOffset(8)] public float value;
-
-            [FieldOffset(12)]
-            [EnumRef(typeof(Enums.ModelMorphControl))]
-            public int controlName;
+            [FieldOffset(12)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
         }
     }
 
@@ -49,11 +45,7 @@ public partial class ModelMorphSettings
     {
         [FieldOffset(4)] public float minVal;
         [FieldOffset(8)] public float maxVal;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.ModelMorphControl))]
-        public int controlName;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
         [FieldOffset(16)] public Bone[] bones;
 
         [StructSize(28)]

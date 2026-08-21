@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,27 +30,12 @@ public partial class ItemResource
     [FieldOffset(100)] public string sysName;
     [FieldOffset(112)] public int stackLimit;
     [FieldOffset(116)] public ResourcePointer spell;
-
-    [FieldOffset(124)]
-    [EnumRef(typeof(Enums.ItemSource))]
-    public int source;
-
-    [FieldOffset(128)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int slot;
-
+    [FieldOffset(124)][EnumRef(typeof(Enums.ItemSource))] public int source;
+    [FieldOffset(128)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     [FieldOffset(132)] public bool ritual;
-
-    [FieldOffset(136)]
-    [EnumRef(typeof(Enums.ReputationLevel))]
-    public int requiredReputation;
-
+    [FieldOffset(136)][EnumRef(typeof(Enums.ReputationLevel))] public int requiredReputation;
     [FieldOffset(140)] public int requiredLevel;
-
-    [FieldOffset(144)]
-    [EnumRef(typeof(Enums.HonorRank))]
-    public int requiredHonor;
-
+    [FieldOffset(144)][EnumRef(typeof(Enums.HonorRank))] public int requiredHonor;
     [FieldOffset(148)] public ResourcePointer[] relatedQuests;
     [FieldOffset(164)] public ResourcePointer[] relatedAdditionalQuests;
     [FieldOffset(180)] public ResourcePointer quality;
@@ -60,11 +44,7 @@ public partial class ItemResource
     [FieldOffset(196)] public TextFileRef name;
     [FieldOffset(216)] public long lifeLengthCap;
     [FieldOffset(224)] public int level;
-
-    [FieldOffset(228)]
-    [EnumRef(typeof(Enums.ItemMallType))]
-    public int itemMallType;
-
+    [FieldOffset(228)][EnumRef(typeof(Enums.ItemMallType))] public int itemMallType;
     [FieldOffset(232)] public ResourcePointer itemMallImage;
     [FieldOffset(240)] public TextFileRef itemMallDescription;
     [FieldOffset(256)] public ResourcePointer itemClass;
@@ -82,11 +62,7 @@ public partial class ItemResource
     [FieldOffset(364)] public ResourcePointer category;
     [FieldOffset(372)] public bool canDrop;
     [FieldOffset(373)] public bool canBeDeposited;
-
-    [FieldOffset(376)]
-    [EnumRef(typeof(Enums.Binding))]
-    public int binding;
-
+    [FieldOffset(376)][EnumRef(typeof(Enums.Binding))] public int binding;
     [FieldOffset(380)] public TextFileRef bindDescription;
 
     [StructSize(28)]
@@ -102,11 +78,7 @@ public partial class ItemResource
     public class DescVar
     {
         [FieldOffset(4)] public float value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(12)] public string name;
     }
 }

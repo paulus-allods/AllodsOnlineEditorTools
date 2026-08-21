@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -24,4 +23,3 @@ public partial class Question
     [FieldOffset(32)] public NullablePointer result;
     [FieldOffset(36)][EnumRef(typeof(Enums.ShowResultsType))] public int showResults;
 }
-

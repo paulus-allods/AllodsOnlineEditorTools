@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,67 +30,23 @@ public partial class WidgetButton
     [FieldOffset(80)] public float fade;
     [FieldOffset(84)] public bool clipContent;
     [FieldOffset(88)] public BindSection[] bindSections;
-
-    [FieldOffset(104)]
-    [XdbName("Visible")]
-    public bool visible;
-
-    [FieldOffset(105)]
-    [XdbName("TransparentInput")]
-    public bool transparentInput;
-
-    [FieldOffset(108)]
-    [XdbName("TabOrder")]
-    public int tabOrder;
-
-    [FieldOffset(112)]
-    [XdbName("Priority")]
-    public int priority;
-
-    [FieldOffset(116)]
-    [XdbName("Placement")]
-    public Placement placement;
-
-    [FieldOffset(196)]
-    [XdbName("PickChildrenOnly")]
-    public bool pickChildrenOnly;
-
+    [FieldOffset(104)][XdbName("Visible")] public bool visible;
+    [FieldOffset(105)][XdbName("TransparentInput")] public bool transparentInput;
+    [FieldOffset(108)][XdbName("TabOrder")] public int tabOrder;
+    [FieldOffset(112)][XdbName("Priority")] public int priority;
+    [FieldOffset(116)][XdbName("Placement")] public Placement placement;
+    [FieldOffset(196)][XdbName("PickChildrenOnly")] public bool pickChildrenOnly;
     [FieldOffset(200)][XdbName("Name")] public string name;
-
-    [FieldOffset(212)]
-    [XdbName("IgnoreDblClick")]
-    public bool ignoreDblClick;
-
-    [FieldOffset(216)]
-    [XdbName("FrontLayer")]
-    public ResourcePointer frontLayer;
-
-    [FieldOffset(224)]
-    [XdbName("Enabled")]
-    public bool enabled;
-
-    [FieldOffset(228)]
-    [XdbName("Children")]
-    public ResourcePointer[] children;
-
-    [FieldOffset(244)]
-    [XdbName("BackLayer")]
-    public ResourcePointer backLayer;
-
+    [FieldOffset(212)][XdbName("IgnoreDblClick")] public bool ignoreDblClick;
+    [FieldOffset(216)][XdbName("FrontLayer")] public ResourcePointer frontLayer;
+    [FieldOffset(224)][XdbName("Enabled")] public bool enabled;
+    [FieldOffset(228)][XdbName("Children")] public ResourcePointer[] children;
+    [FieldOffset(244)][XdbName("BackLayer")] public ResourcePointer backLayer;
     [FieldOffset(256)] public bool useDefaultSounds;
     [FieldOffset(260)] public BindSection[] pushingBindSections;
-
-    [FieldOffset(276)]
-    [XdbName("Variants")]
-    public Variant[] variants;
-
-    [FieldOffset(292)]
-    [XdbName("TextTag")]
-    public WString textTag;
-
-    [FieldOffset(304)]
-    [XdbName("TextStyle")]
-    public TextStyle textStyle;
+    [FieldOffset(276)][XdbName("Variants")] public Variant[] variants;
+    [FieldOffset(292)][XdbName("TextTag")] public WString textTag;
+    [FieldOffset(304)][XdbName("TextStyle")] public TextStyle textStyle;
 
     [StructSize(32)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -109,28 +64,17 @@ public partial class WidgetButton
         [FieldOffset(20)] public ResourcePointer sizingWidget;
         [FieldOffset(28)][XdbName("Y")] public Y y;
         [FieldOffset(52)][XdbName("X")] public Y x;
-
-        [FieldOffset(76)]
-        [XdbName("QuantumScale")]
-        public bool quantumScale;
+        [FieldOffset(76)][XdbName("QuantumScale")] public bool quantumScale;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Y
         {
-            [FieldOffset(4)]
-            [XdbName("Sizing")]
-            [EnumRef(typeof(Enums.WidgetSizing))]
-            public int sizing;
-
+            [FieldOffset(4)][XdbName("Sizing")][EnumRef(typeof(Enums.WidgetSizing))] public int sizing;
             [FieldOffset(8)][XdbName("Size")] public float size;
             [FieldOffset(12)][XdbName("Pos")] public float pos;
             [FieldOffset(16)][XdbName("HighPos")] public float highPos;
-
-            [FieldOffset(20)]
-            [XdbName("Align")]
-            [EnumRef(typeof(Enums.WidgetAlign))]
-            public int align;
+            [FieldOffset(20)][XdbName("Align")][EnumRef(typeof(Enums.WidgetAlign))] public int align;
         }
     }
 
@@ -141,66 +85,25 @@ public partial class WidgetButton
         [FieldOffset(4)] public ResourcePointer soundPress;
         [FieldOffset(12)] public ResourcePointer soundOver;
         [FieldOffset(20)] public string reactionDblClick;
-
-        [FieldOffset(32)]
-        [XdbName("TextFileRef")]
-        public TextFileRef textFileRef;
-
-        [FieldOffset(48)]
-        [XdbName("StatePushedHighlighted")]
-        public StatePushedHighlighted statePushedHighlighted;
-
-        [FieldOffset(76)]
-        [XdbName("StatePushed")]
-        public StatePushedHighlighted statePushed;
-
-        [FieldOffset(104)]
-        [XdbName("StateNormal")]
-        public StatePushedHighlighted stateNormal;
-
-        [FieldOffset(132)]
-        [XdbName("StateHighlighted")]
-        public StatePushedHighlighted stateHighlighted;
-
-        [FieldOffset(160)]
-        [XdbName("StateDisabled")]
-        public StatePushedHighlighted stateDisabled;
-
-        [FieldOffset(188)]
-        [XdbName("ReactionRightClick")]
-        public string reactionRightClick;
-
-        [FieldOffset(200)]
-        [XdbName("ReactionOnUp")]
-        public bool reactionOnUp;
-
-        [FieldOffset(204)]
-        [XdbName("ReactionOnPointing")]
-        public string reactionOnPointing;
-
-        [FieldOffset(216)]
-        [XdbName("Reaction")]
-        public string reaction;
-
-        [FieldOffset(228)]
-        [XdbName("PushedOffset")]
-        public Vector2 pushedOffset;
-
-        [FieldOffset(236)]
-        [XdbName("LayerHighlight")]
-        public ResourcePointer layerHighlight;
+        [FieldOffset(32)][XdbName("TextFileRef")] public TextFileRef textFileRef;
+        [FieldOffset(48)][XdbName("StatePushedHighlighted")] public StatePushedHighlighted statePushedHighlighted;
+        [FieldOffset(76)][XdbName("StatePushed")] public StatePushedHighlighted statePushed;
+        [FieldOffset(104)][XdbName("StateNormal")] public StatePushedHighlighted stateNormal;
+        [FieldOffset(132)][XdbName("StateHighlighted")] public StatePushedHighlighted stateHighlighted;
+        [FieldOffset(160)][XdbName("StateDisabled")] public StatePushedHighlighted stateDisabled;
+        [FieldOffset(188)][XdbName("ReactionRightClick")] public string reactionRightClick;
+        [FieldOffset(200)][XdbName("ReactionOnUp")] public bool reactionOnUp;
+        [FieldOffset(204)][XdbName("ReactionOnPointing")] public string reactionOnPointing;
+        [FieldOffset(216)][XdbName("Reaction")] public string reaction;
+        [FieldOffset(228)][XdbName("PushedOffset")] public Vector2 pushedOffset;
+        [FieldOffset(236)][XdbName("LayerHighlight")] public ResourcePointer layerHighlight;
 
         [StructSize(28)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class StatePushedHighlighted
         {
-            [FieldOffset(4)]
-            [XdbName("LayerMain")]
-            public ResourcePointer layerMain;
-
-            [FieldOffset(12)]
-            [XdbName("FormatFileRef")]
-            public TextFileRef formatFileRef;
+            [FieldOffset(4)][XdbName("LayerMain")] public ResourcePointer layerMain;
+            [FieldOffset(12)][XdbName("FormatFileRef")] public TextFileRef formatFileRef;
         }
     }
 
@@ -214,10 +117,6 @@ public partial class WidgetButton
         [FieldOffset(7)] public bool multiline;
         [FieldOffset(8)] public float lineSpacing;
         [FieldOffset(12)] public bool ellipsis;
-
-        [FieldOffset(16)]
-        [XdbName("Align")]
-        [EnumRef(typeof(Enums.AlignY))]
-        public int align;
+        [FieldOffset(16)][XdbName("Align")][EnumRef(typeof(Enums.AlignY))] public int align;
     }
 }

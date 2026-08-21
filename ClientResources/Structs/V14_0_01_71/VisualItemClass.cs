@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -59,4 +58,3 @@ public partial class VisualItemClass
         [FieldOffset(12)][EnumRef(typeof(Enums.Animations))] public int throwAnimation;
     }
 }
-

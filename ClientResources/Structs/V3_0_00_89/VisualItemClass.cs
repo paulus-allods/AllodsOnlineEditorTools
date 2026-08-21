@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,33 +30,19 @@ public partial class VisualItemClass
     [FieldOffset(96)] public ResourcePointer replacement;
     [FieldOffset(104)] public TextFileRef name;
     [FieldOffset(120)] public Sound missSound;
-
-    [FieldOffset(144)]
-    [EnumRef(typeof(Enums.HoldHand))]
-    public int holdHand;
-
+    [FieldOffset(144)][EnumRef(typeof(Enums.HoldHand))] public int holdHand;
     [FieldOffset(148)] public ResourcePointer holdController;
-
-    [FieldOffset(156)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int holdAnimation;
-
+    [FieldOffset(156)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int holdAnimation;
     [FieldOffset(160)] public HitSound[] hitSounds;
     [FieldOffset(176)] public bool hideIfStored;
     [FieldOffset(180)] public BlockSound[] blockSounds;
-
-    [FieldOffset(196)]
-    [EnumRef(typeof(Enums.ItemAnimationsType))]
-    public int animationsType;
+    [FieldOffset(196)][EnumRef(typeof(Enums.ItemAnimationsType))] public int animationsType;
 
     [StructSize(16)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Throwing
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int throwAnimation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int throwAnimation;
         [FieldOffset(8)] public ResourcePointer projectile;
     }
 
@@ -66,10 +51,7 @@ public partial class VisualItemClass
     public class HitSound
     {
         [FieldOffset(4)] public Sound hitSound;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.SFXMaterial))]
-        public int hitMaterial;
+        [FieldOffset(28)][EnumRef(typeof(Enums.SFXMaterial))] public int hitMaterial;
     }
 
     [StructSize(32)]
@@ -77,9 +59,6 @@ public partial class VisualItemClass
     public class BlockSound
     {
         [FieldOffset(4)] public Sound shieldSound;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.SFXMaterial))]
-        public int shieldMaterial;
+        [FieldOffset(28)][EnumRef(typeof(Enums.SFXMaterial))] public int shieldMaterial;
     }
 }

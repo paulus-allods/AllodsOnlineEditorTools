@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,44 +21,16 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class AstralShadingParams
 {
-    [FieldOffset(24)]
-    [XdbName("AmbientColor")]
-    public int ambientColor;
-
-    [FieldOffset(28)]
-    [XdbName("ContourColor")]
-    public int contourColor;
-
-    [FieldOffset(32)]
-    [XdbName("DiffuseColor")]
-    public int diffuseColor;
-
-    [FieldOffset(36)]
-    [XdbName("ForceFieldGradientColor")]
-    public int forceFieldGradientColor;
-
-    [FieldOffset(40)]
-    [XdbName("ForceFieldInnerColor")]
-    public int forceFieldInnerColor;
-
-    [FieldOffset(44)]
-    [XdbName("ForceFieldOuterColor")]
-    public int forceFieldOuterColor;
-
-    [FieldOffset(48)]
-    [XdbName("HaloColor")]
-    public int haloColor;
-
+    [FieldOffset(24)][XdbName("AmbientColor")] public int ambientColor;
+    [FieldOffset(28)][XdbName("ContourColor")] public int contourColor;
+    [FieldOffset(32)][XdbName("DiffuseColor")] public int diffuseColor;
+    [FieldOffset(36)][XdbName("ForceFieldGradientColor")] public int forceFieldGradientColor;
+    [FieldOffset(40)][XdbName("ForceFieldInnerColor")] public int forceFieldInnerColor;
+    [FieldOffset(44)][XdbName("ForceFieldOuterColor")] public int forceFieldOuterColor;
+    [FieldOffset(48)][XdbName("HaloColor")] public int haloColor;
     [FieldOffset(52)][XdbName("HaloEnd")] public float haloEnd;
-
-    [FieldOffset(56)]
-    [XdbName("HaloIntensity")]
-    public float haloIntensity;
-
-    [FieldOffset(60)]
-    [XdbName("HaloStart")]
-    public float haloStart;
-
+    [FieldOffset(56)][XdbName("HaloIntensity")] public float haloIntensity;
+    [FieldOffset(60)][XdbName("HaloStart")] public float haloStart;
     [FieldOffset(64)] public float astralDropLifeTime;
     [FieldOffset(68)] public float astralDropSize;
     [FieldOffset(72)] public float astralDropSpeed;
@@ -87,10 +58,7 @@ public partial class AstralShadingParams
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class RandomNode
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.NodeOrientationType))]
-        public int orientation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.NodeOrientationType))] public int orientation;
         [FieldOffset(8)] public float probability;
         [FieldOffset(12)] public ResourcePointer visObj;
     }

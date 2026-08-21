@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,22 +21,10 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class ClientPetInfo
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int blinkAnim;
-
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int danceAnim;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] idleAnim;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int runAnim;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int blinkAnim;
+    [FieldOffset(28)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int danceAnim;
+    [FieldOffset(32)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] idleAnim;
+    [FieldOffset(48)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int runAnim;
     [FieldOffset(52)] public ResourcePointer teleportFx;
     [FieldOffset(60)] public float teleportFxScale;
     [FieldOffset(64)] public float teleportFxShift;

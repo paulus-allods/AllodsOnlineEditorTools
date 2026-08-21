@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,35 +31,19 @@ public partial class ItemResource
     [FieldOffset(108)] public string sysName;
     [FieldOffset(120)] public int stackLimit;
     [FieldOffset(124)] public ResourcePointer spell;
-
-    [FieldOffset(132)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int slot;
-
+    [FieldOffset(132)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     [FieldOffset(136)] public int sellPrice;
     [FieldOffset(140)] public ResourcePointer runeSlot;
-
-    [FieldOffset(148)]
-    [EnumRef(typeof(Enums.ReputationLevel))]
-    public int requiredReputation;
-
+    [FieldOffset(148)][EnumRef(typeof(Enums.ReputationLevel))] public int requiredReputation;
     [FieldOffset(152)] public int requiredLevel;
-
-    [FieldOffset(156)]
-    [EnumRef(typeof(Enums.HonorRank))]
-    public int requiredHonor;
-
+    [FieldOffset(156)][EnumRef(typeof(Enums.HonorRank))] public int requiredHonor;
     [FieldOffset(160)] public ResourcePointer quality;
     [FieldOffset(168)] public NullablePointer price;
     [FieldOffset(172)] public int ownershipLimit;
     [FieldOffset(176)] public TextFileRef name;
     [FieldOffset(192)] public long lifeLengthCap;
     [FieldOffset(200)] public int level;
-
-    [FieldOffset(204)]
-    [EnumRef(typeof(Enums.ItemMallType))]
-    public int itemMallType;
-
+    [FieldOffset(204)][EnumRef(typeof(Enums.ItemMallType))] public int itemMallType;
     [FieldOffset(208)] public ResourcePointer itemMallImage;
     [FieldOffset(216)] public TextFileRef itemMallDescription;
     [FieldOffset(232)] public ResourcePointer itemClass;
@@ -76,10 +59,6 @@ public partial class ItemResource
     [FieldOffset(308)] public bool canDrop;
     [FieldOffset(309)] public bool canBeDeposited;
     [FieldOffset(312)] public int buyPrice;
-
-    [FieldOffset(316)]
-    [EnumRef(typeof(Enums.Binding))]
-    public int binding;
-
+    [FieldOffset(316)][EnumRef(typeof(Enums.Binding))] public int binding;
     [FieldOffset(320)] public TextFileRef bindDescription;
 }

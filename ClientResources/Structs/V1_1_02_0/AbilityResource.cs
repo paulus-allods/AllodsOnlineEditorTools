@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -38,11 +37,7 @@ public partial class AbilityResource
     public class DescVar
     {
         [FieldOffset(4)] public float value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(12)] public string name;
     }
 }

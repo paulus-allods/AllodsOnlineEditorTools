@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -22,4 +21,3 @@ public partial class AliasVisObjectTemplate
     [FieldOffset(44)] public ResourcePointer resource;
     [FieldOffset(52)][EnumRef(typeof(Enums.AliasSearchPlace))] public int[] searchPlaces;
 }
-

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -34,10 +33,7 @@ public partial class NameRules
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AvatarNameRules
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.NameTransformation))]
-        public int transformation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.NameTransformation))] public int transformation;
         [FieldOffset(8)] public int minLength;
         [FieldOffset(12)] public int maxLength;
         [FieldOffset(16)] public WString matchUser;

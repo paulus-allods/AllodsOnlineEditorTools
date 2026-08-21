@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,11 +27,7 @@ public partial class DungeonEventType
     [FieldOffset(40)] public DescVar[] descVars;
     [FieldOffset(56)] public TextFileRef description;
     [FieldOffset(72)] public TextFileRef difficulty;
-
-    [FieldOffset(88)]
-    [EnumRef(typeof(Enums.LFGEventDifficulty))]
-    public int difficultyMode;
-
+    [FieldOffset(88)][EnumRef(typeof(Enums.LFGEventDifficulty))] public int difficultyMode;
     [FieldOffset(92)] public float immediatelyStartFactor;
     [FieldOffset(96)] public InviteTimeout inviteTimeout;
     [FieldOffset(120)] public NullablePointer[] joinConditions;
@@ -45,19 +40,11 @@ public partial class DungeonEventType
     [FieldOffset(268)] public NullablePointer[] showPredicates;
     [FieldOffset(284)] public ResourcePointer startTime;
     [FieldOffset(292)] public ResourcePointer ticket;
-
-    [FieldOffset(300)]
-    [EnumRef(typeof(Enums.UnionType))]
-    public int unionType;
-
+    [FieldOffset(300)][EnumRef(typeof(Enums.UnionType))] public int unionType;
     [FieldOffset(304)] public bool canDenyParticipation;
     [FieldOffset(305)] public bool commonShard;
     [FieldOffset(306)] public bool exclusive;
-
-    [FieldOffset(307)]
-    [XdbName("internal")]
-    public bool @internal;
-
+    [FieldOffset(307)][XdbName("internal")] public bool @internal;
     [FieldOffset(308)] public bool isHighPriority;
     [FieldOffset(309)] public bool leaderOnly;
     [FieldOffset(316)] public int maxServerProgress;

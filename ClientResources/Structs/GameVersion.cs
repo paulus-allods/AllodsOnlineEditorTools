@@ -10,24 +10,20 @@ public class GameVersion
     public static readonly string StructsNamespace = typeof(GameVersion).Namespace!;
 
     public string Name { get; private init; } = string.Empty;
-    private string Hash { get; init; } = string.Empty;
-    public bool NeedPacks => FileRefKind == FileRefKind.PakFileRef;
-
     /// <summary>The version-specific namespace segment (e.g. <c>V1_1_02_0</c>), or empty if no structs are
     /// generated for this version yet.</summary>
     public string Namespace { get; private init; } = string.Empty;
-
-    /// <summary>The fully-qualified struct namespace for this version, or empty if none are generated yet.</summary>
-    public string FullNamespace => Namespace.Length == 0 ? string.Empty : $"{StructsNamespace}.{Namespace}";
-
     /// <summary>
     /// The on-disk pack layout to use when repacking this version. The reader does not consult it: it
     /// detects the format from the payload instead. Defaults to <see cref="DatabaseFormat.V1"/>.
     /// </summary>
     public DatabaseFormat DatabaseFormat { get; init; } = DatabaseFormat.V1;
-
     public FileRefKind FileRefKind { get; init; } = FileRefKind.None;
+    private string Hash { get; init; } = string.Empty;
 
+    public bool NeedPacks => FileRefKind == FileRefKind.PakFileRef;
+    /// <summary>The fully-qualified struct namespace for this version, or empty if none are generated yet.</summary>
+    public string FullNamespace => Namespace.Length == 0 ? string.Empty : $"{StructsNamespace}.{Namespace}";
     public override string ToString() => $"{Name} ({Hash})";
 
     /// <summary>Looks a version up by its raw header bytes.</summary>

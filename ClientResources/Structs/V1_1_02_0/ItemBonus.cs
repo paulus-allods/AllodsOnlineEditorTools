@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -30,11 +29,7 @@ public partial class ItemBonus
     [FieldOffset(56)] public int resistDivine;
     [FieldOffset(60)] public int minDamage;
     [FieldOffset(64)] public int maxDamage;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.SubElement))]
-    public int damageElement;
-
+    [FieldOffset(68)][EnumRef(typeof(Enums.SubElement))] public int damageElement;
     [FieldOffset(72)] public int armorBonus;
     [FieldOffset(76)] public int armor;
 
@@ -43,9 +38,6 @@ public partial class ItemBonus
     public class StatBonuse
     {
         [FieldOffset(4)] public int value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.InnateStats))]
-        public int stat;
+        [FieldOffset(8)][EnumRef(typeof(Enums.InnateStats))] public int stat;
     }
 }

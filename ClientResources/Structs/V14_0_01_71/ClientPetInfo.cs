@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -27,4 +26,3 @@ public partial class ClientPetInfo
     [FieldOffset(68)] public ResourcePointer visObj;
     [FieldOffset(76)][EnumRef(typeof(Enums.Animations))] public int walkAnim;
 }
-

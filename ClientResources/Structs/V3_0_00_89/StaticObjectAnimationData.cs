@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class StaticObjectAnimationData
 {
     [FieldOffset(24)] public ResourcePointer staticObject;
     [FieldOffset(32)] public bool loopedAnimation;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animation;
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
 }

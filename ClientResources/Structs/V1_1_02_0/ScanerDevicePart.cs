@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -57,10 +56,7 @@ public partial class ScanerDevicePart
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class PoiObject
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.POIType))]
-        public int type;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.POIType))] public int type;
         [FieldOffset(8)] public ResourcePointer obj;
         [FieldOffset(16)] public ResourcePointer collision;
     }

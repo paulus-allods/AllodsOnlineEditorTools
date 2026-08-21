@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,18 +23,10 @@ public partial class RuleResource
 {
     [FieldOffset(24)] public NullablePointer[] parts;
     [FieldOffset(44)] public ResourcePointer zone;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.RuleType))]
-    public int[] types;
-
+    [FieldOffset(52)][EnumRef(typeof(Enums.RuleType))] public int[] types;
     [FieldOffset(68)] public ResourcePointer timeTable;
     [FieldOffset(76)] public string sysName;
-
-    [FieldOffset(88)]
-    [EnumRef(typeof(Enums.RuleKind))]
-    public int ruleKind;
-
+    [FieldOffset(88)][EnumRef(typeof(Enums.RuleKind))] public int ruleKind;
     [FieldOffset(92)] public Reward reward;
     [FieldOffset(192)] public int rating;
     [FieldOffset(196)] public ResourcePointer notification;

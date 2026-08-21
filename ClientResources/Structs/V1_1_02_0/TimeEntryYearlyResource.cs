@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class TimeEntryYearlyResource
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.Month))]
-    public int month;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.Month))] public int month;
     [FieldOffset(28)] public int minute;
     [FieldOffset(32)] public int hour;
     [FieldOffset(36)] public int day;

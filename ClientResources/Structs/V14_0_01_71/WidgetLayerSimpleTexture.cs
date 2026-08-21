@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -27,4 +26,3 @@ public partial class WidgetLayerSimpleTexture
     [FieldOffset(48)] public ResourcePointer textureMask;
     [FieldOffset(56)][XdbName("Scaling")] public bool scaling;
 }
-

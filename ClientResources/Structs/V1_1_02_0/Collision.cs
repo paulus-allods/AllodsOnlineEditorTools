@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class Collision
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.CollisionVolume))]
-    public int volume;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.CollisionVolume))] public int volume;
     [FieldOffset(28)] public int sourceFileCRC;
     [FieldOffset(32)] public ResourcePointer collisionMesh;
     [FieldOffset(40)] public AABB aabb;

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,16 +23,7 @@ public partial class CreatureTimeIntervalEndAnimationAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(40)] public string specialController;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-    public int channel;
-
-    [FieldOffset(60)]
-    [EnumRef(typeof(Enums.AnimationFlag))]
-    public int mode;
-
-    [FieldOffset(64)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] animations;
+    [FieldOffset(52)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
+    [FieldOffset(60)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
+    [FieldOffset(64)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
 }

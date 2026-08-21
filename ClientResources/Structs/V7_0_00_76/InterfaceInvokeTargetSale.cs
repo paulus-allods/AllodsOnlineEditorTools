@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,10 +25,6 @@ public partial class InterfaceInvokeTargetSale
     [FieldOffset(32)] public int amount;
     [FieldOffset(40)] public long duration;
     [FieldOffset(48)] public ResourcePointer item;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.SaleTag))]
-    public int tag;
-
+    [FieldOffset(56)][EnumRef(typeof(Enums.SaleTag))] public int tag;
     [FieldOffset(60)] public TextFileRef text;
 }

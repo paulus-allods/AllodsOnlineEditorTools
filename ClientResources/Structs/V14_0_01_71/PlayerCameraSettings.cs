@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -46,4 +45,3 @@ public partial class PlayerCameraSettings
         [FieldOffset(16)] public float zoomSpeed;
     }
 }
-

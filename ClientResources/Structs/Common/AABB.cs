@@ -1,5 +1,4 @@
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;

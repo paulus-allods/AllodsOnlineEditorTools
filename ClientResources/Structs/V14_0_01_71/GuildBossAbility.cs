@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -24,4 +23,3 @@ public partial class GuildBossAbility
     [FieldOffset(40)][EnumRef(typeof(Enums.GuildBossAbilitySlot))] public int slot;
     [FieldOffset(52)] public ResourcePointer abilityResource;
 }
-

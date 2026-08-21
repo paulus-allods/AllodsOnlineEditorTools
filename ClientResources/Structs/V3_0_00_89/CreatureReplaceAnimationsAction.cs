@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,34 +25,22 @@ public partial class CreatureReplaceAnimationsAction
     [FieldOffset(36)] public ResourcePointer priority;
     [FieldOffset(44)] public OnTop onTop;
     [FieldOffset(84)] public OnTop onBottom;
-
-    [FieldOffset(124)]
-    [EnumRef(typeof(Enums.ETroopMember))]
-    public int member;
+    [FieldOffset(124)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 
     [StructSize(40)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class OnTop
     {
         [FieldOffset(4)] public bool skipAnimationIfNoReplacement;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] notReplacedanimations;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] notReplacedanimations;
         [FieldOffset(24)] public AnimationsReplacement[] animationsReplacements;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class AnimationsReplacement
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int play;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] forAnimations;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int play;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] forAnimations;
         }
     }
 }

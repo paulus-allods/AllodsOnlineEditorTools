@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,11 +27,7 @@ public partial class InstancedEventResource
     [FieldOffset(40)] public ResourcePointer startAnnounce;
     [FieldOffset(48)] public TextFileRef name;
     [FieldOffset(64)] public int minAvatarLevel;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.MatchMakingMechanicsType))]
-    public int mechanicsType;
-
+    [FieldOffset(68)][EnumRef(typeof(Enums.MatchMakingMechanicsType))] public int mechanicsType;
     [FieldOffset(72)] public int maxVisitsPerDay;
     [FieldOffset(76)] public ResourcePointer map;
     [FieldOffset(84)] public NullablePointer eventType;

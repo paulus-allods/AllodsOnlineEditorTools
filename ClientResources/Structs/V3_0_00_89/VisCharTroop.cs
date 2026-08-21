@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -34,18 +33,11 @@ public partial class VisCharTroop
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Member
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int[] slots;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
         [FieldOffset(20)] public Vector2 positionRanged;
         [FieldOffset(28)] public Vector2 positionMelee;
         [FieldOffset(36)] public Vector2 positionIdle;
-
-        [FieldOffset(44)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int name;
-
+        [FieldOffset(44)][EnumRef(typeof(Enums.ETroopMember))] public int name;
         [FieldOffset(48)] public string mountSlotName;
         [FieldOffset(60)] public string archiAnimationSlotName;
     }
@@ -54,18 +46,9 @@ public partial class VisCharTroop
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ArchiAnimation
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] memberAnimations;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] memberAnimations;
         [FieldOffset(20)] public int maxDelayTime;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int groupAnimation;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
+        [FieldOffset(24)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int groupAnimation;
+        [FieldOffset(28)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
     }
 }

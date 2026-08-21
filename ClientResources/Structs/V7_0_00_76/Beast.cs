@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,8 +22,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class Beast
 {
     [FieldOffset(24)] public ResourcePointer mob;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.BeastType))]
-    public int type;
+    [FieldOffset(32)][EnumRef(typeof(Enums.BeastType))] public int type;
 }

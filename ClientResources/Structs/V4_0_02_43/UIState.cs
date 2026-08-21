@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -33,15 +32,8 @@ public partial class UIState
     [FieldOffset(112)] public ResourcePointer decalObjects;
     [FieldOffset(120)] public ResourcePointer aliasVisObjects;
     [FieldOffset(128)][XdbName("Name")] public string name;
-
-    [FieldOffset(140)]
-    [XdbName("MainForm")]
-    public ResourcePointer mainForm;
-
-    [FieldOffset(148)]
-    [XdbName("MainAddonName")]
-    public string mainAddonName;
-
+    [FieldOffset(140)][XdbName("MainForm")] public ResourcePointer mainForm;
+    [FieldOffset(148)][XdbName("MainAddonName")] public string mainAddonName;
     [FieldOffset(160)][XdbName("Addons")] public ResourcePointer[] addons;
 
     [StructSize(24)]

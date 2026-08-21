@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -33,4 +32,3 @@ public partial class UITexture
     [FieldOffset(99)] public bool generateMipChain;
     [FieldOffset(100)] public bool wrap;
 }
-

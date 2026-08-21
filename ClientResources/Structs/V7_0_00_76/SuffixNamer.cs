@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class SuffixNamer
 {
     [FieldOffset(24)] public Item[] items;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.NamePart))]
-    public int[] name;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.NamePart))] public int[] name;
     [FieldOffset(56)] public Prefixe[] prefixes;
 
     [StructSize(28)]

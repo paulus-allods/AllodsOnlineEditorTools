@@ -28,7 +28,9 @@ internal sealed class BinExportCommand : Command<BinExportCommand.BinExportComma
         [DefaultValue("Unpack")]
         public string OutputDirectory { get; set; } = string.Empty;
 
-        [CommandOption("-f|--format <fmt>")][Description("Output file format")] public OutFormat Format { get; set; }
+        [CommandOption("-f|--format <fmt>")]
+        [Description("Output file format")]
+        public OutFormat Format { get; set; }
 
         public enum OutFormat
         {

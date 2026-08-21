@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,11 +23,7 @@ public partial class CreatureChargedSpellAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public ResourcePointer effectFx;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.FxLocators))]
-    public int effectLocator;
-
+    [FieldOffset(44)][EnumRef(typeof(Enums.FxLocators))] public int effectLocator;
     [FieldOffset(48)] public int fadeInTime;
     [FieldOffset(52)] public int fadeOutTime;
 }

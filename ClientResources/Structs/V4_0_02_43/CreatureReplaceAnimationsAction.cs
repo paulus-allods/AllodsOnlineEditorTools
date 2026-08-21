@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,48 +22,28 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class CreatureReplaceAnimationsAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int[] slots;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
     [FieldOffset(52)] public bool restartOnVisualChange;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.EReplacementCase))]
-    public int replaceWhen;
-
+    [FieldOffset(56)][EnumRef(typeof(Enums.EReplacementCase))] public int replaceWhen;
     [FieldOffset(60)] public ResourcePointer priority;
     [FieldOffset(68)] public OnTop onTop;
     [FieldOffset(108)] public OnTop onBottom;
-
-    [FieldOffset(148)]
-    [EnumRef(typeof(Enums.ETroopMember))]
-    public int member;
+    [FieldOffset(148)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 
     [StructSize(40)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class OnTop
     {
         [FieldOffset(4)] public bool skipAnimationIfNoReplacement;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] notReplacedanimations;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] notReplacedanimations;
         [FieldOffset(24)] public AnimationsReplacement[] animationsReplacements;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class AnimationsReplacement
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int play;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] forAnimations;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int play;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] forAnimations;
         }
     }
 }

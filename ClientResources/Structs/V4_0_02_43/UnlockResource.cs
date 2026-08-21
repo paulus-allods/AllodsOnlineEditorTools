@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,8 +26,5 @@ public partial class UnlockResource
     [FieldOffset(44)] public ResourcePointer image;
     [FieldOffset(52)] public TextFileRef description;
     [FieldOffset(68)] public ResourcePointer category;
-
-    [FieldOffset(76)]
-    [EnumRef(typeof(Enums.BindingScope))]
-    public int binding;
+    [FieldOffset(76)][EnumRef(typeof(Enums.BindingScope))] public int binding;
 }

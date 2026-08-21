@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -47,4 +46,3 @@ public partial class UseOnItemAndReplace
         [FieldOffset(72)] public NullablePointer usedItemPredicate;
     }
 }
-

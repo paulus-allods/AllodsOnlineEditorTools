@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,10 +25,6 @@ public partial class ScanerDeviceAction
     [FieldOffset(40)] public TextFileRef name;
     [FieldOffset(56)] public ResourcePointer image;
     [FieldOffset(64)] public TextFileRef description;
-
-    [FieldOffset(84)]
-    [EnumRef(typeof(Enums.Operation))]
-    public int operation;
-
+    [FieldOffset(84)][EnumRef(typeof(Enums.Operation))] public int operation;
     [FieldOffset(88)] public float costMultiplier;
 }

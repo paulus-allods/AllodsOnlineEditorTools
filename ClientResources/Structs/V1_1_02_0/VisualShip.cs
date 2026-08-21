@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,31 +35,17 @@ public partial class VisualShip
     {
         [FieldOffset(4)] public float yawRange;
         [FieldOffset(8)] public float yaw;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.ShipSide))]
-        public int sideManual;
-
-        [FieldOffset(16)]
-        [EnumRef(typeof(Enums.ShipSide))]
-        public int side;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.ShipSide))] public int sideManual;
+        [FieldOffset(16)][EnumRef(typeof(Enums.ShipSide))] public int side;
         [FieldOffset(20)] public float scale;
         [FieldOffset(24)] public Quaternion rotation;
         [FieldOffset(40)] public ResourcePointer placeholderDeviceResource;
         [FieldOffset(48)] public float pitchRange;
-
-        [FieldOffset(52)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int name;
-
+        [FieldOffset(52)][EnumRef(typeof(Enums.SlotName))] public int name;
         [FieldOffset(56)] public bool isLootSlot;
         [FieldOffset(60)] public NullablePointer interfaceData;
         [FieldOffset(64)] public Vector3 coord;
         [FieldOffset(76)] public bool canBeEmpty;
-
-        [FieldOffset(80)]
-        [EnumRef(typeof(Enums.UsableDeviceType))]
-        public int[] allowedDeviceTypes;
+        [FieldOffset(80)][EnumRef(typeof(Enums.UsableDeviceType))] public int[] allowedDeviceTypes;
     }
 }

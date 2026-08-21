@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,11 +27,7 @@ public partial class Interactions
     [FieldOffset(36)] public NullablePointer recreationalArea;
     [FieldOffset(40)] public bool isMailBox;
     [FieldOffset(41)] public bool isBankAccessor;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.ExtendedType))]
-    public int[] extended;
-
+    [FieldOffset(44)][EnumRef(typeof(Enums.ExtendedType))] public int[] extended;
     [FieldOffset(60)] public Cue[] cues;
     [FieldOffset(76)] public ResourcePointer auction;
 

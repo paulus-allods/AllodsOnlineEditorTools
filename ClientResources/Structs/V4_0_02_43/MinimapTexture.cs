@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,11 +23,7 @@ public partial class MinimapTexture
 {
     [FieldOffset(24)] public bool wrap;
     [FieldOffset(28)] public int width;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.TextureElementType))]
-    public int type;
-
+    [FieldOffset(32)][EnumRef(typeof(Enums.TextureElementType))] public int type;
     [FieldOffset(36)] public int sourceFileCRC;
     [FieldOffset(40)] public int realWidth;
     [FieldOffset(44)] public int realHeight;

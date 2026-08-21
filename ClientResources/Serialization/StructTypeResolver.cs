@@ -10,7 +10,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Serialization;
 /// <summary>
 /// Resolves a struct's document identity back to its CLR type for one game version. Construction runs a
 /// single reflection scan of the version's namespace into two indexes so each format keeps its own key rule:
-/// by CLR <see cref="Type.Name"/> (Bin metadata + Jdb <c>$type</c>, non-nested — the flat name the
+/// by CLR <see cref="Type.Name"/> (Bin metadata + Jdb <c>$type</c>, non-nested: the flat name the
 /// binary/JSON carry) and by <see cref="XdbNameAttribute"/> (xdb element name, nested types included).
 /// Instances are immutable and built through the factory methods, so they are safe to share across databases
 /// and threads; <see cref="StructTypeResolverCache"/> memoizes one per namespace.

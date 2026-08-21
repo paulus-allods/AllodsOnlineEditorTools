@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class ParticleAnimation
 {
-    [FieldOffset(24)]
-    [XdbName("ParticleEmitters")]
-    public ParticleEmitter[] particleEmitters;
-
+    [FieldOffset(24)][XdbName("ParticleEmitters")] public ParticleEmitter[] particleEmitters;
     [FieldOffset(40)] public AABB aabb;
     [FieldOffset(64)] public Blob2 animation;
     [FieldOffset(76)] public FileRef binaryFile;
@@ -47,39 +43,19 @@ public partial class ParticleAnimation
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ParticleEmitter
     {
-        [FieldOffset(4)]
-        [XdbName("BlendEffect")]
-        [EnumRef(typeof(Enums.BlendEffect_1))]
-        public int blendEffect;
-
+        [FieldOffset(4)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffect_1))] public int blendEffect;
         [FieldOffset(8)][XdbName("Color")] public int color;
-
-        [FieldOffset(12)]
-        [XdbName("RenderEffect")]
-        [EnumRef(typeof(Enums.RenderEffect))]
-        public int renderEffect;
-
+        [FieldOffset(12)][XdbName("RenderEffect")][EnumRef(typeof(Enums.RenderEffect))] public int renderEffect;
         [FieldOffset(16)] public float ambientLightFactor;
         [FieldOffset(20)] public NullablePointer colorDescriptor;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.MirrorMode))]
-        public int decalMirrorMode;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.MirrorMode))] public int decalMirrorMode;
         [FieldOffset(28)] public float fogFactor;
         [FieldOffset(32)] public string name;
         [FieldOffset(44)] public float pivotX;
         [FieldOffset(48)] public float pivotY;
         [FieldOffset(52)] public float virtualOffset;
-
-        [FieldOffset(56)]
-        [XdbName("UseLooping")]
-        public bool useLooping;
-
-        [FieldOffset(57)]
-        [XdbName("WorldSpaceEmitter")]
-        public bool worldSpaceEmitter;
-
+        [FieldOffset(56)][XdbName("UseLooping")] public bool useLooping;
+        [FieldOffset(57)][XdbName("WorldSpaceEmitter")] public bool worldSpaceEmitter;
         [FieldOffset(58)] public bool decalEmitter;
         [FieldOffset(59)] public bool decalInheritRotation;
         [FieldOffset(60)] public bool distortionEmitter;
@@ -93,11 +69,7 @@ public partial class ParticleAnimation
     public class Decal
     {
         [FieldOffset(4)] public int decalColor;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.MirrorMode))]
-        public int decalMirrorMode;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.MirrorMode))] public int decalMirrorMode;
         [FieldOffset(12)] public float decalRotation;
         [FieldOffset(16)] public float decalSize;
         [FieldOffset(20)] public ResourcePointer decalTexture;

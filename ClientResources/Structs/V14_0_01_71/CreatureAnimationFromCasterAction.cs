@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -20,4 +19,3 @@ public partial class CreatureAnimationFromCasterAction
     [FieldOffset(36)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(40)] public string specialController;
 }
-

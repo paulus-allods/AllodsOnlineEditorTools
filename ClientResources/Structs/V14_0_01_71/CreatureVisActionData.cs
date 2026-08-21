@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -20,4 +19,3 @@ public partial class CreatureVisActionData
     [FieldOffset(24)] public NullablePointer action;
     [FieldOffset(28)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
 }
-

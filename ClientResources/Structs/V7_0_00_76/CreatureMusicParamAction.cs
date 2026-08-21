@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,11 +23,7 @@ public partial class CreatureMusicParamAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public NullablePointer creatureParameter;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.EFromCreature))]
-    public int fromCreature;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.EFromCreature))] public int fromCreature;
     [FieldOffset(44)] public ResourcePointer parameter;
     [FieldOffset(52)] public float value;
 }

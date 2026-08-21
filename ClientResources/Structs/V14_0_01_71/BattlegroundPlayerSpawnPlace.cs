@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class BattlegroundPlayerSpawnPlace
     [FieldOffset(36)] public string sysName;
     [FieldOffset(48)][EnumRef(typeof(Enums.FightTeam))] public int team;
 }
-

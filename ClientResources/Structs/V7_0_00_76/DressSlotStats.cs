@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,11 +31,7 @@ public partial class DressSlotStats
         [FieldOffset(8)] public float astralMod;
         [FieldOffset(12)] public float defenceMod;
         [FieldOffset(16)] public float elementalMod;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.EnchantSlot))]
-        public int[] enchants;
-
+        [FieldOffset(20)][EnumRef(typeof(Enums.EnchantSlot))] public int[] enchants;
         [FieldOffset(36)] public float goldMod;
         [FieldOffset(40)] public Lock[] locks;
         [FieldOffset(56)] public int minLevelAvail;
@@ -44,11 +39,7 @@ public partial class DressSlotStats
         [FieldOffset(64)] public float offenceMod;
         [FieldOffset(68)] public float powerMod;
         [FieldOffset(72)] public ResourcePointer quality;
-
-        [FieldOffset(80)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int slot;
-
+        [FieldOffset(80)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(84)] public float staminaMod;
 
         [StructSize(20)]

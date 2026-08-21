@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,11 +35,7 @@ public partial class NameRules
         [FieldOffset(4)] public WString matchUser;
         [FieldOffset(16)] public int maxLength;
         [FieldOffset(20)] public int minLength;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.NameTransformation))]
-        public int transformation;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.NameTransformation))] public int transformation;
         [FieldOffset(32)] public WString matchMaster;
     }
 }

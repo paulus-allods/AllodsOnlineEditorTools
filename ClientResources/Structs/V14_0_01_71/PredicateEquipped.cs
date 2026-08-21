@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -25,4 +24,3 @@ public partial class PredicateEquipped
     [FieldOffset(44)] public bool secondary;
     [FieldOffset(45)] public bool weaponRequired;
 }
-

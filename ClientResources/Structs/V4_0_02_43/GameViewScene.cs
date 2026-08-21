@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -57,10 +56,7 @@ public partial class GameViewScene
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Device
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.SlotName))]
-            public int slot;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.SlotName))] public int slot;
             [FieldOffset(8)] public ResourcePointer device;
         }
     }
@@ -107,10 +103,7 @@ public partial class GameViewScene
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class GuildMember
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.TabardType))]
-            public int tabardType;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.TabardType))] public int tabardType;
             [FieldOffset(8)] public int rankIndex;
             [FieldOffset(12)] public int level;
             [FieldOffset(16)] public bool isLeader;

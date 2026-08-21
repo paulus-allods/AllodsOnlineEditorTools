@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -19,4 +18,3 @@ public partial class VICApplyGuildTexture
     [FieldOffset(28)] public string[] shapeName;
     [FieldOffset(44)][EnumRef(typeof(Enums.EVICTargetVisObject))] public int target;
 }
-

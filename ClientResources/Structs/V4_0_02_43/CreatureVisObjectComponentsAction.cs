@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,8 +24,5 @@ public partial class CreatureVisObjectComponentsAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public NullablePointer[] visObjComponents;
     [FieldOffset(52)] public bool stopOnDeath;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.ETroopMember))]
-    public int member;
+    [FieldOffset(56)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }

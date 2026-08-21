@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -20,4 +19,3 @@ public partial class ItemPredicateItemMallType
 {
     [FieldOffset(24)][EnumRef(typeof(Enums.ItemMallType))] public int type;
 }
-

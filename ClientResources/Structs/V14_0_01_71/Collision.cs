@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class Collision
     [FieldOffset(56)][EnumRef(typeof(Enums.CollisionVolume))] public int volume;
     [FieldOffset(60)] public bool hasVisualCollision;
 }
-

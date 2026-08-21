@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,8 +24,5 @@ public partial class CreatureAnimationSetSpeedAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public float speed;
     [FieldOffset(40)] public string specialController;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-    public int channel;
+    [FieldOffset(52)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
 }

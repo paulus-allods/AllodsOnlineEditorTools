@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,12 +22,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class Enchant
 {
     [FieldOffset(24)] public NullablePointer[] attributes;
-
-    [FieldOffset(44)]
-    [EnumRef(typeof(Enums.InnateStats))]
-    public int[] secondaryStats;
-
-    [FieldOffset(60)]
-    [EnumRef(typeof(Enums.EnchantSlot))]
-    public int slot;
+    [FieldOffset(44)][EnumRef(typeof(Enums.InnateStats))] public int[] secondaryStats;
+    [FieldOffset(60)][EnumRef(typeof(Enums.EnchantSlot))] public int slot;
 }

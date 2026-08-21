@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -19,4 +18,3 @@ public partial class CreatureFatalityAbilityAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)][EnumRef(typeof(Enums.FatalityType))] public int fatalityType;
 }
-

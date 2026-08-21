@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -24,4 +23,3 @@ public partial class ProceduralEffectVisAction
     [FieldOffset(52)] public float timeOn;
     [FieldOffset(56)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
 }
-

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,10 +23,7 @@ public partial class GameViewActionCreatureEmote
 {
     [FieldOffset(20)] public PlaybackParameters playbackParameters;
     [FieldOffset(92)] public string creature;
-
-    [FieldOffset(104)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animation;
+    [FieldOffset(104)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
 
     [StructSize(72)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

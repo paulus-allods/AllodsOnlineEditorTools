@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class MobQuality
     [FieldOffset(28)][EnumRef(typeof(Enums.MobQualityEnum))] public int quality;
     [FieldOffset(32)] public float threatCoeff;
 }
-

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,11 +21,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class DelayComponentAnimationDead
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
-    [FieldOffset(36)]
-    [XdbName("DeadAfter")]
-    public float deadAfter;
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
+    [FieldOffset(36)][XdbName("DeadAfter")] public float deadAfter;
 }

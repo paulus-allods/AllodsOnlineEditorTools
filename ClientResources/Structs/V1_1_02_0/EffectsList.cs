@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,17 +28,9 @@ public partial class EffectsList
     public class Effect
     {
         [FieldOffset(4)] public int rate;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(12)] public string locatorName;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.FxLocators))]
-        public int locator;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.FxLocators))] public int locator;
         [FieldOffset(28)] public bool fixPoint;
         [FieldOffset(32)] public int fadeOutTime;
         [FieldOffset(36)] public int fadeInTime;

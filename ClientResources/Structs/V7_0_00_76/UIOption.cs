@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,11 +23,7 @@ public partial class UIOption
 {
     [FieldOffset(24)] public ResourcePointer[] contentKeyDenied;
     [FieldOffset(40)] public ResourcePointer[] contentKeyRequired;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.UIOptionDataType))]
-    public int dataType;
-
+    [FieldOffset(56)][EnumRef(typeof(Enums.UIOptionDataType))] public int dataType;
     [FieldOffset(60)] public int defaultIndex;
     [FieldOffset(64)] public TextFileRef description;
     [FieldOffset(80)] public TextFileRef maxDescription;
@@ -45,11 +40,7 @@ public partial class UIOption
     [FieldOffset(216)] public TextFileRef useAttemptWarning;
     [FieldOffset(232)] public int valueCount;
     [FieldOffset(236)] public Value[] values;
-
-    [FieldOffset(252)]
-    [EnumRef(typeof(Enums.UIOptionViewType))]
-    public int viewType;
-
+    [FieldOffset(252)][EnumRef(typeof(Enums.UIOptionViewType))] public int viewType;
     [FieldOffset(256)] public bool isSendEvent;
     [FieldOffset(257)] public bool needPreview;
     [FieldOffset(258)] public bool restartToApply;

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,4 +28,3 @@ public partial class CameraAnimationAction
     [FieldOffset(84)] public bool isForMainAvatarOnly;
     [FieldOffset(85)] public bool isTargetRelated;
 }
-

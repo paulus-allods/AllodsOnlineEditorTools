@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -34,9 +33,6 @@ public partial class UIBindSection
         [FieldOffset(16)] public TextFileRef name;
         [FieldOffset(32)] public string[] defaultKeys;
         [FieldOffset(48)] public bool anyMods;
-
-        [FieldOffset(52)]
-        [EnumRef(typeof(Enums.ActivationType))]
-        public int activationType;
+        [FieldOffset(52)][EnumRef(typeof(Enums.ActivationType))] public int activationType;
     }
 }

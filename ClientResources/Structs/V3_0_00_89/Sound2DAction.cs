@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,10 +26,7 @@ public partial class Sound2DAction
     [FieldOffset(60)] public MusicSourceParameter[] musicSourceParameters;
     [FieldOffset(76)] public float musicSourceMaxRadius;
     [FieldOffset(80)] public bool forcedSoundStop;
-
-    [FieldOffset(84)]
-    [EnumRef(typeof(Enums.ActionType))]
-    public int actionType;
+    [FieldOffset(84)][EnumRef(typeof(Enums.ActionType))] public int actionType;
 
     [StructSize(16)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

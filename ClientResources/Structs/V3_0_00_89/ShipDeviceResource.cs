@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,11 +35,7 @@ public partial class ShipDeviceResource
     public class DescVar
     {
         [FieldOffset(4)] public float value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(12)] public string name;
     }
 
@@ -48,10 +43,7 @@ public partial class ShipDeviceResource
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ClientDevice
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int slotName;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.SlotName))] public int slotName;
         [FieldOffset(8)] public ResourcePointer resource;
     }
 }

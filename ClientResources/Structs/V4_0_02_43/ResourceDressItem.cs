@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class ResourceDressItem
 {
     [FieldOffset(24)] public bool hideText;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int slot;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     [FieldOffset(40)] public bool secondary;
     [FieldOffset(44)] public int count;
 }

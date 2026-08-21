@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -51,9 +50,6 @@ public partial class TWarsRoot
     public class BidderConditionsByLevel
     {
         [FieldOffset(4)] public int guildLevel;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.GuildMemberRight))]
-        public int bidderRight;
+        [FieldOffset(8)][EnumRef(typeof(Enums.GuildMemberRight))] public int bidderRight;
     }
 }

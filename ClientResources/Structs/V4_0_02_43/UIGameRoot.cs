@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -39,34 +38,14 @@ public partial class UIGameRoot
     [FieldOffset(204)] public DefaultWidgetsSounds defaultWidgetsSounds;
     [FieldOffset(224)] public ResourcePointer cursorTable;
     [FieldOffset(232)] public ResourcePointer characterScenes;
-
-    [FieldOffset(240)]
-    [XdbName("Widgets")]
-    public Widget[] widgets;
-
-    [FieldOffset(256)]
-    [XdbName("StyleSheets")]
-    public ResourcePointer[] styleSheets;
-
+    [FieldOffset(240)][XdbName("Widgets")] public Widget[] widgets;
+    [FieldOffset(256)][XdbName("StyleSheets")] public ResourcePointer[] styleSheets;
     [FieldOffset(272)][XdbName("States")] public ResourcePointer[] states;
-
-    [FieldOffset(288)]
-    [XdbName("Mission")]
-    public ResourcePointer mission;
-
+    [FieldOffset(288)][XdbName("Mission")] public ResourcePointer mission;
     [FieldOffset(296)][XdbName("Forms")] public Form[] forms;
-
-    [FieldOffset(312)]
-    [XdbName("FontAliases")]
-    public ResourcePointer fontAliases;
-
-    [FieldOffset(320)]
-    [XdbName("DefaultFont")]
-    public string defaultFont;
-
-    [FieldOffset(332)]
-    [XdbName("AddonScriptBaseFileRef")]
-    public FileRef addonScriptBaseFileRef;
+    [FieldOffset(312)][XdbName("FontAliases")] public ResourcePointer fontAliases;
+    [FieldOffset(320)][XdbName("DefaultFont")] public string defaultFont;
+    [FieldOffset(332)][XdbName("AddonScriptBaseFileRef")] public FileRef addonScriptBaseFileRef;
 
     [StructSize(68)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

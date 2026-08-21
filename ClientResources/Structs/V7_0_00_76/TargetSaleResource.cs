@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,11 +30,7 @@ public partial class TargetSaleResource
         [FieldOffset(4)] public NullablePointer amount;
         [FieldOffset(8)] public ResourcePointer baseItem;
         [FieldOffset(16)] public ResourcePointer itemMallItem;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.SaleTag_1))]
-        public int tag;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.SaleTag_1))] public int tag;
         [FieldOffset(28)] public TextFileRef text;
     }
 }

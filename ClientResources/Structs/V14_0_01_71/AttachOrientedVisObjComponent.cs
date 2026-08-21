@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,4 +27,3 @@ public partial class AttachOrientedVisObjComponent
     [FieldOffset(76)] public bool isPortraitEnabled;
     [FieldOffset(77)] public bool scaleFromGlobal;
 }
-

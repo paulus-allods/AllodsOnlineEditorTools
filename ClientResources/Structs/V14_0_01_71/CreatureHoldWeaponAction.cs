@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -21,4 +20,3 @@ public partial class CreatureHoldWeaponAction
     [FieldOffset(40)] public float time;
     [FieldOffset(44)] public bool boast;
 }
-

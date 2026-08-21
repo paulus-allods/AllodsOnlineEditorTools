@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Structs.Common;
@@ -28,4 +27,3 @@ public partial class SFXMaterialPairTable
         [FieldOffset(12)] public Sound3D sound;
     }
 }
-

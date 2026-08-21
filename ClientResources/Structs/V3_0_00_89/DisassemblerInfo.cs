@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class DisassemblerInfo
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int[] slots;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.DressSlot))] public int[] slots;
     [FieldOffset(40)] public ResourcePointer resource;
     [FieldOffset(48)] public ResourcePointer[] classes;
 }

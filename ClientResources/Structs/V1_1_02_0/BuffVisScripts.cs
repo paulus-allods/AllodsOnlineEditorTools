@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class BuffVisScripts
 {
     [FieldOffset(24)] public NullablePointer postAction;
     [FieldOffset(28)] public NullablePointer action;
-
-    [FieldOffset(32)]
-    [XdbName("Description")]
-    public TextFileRef description;
+    [FieldOffset(32)][XdbName("Description")] public TextFileRef description;
 }

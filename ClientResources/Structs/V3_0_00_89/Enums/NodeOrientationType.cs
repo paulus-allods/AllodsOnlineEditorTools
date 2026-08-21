@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using JetBrains.Annotations;
 
 namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89.Enums;

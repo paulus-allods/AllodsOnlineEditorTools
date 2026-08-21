@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,8 +25,5 @@ public partial class ItemMallCategoryResource
     [FieldOffset(40)] public ResourcePointer image;
     [FieldOffset(48)] public TextFileRef name;
     [FieldOffset(64)] public NullablePointer[] predicates;
-
-    [FieldOffset(80)]
-    [EnumRef(typeof(Enums.CategoryType))]
-    public int type;
+    [FieldOffset(80)][EnumRef(typeof(Enums.CategoryType))] public int type;
 }

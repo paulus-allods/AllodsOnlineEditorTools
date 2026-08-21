@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,8 +28,5 @@ public partial class CreatureAttachSelfAction
     [FieldOffset(48)] public NullablePointer playAttachToWhenStopped;
     [FieldOffset(52)] public NullablePointer playAttachTo;
     [FieldOffset(56)] public string locatorName;
-
-    [FieldOffset(68)]
-    [EnumRef(typeof(Enums.EUseCreature))]
-    public int attachTo;
+    [FieldOffset(68)][EnumRef(typeof(Enums.EUseCreature))] public int attachTo;
 }

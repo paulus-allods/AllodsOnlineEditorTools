@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,10 +22,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class CreatureAnimationStopAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.CreatureAnimationChannel))]
-    public int channel;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.CreatureAnimationChannel))] public int channel;
     [FieldOffset(40)] public string specialController;
 }

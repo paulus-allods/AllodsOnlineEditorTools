@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,11 +24,7 @@ public partial class CharacterClass
     [FieldOffset(24)] public ResourcePointer talentsTable;
     [FieldOffset(32)] public ResourcePointer[] sharedSpells;
     [FieldOffset(48)] public ResourcePointer[] sharedAbilities;
-
-    [FieldOffset(64)]
-    [EnumRef(typeof(Enums.ManaType))]
-    public int manaType;
-
+    [FieldOffset(64)][EnumRef(typeof(Enums.ManaType))] public int manaType;
     [FieldOffset(68)] public int manaDice;
     [FieldOffset(72)] public ItemClasse[] itemClasses;
     [FieldOffset(88)] public float hitDice;

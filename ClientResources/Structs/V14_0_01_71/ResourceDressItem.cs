@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -23,4 +22,3 @@ public partial class ResourceDressItem
     [FieldOffset(40)][EnumRef(typeof(Enums.DressSlot))] public int slot;
     [FieldOffset(44)] public bool secondary;
 }
-

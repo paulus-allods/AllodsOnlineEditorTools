@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,20 +21,14 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class CreatureAnimationKeyScripts
 {
-    [FieldOffset(24)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
+    [FieldOffset(24)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(40)] public KeyScript[] keyScripts;
 
     [StructSize(24)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class KeyScript
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
         [FieldOffset(8)] public NullablePointer[] keyActions;
     }
 }

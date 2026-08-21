@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -38,10 +37,7 @@ public partial class RuneRegistry
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class RuneSlot
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int slot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(8)] public NullablePointer requiredLevel;
         [FieldOffset(12)] public bool offensive;
     }

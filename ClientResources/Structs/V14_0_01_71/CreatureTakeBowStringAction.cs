@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -23,4 +22,3 @@ public partial class CreatureTakeBowStringAction
     [FieldOffset(64)][EnumRef(typeof(Enums.DressSlot))] public int itemsSlot;
     [FieldOffset(68)][EnumRef(typeof(Enums.ETroopMember))] public int member;
 }
-

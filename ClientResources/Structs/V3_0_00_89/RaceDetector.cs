@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,8 +22,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 public partial class RaceDetector
 {
     [FieldOffset(24)] public string sysName;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.CreatureRace))]
-    public int creatureRace;
+    [FieldOffset(40)][EnumRef(typeof(Enums.CreatureRace))] public int creatureRace;
 }

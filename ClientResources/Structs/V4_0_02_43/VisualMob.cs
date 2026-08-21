@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -41,11 +40,7 @@ public partial class VisualMob
     [FieldOffset(180)] public Item[] items;
     [FieldOffset(196)] public int hitCritAnimationCooldown;
     [FieldOffset(200)] public int hitAnimationCooldown;
-
-    [FieldOffset(204)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int fixedIdleAnimation;
-
+    [FieldOffset(204)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int fixedIdleAnimation;
     [FieldOffset(208)] public float decalScale;
     [FieldOffset(212)] public CreatureParameters creatureParameters;
     [FieldOffset(220)] public ColorCoefficients colorCoefficients;
@@ -75,10 +70,7 @@ public partial class VisualMob
             public class Value
             {
                 [FieldOffset(8)] public float value;
-
-                [FieldOffset(12)]
-                [EnumRef(typeof(Enums.ModelMorphControl))]
-                public int controlName;
+                [FieldOffset(12)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
             }
         }
     }
@@ -87,10 +79,7 @@ public partial class VisualMob
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Item
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int slot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(8)] public ResourcePointer item;
     }
 

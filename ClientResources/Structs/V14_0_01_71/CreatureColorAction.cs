@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -27,4 +26,3 @@ public partial class CreatureColorAction
     [FieldOffset(72)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
     [FieldOffset(76)] public bool ignoreDisable;
 }
-

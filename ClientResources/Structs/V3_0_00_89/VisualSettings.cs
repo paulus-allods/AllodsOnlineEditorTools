@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,17 +21,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VisualSettings
 {
-    [FieldOffset(24)]
-    [XdbName("FogStart")]
-    public float fogStart;
-
+    [FieldOffset(24)][XdbName("FogStart")] public float fogStart;
     [FieldOffset(28)][XdbName("FogEnd")] public float fogEnd;
-
-    [FieldOffset(32)]
-    [XdbName("FogColor")]
-    public int fogColor;
-
-    [FieldOffset(36)]
-    [XdbName("FogCoeff")]
-    public float fogCoeff;
+    [FieldOffset(32)][XdbName("FogColor")] public int fogColor;
+    [FieldOffset(36)][XdbName("FogCoeff")] public float fogCoeff;
 }

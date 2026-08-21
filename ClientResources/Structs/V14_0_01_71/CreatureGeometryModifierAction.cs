@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -20,4 +19,3 @@ public partial class CreatureGeometryModifierAction
     [FieldOffset(36)][EnumRef(typeof(Enums.ETroopMember))] public int member;
     [FieldOffset(40)] public bool fadeByCameraCollision;
 }
-

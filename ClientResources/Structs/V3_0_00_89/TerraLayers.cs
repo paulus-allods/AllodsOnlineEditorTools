@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,20 +24,10 @@ public partial class TerraLayers
     [FieldOffset(24)] public WaterLayer[] waterLayers;
     [FieldOffset(40)] public FileRef grassMask;
     [FieldOffset(60)] public ResourcePointer atlas;
-
-    [FieldOffset(68)]
-    [XdbName("WaterMaterial")]
-    public ResourcePointer waterMaterial;
-
-    [FieldOffset(76)]
-    [XdbName("Material")]
-    public ResourcePointer material;
-
+    [FieldOffset(68)][XdbName("WaterMaterial")] public ResourcePointer waterMaterial;
+    [FieldOffset(76)][XdbName("Material")] public ResourcePointer material;
     [FieldOffset(84)][XdbName("Layers")] public Layer[] layers;
-
-    [FieldOffset(100)]
-    [XdbName("GrassMaterial")]
-    public ResourcePointer grassMaterial;
+    [FieldOffset(100)][XdbName("GrassMaterial")] public ResourcePointer grassMaterial;
 
     [StructSize(80)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -54,10 +43,7 @@ public partial class TerraLayers
         [FieldOffset(44)] public ResourcePointer fresnelUp;
         [FieldOffset(52)] public ResourcePointer fresnelDown;
         [FieldOffset(60)] public ResourcePointer bumpTexture;
-
-        [FieldOffset(68)]
-        [XdbName("SymbolName")]
-        public string symbolName;
+        [FieldOffset(68)][XdbName("SymbolName")] public string symbolName;
     }
 
     [StructSize(332)]
@@ -71,34 +57,13 @@ public partial class TerraLayers
         [FieldOffset(92)] public Foliage3 foliage2;
         [FieldOffset(160)] public Foliage3 foliage1;
         [FieldOffset(228)] public Foliage3 foliage0;
-
-        [FieldOffset(292)]
-        [XdbName("SymbolName")]
-        public string symbolName;
-
-        [FieldOffset(304)]
-        [XdbName("LayerColor")]
-        public int layerColor;
-
-        [FieldOffset(308)]
-        [XdbName("EyeSpecularLightColor")]
-        public int eyeSpecularLightColor;
-
-        [FieldOffset(312)]
-        [XdbName("EyeExponent")]
-        public float eyeExponent;
-
-        [FieldOffset(316)]
-        [XdbName("DirectionalSpeculatLightColor")]
-        public int directionalSpeculatLightColor;
-
-        [FieldOffset(320)]
-        [XdbName("DirectionalExponent")]
-        public float directionalExponent;
-
-        [FieldOffset(324)]
-        [XdbName("DiffuseTexture")]
-        public ResourcePointer diffuseTexture;
+        [FieldOffset(292)][XdbName("SymbolName")] public string symbolName;
+        [FieldOffset(304)][XdbName("LayerColor")] public int layerColor;
+        [FieldOffset(308)][XdbName("EyeSpecularLightColor")] public int eyeSpecularLightColor;
+        [FieldOffset(312)][XdbName("EyeExponent")] public float eyeExponent;
+        [FieldOffset(316)][XdbName("DirectionalSpeculatLightColor")] public int directionalSpeculatLightColor;
+        [FieldOffset(320)][XdbName("DirectionalExponent")] public float directionalExponent;
+        [FieldOffset(324)][XdbName("DiffuseTexture")] public ResourcePointer diffuseTexture;
 
         [StructSize(68)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

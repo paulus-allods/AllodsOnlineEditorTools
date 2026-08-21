@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,17 +22,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class LooterEmoteAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int animateEmote;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animateEmote;
     [FieldOffset(40)] public float fadeInTime;
     [FieldOffset(44)] public float fadeOutTime;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.AnimationFlag))]
-    public int mode;
-
+    [FieldOffset(48)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
     [FieldOffset(52)] public bool playWhileLooting;
 }

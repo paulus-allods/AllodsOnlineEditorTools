@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,10 +30,7 @@ public partial class CharacterRace
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class RaceSexDesc
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.Sex))]
-        public int sex;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.Sex))] public int sex;
         [FieldOffset(8)] public TextFileRef name;
     }
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class PredicateAffectGroup
     [FieldOffset(20)] public bool hideText;
     [FieldOffset(28)][EnumRef(typeof(Enums.AffectGroup))] public int affectGroup;
 }
-

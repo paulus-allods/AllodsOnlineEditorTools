@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -52,4 +51,3 @@ public partial class VisualShip
         [FieldOffset(85)] public bool isLootSlot;
     }
 }
-

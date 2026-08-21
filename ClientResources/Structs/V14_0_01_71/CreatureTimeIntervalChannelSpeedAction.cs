@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -24,4 +23,3 @@ public partial class CreatureTimeIntervalChannelSpeedAction
     [FieldOffset(68)] public float frozenSpeed;
     [FieldOffset(72)] public float startSpeed;
 }
-

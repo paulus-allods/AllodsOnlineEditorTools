@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,19 +28,12 @@ public partial class WeatherCreatureVisAction
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Params
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.ESoundImpact))]
-        public int ambientSoundImpact;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.ESoundImpact))] public int ambientSoundImpact;
         [FieldOffset(8)] public ResourcePointer areaEffect;
         [FieldOffset(16)] public float fadeTime;
         [FieldOffset(20)] public Light light;
         [FieldOffset(152)] public ResourcePointer postEffectParams;
-
-        [FieldOffset(160)]
-        [EnumRef(typeof(Enums.WeatherPriority))]
-        public int priority;
-
+        [FieldOffset(160)][EnumRef(typeof(Enums.WeatherPriority))] public int priority;
         [FieldOffset(164)] public ResourcePointer skyMesh;
         [FieldOffset(172)] public ResourcePointer weatherType;
         [FieldOffset(180)] public bool hasLight;
@@ -51,82 +43,26 @@ public partial class WeatherCreatureVisAction
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Light
         {
-            [FieldOffset(4)]
-            [XdbName("AmbientColor")]
-            public int ambientColor;
-
-            [FieldOffset(8)]
-            [XdbName("AmbientFactor")]
-            public float ambientFactor;
-
-            [FieldOffset(12)]
-            [XdbName("ContourColor")]
-            public int contourColor;
-
-            [FieldOffset(16)]
-            [XdbName("DiffuseColor")]
-            public int diffuseColor;
-
+            [FieldOffset(4)][XdbName("AmbientColor")] public int ambientColor;
+            [FieldOffset(8)][XdbName("AmbientFactor")] public float ambientFactor;
+            [FieldOffset(12)][XdbName("ContourColor")] public int contourColor;
+            [FieldOffset(16)][XdbName("DiffuseColor")] public int diffuseColor;
             [FieldOffset(20)][XdbName("FadeEnd")] public float fadeEnd;
-
-            [FieldOffset(24)]
-            [XdbName("FadeStart")]
-            public float fadeStart;
-
-            [FieldOffset(28)]
-            [XdbName("FogColor")]
-            public int fogColor;
-
+            [FieldOffset(24)][XdbName("FadeStart")] public float fadeStart;
+            [FieldOffset(28)][XdbName("FogColor")] public int fogColor;
             [FieldOffset(32)][XdbName("FogEnd")] public float fogEnd;
-
-            [FieldOffset(36)]
-            [XdbName("FogStart")]
-            public float fogStart;
-
-            [FieldOffset(40)]
-            [XdbName("PointLightColor")]
-            public int pointLightColor;
-
-            [FieldOffset(44)]
-            [XdbName("SelfIllumColor")]
-            public int selfIllumColor;
-
-            [FieldOffset(48)]
-            [XdbName("SpecularColor")]
-            public int specularColor;
-
-            [FieldOffset(52)]
-            [XdbName("SpecularWaterColor")]
-            public int specularWaterColor;
-
-            [FieldOffset(56)]
-            [XdbName("SunLightPitch")]
-            public float sunLightPitch;
-
-            [FieldOffset(60)]
-            [XdbName("SunLightYaw")]
-            public float sunLightYaw;
-
-            [FieldOffset(64)]
-            [XdbName("TerrainContourColor")]
-            public int terrainContourColor;
-
-            [FieldOffset(68)]
-            [XdbName("TerrainContourPower")]
-            public float terrainContourPower;
-
-            [FieldOffset(72)]
-            [XdbName("TerrainSpecularColor")]
-            public int terrainSpecularColor;
-
-            [FieldOffset(76)]
-            [XdbName("WaterGradientEnd")]
-            public int waterGradientEnd;
-
-            [FieldOffset(80)]
-            [XdbName("WaterGradientStart")]
-            public int waterGradientStart;
-
+            [FieldOffset(36)][XdbName("FogStart")] public float fogStart;
+            [FieldOffset(40)][XdbName("PointLightColor")] public int pointLightColor;
+            [FieldOffset(44)][XdbName("SelfIllumColor")] public int selfIllumColor;
+            [FieldOffset(48)][XdbName("SpecularColor")] public int specularColor;
+            [FieldOffset(52)][XdbName("SpecularWaterColor")] public int specularWaterColor;
+            [FieldOffset(56)][XdbName("SunLightPitch")] public float sunLightPitch;
+            [FieldOffset(60)][XdbName("SunLightYaw")] public float sunLightYaw;
+            [FieldOffset(64)][XdbName("TerrainContourColor")] public int terrainContourColor;
+            [FieldOffset(68)][XdbName("TerrainContourPower")] public float terrainContourPower;
+            [FieldOffset(72)][XdbName("TerrainSpecularColor")] public int terrainSpecularColor;
+            [FieldOffset(76)][XdbName("WaterGradientEnd")] public int waterGradientEnd;
+            [FieldOffset(80)][XdbName("WaterGradientStart")] public int waterGradientStart;
             [FieldOffset(84)] public ResourcePointer animatedAmbientColor;
             [FieldOffset(92)] public ResourcePointer animatedDiffuseColor;
             [FieldOffset(100)] public ResourcePointer animatedPointLightColor;

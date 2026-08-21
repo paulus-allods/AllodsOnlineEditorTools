@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -55,10 +54,7 @@ public partial class VisualMobTroopExtension
                 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
                 public class Value
                 {
-                    [FieldOffset(8)]
-                    [EnumRef(typeof(Enums.ModelMorphControl))]
-                    public int controlName;
-
+                    [FieldOffset(8)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
                     [FieldOffset(12)] public float value;
                 }
             }

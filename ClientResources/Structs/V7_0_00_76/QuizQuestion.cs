@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class QuizQuestion
 {
     [FieldOffset(24)] public ResourcePointer image;
     [FieldOffset(32)] public TextFileRef text;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.QuizQuestionType))]
-    public int type;
+    [FieldOffset(48)][EnumRef(typeof(Enums.QuizQuestionType))] public int type;
 }

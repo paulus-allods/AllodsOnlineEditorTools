@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -44,10 +43,7 @@ public partial class ShipSkin
         public class Slot
         {
             [FieldOffset(4)] public Device[] devices;
-
-            [FieldOffset(20)]
-            [EnumRef(typeof(Enums.SlotName))]
-            public int slot;
+            [FieldOffset(20)][EnumRef(typeof(Enums.SlotName))] public int slot;
 
             [StructSize(16)]
             [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

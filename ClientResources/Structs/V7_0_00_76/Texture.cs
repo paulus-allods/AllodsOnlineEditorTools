@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,19 +26,11 @@ public partial class Texture
     [FieldOffset(64)] public int height;
     [FieldOffset(68)] public int mipSW;
     [FieldOffset(72)] public int mipsNumber;
-
-    [FieldOffset(76)]
-    [EnumRef(typeof(Enums.AllocatorPool))]
-    public int pool;
-
+    [FieldOffset(76)][EnumRef(typeof(Enums.AllocatorPool))] public int pool;
     [FieldOffset(80)] public int realHeight;
     [FieldOffset(84)] public int realWidth;
     [FieldOffset(88)] public int sourceFileCRC;
-
-    [FieldOffset(92)]
-    [EnumRef(typeof(Enums.TextureElementType))]
-    public int type;
-
+    [FieldOffset(92)][EnumRef(typeof(Enums.TextureElementType))] public int type;
     [FieldOffset(96)] public int width;
     [FieldOffset(100)] public bool alphaTex;
     [FieldOffset(101)] public bool atlasPart;

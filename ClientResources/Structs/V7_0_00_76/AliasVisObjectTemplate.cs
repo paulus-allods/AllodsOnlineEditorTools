@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,13 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class AliasVisObjectTemplate
 {
-    [FieldOffset(24)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
+    [FieldOffset(24)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(44)] public ResourcePointer resource;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.AliasSearchPlace))]
-    public int[] searchPlaces;
+    [FieldOffset(52)][EnumRef(typeof(Enums.AliasSearchPlace))] public int[] searchPlaces;
 }

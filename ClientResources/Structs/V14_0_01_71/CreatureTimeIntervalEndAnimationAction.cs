@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -22,4 +21,3 @@ public partial class CreatureTimeIntervalEndAnimationAction
     [FieldOffset(60)][EnumRef(typeof(Enums.Animations))] public int[] animations;
     [FieldOffset(76)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 }
-

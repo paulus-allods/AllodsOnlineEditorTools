@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class UIOption
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.UIOptionViewType))]
-    public int viewType;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.UIOptionViewType))] public int viewType;
     [FieldOffset(28)] public Value[] values;
     [FieldOffset(44)] public int valueCount;
     [FieldOffset(48)] public TextFileRef useAttemptWarning;
@@ -43,10 +39,7 @@ public partial class UIOption
     [FieldOffset(188)] public TextFileRef maxDescription;
     [FieldOffset(204)] public TextFileRef description;
     [FieldOffset(220)] public int defaultIndex;
-
-    [FieldOffset(224)]
-    [EnumRef(typeof(Enums.UIOptionDataType))]
-    public int dataType;
+    [FieldOffset(224)][EnumRef(typeof(Enums.UIOptionDataType))] public int dataType;
 
     [StructSize(40)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

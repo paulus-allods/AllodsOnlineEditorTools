@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,10 +23,6 @@ public partial class Collision
 {
     [FieldOffset(24)] public AABB aabb;
     [FieldOffset(48)] public ResourcePointer collisionMesh;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.CollisionVolume))]
-    public int volume;
-
+    [FieldOffset(56)][EnumRef(typeof(Enums.CollisionVolume))] public int volume;
     [FieldOffset(60)] public bool hasVisualCollision;
 }

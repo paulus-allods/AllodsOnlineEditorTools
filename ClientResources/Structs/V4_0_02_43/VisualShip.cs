@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -40,21 +39,13 @@ public partial class VisualShip
     {
         [FieldOffset(4)] public float yawRange;
         [FieldOffset(8)] public float yaw;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.ShipSide))]
-        public int side;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.ShipSide))] public int side;
         [FieldOffset(16)] public float scale;
         [FieldOffset(20)] public Quaternion rotation;
         [FieldOffset(36)] public float roll;
         [FieldOffset(40)] public float pitchRange;
         [FieldOffset(44)] public float pitch;
-
-        [FieldOffset(48)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int name;
-
+        [FieldOffset(48)][EnumRef(typeof(Enums.SlotName))] public int name;
         [FieldOffset(52)] public bool isLootSlot;
         [FieldOffset(56)] public NullablePointer interfaceData;
         [FieldOffset(60)] public Vector3 coord;

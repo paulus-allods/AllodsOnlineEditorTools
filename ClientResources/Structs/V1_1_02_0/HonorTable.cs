@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,11 +30,7 @@ public partial class HonorTable
     {
         [FieldOffset(4)] public float sellMod;
         [FieldOffset(8)] public int rankMod;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.HonorRank))]
-        public int rank;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.HonorRank))] public int rank;
         [FieldOffset(16)] public float buyMod;
     }
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,13 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VesselComponent
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.VesselSlot))]
-    public int slot;
-
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.VesselHullType))]
-    public int type;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.VesselSlot))] public int slot;
+    [FieldOffset(28)][EnumRef(typeof(Enums.VesselHullType))] public int type;
     [FieldOffset(32)] public NullablePointer[] visualActions;
 }

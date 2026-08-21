@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,11 +27,7 @@ public partial class SpellArea
     [FieldOffset(104)] public ResourcePointer visualScripts;
     [FieldOffset(112)] public NullablePointer useVisScipt;
     [FieldOffset(116)] public bool triggersGlobalCooldown;
-
-    [FieldOffset(120)]
-    [EnumRef(typeof(Enums.SpellTargetType))]
-    public int targetType;
-
+    [FieldOffset(120)][EnumRef(typeof(Enums.SpellTargetType))] public int targetType;
     [FieldOffset(124)] public string sysName;
     [FieldOffset(136)] public bool replaceLowRanks;
     [FieldOffset(140)] public ResourcePointer[] ranks;
@@ -50,31 +45,14 @@ public partial class SpellArea
     [FieldOffset(282)] public bool isWeak;
     [FieldOffset(284)] public ResourcePointer image;
     [FieldOffset(292)] public bool ignoreGlobalCooldown;
-
-    [FieldOffset(296)]
-    [EnumRef(typeof(Enums.SpellIFFPolicy))]
-    public int iffPolicy;
-
-    [FieldOffset(300)]
-    [EnumRef(typeof(Enums.SubElement))]
-    public int element;
-
+    [FieldOffset(296)][EnumRef(typeof(Enums.SpellIFFPolicy))] public int iffPolicy;
+    [FieldOffset(300)][EnumRef(typeof(Enums.SubElement))] public int element;
     [FieldOffset(304)] public DescVar[] descVars;
     [FieldOffset(320)] public bool autoAppendToActionPanel;
     [FieldOffset(324)][XdbName("Name")] public TextFileRef name;
-
-    [FieldOffset(340)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
-    [FieldOffset(356)]
-    [XdbName("DefaultAction")]
-    public int defaultAction;
-
-    [FieldOffset(364)]
-    [EnumRef(typeof(Enums.SpellStage))]
-    public int targetsSelectionStage;
-
+    [FieldOffset(340)][XdbName("Description")] public TextFileRef description;
+    [FieldOffset(356)][XdbName("DefaultAction")] public int defaultAction;
+    [FieldOffset(364)][EnumRef(typeof(Enums.SpellStage))] public int targetsSelectionStage;
     [FieldOffset(372)] public float radius;
 
     [StructSize(52)]
@@ -106,11 +84,7 @@ public partial class SpellArea
     {
         [FieldOffset(4)] public float value;
         [FieldOffset(8)] public TextFileRef text;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(28)] public string name;
     }
 }

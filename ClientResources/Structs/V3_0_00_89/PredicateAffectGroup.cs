@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,7 +21,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class PredicateAffectGroup
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.AffectGroup))]
-    public int affectGroup;
+    [FieldOffset(24)][EnumRef(typeof(Enums.AffectGroup))] public int affectGroup;
 }

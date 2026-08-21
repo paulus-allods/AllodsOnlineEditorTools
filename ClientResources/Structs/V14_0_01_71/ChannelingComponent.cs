@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -36,4 +35,3 @@ public partial class ChannelingComponent
         [FieldOffset(24)] public Vector3 shift;
     }
 }
-

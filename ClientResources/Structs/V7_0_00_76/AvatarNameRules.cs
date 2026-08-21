@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,10 +24,6 @@ public partial class AvatarNameRules
     [FieldOffset(20)] public WString matchUser;
     [FieldOffset(32)] public int maxLength;
     [FieldOffset(36)] public int minLength;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.NameTransformation))]
-    public int transformation;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.NameTransformation))] public int transformation;
     [FieldOffset(48)] public WString matchMaster;
 }

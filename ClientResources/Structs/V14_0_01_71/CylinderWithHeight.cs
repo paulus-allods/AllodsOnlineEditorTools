@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -22,4 +21,3 @@ public partial class CylinderWithHeight
     [FieldOffset(28)] public float bottomPlane;
     [FieldOffset(32)] public float topPlane;
 }
-

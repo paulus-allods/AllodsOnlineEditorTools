@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,10 +24,6 @@ public partial class CreatureTakeArrowAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public ResourcePointer arrow;
     [FieldOffset(44)] public int enchantedArrowIndex;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.ERotate))]
-    public int rorate;
-
+    [FieldOffset(48)][EnumRef(typeof(Enums.ERotate))] public int rorate;
     [FieldOffset(52)] public bool forceTakeInHand;
 }

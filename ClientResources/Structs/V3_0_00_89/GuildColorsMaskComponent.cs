@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,14 +21,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class GuildColorsMaskComponent
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.ETargetShapes))]
-    public int usedShapes;
-
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
+    [FieldOffset(36)][EnumRef(typeof(Enums.ETargetShapes))] public int usedShapes;
     [FieldOffset(40)] public bool useGuildTexture;
     [FieldOffset(44)] public string[] shapeNames;
     [FieldOffset(60)] public ResourcePointer maskTexture;

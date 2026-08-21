@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -26,4 +25,3 @@ public partial class ResourceMana
     [FieldOffset(60)][EnumRef(typeof(Enums.AttackSource))] public int source;
     [FieldOffset(64)] public bool scaleByWeaponSpeed;
 }
-

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -39,11 +38,7 @@ public partial class AbilityResource
     {
         [FieldOffset(4)] public float value;
         [FieldOffset(8)] public TextFileRef text;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(24)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(28)] public string name;
     }
 }

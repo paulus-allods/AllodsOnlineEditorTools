@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -29,11 +28,7 @@ public partial class SFXTable
     public class SfxItem
     {
         [FieldOffset(4)] public Sound whooshSound;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.SFXMaterial))]
-        public int material;
-
+        [FieldOffset(28)][EnumRef(typeof(Enums.SFXMaterial))] public int material;
         [FieldOffset(32)] public Sound hitSound;
     }
 }

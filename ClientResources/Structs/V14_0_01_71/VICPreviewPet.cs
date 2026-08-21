@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,4 +21,3 @@ public partial class VICPreviewPet
     [FieldOffset(28)] public Vector3 offset;
     [FieldOffset(40)] public ResourcePointer visObj;
 }
-

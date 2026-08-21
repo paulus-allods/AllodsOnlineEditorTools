@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -56,10 +55,7 @@ public partial class CharacterVariations
             public class Value
             {
                 [FieldOffset(8)] public float value;
-
-                [FieldOffset(12)]
-                [EnumRef(typeof(Enums.ModelMorphControl))]
-                public int controlName;
+                [FieldOffset(12)][EnumRef(typeof(Enums.ModelMorphControl))] public int controlName;
             }
         }
     }

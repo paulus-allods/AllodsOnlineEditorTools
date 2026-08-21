@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -39,4 +38,3 @@ public partial class VisualAutoLooterClass
     [FieldOffset(124)] public float turnSpeeddownLim;
     [FieldOffset(128)] public float turnSpeedownMinAngle;
 }
-

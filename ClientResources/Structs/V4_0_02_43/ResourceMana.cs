@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,17 +22,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class ResourceMana
 {
     [FieldOffset(24)] public bool hideText;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.AttackSource))]
-    public int source;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.AttackSource))] public int source;
     [FieldOffset(40)] public bool scaleByWeaponSpeed;
     [FieldOffset(44)] public NullablePointer rawManaScaler;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.ManaType))]
-    public int[] manaType;
-
+    [FieldOffset(48)][EnumRef(typeof(Enums.ManaType))] public int[] manaType;
     [FieldOffset(64)] public float mana;
 }

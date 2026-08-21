@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class PredicateHasItem
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)] public NullablePointer[] predicates;
-
-    [FieldOffset(48)]
-    [EnumRef(typeof(Enums.ItemSlotType))]
-    public int slotType;
+    [FieldOffset(48)][EnumRef(typeof(Enums.ItemSlotType))] public int slotType;
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class CalcerLongMulFloat
 {
     [FieldOffset(24)] public NullablePointer calcerFloat;
     [FieldOffset(28)] public NullablePointer calcerLong;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.Rounding))]
-    public int rounding;
+    [FieldOffset(32)][EnumRef(typeof(Enums.Rounding))] public int rounding;
 }

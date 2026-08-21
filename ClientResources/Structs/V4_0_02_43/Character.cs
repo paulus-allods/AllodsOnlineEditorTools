@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -54,11 +53,7 @@ public partial class Character
         {
             [FieldOffset(4)] public ResourcePointer visObj;
             [FieldOffset(12)] public float scale;
-
-            [FieldOffset(16)]
-            [EnumRef(typeof(Enums.ChargenEffectRunType))]
-            public int runType;
-
+            [FieldOffset(16)][EnumRef(typeof(Enums.ChargenEffectRunType))] public int runType;
             [FieldOffset(20)] public string locator;
         }
 
@@ -66,10 +61,7 @@ public partial class Character
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class ChargenDressedItem
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.DressSlot))]
-            public int slot;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int slot;
             [FieldOffset(8)] public ResourcePointer item;
         }
     }
@@ -78,10 +70,7 @@ public partial class Character
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class DressItem
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int slot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(8)] public ResourcePointer item;
     }
 }

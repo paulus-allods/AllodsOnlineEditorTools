@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,8 +31,5 @@ public partial class Territory
     [FieldOffset(52)] public int minimalAuctionNameLength;
     [FieldOffset(56)] public ResourcePointer[] languageRules;
     [FieldOffset(72)] public bool disableCorpseThrowing;
-
-    [FieldOffset(76)]
-    [XdbName("FModSoundLanguage")]
-    public string fModSoundLanguage;
+    [FieldOffset(76)][XdbName("FModSoundLanguage")] public string fModSoundLanguage;
 }

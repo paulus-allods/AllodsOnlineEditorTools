@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -30,11 +29,7 @@ public partial class ItemMallCurrencyDescriptions
     {
         [FieldOffset(4)] public TextFileRef name;
         [FieldOffset(20)] public ResourcePointer image;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.ItemMallCurrency))]
-        public int currencyId;
-
+        [FieldOffset(28)][EnumRef(typeof(Enums.ItemMallCurrency))] public int currencyId;
         [FieldOffset(32)] public ResourcePointer contentKey;
         [FieldOffset(40)] public bool bindWarning;
     }

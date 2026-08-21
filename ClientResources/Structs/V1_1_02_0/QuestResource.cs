@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 public partial class QuestResource
 {
     [FieldOffset(24)] public ResourcePointer zone;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.QuestType))]
-    public int type;
-
+    [FieldOffset(32)][EnumRef(typeof(Enums.QuestType))] public int type;
     [FieldOffset(36)] public bool tutorial;
     [FieldOffset(40)] public TextFileRef startText;
     [FieldOffset(56)] public NullablePointer[] startConditions;

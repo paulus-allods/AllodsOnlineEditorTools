@@ -1,5 +1,4 @@
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
 

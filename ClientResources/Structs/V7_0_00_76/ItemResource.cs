@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,11 +24,7 @@ public partial class ItemResource
     [FieldOffset(28)] public ActionGroupsBonuse[] actionGroupsBonuses;
     [FieldOffset(48)] public ActionPreviewInfo actionPreviewInfo;
     [FieldOffset(120)] public TextFileRef bindDescription;
-
-    [FieldOffset(136)]
-    [EnumRef(typeof(Enums.Binding))]
-    public int binding;
-
+    [FieldOffset(136)][EnumRef(typeof(Enums.Binding))] public int binding;
     [FieldOffset(140)] public Calcer[] calcers;
     [FieldOffset(156)] public ResourcePointer category;
     [FieldOffset(164)] public NullablePointer counter;
@@ -43,11 +38,7 @@ public partial class ItemResource
     [FieldOffset(248)] public ResourcePointer itemClass;
     [FieldOffset(256)] public TextFileRef itemMallDescription;
     [FieldOffset(272)] public ResourcePointer itemMallImage;
-
-    [FieldOffset(280)]
-    [EnumRef(typeof(Enums.ItemMallType))]
-    public int itemMallType;
-
+    [FieldOffset(280)][EnumRef(typeof(Enums.ItemMallType))] public int itemMallType;
     [FieldOffset(284)] public int level;
     [FieldOffset(288)] public long lifeLengthCap;
     [FieldOffset(296)] public ResourcePointer lifestyleCollection;
@@ -58,23 +49,10 @@ public partial class ItemResource
     [FieldOffset(356)] public NullablePointer prices;
     [FieldOffset(360)] public ResourcePointer quality;
     [FieldOffset(368)] public int requiredLevel;
-
-    [FieldOffset(372)]
-    [EnumRef(typeof(Enums.ReputationLevel))]
-    public int requiredReputation;
-
-    [FieldOffset(376)]
-    [EnumRef(typeof(Enums.ShowItemContextAction))]
-    public int showItemContextAction;
-
-    [FieldOffset(380)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int slot;
-
-    [FieldOffset(384)]
-    [EnumRef(typeof(Enums.ItemSource))]
-    public int source;
-
+    [FieldOffset(372)][EnumRef(typeof(Enums.ReputationLevel))] public int requiredReputation;
+    [FieldOffset(376)][EnumRef(typeof(Enums.ShowItemContextAction))] public int showItemContextAction;
+    [FieldOffset(380)][EnumRef(typeof(Enums.DressSlot))] public int slot;
+    [FieldOffset(384)][EnumRef(typeof(Enums.ItemSource))] public int source;
     [FieldOffset(388)] public ResourcePointer spell;
     [FieldOffset(396)] public int stackLimit;
     [FieldOffset(400)] public string sysName;
@@ -104,10 +82,7 @@ public partial class ItemResource
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class StatBonuse
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.InnateStats))]
-            public int stat;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.InnateStats))] public int stat;
             [FieldOffset(8)] public NullablePointer value;
         }
     }

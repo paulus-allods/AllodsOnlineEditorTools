@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,13 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class VICBattleAnim
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int storeAnim;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int storeAnim;
     [FieldOffset(28)] public float storeDelay;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int takeAnim;
+    [FieldOffset(32)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int takeAnim;
 }

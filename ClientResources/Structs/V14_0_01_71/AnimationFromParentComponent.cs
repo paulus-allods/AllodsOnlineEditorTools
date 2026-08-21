@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -33,4 +32,3 @@ public partial class AnimationFromParentComponent
         [FieldOffset(20)][EnumRef(typeof(Enums.Animations))] public int play;
     }
 }
-

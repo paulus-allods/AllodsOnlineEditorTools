@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class ChannelingComponent
 {
-    [FieldOffset(20)]
-    [XdbName("VisualObjectComponentID")]
-    public string visualObjectComponentID;
-
+    [FieldOffset(20)][XdbName("VisualObjectComponentID")] public string visualObjectComponentID;
     [FieldOffset(36)] public ResourcePointer channelingFx;
     [FieldOffset(44)] public EndPoint endPoint;
     [FieldOffset(80)] public float fxLength;
@@ -35,16 +31,9 @@ public partial class ChannelingComponent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class EndPoint
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.FxLocators))]
-        public int locator;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.FxLocators))] public int locator;
         [FieldOffset(8)] public string locatorName;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(20)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(24)] public Vector3 shift;
     }
 }

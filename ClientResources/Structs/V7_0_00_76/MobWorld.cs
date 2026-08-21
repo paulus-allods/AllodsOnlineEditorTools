@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,11 +31,7 @@ public partial class MobWorld
     [FieldOffset(96)] public ResourcePointer kind;
     [FieldOffset(104)] public ResourcePointer mobEventsScripts;
     [FieldOffset(112)] public ResourcePointer modifier;
-
-    [FieldOffset(120)]
-    [EnumRef(typeof(Enums.OvertipCustomView))]
-    public int overtipCustomView;
-
+    [FieldOffset(120)][EnumRef(typeof(Enums.OvertipCustomView))] public int overtipCustomView;
     [FieldOffset(124)] public ResourcePointer quality;
     [FieldOffset(132)] public TextFileRef title;
     [FieldOffset(148)] public ResourcePointer visMob;

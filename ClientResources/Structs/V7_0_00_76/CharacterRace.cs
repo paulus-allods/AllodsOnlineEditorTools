@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -32,9 +31,6 @@ public partial class CharacterRace
     public class RaceSexDesc
     {
         [FieldOffset(4)] public TextFileRef name;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.Sex))]
-        public int sex;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Sex))] public int sex;
     }
 }

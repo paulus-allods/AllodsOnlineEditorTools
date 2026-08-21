@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -34,8 +33,6 @@ public partial class TerrainPackInfo
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Layer
     {
-        [FieldOffset(4)]
-        [XdbName("DiffuseTexture")]
-        public ResourcePointer diffuseTexture;
+        [FieldOffset(4)][XdbName("DiffuseTexture")] public ResourcePointer diffuseTexture;
     }
 }

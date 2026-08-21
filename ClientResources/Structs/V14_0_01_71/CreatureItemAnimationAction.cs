@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -22,4 +21,3 @@ public partial class CreatureItemAnimationAction
     [FieldOffset(44)][EnumRef(typeof(Enums.DressSlot))] public int itemsSlot;
     [FieldOffset(48)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
 }
-

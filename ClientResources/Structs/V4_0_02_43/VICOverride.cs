@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 public partial class VICOverride
 {
     [FieldOffset(24)] public VisItem[] visItems;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.EItemPriority))]
-    public int itemPriority;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.EItemPriority))] public int itemPriority;
     [FieldOffset(44)] public bool cancelDefaultDressSlotSettings;
 
     [StructSize(16)]
@@ -35,9 +30,6 @@ public partial class VICOverride
     public class VisItem
     {
         [FieldOffset(4)] public ResourcePointer visItem;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int dressSlot;
+        [FieldOffset(12)][EnumRef(typeof(Enums.DressSlot))] public int dressSlot;
     }
 }

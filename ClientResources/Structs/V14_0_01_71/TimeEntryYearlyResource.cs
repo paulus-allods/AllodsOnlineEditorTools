@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -24,4 +23,3 @@ public partial class TimeEntryYearlyResource
     [FieldOffset(40)][EnumRef(typeof(Enums.Month))] public int month;
     [FieldOffset(44)] public string sysType;
 }
-

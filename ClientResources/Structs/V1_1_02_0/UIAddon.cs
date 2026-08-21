@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -34,22 +33,11 @@ public partial class UIAddon
     [FieldOffset(136)] public ResourcePointer decalObjects;
     [FieldOffset(144)] public ResourcePointer aliasVisObjects;
     [FieldOffset(152)] public string[] addonGroups;
-
-    [FieldOffset(168)]
-    [XdbName("ScriptFileRefs")]
-    public FileRef[] scriptFileRefs;
-
+    [FieldOffset(168)][XdbName("ScriptFileRefs")] public FileRef[] scriptFileRefs;
     [FieldOffset(184)][XdbName("Name")] public string name;
-
-    [FieldOffset(196)]
-    [XdbName("MainFormId")]
-    public string mainFormId;
-
+    [FieldOffset(196)][XdbName("MainFormId")] public string mainFormId;
     [FieldOffset(208)][XdbName("Forms")] public Form[] forms;
-
-    [FieldOffset(224)]
-    [XdbName("AutoStart")]
-    public bool autoStart;
+    [FieldOffset(224)][XdbName("AutoStart")] public bool autoStart;
 
     [StructSize(24)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

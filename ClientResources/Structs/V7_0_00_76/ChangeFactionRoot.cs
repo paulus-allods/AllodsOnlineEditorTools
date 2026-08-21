@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -33,9 +32,6 @@ public partial class ChangeFactionRoot
     public class PridenFactionChoice
     {
         [FieldOffset(4)] public ResourcePointer faction;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.PridenFactionChoice))]
-        public int[] values;
+        [FieldOffset(12)][EnumRef(typeof(Enums.PridenFactionChoice))] public int[] values;
     }
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -42,46 +41,16 @@ public partial class AstralShadingParams
     [FieldOffset(144)] public float astralDropSpeed;
     [FieldOffset(148)] public float astralDropSize;
     [FieldOffset(152)] public float astralDropLifeTime;
-
-    [FieldOffset(156)]
-    [XdbName("HaloStart")]
-    public float haloStart;
-
-    [FieldOffset(160)]
-    [XdbName("HaloIntensity")]
-    public float haloIntensity;
-
-    [FieldOffset(164)]
-    [XdbName("HaloEnd")]
-    public float haloEnd;
-
-    [FieldOffset(168)]
-    [XdbName("HaloColor")]
-    public int haloColor;
-
-    [FieldOffset(172)]
-    [XdbName("ForceFieldOuterColor")]
-    public int forceFieldOuterColor;
-
-    [FieldOffset(176)]
-    [XdbName("ForceFieldInnerColor")]
-    public int forceFieldInnerColor;
-
-    [FieldOffset(180)]
-    [XdbName("ForceFieldGradientColor")]
-    public int forceFieldGradientColor;
-
-    [FieldOffset(184)]
-    [XdbName("DiffuseColor")]
-    public int diffuseColor;
-
-    [FieldOffset(188)]
-    [XdbName("ContourColor")]
-    public int contourColor;
-
-    [FieldOffset(192)]
-    [XdbName("AmbientColor")]
-    public int ambientColor;
+    [FieldOffset(156)][XdbName("HaloStart")] public float haloStart;
+    [FieldOffset(160)][XdbName("HaloIntensity")] public float haloIntensity;
+    [FieldOffset(164)][XdbName("HaloEnd")] public float haloEnd;
+    [FieldOffset(168)][XdbName("HaloColor")] public int haloColor;
+    [FieldOffset(172)][XdbName("ForceFieldOuterColor")] public int forceFieldOuterColor;
+    [FieldOffset(176)][XdbName("ForceFieldInnerColor")] public int forceFieldInnerColor;
+    [FieldOffset(180)][XdbName("ForceFieldGradientColor")] public int forceFieldGradientColor;
+    [FieldOffset(184)][XdbName("DiffuseColor")] public int diffuseColor;
+    [FieldOffset(188)][XdbName("ContourColor")] public int contourColor;
+    [FieldOffset(192)][XdbName("AmbientColor")] public int ambientColor;
 
     [StructSize(20)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -98,9 +67,6 @@ public partial class AstralShadingParams
     {
         [FieldOffset(4)] public ResourcePointer visObj;
         [FieldOffset(12)] public float probability;
-
-        [FieldOffset(16)]
-        [EnumRef(typeof(Enums.NodeOrientationType))]
-        public int orientation;
+        [FieldOffset(16)][EnumRef(typeof(Enums.NodeOrientationType))] public int orientation;
     }
 }

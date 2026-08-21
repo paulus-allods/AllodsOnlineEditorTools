@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,9 +21,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class PirateSailsPart
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.SlotName))]
-    public int slot;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.SlotName))] public int slot;
     [FieldOffset(28)] public ResourcePointer item;
 }

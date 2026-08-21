@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,7 +21,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class CalcerProductionMachinePeriodsLeft
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.ProductionMachineState))]
-    public int state;
+    [FieldOffset(24)][EnumRef(typeof(Enums.ProductionMachineState))] public int state;
 }

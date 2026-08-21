@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -39,4 +38,3 @@ public partial class WidgetLayerTiledTexture
         [FieldOffset(24)][XdbName("TopY")] public int topY;
     }
 }
-

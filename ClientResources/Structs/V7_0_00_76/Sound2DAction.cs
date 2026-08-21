@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,11 +22,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 public partial class Sound2DAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.ActionType))]
-    public int actionType;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.ActionType))] public int actionType;
     [FieldOffset(40)] public float musicSourceMaxRadius;
     [FieldOffset(44)] public MusicSourceParameter[] musicSourceParameters;
     [FieldOffset(60)] public Sound2D reverbPreset;

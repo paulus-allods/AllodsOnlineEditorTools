@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,16 +27,9 @@ public partial class MetaUpgradeAgent
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Parameter
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.UpgradeVector))]
-        public int upgradeVector;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.UpgradeVector))] public int upgradeVector;
         [FieldOffset(8)] public float upgradeCostMultiplier;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.UpgradeChanceBehavior))]
-        public int upgradeChanceBehavior;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.UpgradeChanceBehavior))] public int upgradeChanceBehavior;
         [FieldOffset(16)] public NullablePointer[] sourcePredicates;
         [FieldOffset(32)] public bool qualityDiffPenalty;
         [FieldOffset(36)] public NullablePointer[] enhancerPredicates;

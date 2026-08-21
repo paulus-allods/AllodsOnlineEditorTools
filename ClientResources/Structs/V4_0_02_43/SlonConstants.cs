@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -48,14 +47,8 @@ public partial class SlonConstants
         [FieldOffset(4)] public ResourcePointer sparkVisObjectAlias;
         [FieldOffset(12)] public float sparkMovingSpeed;
         [FieldOffset(16)] public int sparkMovingMaxTime;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int gotoDeathRealmAnimation;
-
-        [FieldOffset(24)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] afterDeathAnimations;
+        [FieldOffset(20)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int gotoDeathRealmAnimation;
+        [FieldOffset(24)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] afterDeathAnimations;
     }
 
     [StructSize(84)]
@@ -67,11 +60,7 @@ public partial class SlonConstants
         [FieldOffset(12)] public int timeToCorpseFadingMin;
         [FieldOffset(16)] public int timeToCorpseFadingMax;
         [FieldOffset(20)] public ResourcePointer lootBagVisObject;
-
-        [FieldOffset(28)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int[] lootBagAnimations;
-
+        [FieldOffset(28)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] lootBagAnimations;
         [FieldOffset(44)] public float horSpeedMin;
         [FieldOffset(48)] public float horSpeedMax;
         [FieldOffset(52)] public float friction;

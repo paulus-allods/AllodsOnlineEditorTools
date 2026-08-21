@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,21 +22,13 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 public partial class VisualMountClass
 {
     [FieldOffset(24)] public ResourcePointer summonVisualScript;
-
-    [FieldOffset(32)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int sitAnimation;
-
+    [FieldOffset(32)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int sitAnimation;
     [FieldOffset(36)] public ReinsSettings reinsSettings;
     [FieldOffset(80)] public PitchParameters pitchParameters;
     [FieldOffset(120)] public ResourcePointer levelChangedScript;
     [FieldOffset(128)] public JumpSettings jumpSettings;
     [FieldOffset(152)] public FxSettings fxSettings;
-
-    [FieldOffset(172)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int dismountAnimation;
-
+    [FieldOffset(172)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int dismountAnimation;
     [FieldOffset(180)] public ControlParameters controlParameters;
     [FieldOffset(228)] public AnimationSettings animationSettings;
 
@@ -47,11 +38,7 @@ public partial class VisualMountClass
     {
         [FieldOffset(4)] public bool use;
         [FieldOffset(8)] public string reinsBone;
-
-        [FieldOffset(20)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(20)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(24)] public string handBone;
         [FieldOffset(36)] public ResourcePointer disablingAnimations;
     }
@@ -75,10 +62,7 @@ public partial class VisualMountClass
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class JumpSettings
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.EUseJump))]
-        public int useJump;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.EUseJump))] public int useJump;
         [FieldOffset(8)] public int specialJumpPause;
         [FieldOffset(12)] public ResourcePointer specialJump;
         [FieldOffset(20)] public float jumpMinVelocity;
@@ -123,21 +107,10 @@ public partial class VisualMountClass
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class ComplexAnimation
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int playOnRiderTop;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int playOnRiderBottom;
-
-            [FieldOffset(12)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int playOnMount;
-
-            [FieldOffset(16)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int animation;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int playOnRiderTop;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int playOnRiderBottom;
+            [FieldOffset(12)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int playOnMount;
+            [FieldOffset(16)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
         }
     }
 }

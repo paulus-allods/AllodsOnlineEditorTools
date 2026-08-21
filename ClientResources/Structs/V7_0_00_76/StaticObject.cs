@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,14 +21,8 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class StaticObject
 {
-    [FieldOffset(24)]
-    [XdbName("Collision")]
-    public ResourcePointer collision;
-
-    [FieldOffset(32)]
-    [XdbName("ObjectTemplate")]
-    public ResourcePointer objectTemplate;
-
+    [FieldOffset(24)][XdbName("Collision")] public ResourcePointer collision;
+    [FieldOffset(32)][XdbName("ObjectTemplate")] public ResourcePointer objectTemplate;
     [FieldOffset(40)] public Sound2D ambienceSound;
     [FieldOffset(64)] public ResourcePointer[] areaMiniMaps;
     [FieldOffset(80)] public Sound2D music;
@@ -43,24 +36,11 @@ public partial class StaticObject
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Part
     {
-        [FieldOffset(4)]
-        [XdbName("ColorInfo")]
-        public ColorInfo colorInfo;
-
-        [FieldOffset(20)]
-        [XdbName("Position")]
-        public Vector3 position;
-
-        [FieldOffset(32)]
-        [XdbName("Rotation")]
-        public Quaternion rotation;
-
+        [FieldOffset(4)][XdbName("ColorInfo")] public ColorInfo colorInfo;
+        [FieldOffset(20)][XdbName("Position")] public Vector3 position;
+        [FieldOffset(32)][XdbName("Rotation")] public Quaternion rotation;
         [FieldOffset(48)][XdbName("Scale")] public float scale;
-
-        [FieldOffset(52)]
-        [XdbName("StaticObjectTemplate")]
-        public ResourcePointer staticObjectTemplate;
-
+        [FieldOffset(52)][XdbName("StaticObjectTemplate")] public ResourcePointer staticObjectTemplate;
         [FieldOffset(60)] public NullablePointer data;
         [FieldOffset(64)] public bool useManualColor;
 

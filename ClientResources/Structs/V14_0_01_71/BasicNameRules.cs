@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -24,4 +23,3 @@ public partial class BasicNameRules
     [FieldOffset(36)] public int minLength;
     [FieldOffset(40)][EnumRef(typeof(Enums.NameTransformation))] public int transformation;
 }
-

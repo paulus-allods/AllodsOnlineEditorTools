@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -26,10 +25,7 @@ public partial class WorldDropSuffix
     [FieldOffset(40)] public ResourcePointer group;
     [FieldOffset(48)] public TextFileRef name;
     [FieldOffset(64)] public ResourcePointer[] specialStats;
-
-    [FieldOffset(80)]
-    [EnumRef(typeof(Enums.InnateStats))]
-    public int[] stats;
+    [FieldOffset(80)][EnumRef(typeof(Enums.InnateStats))] public int[] stats;
 
     [StructSize(16)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]

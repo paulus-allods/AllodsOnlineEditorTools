@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,10 +22,6 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V3_0_00_89;
 public partial class CreatureIfMainAvatarRunAction
 {
     [FieldOffset(20)] public string visActionID;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.CheckCreature))]
-    public int checkCreature;
-
+    [FieldOffset(36)][EnumRef(typeof(Enums.CheckCreature))] public int checkCreature;
     [FieldOffset(40)] public NullablePointer action;
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -30,10 +29,7 @@ public partial class CreatureChangeVisItemsAction
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class Item
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.DressSlot))]
-        public int slot;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.DressSlot))] public int slot;
         [FieldOffset(8)] public ResourcePointer newItem;
     }
 }

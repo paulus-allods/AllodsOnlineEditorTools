@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -21,4 +20,3 @@ public partial class StaticObjectAnimationData
     [FieldOffset(28)] public ResourcePointer staticObject;
     [FieldOffset(36)] public bool loopedAnimation;
 }
-

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -27,11 +26,7 @@ public partial class LFGDestination
     [FieldOffset(48)] public NullablePointer[] departPredicates;
     [FieldOffset(64)] public TextFileRef description;
     [FieldOffset(80)] public TextFileRef difficulty;
-
-    [FieldOffset(96)]
-    [EnumRef(typeof(Enums.LFGEventDifficulty))]
-    public int difficultyMode;
-
+    [FieldOffset(96)][EnumRef(typeof(Enums.LFGEventDifficulty))] public int difficultyMode;
     [FieldOffset(100)] public ResourcePointer faction;
     [FieldOffset(108)] public GroupQueueTime groupQueueTime;
     [FieldOffset(132)] public GroupQueueTime groupStabilizationTime;

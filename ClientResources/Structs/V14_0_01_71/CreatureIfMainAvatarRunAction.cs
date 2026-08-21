@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -21,4 +20,3 @@ public partial class CreatureIfMainAvatarRunAction
     [FieldOffset(36)] public NullablePointer action;
     [FieldOffset(40)][EnumRef(typeof(Enums.CheckCreature))] public int checkCreature;
 }
-

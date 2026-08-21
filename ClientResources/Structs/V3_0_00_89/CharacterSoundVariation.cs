@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,10 +30,7 @@ public partial class CharacterSoundVariation
     {
         [FieldOffset(4)] public Sound sound;
         [FieldOffset(28)] public bool replaceOriginalSound;
-
-        [FieldOffset(32)]
-        [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-        public int animation;
+        [FieldOffset(32)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int animation;
     }
 
     [StructSize(36)]

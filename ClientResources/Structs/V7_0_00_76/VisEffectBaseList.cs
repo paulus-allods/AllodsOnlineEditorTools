@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -42,13 +41,8 @@ public partial class VisEffectBaseList
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] animations;
-
-            [FieldOffset(20)]
-            [EnumRef(typeof(Enums.AnimationFlag))]
-            public int mode;
+            [FieldOffset(4)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
+            [FieldOffset(20)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
         }
     }
 }

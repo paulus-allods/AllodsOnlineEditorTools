@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -25,4 +24,3 @@ public partial class ItemMallCategoryResource
     [FieldOffset(64)] public NullablePointer[] predicates;
     [FieldOffset(80)][EnumRef(typeof(Enums.CategoryType))] public int type;
 }
-

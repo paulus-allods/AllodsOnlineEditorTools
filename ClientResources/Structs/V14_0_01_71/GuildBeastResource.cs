@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -22,4 +21,3 @@ public partial class GuildBeastResource
     [FieldOffset(24)] public ResourcePointer respawnable;
     [FieldOffset(32)][EnumRef(typeof(Enums.GuildBeastSlotType))] public int slotType;
 }
-

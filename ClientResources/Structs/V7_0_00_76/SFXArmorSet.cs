@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,19 +21,9 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SFXArmorSet
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.SFXMaterial))]
-    public int armorMaterial;
-
-    [FieldOffset(28)]
-    [EnumRef(typeof(Enums.SFXMaterial))]
-    public int shieldMaterial;
-
+    [FieldOffset(24)][EnumRef(typeof(Enums.SFXMaterial))] public int armorMaterial;
+    [FieldOffset(28)][EnumRef(typeof(Enums.SFXMaterial))] public int shieldMaterial;
     [FieldOffset(32)] public ResourcePointer weaponItemClass;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.SFXMaterial))]
-    public int weaponMaterial;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.SFXMaterial))] public int weaponMaterial;
     [FieldOffset(44)] public float weaponSize;
 }

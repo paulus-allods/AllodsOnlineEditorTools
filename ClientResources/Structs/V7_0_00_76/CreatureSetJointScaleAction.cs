@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -25,8 +24,5 @@ public partial class CreatureSetJointScaleAction
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public string jointName;
     [FieldOffset(48)] public float jointScale;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.ERiderMember))]
-    public int useOn;
+    [FieldOffset(52)][EnumRef(typeof(Enums.ERiderMember))] public int useOn;
 }

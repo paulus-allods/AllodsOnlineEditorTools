@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,11 +30,7 @@ public partial class BuffResource
     [FieldOffset(108)] public ResourcePointer[] uiComponents;
     [FieldOffset(124)] public string sysUIScriptName;
     [FieldOffset(136)] public int stackLimit;
-
-    [FieldOffset(140)]
-    [EnumRef(typeof(Enums.SpellResistType))]
-    public int resistType;
-
+    [FieldOffset(140)][EnumRef(typeof(Enums.SpellResistType))] public int resistType;
     [FieldOffset(144)] public ResourcePointer[] ranks;
     [FieldOffset(160)] public bool needVisualizeDuration;
     [FieldOffset(161)] public bool needVisualize;
@@ -50,10 +45,7 @@ public partial class BuffResource
     [FieldOffset(208)] public long duration;
     [FieldOffset(216)] public DescVar[] descVars;
     [FieldOffset(232)][XdbName("Name")] public TextFileRef name;
-
-    [FieldOffset(248)]
-    [XdbName("Description")]
-    public TextFileRef description;
+    [FieldOffset(248)][XdbName("Description")] public TextFileRef description;
 
     [StructSize(96)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -68,34 +60,18 @@ public partial class BuffResource
         [FieldOffset(28)] public EffectAnimations effectAnimations;
         [FieldOffset(52)] public ResourcePointer effectAlias;
         [FieldOffset(60)] public int delay;
-
-        [FieldOffset(68)]
-        [EnumRef(typeof(Enums.ECustomSettingsFrom))]
-        public int useVisObjectSettings;
-
+        [FieldOffset(68)][EnumRef(typeof(Enums.ECustomSettingsFrom))] public int useVisObjectSettings;
         [FieldOffset(72)] public NullablePointer offendTime;
-
-        [FieldOffset(76)]
-        [EnumRef(typeof(Enums.ETroopMember))]
-        public int member;
-
+        [FieldOffset(76)][EnumRef(typeof(Enums.ETroopMember))] public int member;
         [FieldOffset(80)] public string locatorName;
-
-        [FieldOffset(92)]
-        [EnumRef(typeof(Enums.FxLocators))]
-        public int locator;
+        [FieldOffset(92)][EnumRef(typeof(Enums.FxLocators))] public int locator;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class EffectAnimations
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.AnimationFlag))]
-            public int mode;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-            public int[] animations;
+            [FieldOffset(4)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
+            [FieldOffset(8)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] animations;
         }
     }
 
@@ -104,11 +80,7 @@ public partial class BuffResource
     public class DescVar
     {
         [FieldOffset(4)] public float value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(12)] public string name;
     }
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using JetBrains.Annotations;
@@ -23,4 +22,3 @@ public partial class LooterEmoteAction
     [FieldOffset(48)][EnumRef(typeof(Enums.AnimationFlag))] public int mode;
     [FieldOffset(52)] public bool playWhileLooting;
 }
-

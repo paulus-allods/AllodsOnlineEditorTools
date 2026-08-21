@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,39 +21,13 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WeaponHoldingRoot
 {
-    [FieldOffset(24)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponAny;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponBoast;
-
-    [FieldOffset(56)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponByState;
-
-    [FieldOffset(72)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponCast;
-
-    [FieldOffset(88)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponChargedWand;
-
-    [FieldOffset(104)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponMelee;
-
-    [FieldOffset(120)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponNone;
-
-    [FieldOffset(136)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponRanged;
-
-    [FieldOffset(152)]
-    [EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)]
-    public int[] weaponWand;
+    [FieldOffset(24)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponAny;
+    [FieldOffset(40)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponBoast;
+    [FieldOffset(56)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponByState;
+    [FieldOffset(72)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponCast;
+    [FieldOffset(88)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponChargedWand;
+    [FieldOffset(104)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponMelee;
+    [FieldOffset(120)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponNone;
+    [FieldOffset(136)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponRanged;
+    [FieldOffset(152)][EnumRef(typeof(Enums.Animations), UseSourceOnCast = true)] public int[] weaponWand;
 }

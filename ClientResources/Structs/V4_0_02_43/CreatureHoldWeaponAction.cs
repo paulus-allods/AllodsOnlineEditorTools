@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,10 +23,6 @@ public partial class CreatureHoldWeaponAction
 {
     [FieldOffset(20)] public string visActionID;
     [FieldOffset(36)] public float time;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.EHoldWeapon))]
-    public int hold;
-
+    [FieldOffset(40)][EnumRef(typeof(Enums.EHoldWeapon))] public int hold;
     [FieldOffset(44)] public bool boast;
 }

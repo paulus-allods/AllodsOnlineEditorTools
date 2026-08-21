@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -28,11 +27,7 @@ public partial class Spell
     [FieldOffset(104)] public ResourcePointer visualScripts;
     [FieldOffset(112)] public NullablePointer useVisScipt;
     [FieldOffset(116)] public bool triggersGlobalCooldown;
-
-    [FieldOffset(120)]
-    [EnumRef(typeof(Enums.SpellTargetType))]
-    public int targetType;
-
+    [FieldOffset(120)][EnumRef(typeof(Enums.SpellTargetType))] public int targetType;
     [FieldOffset(124)] public string sysName;
     [FieldOffset(136)] public bool replaceLowRanks;
     [FieldOffset(140)] public ResourcePointer[] ranks;
@@ -50,26 +45,13 @@ public partial class Spell
     [FieldOffset(194)] public bool isWeak;
     [FieldOffset(196)] public ResourcePointer image;
     [FieldOffset(204)] public bool ignoreGlobalCooldown;
-
-    [FieldOffset(208)]
-    [EnumRef(typeof(Enums.SpellIFFPolicy))]
-    public int iffPolicy;
-
-    [FieldOffset(212)]
-    [EnumRef(typeof(Enums.SubElement))]
-    public int element;
-
+    [FieldOffset(208)][EnumRef(typeof(Enums.SpellIFFPolicy))] public int iffPolicy;
+    [FieldOffset(212)][EnumRef(typeof(Enums.SubElement))] public int element;
     [FieldOffset(216)] public DescVar[] descVars;
     [FieldOffset(232)] public bool autoAppendToActionPanel;
     [FieldOffset(236)][XdbName("Name")] public TextFileRef name;
-
-    [FieldOffset(252)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
-    [FieldOffset(268)]
-    [XdbName("DefaultAction")]
-    public int defaultAction;
+    [FieldOffset(252)][XdbName("Description")] public TextFileRef description;
+    [FieldOffset(268)][XdbName("DefaultAction")] public int defaultAction;
 
     [StructSize(52)]
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
@@ -86,11 +68,7 @@ public partial class Spell
     public class DescVar
     {
         [FieldOffset(4)] public float value;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.DescriptionFormula))]
-        public int scaler;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.DescriptionFormula))] public int scaler;
         [FieldOffset(12)] public string name;
     }
 }

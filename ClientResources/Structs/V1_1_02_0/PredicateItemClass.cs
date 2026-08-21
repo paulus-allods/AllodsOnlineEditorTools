@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -23,8 +22,5 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V1_1_02_0;
 public partial class PredicateItemClass
 {
     [FieldOffset(28)] public ResourcePointer itemClass;
-
-    [FieldOffset(36)]
-    [EnumRef(typeof(Enums.DressSlot))]
-    public int dressSlot;
+    [FieldOffset(36)][EnumRef(typeof(Enums.DressSlot))] public int dressSlot;
 }

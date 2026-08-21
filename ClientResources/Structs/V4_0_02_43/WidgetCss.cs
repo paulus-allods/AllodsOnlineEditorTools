@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V4_0_02_43;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WidgetCss
 {
-    [FieldOffset(24)]
-    [XdbName("Selectors")]
-    public Selector[] selectors;
-
+    [FieldOffset(24)][XdbName("Selectors")] public Selector[] selectors;
     [FieldOffset(40)][XdbName("Parent")] public ResourcePointer parent;
     [FieldOffset(48)][XdbName("Id")] public string id;
 

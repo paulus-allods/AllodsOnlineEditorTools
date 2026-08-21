@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,11 +30,7 @@ public partial class ChangeRoomRoot
     public class DefaultPrice
     {
         [FieldOffset(4)] public int greyListCost;
-
-        [FieldOffset(8)]
-        [EnumRef(typeof(Enums.ChangeType))]
-        public int type;
-
+        [FieldOffset(8)][EnumRef(typeof(Enums.ChangeType))] public int type;
         [FieldOffset(12)] public int whiteListCost;
     }
 
@@ -51,11 +46,7 @@ public partial class ChangeRoomRoot
         public class PriceEntrie
         {
             [FieldOffset(4)] public int greyListCost;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.ChangeType))]
-            public int type;
-
+            [FieldOffset(8)][EnumRef(typeof(Enums.ChangeType))] public int type;
             [FieldOffset(12)] public int whiteListCost;
         }
     }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -37,25 +36,14 @@ public partial class VisualShip
     {
         [FieldOffset(4)] public float yawRange;
         [FieldOffset(8)] public float yaw;
-
-        [FieldOffset(12)]
-        [EnumRef(typeof(Enums.ShipSide))]
-        public int sideManual;
-
-        [FieldOffset(16)]
-        [EnumRef(typeof(Enums.ShipSide))]
-        public int side;
-
+        [FieldOffset(12)][EnumRef(typeof(Enums.ShipSide))] public int sideManual;
+        [FieldOffset(16)][EnumRef(typeof(Enums.ShipSide))] public int side;
         [FieldOffset(20)] public float scale;
         [FieldOffset(24)] public Quaternion rotation;
         [FieldOffset(40)] public float roll;
         [FieldOffset(44)] public float pitchRange;
         [FieldOffset(48)] public float pitch;
-
-        [FieldOffset(52)]
-        [EnumRef(typeof(Enums.SlotName))]
-        public int name;
-
+        [FieldOffset(52)][EnumRef(typeof(Enums.SlotName))] public int name;
         [FieldOffset(56)] public bool isLootSlot;
         [FieldOffset(60)] public NullablePointer interfaceData;
         [FieldOffset(64)] public Vector3 coord;
@@ -73,10 +61,7 @@ public partial class VisualShip
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Slot
         {
-            [FieldOffset(4)]
-            [EnumRef(typeof(Enums.SlotName))]
-            public int slot;
-
+            [FieldOffset(4)][EnumRef(typeof(Enums.SlotName))] public int slot;
             [FieldOffset(8)] public Device[] devices;
 
             [StructSize(16)]

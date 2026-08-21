@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -25,4 +24,3 @@ public partial class MobKind
     [FieldOffset(44)] public TextFileRef name;
     [FieldOffset(60)][EnumRef(typeof(Enums.CreatureRace))] public int race;
 }
-

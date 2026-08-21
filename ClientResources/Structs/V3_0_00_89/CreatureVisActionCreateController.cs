@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -31,10 +30,7 @@ public partial class CreatureVisActionCreateController
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class ParentController
     {
-        [FieldOffset(4)]
-        [EnumRef(typeof(Enums.AnimationControllerIdType))]
-        public int type;
-
+        [FieldOffset(4)][EnumRef(typeof(Enums.AnimationControllerIdType))] public int type;
         [FieldOffset(8)] public string specialControllerName;
     }
 }

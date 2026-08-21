@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,18 +21,11 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class SpellVisScripts
 {
-    [FieldOffset(24)]
-    [XdbName("Description")]
-    public TextFileRef description;
-
+    [FieldOffset(24)][XdbName("Description")] public TextFileRef description;
     [FieldOffset(40)] public NullablePointer actionBarCancel;
     [FieldOffset(44)] public NullablePointer actionBarComplite;
     [FieldOffset(48)] public NullablePointer actionBarStart;
-
-    [FieldOffset(52)]
-    [EnumRef(typeof(Enums.PrecastType))]
-    public int precastType;
-
+    [FieldOffset(52)][EnumRef(typeof(Enums.PrecastType))] public int precastType;
     [FieldOffset(56)] public NullablePointer wholeCasting;
     [FieldOffset(64)] public NullablePointer charged;
     [FieldOffset(68)] public NullablePointer launch;

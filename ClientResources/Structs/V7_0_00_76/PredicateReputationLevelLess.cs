@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -24,8 +23,5 @@ public partial class PredicateReputationLevelLess
 {
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)] public ResourcePointer faction;
-
-    [FieldOffset(40)]
-    [EnumRef(typeof(Enums.ReputationLevel))]
-    public int level;
+    [FieldOffset(40)][EnumRef(typeof(Enums.ReputationLevel))] public int level;
 }

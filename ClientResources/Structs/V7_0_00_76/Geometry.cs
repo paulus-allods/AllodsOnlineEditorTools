@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,10 +21,7 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class Geometry
 {
-    [FieldOffset(24)]
-    [XdbName("SkeletalAnimation")]
-    public ResourcePointer skeletalAnimation;
-
+    [FieldOffset(24)][XdbName("SkeletalAnimation")] public ResourcePointer skeletalAnimation;
     [FieldOffset(32)] public AABB aabb;
     [FieldOffset(56)] public AreaFragment[] areaFragments;
     [FieldOffset(72)] public ResourcePointer attributeAnimation;
@@ -38,22 +34,14 @@ public partial class Geometry
     [FieldOffset(132)] public AABB geometryBox;
     [FieldOffset(156)] public GeometryFragment[] geometryFragments;
     [FieldOffset(172)] public int globalID;
-
-    [FieldOffset(176)]
-    [EnumRef(typeof(Enums.HideRule))]
-    public int hideRule;
-
+    [FieldOffset(176)][EnumRef(typeof(Enums.HideRule))] public int hideRule;
     [FieldOffset(180)] public Blob2 indexBuffer;
     [FieldOffset(192)] public Joint[] joints;
     [FieldOffset(208)] public float[] lodDistances;
     [FieldOffset(224)] public float lodFactor;
     [FieldOffset(228)] public ModelElement[] modelElements;
     [FieldOffset(244)] public OccluderInfo[] occluderInfos;
-
-    [FieldOffset(260)]
-    [EnumRef(typeof(Enums.OrientationMode))]
-    public int orientationMode;
-
+    [FieldOffset(260)][EnumRef(typeof(Enums.OrientationMode))] public int orientationMode;
     [FieldOffset(264)] public Part[] parts;
     [FieldOffset(280)] public PortalFragment[] portalFragments;
     [FieldOffset(296)] public NullablePointer rootMaterial;
@@ -62,11 +50,7 @@ public partial class Geometry
     [FieldOffset(308)] public SceneNode[] sceneNodes;
     [FieldOffset(324)] public Blob2 skeleton;
     [FieldOffset(336)] public float softFadeFactor;
-
-    [FieldOffset(340)]
-    [EnumRef(typeof(Enums.SortMode))]
-    public int sortMode;
-
+    [FieldOffset(340)][EnumRef(typeof(Enums.SortMode))] public int sortMode;
     [FieldOffset(344)] public int sourceFileCRC;
     [FieldOffset(348)] public int version;
     [FieldOffset(352)] public Blob2 vertexBuffer;
@@ -165,11 +149,7 @@ public partial class Geometry
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class Material
         {
-            [FieldOffset(4)]
-            [XdbName("BlendEffect")]
-            [EnumRef(typeof(Enums.BlendEffect))]
-            public int blendEffect;
-
+            [FieldOffset(4)][XdbName("BlendEffect")][EnumRef(typeof(Enums.BlendEffect))] public int blendEffect;
             [FieldOffset(8)] public ResourcePointer diffuseTexture;
             [FieldOffset(16)][XdbName("params")] public NullablePointer @params;
             [FieldOffset(20)] public float transparencyModifier;
@@ -258,10 +238,7 @@ public partial class Geometry
         public class Bitangent
         {
             [FieldOffset(4)] public int offset;
-
-            [FieldOffset(8)]
-            [EnumRef(typeof(Enums.VertexElementType))]
-            public int type;
+            [FieldOffset(8)][EnumRef(typeof(Enums.VertexElementType))] public int type;
         }
     }
 }

@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Xdb;
@@ -21,4 +20,3 @@ public partial class PredicateManaCaster
     [FieldOffset(24)] public bool hideText;
     [FieldOffset(32)][EnumRef(typeof(Enums.ManaType))] public int manaType;
 }
-

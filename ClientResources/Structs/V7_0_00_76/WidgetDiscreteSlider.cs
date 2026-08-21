@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using System.Numerics;
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
@@ -22,32 +21,13 @@ namespace AllodsOnlineEditorTools.ClientResources.Structs.V7_0_00_76;
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public partial class WidgetDiscreteSlider
 {
-    [FieldOffset(24)]
-    [XdbName("BackLayer")]
-    public ResourcePointer backLayer;
-
-    [FieldOffset(32)]
-    [XdbName("Children")]
-    public ResourcePointer[] children;
-
-    [FieldOffset(48)]
-    [XdbName("FrontLayer")]
-    public ResourcePointer frontLayer;
-
+    [FieldOffset(24)][XdbName("BackLayer")] public ResourcePointer backLayer;
+    [FieldOffset(32)][XdbName("Children")] public ResourcePointer[] children;
+    [FieldOffset(48)][XdbName("FrontLayer")] public ResourcePointer frontLayer;
     [FieldOffset(56)][XdbName("Name")] public string name;
-
-    [FieldOffset(72)]
-    [XdbName("Placement")]
-    public Placement placement;
-
-    [FieldOffset(148)]
-    [XdbName("Priority")]
-    public int priority;
-
-    [FieldOffset(152)]
-    [XdbName("TabOrder")]
-    public int tabOrder;
-
+    [FieldOffset(72)][XdbName("Placement")] public Placement placement;
+    [FieldOffset(148)][XdbName("Priority")] public int priority;
+    [FieldOffset(152)][XdbName("TabOrder")] public int tabOrder;
     [FieldOffset(156)] public BindSection[] bindSections;
     [FieldOffset(172)] public float fade;
     [FieldOffset(176)] public string forceReactionOnPointing;
@@ -58,35 +38,15 @@ public partial class WidgetDiscreteSlider
     [FieldOffset(232)] public ResourcePointer soundHide;
     [FieldOffset(240)] public ResourcePointer soundShow;
     [FieldOffset(248)] public ResourcePointer textureMask;
-
-    [FieldOffset(256)]
-    [XdbName("Enabled")]
-    public bool enabled;
-
-    [FieldOffset(257)]
-    [XdbName("IgnoreDblClick")]
-    public bool ignoreDblClick;
-
-    [FieldOffset(258)]
-    [XdbName("PickChildrenOnly")]
-    public bool pickChildrenOnly;
-
-    [FieldOffset(259)]
-    [XdbName("TransparentInput")]
-    public bool transparentInput;
-
-    [FieldOffset(260)]
-    [XdbName("Visible")]
-    public bool visible;
-
+    [FieldOffset(256)][XdbName("Enabled")] public bool enabled;
+    [FieldOffset(257)][XdbName("IgnoreDblClick")] public bool ignoreDblClick;
+    [FieldOffset(258)][XdbName("PickChildrenOnly")] public bool pickChildrenOnly;
+    [FieldOffset(259)][XdbName("TransparentInput")] public bool transparentInput;
+    [FieldOffset(260)][XdbName("Visible")] public bool visible;
     [FieldOffset(261)] public bool clipContent;
     [FieldOffset(262)] public bool forceWheel;
     [FieldOffset(263)] public bool isProtected;
-
-    [FieldOffset(268)]
-    [EnumRef(typeof(Enums.WidgetsArrangement))]
-    public int moveArrangement;
-
+    [FieldOffset(268)][EnumRef(typeof(Enums.WidgetsArrangement))] public int moveArrangement;
     [FieldOffset(272)] public string reactionChanged;
     [FieldOffset(284)] public ResourcePointer sliderButton;
     [FieldOffset(296)] public int stepsCount;
@@ -99,28 +59,17 @@ public partial class WidgetDiscreteSlider
         [FieldOffset(24)][XdbName("Y")] public X y;
         [FieldOffset(48)] public ResourcePointer sizingWidget;
         [FieldOffset(56)] public ResourcePointer[] sizingWidgets;
-
-        [FieldOffset(72)]
-        [XdbName("QuantumScale")]
-        public bool quantumScale;
+        [FieldOffset(72)][XdbName("QuantumScale")] public bool quantumScale;
 
         [StructSize(24)]
         [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
         public class X
         {
-            [FieldOffset(4)]
-            [XdbName("Align")]
-            [EnumRef(typeof(Enums.WidgetAlign))]
-            public int align;
-
+            [FieldOffset(4)][XdbName("Align")][EnumRef(typeof(Enums.WidgetAlign))] public int align;
             [FieldOffset(8)][XdbName("HighPos")] public float highPos;
             [FieldOffset(12)][XdbName("Pos")] public float pos;
             [FieldOffset(16)][XdbName("Size")] public float size;
-
-            [FieldOffset(20)]
-            [XdbName("Sizing")]
-            [EnumRef(typeof(Enums.WidgetSizing))]
-            public int sizing;
+            [FieldOffset(20)][XdbName("Sizing")][EnumRef(typeof(Enums.WidgetSizing))] public int sizing;
         }
     }
 

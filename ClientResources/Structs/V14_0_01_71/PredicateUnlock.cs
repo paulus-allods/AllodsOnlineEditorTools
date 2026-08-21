@@ -5,7 +5,6 @@
 // ------------------------------------------------------------------------------
 
 #nullable disable
-
 using AllodsOnlineEditorTools.ClientResources.DataTypes;
 using AllodsOnlineEditorTools.ClientResources.Serialization;
 using AllodsOnlineEditorTools.ClientResources.Serialization.Bin;
@@ -23,4 +22,3 @@ public partial class PredicateUnlock
     [FieldOffset(32)] public ResourcePointer unlock;
     [FieldOffset(40)][EnumRef(typeof(Enums.UnlockCategory))] public int unlockCategory;
 }
-
